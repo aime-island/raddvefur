@@ -8,6 +8,10 @@ Using the Common Voice platform to kickstart speech collecting in Iceland by not
 * The product of using the software can be under various licenses, e.g. data within downloadable datasets may have various licenses.
 * Enforced demographic info collection.
 
+### Info about Common Voice below:
+
+
+
 ## Common Voice [![Travis Status](https://travis-ci.org/mozilla/voice-web.svg?branch=master)](https://travis-ci.org/mozilla/voice-web)
 
 This is a web, Android and iOS app for collecting speech
