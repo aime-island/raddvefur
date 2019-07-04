@@ -8,6 +8,7 @@ import { Spinner } from '../ui/ui';
 const HomePage = React.lazy(() => import('../pages/home/home'));
 const DatasetsPage = React.lazy(() => import('../pages/datasets/datasets'));
 const LanguagesPages = React.lazy(() => import('../pages/languages/languages'));
+const ThankYouPages = React.lazy(() => import('../pages/thankyou/thankyou'));
 const DashboardPage = React.lazy(() => import('../pages/dashboard/dashboard'));
 const ProfileLayoutPage = React.lazy(() => import('../pages/profile/layout'));
 const FAQPage = React.lazy(() => import('../pages/faq/faq'));
@@ -39,8 +40,8 @@ export default function Content() {
           />
           <Route
             exact
-            path={toLocaleRoute(URLS.LANGUAGES)}
-            component={LanguagesPages}
+            path={toLocaleRoute(URLS.THANKYOU)}
+            component={ThankYouPages}
           />
           <Route
             exact

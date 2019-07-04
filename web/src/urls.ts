@@ -26,5 +26,6 @@ export default Object.freeze({
   TERMS: '/terms',
   NOTFOUND: '/not-found',
   LANGUAGES: '/takk',
+  THANKYOU: '/takk',
   ABOUT: '/um',
 });
