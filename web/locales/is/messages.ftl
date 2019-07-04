@@ -374,7 +374,7 @@ faq-how-get-a = Gögn Samróms eru ekki aðgengileg sem stendur en verða gerð 
 faq-when-release-q = Hverjir eru að vinna að Samróm?
 faq-when-release-a = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar.  
 faq-why-mission-q = Hver er munurinn á Samróm og Common Voice?
-faq-why-mission-a = Sammrómur byggir á Mozilla verkefninu <mozillaLink>Common Voice</mozillaLink>. Meðal annars vegna þess hve erfit er að fá mikin fjölda setninga með CC-0 leyfi og til að auka nýtingargildi gagnanna var ákveðið að þróa Samróm sem einskonar grein út frá Common Voice verkefninu.  
+faq-why-mission-a = Samrómur byggir á Mozilla verkefninu <mozillaLink>Common Voice</mozillaLink>. Meðal annars vegna þess hve erfitt er að fá mikinn fjölda setninga með CC-0 leyfi og til að auka nýtingargildi gagnanna var ákveðið að þróa Samróm sem einskonar grein út frá Common Voice verkefninu.  
 #Changed: 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Samrómi og Deep Speech?
 #Changed:
