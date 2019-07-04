@@ -1,5 +1,7 @@
 import { Hr } from '../../ui/ui';
 import * as React from 'react';
+import CREDITS from './CREDITS';
+import Credit from './Credit';
 
 class ThankYou extends React.Component {
   render() {
@@ -30,45 +32,9 @@ class ThankYou extends React.Component {
             </div>
             <Hr />
             <ul>
-              <li>
-                <h2>
-                  <strong>Málföng</strong>
-                </h2>
-                <div>
-                  <p>Fyrir setningar úr Risamálheildinni (RMH2).</p>
-                </div>
-              </li>
-              <Hr />
-              <li>
-                <h2>
-                  <strong>Kristlaug María Sigurðardóttir</strong>
-                </h2>
-                <div>
-                  <p>
-                    Fyrir setningar úr verkum sínum þar á meðal Ávaxtakörfunni.
-                  </p>
-                </div>
-              </li>
-              <Hr />
-              <li>
-                <h2>
-                  <strong>Vísindavefurinn</strong>
-                </h2>
-                <div>
-                  <p>Fyrir setningar úr greinum sínum.</p>
-                </div>
-              </li>
-              <Hr />
-              <li>
-                <h2>
-                  <strong>Common Voice</strong>
-                </h2>
-                <p>
-                  Samrómur er byggt á Mozilla verkefninu Common Voice. Við
-                  þökkum fallega grafík og góða undirstöðu til að byggja
-                  verkefnið okkar ofan á.
-                </p>
-              </li>
+              {CREDITS.map((c, i) => (
+                <Credit key={i} who={c.who} why={c.why} />
+              ))}
             </ul>
           </section>
         </div>
