@@ -484,8 +484,8 @@ de-identified-explanation = Það þegar tengsl prófílgagna þátttakanda við
 
 ## NotFound
 
-notfound-title = Ekki fundið
-notfound-content = Ég hræðist að ég viti ekki að hverju þú leitar.
+notfound-title = 404 villa
+notfound-content = Ég veit því miður ekki að hverju þú leitar.
 
 ## Data
 
