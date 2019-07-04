@@ -49,7 +49,12 @@ import AudioIOS from './audio-ios';
 import AudioWeb, { AudioError, AudioInfo } from './audio-web';
 import RecordingPill from './recording-pill';
 import { SentenceRecording } from './sentence-recording';
-import { LANGUAGES, AGES, SEXES } from '../../../../stores/demographics';
+import {
+  LANGUAGES,
+  AGES,
+  SEXES,
+  DemoInfo,
+} from '../../../../stores/demographics';
 
 import './speak.css';
 
@@ -135,11 +140,7 @@ interface State {
   showDemographicInfo: boolean;
   showDemographicModal: boolean;
   showLanguageSelect: boolean;
-  demographic: {
-    sex: string;
-    age: string;
-    native_language: string;
-  };
+  demographic: DemoInfo;
 }
 
 const initialState: State = {
@@ -506,11 +507,13 @@ class SpeakPage extends React.Component<Props, State> {
         demographicError,
       });
     } else {
+      this.props.updateUser({
+        hasInfo: true,
+        demographicInfo: this.state.demographic,
+      });
       this.setState({
-        showDemographicModal: false,
         demographicError,
       });
-      //TODO: save info to cookies/store/...
     }
   };
 
@@ -651,7 +654,7 @@ class SpeakPage extends React.Component<Props, State> {
             />
           </Localized>
         )}
-        {showDemographicModal && (
+        {!user.hasInfo && (
           <Modal
             innerClassName="demographic-modal"
             onRequestClose={this.resetAndGoHome}>

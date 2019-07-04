@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import { UserClient } from 'common/user-clients';
 import { generateGUID } from '../utility';
 import StateTree from './tree';
+import { DemoInfo } from './demographics';
 
 export namespace User {
   export interface State {
@@ -12,6 +13,8 @@ export namespace User {
     privacyAgreed: boolean;
     recordTally: number;
     validateTally: number;
+    hasInfo: boolean;
+    demographicInfo: DemoInfo;
 
     userClients: UserClient[];
     isFetchingAccount: boolean;
@@ -27,7 +30,8 @@ export namespace User {
       privacyAgreed: false,
       recordTally: 0,
       validateTally: 0,
-
+      hasInfo: false,
+      demographicInfo: { sex: '', age: '', native_language: '' },
       userClients: [],
       isFetchingAccount: true,
       account: null,
