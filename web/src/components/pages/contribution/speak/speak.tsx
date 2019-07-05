@@ -49,7 +49,12 @@ import AudioIOS from './audio-ios';
 import AudioWeb, { AudioError, AudioInfo } from './audio-web';
 import RecordingPill from './recording-pill';
 import { SentenceRecording } from './sentence-recording';
-import { LANGUAGES, AGES, SEXES } from '../../../../stores/demographics';
+import {
+  LANGUAGES,
+  AGES,
+  SEXES,
+  DemoInfo,
+} from '../../../../stores/demographics';
 
 import './speak.css';
 
@@ -135,11 +140,7 @@ interface State {
   showDemographicInfo: boolean;
   showDemographicModal: boolean;
   showLanguageSelect: boolean;
-  demographic: {
-    sex: string;
-    age: string;
-    native_language: string;
-  };
+  demographic: DemoInfo;
 }
 
 const initialState: State = {
@@ -228,6 +229,14 @@ class SpeakPage extends React.Component<Props, State> {
       isFirefoxFocus()
     ) {
       this.isUnsupportedPlatform = true;
+    }
+
+    const { user } = this.props;
+    if (!this.getDemographicError(user.demographicInfo)) {
+      this.setState({
+        showDemographicModal: false,
+        demographic: user.demographicInfo,
+      });
     }
   }
 
@@ -433,7 +442,7 @@ class SpeakPage extends React.Component<Props, State> {
 
     const { demographic } = this.state;
 
-    const demographicError = this.getDemographicError();
+    const demographicError = this.getDemographicError(demographic);
     if (demographicError) {
       this.setState({
         demographicError,
@@ -500,23 +509,23 @@ class SpeakPage extends React.Component<Props, State> {
     this.setState(initialState, callback);
 
   private submitDemographic = () => {
-    const demographicError = this.getDemographicError();
+    const demographicError = this.getDemographicError(this.state.demographic);
     if (demographicError) {
       return this.setState({
         demographicError,
       });
     } else {
+      this.props.updateUser({
+        hasInfo: true,
+        demographicInfo: this.state.demographic,
+      });
       this.setState({
-        showDemographicModal: false,
         demographicError,
       });
-      //TODO: save info to cookies/store/...
     }
   };
 
-  private getDemographicError = (): DemographicError => {
-    const { demographic } = this.state;
-
+  private getDemographicError = (demographic: DemoInfo): DemographicError => {
     if (demographic.age == '' || !(demographic.age in AGES)) {
       return DemographicError.NO_AGE;
     }

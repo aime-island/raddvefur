@@ -117,15 +117,15 @@ let prevUser: User.State = null;
 store.subscribe(async () => {
   const { locale, user } = store.getState();
 
-  if (ga && (!prevUser || !prevUser.account) && user.account) {
-    ga('set', 'userId', await hash(user.account.client_id));
-    const { customGoal } = user.account;
-    if (customGoal) {
-      const goals = Object.keys(customGoal.current);
-      ga('set', 'dimension1', goals.length > 1 ? 'both' : goals[0]);
-    }
-    ga('send', 'pageview');
-  }
+  // if (ga && (!prevUser || !prevUser.account) && user.account) {
+  //   ga('set', 'userId', await hash(user.account.client_id));
+  //   const { customGoal } = user.account;
+  //   if (customGoal) {
+  //     const goals = Object.keys(customGoal.current);
+  //     ga('set', 'dimension1', goals.length > 1 ? 'both' : goals[0]);
+  //   }
+  //   ga('send', 'pageview');
+  // }
 
   for (const field of Object.keys(fieldTrackers)) {
     const typedField = field as keyof User.State;
