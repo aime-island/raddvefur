@@ -230,6 +230,14 @@ class SpeakPage extends React.Component<Props, State> {
     ) {
       this.isUnsupportedPlatform = true;
     }
+
+    const { user } = this.props;
+    if (!this.getDemographicError(user.demographicInfo)) {
+      this.setState({
+        showDemographicModal: false,
+        demographic: user.demographicInfo,
+      });
+    }
   }
 
   async componentWillUnmount() {
@@ -434,7 +442,7 @@ class SpeakPage extends React.Component<Props, State> {
 
     const { demographic } = this.state;
 
-    const demographicError = this.getDemographicError();
+    const demographicError = this.getDemographicError(demographic);
     if (demographicError) {
       this.setState({
         demographicError,
@@ -501,7 +509,7 @@ class SpeakPage extends React.Component<Props, State> {
     this.setState(initialState, callback);
 
   private submitDemographic = () => {
-    const demographicError = this.getDemographicError();
+    const demographicError = this.getDemographicError(this.state.demographic);
     if (demographicError) {
       return this.setState({
         demographicError,
@@ -517,9 +525,7 @@ class SpeakPage extends React.Component<Props, State> {
     }
   };
 
-  private getDemographicError = (): DemographicError => {
-    const { demographic } = this.state;
-
+  private getDemographicError = (demographic: DemoInfo): DemographicError => {
     if (demographic.age == '' || !(demographic.age in AGES)) {
       return DemographicError.NO_AGE;
     }
@@ -654,7 +660,7 @@ class SpeakPage extends React.Component<Props, State> {
             />
           </Localized>
         )}
-        {!user.hasInfo && (
+        {showDemographicModal && (
           <Modal
             innerClassName="demographic-modal"
             onRequestClose={this.resetAndGoHome}>
