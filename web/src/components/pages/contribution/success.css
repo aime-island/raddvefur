@@ -104,6 +104,7 @@
     }
 
     & .contribute-more-button {
+        font-size: var(--font-size-lg);
         &.secondary {
             & path {
                 fill: var(--black);
@@ -127,7 +128,7 @@
         margin: 60px auto 0;
         display: flex;
         align-items: center;
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-lg);
         font-weight: 600 !important;
         text-decoration: none !important;
 
