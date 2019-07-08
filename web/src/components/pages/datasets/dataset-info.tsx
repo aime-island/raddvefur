@@ -46,8 +46,6 @@ const valid = Object.values(validHours).reduce(
   (sum: number, n: number) => sum + n,
   0
 ) as number;
-const languages = Object.keys(stats.locales).length;
-const globalStats = { total, valid, languages };
 
 const DEFAULT_CATEGORY_COUNT = 2;
 
@@ -82,7 +80,7 @@ const Splits = ({
                   <Localized id={key}>
                     <span />
                   </Localized>
-                ) : category == 'accent' ? (
+                ) : category == 'native_language' ? (
                   LANGUAGES[locale] ? (
                     LANGUAGES[locale][key]
                   ) : (
@@ -158,6 +156,8 @@ class DatasetInfo extends React.Component<Props, State> {
       confirmNoIdentify,
     } = this.state;
     const localeStats = stats.locales[locale as keyof typeof stats.locales];
+    const voices = localeStats.users;
+    const globalStats = { total, valid, voices };
     const megabytes = Math.floor(localeStats.size / 1000 / 1000);
     const size =
       megabytes > 1000
@@ -202,7 +202,7 @@ class DatasetInfo extends React.Component<Props, State> {
                   ),
                   'validated-hr-total': validHours[locale],
                   'overall-hr-total': totalHours.toLocaleString(),
-                  'cv-license': 'CC-0',
+                  'cv-license': 'Ýmis',
                   'number-of-voices': localeStats.users.toLocaleString(),
                   'audio-format': 'MP3',
                   splits: Object.entries(localeStats.splits)
@@ -227,27 +227,15 @@ class DatasetInfo extends React.Component<Props, State> {
                   <Button
                     className="show-email-form"
                     rounded
-                    onClick={this.showEmailForm}
-                    disabled>
-                    <Localized id="email-to-download">
+                    onClick={this.showEmailForm}>
+                    <Localized id="click-to-download">
                       <span />
                     </Localized>
                     <CloudIcon />
                   </Button>
-                  <Localized id="why-email" b={<b />}>
-                    <p className="why-email" />
-                  </Localized>
                 </>
               ) : (
                 <>
-                  <Localized id="email-input" attrs={{ label: true }}>
-                    <LabeledInput
-                      name="email"
-                      onChange={this.handleInputChange}
-                      ref={this.emailInputRef}
-                      type="email"
-                    />
-                  </Localized>
                   <LabeledCheckbox
                     label={
                       <Localized id="confirm-size" b={<b />} $size={size}>
@@ -272,20 +260,14 @@ class DatasetInfo extends React.Component<Props, State> {
                   />
                   <LinkButton
                     href={
-                      confirmSize &&
-                      confirmNoIdentify &&
-                      email &&
-                      this.emailInputRef.current.checkValidity()
+                      confirmSize && confirmNoIdentify
                         ? stats.bundleURLTemplate.replace('{locale}', locale)
                         : null
                     }
-                    onClick={this.saveHasDownloaded}
                     rounded
                     className="download-language"
                     style={{ minWidth: 300 }}>
-                    <Localized
-                      id="download-language"
-                      $language={getString(locale)}>
+                    <Localized id="download-language">
                       <span />
                     </Localized>
                     <CloudIcon />

@@ -124,13 +124,15 @@ export default React.memo(() => {
             ],
             [
               'Kaldi',
-              'common-voice-info-new',
-              'discourse',
+              'kaldi-info',
+              'kaldi',
               {
                 discourseLink: (
                   <StyledLink href="http://kaldi-asr.org/" blank />
                 ),
-                githubLink: <StyledLink href="https://tal.ru.is/" blank />,
+                githubLink: (
+                  <StyledLink hred="https://github.com/kaldi-asr/kaldi" blank />
+                ),
               },
             ],
           ].map(([title, descriptionId, imgSrc, props]) => (

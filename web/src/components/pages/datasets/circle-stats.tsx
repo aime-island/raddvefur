@@ -30,9 +30,9 @@ export default ({
   className,
   valid,
   total,
-  languages,
+  voices,
   ...props
-}: { valid: number; total: number; languages: number } & React.HTMLProps<
+}: { valid: number; total: number; voices: number } & React.HTMLProps<
   HTMLDivElement
 >) => (
   <div className={'circle-stats ' + className} {...props}>
@@ -49,9 +49,9 @@ export default ({
       icon={<MicIcon />}
     />
     <CircleStat
-      className="languages"
-      label="languages"
-      value={languages}
+      className="total-voices"
+      label="number-of-voices"
+      value={voices}
       icon={<GlobeIcon />}
     />
   </div>
