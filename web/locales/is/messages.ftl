@@ -422,7 +422,7 @@ faq-search-for-answers =
 
 ## ABOUT US
 
-about-title = Af hverju?
+about-title = Afhverju?
 #Changed:
 about-subtitle = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri tungumál. Í framtíðinni mun slík tækni verða enn útbreiddari og spili stóran þátt í okkar daglega lífi. 
 #Changed:
