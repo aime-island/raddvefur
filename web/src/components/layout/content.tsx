@@ -53,29 +53,29 @@ export default function Content() {
             path={toLocaleRoute(URLS.DATASETS)}
             component={DatasetsPage}
           />
-          <Route
+          {/* <Route
             exact
             path={toLocaleRoute(URLS.PROFILE)}
             render={() => <Redirect to={toLocaleRoute(URLS.PROFILE_INFO)} />}
-          />
-          <Route
+          /> */}
+          {/* <Route
             path={toLocaleRoute(URLS.PROFILE + '/')}
             component={ProfileLayoutPage}
-          />
-          <Route
+          /> */}
+          {/* <Route
             path={[URLS.STATS, URLS.GOALS, URLS.AWARDS].map(toLocaleRoute)}
             component={DashboardPage}
-          />
-          <Route
+          /> */}
+          {/* <Route
             exact
             path={toLocaleRoute(URLS.DASHBOARD)}
             render={() => <Redirect to={toLocaleRoute(URLS.STATS)} />}
-          />
-          <Route
+          /> */}
+          {/* <Route
             exact
             path={toLocaleRoute(URLS.PROFILE_GOALS)}
             render={() => <Redirect to={toLocaleRoute(URLS.GOALS)} />}
-          />
+          /> */}
           <Route exact path={toLocaleRoute(URLS.FAQ)} component={FAQPage} />
           <Route exact path={toLocaleRoute(URLS.ABOUT)} component={AboutPage} />
           <Route
@@ -88,11 +88,11 @@ export default function Content() {
             path={toLocaleRoute(URLS.TERMS)}
             render={() => <DocumentPage key="t" name="terms" />}
           />
-          <Route
+          {/* <Route
             exact
             path={toLocaleRoute('/landing/sodedif')}
             component={LandingPage}
-          />
+          /> */}
           <Route component={NotFoundPage} />
         </Switch>
       </React.Suspense>
