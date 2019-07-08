@@ -374,7 +374,7 @@ faq-how-get-a = Gögn Samróms eru ekki aðgengileg sem stendur en verða gerð 
 faq-when-release-q = Hverjir eru að vinna að Samróm?
 faq-when-release-a = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar.  
 faq-why-mission-q = Hver er munurinn á Samróm og Common Voice?
-faq-why-mission-a = Sammrómur byggir á Mozilla verkefninu <mozillaLink>Common Voice</mozillaLink>. Meðal annars vegna þess hve erfit er að fá mikin fjölda setninga með CC-0 leyfi og til að auka nýtingargildi gagnanna var ákveðið að þróa Samróm sem einskonar grein út frá Common Voice verkefninu.  
+faq-why-mission-a = Samrómur byggir á Mozilla verkefninu <mozillaLink>Common Voice</mozillaLink>. Meðal annars vegna þess hve erfitt er að fá mikinn fjölda setninga með CC-0 leyfi og til að auka nýtingargildi gagnanna var ákveðið að þróa Samróm sem einskonar grein út frá Common Voice verkefninu.  
 #Changed: 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Samrómi og Deep Speech?
 #Changed:
@@ -422,7 +422,7 @@ faq-search-for-answers =
 
 ## ABOUT US
 
-about-title = Af hverju?
+about-title = Afhverju?
 #Changed:
 about-subtitle = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri tungumál. Í framtíðinni mun slík tækni verða enn útbreiddari og spili stóran þátt í okkar daglega lífi. 
 #Changed:
@@ -486,8 +486,8 @@ de-identified-explanation = Það þegar tengsl prófílgagna þátttakanda við
 
 ## NotFound
 
-notfound-title = Ekki fundið
-notfound-content = Ég hræðist að ég viti ekki að hverju þú leitar.
+notfound-title = 404 villa
+notfound-content = Ég veit því miður ekki að hverju þú leitar.
 
 ## Data
 
