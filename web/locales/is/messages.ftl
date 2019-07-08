@@ -418,7 +418,7 @@ faq-what-is-cv = Hvað er Samrómur?
 faq-using-cv = Notkunn Samróms
 faq-description = Samrómur er fyrsta íslenska hópaflaða málheildin. Hvað langar þig að vita?
 faq-search-for-answers =
-    .label = Leita af svörum
+    .label = Leita að svörum
 
 ## ABOUT US
 
@@ -456,7 +456,9 @@ about-partnership =
 
 about-get-involved = Samstarfsaðilar
 about-get-involved-text =
-    Þeir sem standa við bakið á Samróm eru <githubLink>Deloitte</githubLink>, <discourseLink>Nýsköpunnarsjóður námsmanna</discourseLink>, <slackLink>Skema í Háskólanum í Reykjavík</slackLink> og <almannaLink>Almannarómur</almannaLink>. 
+    Þeir sem standa við bakið á Samróm eru 
+    <githubLink>Deloitte</githubLink>, <almannaLink>Almannarómur</almannaLink>, <slackLink>Skema í HR</slackLink>, 
+    og <discourseLink>Nýsköpunnarsjóður námsmanna</discourseLink>.
 about-nav-why-common-voice = Af hverju?
 about-nav-how-it-works = Hvernig?
 about-nav-partners = Samstarfsaðilar
@@ -539,16 +541,17 @@ splits = Skiptingar
 email-to-download = Sláðu inn tölvupóst til að hala niður
 why-email = <b>Af hverju tölvupóst?</b> Við gætum þurft að hafa samband við þig síðar vegna breytinga á málheildinni, og tölvupóstur veitir okkur leið til þess.
 confirm-size = Þú getur nú hafið niðurhal að stærð <b>{ $size }</b>.
+click-to-download = Smelltu hér til að sækja málheildina
 size-gigabyte = GB
 size-megabyte = MB
 confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera kennsl á mælendur í málheild Samóms.
-download-language = Hala niður { $language }
+download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
 whats-inside = Hvað er í málheild Samróms?
 #Changed:
 dataset-description-hours =
-    Hver færsla í gagnasafninu samanstendur af einstöku MP3 hljóðbroti og samsavarandi textaskrá. Allir þessara <b>{ $total }</b> klukkustunda sem hafa safnast innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og hvort viðkomandi hafi hreim. Þetta getur aðstoðað við að gera raddgervilinn nákvæmari.
+    Hver færsla í gagnasafninu samanstendur af einstöku MP3 hljóðbroti og samsavarandi textaskrá. Allir þessara <b>{ $total }</b> klukkustunda sem hafa safnast innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta getur aðstoðað við að gera talgreiningu nákvæmari.
     
     Gagnasafnið samanstendur af <b>{ $valid }</b> staðfestum klukkustundum hljóðborta, en alltaf má bæta við fleiri röddum.
 #Changed:
@@ -561,12 +564,12 @@ other-datasets = Annað gagnlegt
 feedback-q = Ertu með ábendingar?
 deepspeech-info = Þar sem Samrómsgagnasafnið er byggt á Common Voice er þægilegt að nýta það með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Með honum getur þú hannað talgreiningarforrit. Kynntu þér <githubLink>yfirlitið á Github</githubLink> eða taktu þátt á <discourseLink>DeepSpeech umræðuvefnum</discourseLink> til að læra um hvernig best er að byrja.
 #Changed:
-common-voice-info-new = Módelið Kaldi er sjálfvirkt talgreiningarumhverfi fyrir íslensku. Það hefur núþegar verið nýtt til þess að búa til fyrsta íslenska talgreininn, <githubLink>Tal</githubLink> en nánar um hann má sjá hér að neðan. 
-data-other-librispeech-description = Tal er íslenskur talgreinir. Hann var þróaður af Mál- og raddtæknistofu Gervigreindarseturs Háskólans í Reykjavík með hugbúnaðinum Kalda og gögnum söfnuðum í samstarfi við google. 
+data-other-tal-description = Tal er íslenskur talgreinir. Hann var þróaður af Mál- og raddtæknistofu Gervigreindarseturs Háskólans í Reykjavík með hugbúnaðinum Kaldi og gögnum söfnuðum í samstarfi við google. 
+kaldi-info = Kaldi er tól til að eiga við raddgögn sem er ætlað þeim sem rannsaka eða starfa við máltækni, og er aðgengilegt öllum. Hægt er að lesa meira á <discourseLink>heimasíðu Kaldi</discourseLink> eða á <githubLink>Github</githubLink>.
 data-other-ted-name = TED-LIUM textasafn
 data-other-ted-description = TED-LIUM textasafnið var þróað úr talsetningum og afritunum þeirra sem eru fáanlegar á TED vefnum.
 data-other-voxforge-description = VoxForge var sett upp til að safna umrituðum hljóðupptökum sem nota má í opnum og frjálsum raddgreiningarhugbúnaði.
-data-other-tatoeba-description = Málföng er vefsíða sem inniheldur upplýsingar um flest sem við kemur íslenskri máltækni. Þar má meðal annars finna málheildir og orðasöfn.  
+data-other-malfong-description = Málföng er vefsíða sem inniheldur upplýsingar um flest sem við kemur íslenskri máltækni. Þar má meðal annars finna málheildir og orðasöfn.  
 
 your-feedback = Ertu með hugmyndir um hvernig mætti bæta Samróms-gagnasafnið? Láttu okkur vita á Discourse
 go-discourse = Fara á Discourse

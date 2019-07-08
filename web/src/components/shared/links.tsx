@@ -13,51 +13,33 @@ interface SharedLinkProps {
 }
 
 export const GitHubLink = ({ dispatch, ...props }: SharedLinkProps) => {
-  const [locale] = useLocale();
   return (
-    <a
-      target="_blank"
-      href="https://www2.deloitte.com/is/is.html"
-      onClick={() => trackGlobal('github', locale)}
-      {...props}
-    />
+    <a target="_blank" href="https://www2.deloitte.com/is/is.html" {...props} />
   );
 };
 
 export const DiscourseLink = ({ dispatch, ...props }: SharedLinkProps) => {
-  const [locale] = useLocale();
   return (
     <a
       target="blank"
       href="https://www.rannis.is/sjodir/menntun/nyskopunarsjodur-namsmanna/"
-      onClick={() => trackGlobal('slack', locale)}
       {...props}
     />
   );
 };
 
 export const AlmannaLink = ({ dispatch, ...props }: SharedLinkProps) => {
-  const [locale] = useLocale();
   return (
     <a
       target="blank"
       href="https://www.facebook.com/almannaromur/"
-      onClick={() => trackGlobal('slack', locale)}
       {...props}
     />
   );
 };
 
 export const SlackLink = ({ dispatch, ...props }: SharedLinkProps) => {
-  const [locale] = useLocale();
-  return (
-    <a
-      target="blank"
-      href="https://www.ru.is/skema//"
-      onClick={() => trackGlobal('slack', locale)}
-      {...props}
-    />
-  );
+  return <a target="blank" href="https://www.ru.is/skema/" {...props} />;
 };
 
 export const MozillaLink = ({ dispatch, ...props }: SharedLinkProps) => {
