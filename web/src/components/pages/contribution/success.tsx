@@ -150,11 +150,11 @@ export default function Success({
         )
       ) : (
         <div className="info-card">
-          <Localized id="profile-explanation">
+          <Localized id="listen-paragraph">
             <p />
           </Localized>
-          <Localized id="login-signup">
-            <LinkButton rounded href="/login" />
+          <Localized id="listen-subtitle">
+            <LinkButton rounded href="/hlusta" />
           </Localized>
         </div>
       )}
