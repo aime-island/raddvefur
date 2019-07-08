@@ -418,7 +418,7 @@ faq-what-is-cv = Hvað er Samrómur?
 faq-using-cv = Notkunn Samróms
 faq-description = Samrómur er fyrsta íslenska hópaflaða málheildin. Hvað langar þig að vita?
 faq-search-for-answers =
-    .label = Leita af svörum
+    .label = Leita að svörum
 
 ## ABOUT US
 
