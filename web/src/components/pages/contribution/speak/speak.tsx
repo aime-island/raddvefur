@@ -521,6 +521,7 @@ class SpeakPage extends React.Component<Props, State> {
       });
       this.setState({
         demographicError,
+        showDemographicModal: false,
       });
     }
   };
