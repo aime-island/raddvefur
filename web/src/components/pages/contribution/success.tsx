@@ -135,19 +135,15 @@ export default function Success({
         />
       </div>
 
-      {hasAccount ? (
-        !customGoal && (
-          <CustomGoalLock>
-            <div className="info-card">
-              <p>
-                Build a personal goal and help us reach 10k hours in English
-              </p>
-              <LinkButton rounded href={URLS.GOALS}>
-                Get started with goals
-              </LinkButton>
-            </div>
-          </CustomGoalLock>
-        )
+      {type == 'listen' ? (
+        <div className="info-card">
+          <Localized id="speak-paragraph">
+            <p />
+          </Localized>
+          <Localized id="speak-subtitle">
+            <LinkButton rounded href="/tala" />
+          </Localized>
+        </div>
       ) : (
         <div className="info-card">
           <Localized id="listen-paragraph">

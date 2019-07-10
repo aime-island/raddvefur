@@ -612,7 +612,6 @@ class SpeakPage extends React.Component<Props, State> {
       showLanguageSelect,
     } = this.state;
     const recordingIndex = this.getRecordingIndex();
-    console.log(this.state.demographic);
     return (
       <React.Fragment>
         <NavigationPrompt
