@@ -231,13 +231,7 @@ class SpeakPage extends React.Component<Props, State> {
       this.isUnsupportedPlatform = true;
     }
 
-    const { user } = this.props;
-    if (!this.getDemographicError(user.demographicInfo)) {
-      this.setState({
-        showDemographicModal: false,
-        demographic: user.demographicInfo,
-      });
-    }
+    this.userDemographicInfoToState();
   }
 
   async componentWillUnmount() {
@@ -505,8 +499,20 @@ class SpeakPage extends React.Component<Props, State> {
     return true;
   };
 
-  private resetState = (callback?: any) =>
+  private resetState = (callback?: any) => {
     this.setState(initialState, callback);
+    this.userDemographicInfoToState();
+  };
+
+  private userDemographicInfoToState = () => {
+    const { user } = this.props;
+    if (!this.getDemographicError(user.demographicInfo)) {
+      this.setState({
+        showDemographicModal: false,
+        demographic: user.demographicInfo,
+      });
+    }
+  };
 
   private submitDemographic = () => {
     const demographicError = this.getDemographicError(this.state.demographic);
