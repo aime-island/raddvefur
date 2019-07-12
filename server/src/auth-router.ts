@@ -73,8 +73,7 @@ if (DOMAIN) {
       clientSecret: CLIENT_SECRET,
       callbackURL:
         (({
-          stage: 'https://voice.allizom.org',
-          prod: 'https://voice.mozilla.org',
+          prod: 'https://aime.moon.do',
         } as any)[ENVIRONMENT] || '') + CALLBACK_URL,
       scope: 'openid email',
     },
