@@ -73,7 +73,8 @@ if (DOMAIN) {
       clientSecret: CLIENT_SECRET,
       callbackURL:
         (({
-          prod: 'https://aime.moon.do',
+          stage: 'http://stage-aime.moon.do',
+          prod: 'http://aime.moon.do',
         } as any)[ENVIRONMENT] || '') + CALLBACK_URL,
       scope: 'openid email',
     },

@@ -177,6 +177,22 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
             <a onClick={this.closeOpenInApp}>X</a>
           </div>
         )}
+        {showStagingBanner && (
+          <div className="staging-banner">
+            You're on the staging server. Voice data is not collected here.{' '}
+            <a href="https://voice.mozilla.org" target="_blank">
+              Don't waste your breath.
+            </a>{' '}
+            <a
+              href="https://github.com/mozilla/voice-web/issues/new"
+              target="_blank">
+              Feel free to report issues.
+            </a>{' '}
+            <button onClick={() => this.setState({ showStagingBanner: false })}>
+              Close
+            </button>
+          </div>
+        )}
         <header
           className={
             !isMenuVisible &&
