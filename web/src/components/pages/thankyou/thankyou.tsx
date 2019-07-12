@@ -1,7 +1,6 @@
 import { Hr } from '../../ui/ui';
 import * as React from 'react';
 import CREDITS from './CREDITS';
-import Credit from './Credit';
 
 class ThankYou extends React.Component {
   render() {
