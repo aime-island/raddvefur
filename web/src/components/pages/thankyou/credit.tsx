@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Hr } from '../../ui/ui';
 
-const Credit = (props: any) => {
+const Credit = ({ ...props }) => {
   const { who, why } = props;
   return (
     <>
