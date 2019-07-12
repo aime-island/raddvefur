@@ -42,7 +42,7 @@ export default {
 
     if (!row) return null;
 
-    const localeId = await getLocaleId('en');
+    const localeId = await getLocaleId('is');
     const { type, ...data } = row;
 
     const [[{ current_interval_start }]] = await db.query(

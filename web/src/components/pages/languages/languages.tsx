@@ -106,10 +106,10 @@ class LanguagesPage extends React.PureComponent<Props, State> {
         }
 
         // English comes last
-        if (l1.locale === 'en') {
+        if (l1.locale === 'is') {
           return 1;
         }
-        if (l2.locale === 'en') {
+        if (l2.locale === 'is') {
           return -1;
         }
 
