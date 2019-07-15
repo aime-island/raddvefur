@@ -172,19 +172,7 @@ let LocalizedPage: any = class extends React.Component<
     const [mainLocale] = userLocales;
     const pathname = history.location.pathname;
 
-    // Since we make no distinction between "en-US", "en-UK",... we redirect them all to "en"
-    if (mainLocale.startsWith('en-')) {
-      this.props.setLocale('en');
-      history.replace(replacePathLocale(pathname, 'en'));
-      return;
-    }
-
-    if (!LOCALES.includes(mainLocale)) {
-      this.props.setLocale(DEFAULT_LOCALE);
-      history.replace(replacePathLocale(pathname, DEFAULT_LOCALE));
-    } else {
-      this.props.setLocale(userLocales[0]);
-    }
+    this.props.setLocale('is');
 
     const { documentElement } = document;
     documentElement.setAttribute('lang', mainLocale);
