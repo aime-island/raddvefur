@@ -18,7 +18,7 @@ interface LocaleProps extends LocalePropsFromState {
 }
 
 export const toLocaleRouteBuilder = (locale: string) => (path: string) =>
-  `/is${path}`;
+  `/${locale}${path}`;
 
 export const localeConnector: any = connect<LocalePropsFromState>(
   ({ locale }: StateTree) => ({
