@@ -107,9 +107,11 @@ let LocalizedPage: any = class extends React.Component<
 
     window.onbeforeunload =
       uploads.length > 0
-        ? e =>
-            (e.returnValue =
-              'Leaving the page now aborts pending uploads. Are you sure?')
+        ? e => {
+            e.preventDefault();
+            e.returnValue =
+              'Ef þú ferð af síðunni núna þá hættir þú við óklárað upphal. Ertu viss?';
+          }
         : undefined;
 
     if (userLocales.find((locale, i) => locale !== this.props.userLocales[i])) {
