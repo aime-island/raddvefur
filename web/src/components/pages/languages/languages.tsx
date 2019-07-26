@@ -298,7 +298,8 @@ class LanguagesPage extends React.PureComponent<Props, State> {
                 </h2>
                 <div>
                   <p>
-                    Fyrir setningar úr verkum sínum þar á meðal Ávaxtakörfunni.
+                    Fyrir setningar úr verkum sínum, þar á meðal úr
+                    Ávaxtakörfunni.
                   </p>
                 </div>
               </li>
@@ -319,11 +320,7 @@ class LanguagesPage extends React.PureComponent<Props, State> {
                 <h2>
                   <strong>Common Voice</strong>
                 </h2>
-                <p>
-                  Samrómur er byggt á Mozilla verkefninu Common Voice. Við
-                  þökkum fallega grafík og góða undirstöðu til að byggja
-                  verkefnið okkar ofan á.
-                </p>
+                <p>Samrómur er byggt á Mozilla verkefninu Common Voice.</p>
               </li>
             </ul>
           </section>

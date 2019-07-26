@@ -145,8 +145,8 @@ cookies = Smákökur
 faq = Algengar spurningar
 content-license-text = Efni birt undir merkjum <licenseLink>Creative Commons</licenseLink>.
 #Changed:
-share-title = Hvetjið aðra til að gefa raddsýni!
-share-text = Hjálpið að kenna vélum hvernig alvöru fólk talar, gefðu raddprufu á { $link }
+share-title = Hvettu aðra til að gefa raddsýni!
+share-text = Hjálpið að kenna vélum hvernig alvöru fólk talar, gefðu raddsýni á { $link }
 link-copied = Hlekkur afritaður
 back-top = Til baka
 logout = Útskrá
@@ -160,23 +160,23 @@ wall-of-text-start = Rödd er náttúruleg, rödd er mennsk. Þess vegna heillum
 wall-of-text-more-mobile = Flest gögn sem stórfyrirtæki nota eru ekki aðgengileg almenningi. Að okkar mati heldur það aftur af nýsköpun. Fyrir vikið höfum við sett á laggirnar Samróm, verkefni til að gera raddgreiningu aðgengilega og frjálsa öllum.
 #Changed:
 wall-of-text-more-desktop =
-    Nú getur þú deilt raddsýnum til þess að hjálpa okkur að byggja opinn gagnagrunn radda sem nýtist við gerð raddgreina og annarrar raddtækni. Lestu setningu inn í Samróm eða yfirfarðu lesnar settningar frá öðrum. Svo einfalt er það!
+    Nú getur þú gefið raddsýni til þess að hjálpa okkur að byggja opinn gagnasett radda sem nýtist við gerð talgreina og annarri máltækni. Lestu setningu inn í Samróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
 #Changed:
-wall-of-text-first = Röddin er mannlegt, náttúrulegt fyrirbæri. Það er spennandi að nýta hana fyrir tækin okkar en til þess þarf gríðarlegt magn fjölbreyttra raddgagna ef vel á til að takast.
+wall-of-text-first = Röddin er mannlegt, náttúrulegt fyrirbæri. Það er spennandi að nýta hana fyrir tækin okkar en það þarf gríðarlegt magn fjölbreyttra raddgagna ef vel á til að takast.
 #Changed:
 wall-of-text-second = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efndum við til þessa verkefnis, Samróms, með það markmið að stuðla að raddgreiningartækni, sem allir geta notað.
 show-wall-of-text = Lesa meira
 help-us-title = Hjálpaðu okkur að meta setningar!
-help-us-explain = Veldu afspilun, hlustaðu og svaraðu: var setningin að neðan nákvæmlega sögð?
+help-us-explain = Veldu afspilun, hlustaðu og svaraðu: var setningin að neðan sögð rétt?
 no-clips-to-validate = Svo virðist sem engar hljóðskrár séu til staðar á þessu tungumáli. Hjálpaðu okkur að stytta biðröðina með því að taka upp dæmi núna.
 vote-yes = Já
 vote-no = Nei
 toggle-play-tooltip = Veldu { shortcut-play-toggle } til þess að skipta um afspilunarham
-speak-subtitle = Gefðu raddsýnishorn
+speak-subtitle = Gefðu rödd þína
 speak-paragraph = Hljóðritun raddgagna er órofa þáttur af þróun gagnapakkans okkar; sumir myndu líka segja að það væri skemmtilegi parturinn.
 speak-goal-text = Raddupptökur
-listen-subtitle = Hjálpið okkur að staðfesta raddir
-listen-paragraph = Að staðfesta aðsendar raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar. Hlustið og hjálpið til við að þróa hágæða opin raddgögn.
+listen-subtitle = Hjálpaðu okkur að staðfesta raddir
+listen-paragraph = Að staðfesta aðsendar raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar. Hlustaðu og hjálpaðu til við að þróa hágæða opin raddgögn.
 listen-goal-text = Staðfestar raddupptökur
 hours-recorded = Klukkustundir hljóðritaðar
 hours-validated = Klukkustundir staðfestar
@@ -184,7 +184,7 @@ voices-online = Raddir í loftinu
 todays-progress = Árangur dagsins
 help-reach-goal = Hjálpaðu okkur að komast upp í { $goal }
 read-terms-q = Hefurðu lesið skilmálana?
-ready-to-record = Tilbúinn að leggja fram raddsýni?
+ready-to-record = Tilbúin/nn í að gefa raddsýni?
 all-locales = Allt
 today = Í dag
 x-weeks-short =
@@ -280,7 +280,7 @@ status-goal = Næsta markmið: { $goal }
 english = Enska
 
 ## demographicForm
-demographic-form-title = Lýðfræðiupplýsingar
+demographic-form-title = Þín rödd
 demographic-form-gender =
     .label = Kyn
 demographic-form-age =
@@ -288,7 +288,7 @@ demographic-form-age =
 demographic-form-native-language =
     .label = Móðurmál
 why-demographic = Hvers vegna skiptir þetta máli? 
-why-demographic-explanation = Nafnlaus notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
+why-demographic-explanation = Lýðfræðileg notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
 demographic-form-other-native-language = Íslenska er mitt móðurmál
 demographic-form-submit = Áfram
 
@@ -365,8 +365,8 @@ faq-what-cv-a =
 #Changed:
 faq-why-important-q = Afhverju er Samrómur mikilvægur?
 #Changed:
-faq-why-important-a = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri mál. Í framtíðinni mun slík tækni verða útbreidd og þar með spila stóran þátt í okkar daglega lífi.
-    Það sem við notum lærum við og ef við þurfum ekki að nota íslenskuna deyr hún út. Þessvegna er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda svo hægt verði að nýta íslenskuna við hugbúnaðargerð jafnt öðrum tungumálum.
+faq-why-important-a = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri mál. Í framtíðinni mun slík tækni verða enn útbreiddari spila stóran þátt í okkar daglega lífi.
+    Það sem við notum, það lærum við og ef við þurfum ekki að nota íslenskuna, þá deyr hún út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda svo hægt verði að nýta íslenskuna við hugbúnaðargerð jafnt öðrum tungumálum.
 #Changed:
 faq-how-get-q = Hvernig get ég nálgast gögn Samróms?
 #Changed:
@@ -386,14 +386,14 @@ faq-do-want-native-q = Ég tala ekki þetta tungumál að móðurmáli og er me�
 faq-do-want-native-a = Já, við viljum endilega fá þína rödd! Við viljum að talgreinir geti skilið alla en til þess þarf gögn frá öllum. Það gerir það að verkum að raddframlög einstaklinga með annað móðurmál eru sérstaklega mikilvæg.
 faq-why-different-speakers-q = Hvers vegna þarf svona margar mismunandi raddir fyrir hvert tungumál?
 faq-why-different-speakers-a =
-    Flest gagnasöfn hafa verið þjálfuð með lýðfræðilega bjöguðum gögnum, þar sem hallar á alla þjóðfélagshópa nema <articleLink>karlmenn í millistétt</articleLink>. Oft vantar líka upptökur með hreimum og í mállýskum sem tilheyra minnihlutahópum sem nú þegar eiga undir högg að sækja í samfélaginu. Mörgum tækjum reynist erfitt að skilja kvenmannsaddir.
+    Flest gagnasöfn hafa verið þjálfuð með lýðfræðilega bjöguðum gögnum, þar sem hallar á alla þjóðfélagshópa nema <articleLink>karlmenn í millistétt</articleLink>. Oft vantar líka upptökur með hreimum og í mállýskum sem tilheyra minnihlutahópum sem nú þegar eiga undir högg að sækja í samfélaginu. Sem dæmi má nefna að mörgum tækjum reynist erfitt að skilja kvenmannsraddir.
     Þess vegna viljum við fá fjölbreytileika í okkar raddgagnasafn!
 #Change:
 faq-why-my-lang-q = Afhverju þarf ég að gefa lýðfræðilegar upplýsingar?
 #Changed:
 faq-why-my-lang-new-a = Einfaldlega til að auka gæði gagnanna. Mörg gögn eru lýðfræðilega bjöguð þar sem hallar á alla nema <articleLink>karlmenn í millistétt</articleLink> og viljum við tryggja fjölbreytileika í okkar gagnasafni. 
 faq-what-quality-q = Hversu góð þurfa hljóðgæðin að vera til að upptaka verði notuð í gagnasafninu?
-faq-what-quality-a = Við viljum að Samrómsgagnasafnið endurspegli hljóðgæðum sem raddgreinir gæti lent í við daglega notkun, svo við vonumst eftir upptökum bæði í góðum og slæmum gæðum. Með fjölbreytilegan hóp raddgjafa og upptökur í mismunandi gæðum getum við kennt raddgreinum að ráða við ýmsar raunverulegar aðstæður, t.d. þar sem aðrar samræður er í bakgrunni eða þar sem heyrist í bílvél. Svo lengi sem hægt er að greina talið í upptökunni ætti það að duga fyrir gagnasafnið.
+faq-what-quality-a = Við viljum að Samrómsgagnasafnið endurspegli hljóðgæðo sem raddgreinir gæti lent í við daglega notkun, svo við vonumst eftir upptökum bæði í góðum og slæmum gæðum. Með fjölbreytilegan hóp raddgjafa og upptökur í mismunandi gæðum getum við kennt raddgreinum að ráða við ýmsar raunverulegar aðstæður, t.d. þar sem aðrar samræður er í bakgrunni eða þar sem heyrist í bílvél. Svo lengi sem hægt er að greina talið í upptökunni ætti það að duga fyrir gagnasafnið.
 faq-why-10k-hours-q = Hvers vegna er upptökumarkmiðið 10.000 klst á tungumál?
 faq-why-10k-hours-a = Þetta er um það bil sá fjöldi klukkustunda sem þarf til að þjálfa markaðshæfan raddgreini.
 faq-how-calc-hours-q = Hvernig reiknar Samrómur þessa klukkutíma?
@@ -401,21 +401,21 @@ faq-how-calc-hours-q = Hvernig reiknar Samrómur þessa klukkutíma?
 faq-how-calc-hours-a = Við teljum klukkustundirnar með því að áætla meðallengd hverrar upptöku og mörgföldum svo þá tölu með heildarfjölda upptaka.
 faq-where-src-from-2-q = Hvaðan kemur lestextinn?
 #Changed:
-faq-where-src-from-2-a = Settningarnar eru meðal annars fengnar frá Wikipedia og Vísindavefnum en einnig frá rithöfundum. Listi allra þeirra sem gáfu setningar má finna undir Þakkir.    
+faq-where-src-from-2-a = Setningarnar eru meðal annars fengnar frá Wikipedia og Vísindavefnum en einnig frá rithöfundum. Lista yfir alla þá sem gáfu setningar má finna undir Þakkir.    
 faq-why-not-ask-read-q = !Laust!
 faq-why-not-ask-read-a = ...
 faq-why-account-q = Af hverju ætti ég að skrá mig?
 faq-why-account-a = Þú hjálpar til við að vernda íslenskuna og þitt framlag stuðlar að því að máltæknilausnir framtíðarinnar skilji fólk eins og þig.
 faq-is-account-public-q = Verða mínar reikningsupplýsingar opinberar?
 faq-how-privacy-q = Hvernig tryggið þið nafnleysi og friðhelgi þeirra sem ljá Samróm röddina sína?
-faq-how-privacy-a = Persónulega einkennani gögn hafa verið fjarlægð úr öllum raddhljóðbrotum í safninu. Lýðfræðilegu upplýsingarnar eru aftengar upptökum þeirra en fylgja öðrum lýðfræðigögnum í niðurhali á gagnasafninu.
-faq-what-determine-identity-q = Hvað þýðir það að ég geti ekki "borið kennsl á" raddgjafa í Samómsgagnasafninu?
+faq-how-privacy-a = Persónulega einkennandi gögn hafa verið fjarlægð úr öllum raddhljóðbrotum í safninu. Lýðfræðilegu upplýsingarnar eru aftengdar upptökum þeirra en fylgja öðrum lýðfræðigögnum í niðurhali á gagnasafninu.
+faq-what-determine-identity-q = Hvað þýðir það að ég geti ekki „borið kennsl á“ raddgjafa í Samrómsgagnasafninu?
 faq-what-determine-identity-a =
-    Samrómsgagnasafnið er opið og aðgengilegt almenning svo hægt sé að nota það til að þjálfa margs konar raddstýrð kerfi. Fyrir öryggi raddgjafanna biðjum við alla sem sækja Samrómsgagnasafnið til að virða friðhelgi einkalífs þeirra.
+    Samrómsgagnasafnið er opið og aðgengilegt almenning svo hægt sé að nota það til að þjálfa margs konar raddstýrð kerfi. Fyrir öryggi raddgjafanna biðjum við alla sem sækja Samrómsgagnasafnið að virða friðhelgi einkalífs þeirra.
     
-    Persónulega einkennandi upplýsingar hafa verið fjarlægðar úr öllum raddhljóðbrotum í safninu. Þegar maður sækir gagnasafnið samþykkir maður að reyna ekki að bera kennsl á neinn raddgjafanna. Það þýðir að það má ekki reyna að tengja upptökur í gagnasafninu við einstaklinga sem hafa lagt til upptökur. Það má hins vegar nota gagnasafnið til að þjálfa raddgreina, málshafagreina og fleiri kerfi, t.d. með því að tengja saman upplýsingar innan gagnasafnsins.
+    Persónulega einkennandi upplýsingar hafa verið fjarlægðar úr öllum raddhljóðbrotum í safninu. Þegar maður sækir gagnasafnið samþykkir maður að reyna ekki að bera kennsl á neinn raddgjafanna. Það þýðir að það má ekki reyna að tengja upptökur í gagnasafninu við einstaklinga sem hafa lagt til upptökur. Það má hins vegar nota gagnasafnið til að þjálfa talgreina, málshafagreina og fleiri kerfi, t.d. með því að tengja saman upplýsingar innan gagnasafnsins.
 faq-what-is-cv = Hvað er Samrómur?
-faq-using-cv = Notkunn Samróms
+faq-using-cv = Notkun Samróms
 faq-description = Samrómur er fyrsta íslenska hópaflaða málheildin. Hvað langar þig að vita?
 faq-search-for-answers =
     .label = Leita að svörum
@@ -424,10 +424,10 @@ faq-search-for-answers =
 
 about-title = Afhverju?
 #Changed:
-about-subtitle = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri tungumál. Í framtíðinni mun slík tækni verða enn útbreiddari og spili stóran þátt í okkar daglega lífi. 
+about-subtitle = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri tungumál. Í framtíðinni mun slík tækni verða enn útbreiddari og spila stóran þátt í okkar daglega lífi. 
 #Changed:
 about-header-description =
-    Það sem við notum lærum við og ef við þurfum ekki að nota íslenskuna deyr hún út. Þessvegna er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda svo hægt verði að nýta það við hugbúnaðargerð jafnt öðrum málum. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.  
+    Það sem við notum, það lærum við og ef við þurfum ekki að nota íslenskuna, þá deyr hún út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda svo hægt verði að nýta það við hugbúnaðargerð jafnt öðrum tungumálum. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.  
 how-does-it-work-title = Hvernig virkar það?
 #Changed:
 how-does-it-work-text = Við hópvæðum öflun opins raddgagnasafns. Leggðu fram röddina þína, staðfestu nákvæmni hljóðbrota frá öðrum, gerðu gagnasafnið betra fyrir alla.
@@ -438,11 +438,11 @@ about-listen-queue-text = Þegar hljóðbrot kemur inn þá fer það í stafla 
 about-listen = Hlusta
 about-listen-text = Notendur staðfesta nákvæmnina af gefnum hljóðbrotum og athuga hvort mælandinn hafi sagt setninguna rétt.
 about-is-it-valid = Er þetta hljóðbrot gilt?
-about-is-it-valid-text = Hljóðbrot er merkt "staðfest" þegar notandi gefur því Já atkvæði.
+about-is-it-valid-text = Hljóðbrot er merkt „staðfest“ þegar notandi gefur því Já atkvæði.
 about-yes-votes = ≥ 2 Já atkvæði
 about-yes-votes-text = Til þess að komast inn í Samrómsgagnasafnið, þá þarf hljóðbrot að vera yfirfarið af tveim einstaklingum.
 about-no-votes = ≥ 2 Nei atkvæði
-about-no-votes-text = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í Röðina. Ef því er hafnað í annað sinn, þá fer hljóð&shy;brotið í Hljóð&shy;brota&shy;graf&shy;reitinn.
+about-no-votes-text = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í hlustunarröðina. Ef því er hafnað í annað sinn, þá fer hljóð&shy;brotið í Hljóð&shy;brota&shy;graf&shy;reitinn.
 about-dataset-new = Samrómsgagnasafnið
 about-dataset-new-text = Samsrómsgagnasafnið samanstendur af hundruðum þúsunda raddhljóðbrota sem hjálpa þróunaraðilum að smíða raddgreina.
 about-clip-graveyard = Hljóðbrotagrafreitur
@@ -478,7 +478,7 @@ localization-explanation = Þetta er ferlið okkar í þýðingu og aðlögun á
 sentence-collection = Setningaforði
 sentence-collection-explanation = Söfnun á almennum setningum eða að skrifa nýjar fyrir almenning.
 hours-recorded-explanation = Fjöldi klukkutíma af raddupptökum sem við höfum safnað nú þegar.
-hours-validated-explanation = Fjöldi klukkutíma af yfirförnum hljóðbrotum sem hafa verið yfirfarnir og fengið "já" atkvæði frá tveim af hverjum þrem notendum. Þessir klukkutímar telja upp í 10 þúsund klukkutíma markmiðið.
+hours-validated-explanation = Fjöldi klukkutíma af yfirförnum hljóðbrotum sem hafa verið yfirfarnir og fengið Já atkvæði frá tveim af hverjum þrem notendum. Þessir klukkutímar telja upp í 10,000 klukkutíma markmiðið.
 sst = Tal-í-texta (TÍT)
 sst-explanation = Tal-í-texta (TÍT) er tækni sem breytir raddupptökum í texta.
 de-identified = Einkennissneiðing
@@ -526,7 +526,7 @@ datasets-headline = Við viljum byggja opið og aðgengilegt gagnasafn radda sem
 datasets-positioning =
     Við trúum því að að stór gagnasett sem eru opin almenningi muni styðja við nýsköpun og stuðla að heilbrigðri markaðssamkeppni innan tæknigeirans á sviði máltæknilausna.
     
-    Við bindum vonir við að Samrómsgagnasafnið verði það stærsta sinnar tegundar. Það er þó ekki það eina en nokkrar málheildir og önnur tól eru þegar til. 
+    Við bindum vonir við að Samrómsgagnasafnið verði það stærsta sinnar tegundar. Það er þó ekki það eina en nokkrar málheildir og önnur tól eru nú þegar til. 
     
     Þú getur litið til þessarar síðu sem miðlægrar upplýsingasíðu fyrir önnur opin raddgagnasöfn, talgreina, málheilda og fleira máltækni efnis. 
 language = Tungumál
@@ -551,9 +551,9 @@ recorded-hours = Uppteknar klukkustundir
 whats-inside = Hvað er í málheild Samróms?
 #Changed:
 dataset-description-hours =
-    Hver færsla í gagnasafninu samanstendur af einstöku MP3 hljóðbroti og samsavarandi textaskrá. Allir þessara <b>{ $total }</b> klukkustunda sem hafa safnast innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta getur aðstoðað við að gera talgreiningu nákvæmari.
+    Hver færsla í gagnasafninu samanstendur af einstöku MP3 hljóðbroti og samsvarandi textaskrá. Allar þessar <b>{ $total }</b> klukkustundor sem hafa safnast innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta getur aðstoðað við að gera talgreiningu nákvæmari.
     
-    Gagnasafnið samanstendur af <b>{ $valid }</b> staðfestum klukkustundum hljóðborta, en alltaf má bæta við fleiri röddum.
+    Gagnasafnið samanstendur af <b>{ $valid }</b> staðfestum klukkustundum hljóðbrota en alltaf má bæta við fleiri röddum.
 #Changed:
 want-dataset-update = Langar þig að heyra meira um starf Almannaróms? Skráðu þig þá á póstlistann.
 subscribe = Gerast áskrifandi
@@ -575,7 +575,7 @@ your-feedback = Ertu með hugmyndir um hvernig mætti bæta Samróms-gagnasafni�
 go-discourse = Fara á Discourse
 missing-language = Sérðu ekki tungumálið þitt í gagnasafninu? Biddu um að því verði bætt við á Tungumála síðunni.
 go-languages-page = Fara á tungumálasíðu
-ready-to-validate = Tilbúin(n) til að hjálpa okkur að staðfesta setningar?
+ready-to-validate = Tilbúin í að staðfesta raddsýni?
 more = Meira
 close = Loka
 download = Niðurhala
