@@ -157,14 +157,14 @@ logout = Útskrá
 home-title = Samrómur er fyrsta íslenska opna hópaflaða gagnasafnið. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla þá sem nota hana.
 home-cta = Hækkið róminn, deilið hér!
 wall-of-text-start = Rödd er náttúruleg, rödd er mennsk. Þess vegna heillumst við af sköpun nothæfrar raddtækni handa vélunum okkar. En til þess að skapa raddkerfi þörfnumst við mýgrúts gagna.
-wall-of-text-more-mobile = Flest gögn sem stórfyrirtæki nota eru ekki aðgengileg almenningi. Að okkar mati heldur það aftur af nýsköpun. Fyrir vikið höfum við sett á laggirnar Samróm, verkefni til að gera raddgreiningu aðgengilega og frjálsa öllum.
+wall-of-text-more-mobile = Flest gögn sem stórfyrirtæki nota eru ekki aðgengileg almenningi. Að okkar mati heldur það aftur af nýsköpun. Fyrir vikið höfum við sett á laggirnar Samróm, verkefni til að gera talgreiningu aðgengilega og frjálsa öllum.
 #Changed:
 wall-of-text-more-desktop =
     Nú getur þú gefið raddsýni til þess að hjálpa okkur að byggja opinn gagnasett radda sem nýtist við gerð talgreina og annarri máltækni. Lestu setningu inn í Samróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
 #Changed:
 wall-of-text-first = Röddin er mannlegt, náttúrulegt fyrirbæri. Það er spennandi að nýta hana fyrir tækin okkar en það þarf gríðarlegt magn fjölbreyttra raddgagna ef vel á til að takast.
 #Changed:
-wall-of-text-second = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efndum við til þessa verkefnis, Samróms, með það markmið að stuðla að raddgreiningartækni, sem allir geta notað.
+wall-of-text-second = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efndum við til þessa verkefnis, Samróms, með það markmið að stuðla að talgreiningartækni, sem allir geta notað.
 show-wall-of-text = Lesa meira
 help-us-title = Hjálpaðu okkur að meta setningar!
 help-us-explain = Veldu afspilun, hlustaðu og svaraðu: var setningin að neðan sögð rétt?
@@ -214,7 +214,7 @@ benefits = Kostir
 #Changed:
 rich-data = Þú hjálpar til við að bjarga íslenskunni frá stafrænum dauða.
 #Changed:
-improve-audio = Þín rödd og lýðfræðilegar upplýsingar stuðla að nákvæmum raddgreini fyrir allar raddir. 
+improve-audio = Þín rödd og lýðfræðilegar upplýsingar stuðla að nákvæmum talgreini fyrir allar raddir. 
 #Changed:
 keep-track = ???
 #Take this out: 
@@ -378,7 +378,7 @@ faq-why-mission-a = Samrómur byggir á Mozilla verkefninu <mozillaLink>Common V
 #Changed: 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Samrómi og Deep Speech?
 #Changed:
-faq-what-cv-and-deepspeech-a = Þar sem Samrómur byggir á Common Voice er Samrómsgagnasafnið hannað til þess að vinna með raddgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.
+faq-what-cv-and-deepspeech-a = Þar sem Samrómur byggir á Common Voice er Samrómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.
 #Changed:
 faq-is-goal-assistant-q = Hver er munurinn á Almannaróm og Samróm?
 faq-is-goal-assistant-a = Samrómur er gagnasafnið sem við erum að búa til en Almannarómur eru góðgerðarsamtök sem vilja vernda íslenska tungu og tryggja að hún standi jafnfætis öðrum tungumálum.  
@@ -393,9 +393,9 @@ faq-why-my-lang-q = Afhverju þarf ég að gefa lýðfræðilegar upplýsingar?
 #Changed:
 faq-why-my-lang-new-a = Einfaldlega til að auka gæði gagnanna. Mörg gögn eru lýðfræðilega bjöguð þar sem hallar á alla nema <articleLink>karlmenn í millistétt</articleLink> og viljum við tryggja fjölbreytileika í okkar gagnasafni. 
 faq-what-quality-q = Hversu góð þurfa hljóðgæðin að vera til að upptaka verði notuð í gagnasafninu?
-faq-what-quality-a = Við viljum að Samrómsgagnasafnið endurspegli hljóðgæðo sem raddgreinir gæti lent í við daglega notkun, svo við vonumst eftir upptökum bæði í góðum og slæmum gæðum. Með fjölbreytilegan hóp raddgjafa og upptökur í mismunandi gæðum getum við kennt raddgreinum að ráða við ýmsar raunverulegar aðstæður, t.d. þar sem aðrar samræður er í bakgrunni eða þar sem heyrist í bílvél. Svo lengi sem hægt er að greina talið í upptökunni ætti það að duga fyrir gagnasafnið.
+faq-what-quality-a = Við viljum að Samrómsgagnasafnið endurspegli hljóðgæði sem talgreinir gæti lent í við daglega notkun, svo við vonumst eftir upptökum bæði í góðum og slæmum gæðum. Með fjölbreytilegan hóp raddgjafa og upptökur í mismunandi gæðum getum við kennt talgreinum að ráða við ýmsar raunverulegar aðstæður, t.d. þar sem aðrar samræður er í bakgrunni eða þar sem heyrist í bílvél. Svo lengi sem hægt er að greina talið í upptökunni ætti það að duga fyrir gagnasafnið.
 faq-why-10k-hours-q = Hvers vegna er upptökumarkmiðið 10.000 klst á tungumál?
-faq-why-10k-hours-a = Þetta er um það bil sá fjöldi klukkustunda sem þarf til að þjálfa markaðshæfan raddgreini.
+faq-why-10k-hours-a = Þetta er um það bil sá fjöldi klukkustunda sem þarf til að þjálfa markaðshæfan talgreini.
 faq-how-calc-hours-q = Hvernig reiknar Samrómur þessa klukkutíma?
 #Changed:
 faq-how-calc-hours-a = Við teljum klukkustundirnar með því að áætla meðallengd hverrar upptöku og mörgföldum svo þá tölu með heildarfjölda upptaka.
@@ -444,7 +444,7 @@ about-yes-votes-text = Til þess að komast inn í Samrómsgagnasafnið, þá þ
 about-no-votes = ≥ 2 Nei atkvæði
 about-no-votes-text = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í hlustunarröðina. Ef því er hafnað í annað sinn, þá fer hljóð&shy;brotið í Hljóð&shy;brota&shy;graf&shy;reitinn.
 about-dataset-new = Samrómsgagnasafnið
-about-dataset-new-text = Samsrómsgagnasafnið samanstendur af hundruðum þúsunda raddhljóðbrota sem hjálpa þróunaraðilum að smíða raddgreina.
+about-dataset-new-text = Samsrómsgagnasafnið samanstendur af fjölda raddhljóðbrota sem hjálpa þróunaraðilum að smíða talgreina.
 about-clip-graveyard = Hljóðbrotagrafreitur
 about-clip-graveyard-text = Hljóð&shy;brota&shy;graf&shy;reiturinn saman&shy;stendur af radd&shy;hljóð&shy;brotum sem gátu ekki orðið hluti af Samróms&shy;gagna&shy;safninu. Rétt eins og gagna&shy;safnið er Hljóð&shy;brota&shy;graf&shy;reiturinn aðgengi&shy;legur til niðurhals.
 about-partners = Samstarfsaðilar
@@ -498,7 +498,7 @@ data-download-license = Leyfi: <licenseLink>CC-0</licenseLink>
 data-download-modal = Þú ert í þann mund að niðurhala <size>{ $size }GB</size>, halda áfram?
 data-subtitle = Við erum að þróa opið gagnasafn fyrir almenning úr raddgögnum sem allir geta notað til að þjálfa raddstýrð forrit.
 data-explanatory-text = Við trúum að stór raddgagnasöfn sem eru aðgengileg almenningi hvetji til nýsköpunar og heilbrigðrar samkeppni í raddbúnaði sem byggir á vélagreind. Þetta er alþjóðlegt átak og öllum er boðið að taka þátt. Okkar markmið er að stuðla að alhliða raddtækni, sem endurspeglar fjölbreytileika raddsýnanna sem eru fengin alls staðar úr heiminum.
-data-get-started = <speechBlogLink>Byrjaðu að raddgreina</speechBlogLink>
+data-get-started = <speechBlogLink>Byrjaðu að talgreina</speechBlogLink>
 data-other-title = Önnur raddgagnasöfn...
 data-other-goto = Fara í { $name }
 data-other-download = Niðurhala gögnum
@@ -544,7 +544,7 @@ confirm-size = Þú getur nú hafið niðurhal að stærð <b>{ $size }</b>.
 click-to-download = Smelltu hér til að sækja málheildina
 size-gigabyte = GB
 size-megabyte = MB
-confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera kennsl á mælendur í málheild Samóms.
+confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera kennsl á mælendur í málheild Samróms.
 download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
@@ -568,7 +568,7 @@ data-other-tal-description = Tal er íslenskur talgreinir. Hann var þróaður a
 kaldi-info = Kaldi er tól til að eiga við raddgögn sem er ætlað þeim sem rannsaka eða starfa við máltækni, og er aðgengilegt öllum. Hægt er að lesa meira á <discourseLink>heimasíðu Kaldi</discourseLink> eða á <githubLink>Github</githubLink>.
 data-other-ted-name = TED-LIUM textasafn
 data-other-ted-description = TED-LIUM textasafnið var þróað úr talsetningum og afritunum þeirra sem eru fáanlegar á TED vefnum.
-data-other-voxforge-description = VoxForge var sett upp til að safna umrituðum hljóðupptökum sem nota má í opnum og frjálsum raddgreiningarhugbúnaði.
+data-other-voxforge-description = VoxForge var sett upp til að safna umrituðum hljóðupptökum sem nota má í opnum og frjálsum talgreiningarhugbúnaði.
 data-other-malfong-description = Málföng er vefsíða sem inniheldur upplýsingar um flest sem við kemur íslenskri máltækni. Þar má meðal annars finna málheildir og orðasöfn.  
 
 your-feedback = Ertu með hugmyndir um hvernig mætti bæta Samróms-gagnasafnið? Láttu okkur vita á Discourse
@@ -613,7 +613,7 @@ other-language = Annað tungumál
 ## Languages Overview
 
 language-section-in-progress = Í vinnslu
-language-section-in-progress-new-description = Þessi tungumál eru um þessar mundir í þróun hjá Samómssamfélaginu. Stikan sýnir hversu langt hvert tungmál er komið í <localizationGlossaryLink>vefsíðuþýðingu</localizationGlossaryLink> og <sentenceCollectionGlossaryLink>söfnun setninga</sentenceCollectionGlossaryLink>.
+language-section-in-progress-new-description = Þessi tungumál eru um þessar mundir í þróun hjá Samrómssamfélaginu. Stikan sýnir hversu langt hvert tungmál er komið í <localizationGlossaryLink>vefsíðuþýðingu</localizationGlossaryLink> og <sentenceCollectionGlossaryLink>söfnun setninga</sentenceCollectionGlossaryLink>.
 #Changed:
 language-section-launched = Við viljum þakka...
 #Changed:
@@ -729,7 +729,7 @@ keep = Halda
 remove = Fjarlægja
 keep-info = Nafnlausu raddgögnin þín verða áfram í gagnasafni Samróms. Þegar prófíl hefur verið eytt þá er ekki lengur hægt að biðja um að raddgögn honum tengd verði fjarlægð úr gagnasafninu.
 remove-info = Við munum skoða beiðni þína um að eyða raddgögnum úr gagnasafninu. Ef beiðnin er samþykkt, þá verður haft samband við þá sem hafa halað niður gagnasafninu og þeir líka beðnir um að eyða út raddgögnunum þínum.
-why-delete-recordings = Upptökusafn Samróms er ætlað handa fræðafólki, litlum fyrirtækjum og áhugafólki um raddgreiningu, í því skyni að þjálfa verkfæri á borð við raddlíkön, aðgengileg og opin almenningi.
+why-delete-recordings = Upptökusafn Samróms er ætlað handa fræðafólki, litlum fyrirtækjum og áhugafólki um talgreina, í því skyni að þjálfa verkfæri á borð við raddlíkön, aðgengileg og opin almenningi.
 profile-form-delete = Eyða prófíl
 
 ## Landing
