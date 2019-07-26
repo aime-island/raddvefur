@@ -741,7 +741,10 @@ class SpeakPage extends React.Component<Props, State> {
               <button
                 type="button"
                 onClick={() => this.setShowDemographicInfo()}>
-                <Localized id="why-demographic">
+                <Localized
+                  id="why-demographic"
+                  termsLink={<LocaleLink to={URLS.TERMS} blank />}
+                  privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
                   <span />
                 </Localized>
 
