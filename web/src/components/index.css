@@ -194,8 +194,8 @@ body:not(.focus) #scroller {
     max-width: var(--old-desktop-width);
 }
 
-.privacy #content,
-.terms #content {
+.personuverndastefna #content,
+.skilmalar #content {
     & h1 {
         margin: 1rem 0;
         text-decoration: underline;
