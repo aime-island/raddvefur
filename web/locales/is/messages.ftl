@@ -280,7 +280,7 @@ status-goal = Næsta markmið: { $goal }
 english = Enska
 
 ## demographicForm
-demographic-form-title = Lýðfræðiupplýsingar
+demographic-form-title = Þín rödd
 demographic-form-gender =
     .label = Kyn
 demographic-form-age =
@@ -288,7 +288,7 @@ demographic-form-age =
 demographic-form-native-language =
     .label = Móðurmál
 why-demographic = Hvers vegna skiptir þetta máli? 
-why-demographic-explanation = Nafnlaus notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
+why-demographic-explanation = Lýðfræðileg notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
 demographic-form-other-native-language = Íslenska er mitt móðurmál
 demographic-form-submit = Áfram
 
