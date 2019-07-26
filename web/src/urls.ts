@@ -22,8 +22,8 @@ export default Object.freeze({
   DATASETS: '/gagnasofn',
 
   FAQ: '/spurtogsvarad',
-  PRIVACY: '/privacy',
-  TERMS: '/terms',
+  PRIVACY: '/personuverndastefna',
+  TERMS: '/skilmalar',
   NOTFOUND: '/not-found',
   LANGUAGES: '/takk',
   THANKYOU: '/takk',

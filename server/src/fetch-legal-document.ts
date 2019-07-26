@@ -21,7 +21,7 @@ export default async function fetchLegalDocument(
   }
 
   const [status, text] = await request({
-    uri: `https://raw.githubusercontent.com/mozilla/legal-docs/master/Common_Voice_${name}/${locale}.md`,
+    uri: `https://raw.githubusercontent.com/aime-island/legal-docs/master/raddvefur/${name}/${locale}.md`,
     resolveWithFullResponse: true,
   })
     .then((response: any) => [response.statusCode, response.body])
@@ -30,9 +30,7 @@ export default async function fetchLegalDocument(
   if (status >= 400 && status < 500) {
     return (await Promise.all(
       // Fallback Languages
-      ['en', 'es-CL', 'fr', 'pt-BR', 'zh-TW'].map(locale =>
-        fetchLegalDocument(name, locale)
-      )
+      ['is'].map(locale => fetchLegalDocument(name, locale))
     )).join('<br>');
   } else if (status < 300) {
     textHTML = new commonmark.HtmlRenderer().render(
