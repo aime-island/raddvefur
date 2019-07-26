@@ -22,7 +22,7 @@ export default Object.freeze({
   DATASETS: '/gagnasofn',
 
   FAQ: '/spurtogsvarad',
-  PRIVACY: '/personuverndastefna',
+  PRIVACY: '/personuverndaryfirlysing',
   TERMS: '/skilmalar',
   NOTFOUND: '/not-found',
   LANGUAGES: '/takk',

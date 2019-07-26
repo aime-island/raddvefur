@@ -288,7 +288,7 @@ demographic-form-age =
 demographic-form-native-language =
     .label = Móðurmál
 why-demographic = Hvers vegna skiptir þetta máli? 
-why-demographic-explanation = Nafnlaus notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla.
+why-demographic-explanation = Nafnlaus notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
 demographic-form-other-native-language = Íslenska er mitt móðurmál
 demographic-form-submit = Áfram
 
@@ -506,7 +506,7 @@ data-bundle-button = Niðurhala gagnasafnapakka
 data-bundle-description = Gögn Samróms og öll gagnasöfnin að ofan.
 license = Leyfi: <licenseLink>{ $license }</licenseLink>
 license-mixed = Blandað
-review-terms = Með notkun Samróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndarstefnu</privacyLink> verkefnisins
+review-terms = Með notkun Samróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins
 terms-agree = Áfram
 terms-disagree = Hætta við  
 review-aborted = Hætt var við að senda inn. Viltu eyða því sem þú tókst upp?
