@@ -17,7 +17,7 @@ import { DiscourseLink, GitHubLink } from '../shared/links';
 
 import './footer.css';
 
-const LocalizedLocaleLink = ({ id, to }: { id: string; to: string }) => {
+export const LocalizedLocaleLink = ({ id, to }: { id: string; to: string }) => {
   const [locale] = useLocale();
   return (
     <Localized id={id} onClick={() => trackNav(id, locale)}>
