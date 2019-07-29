@@ -31,13 +31,6 @@ const TopBar = ({ history }: RouteComponentProps) => {
   const [showTitleBarLocales, setShowTitleBarLocales] = useState(true);
 
   useEffect(() => {
-    if (!account) {
-      sessionStorage.setItem('redirectURL', location.pathname);
-      window.location.href = '/login';
-    }
-  }, []);
-
-  useEffect(() => {
     api.fetchGoals(locale == ALL_LOCALES ? null : locale).then(setAllGoals);
   }, [locale]);
 

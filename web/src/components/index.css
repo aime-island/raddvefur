@@ -110,9 +110,45 @@ button {
         text-decoration: underline;
     }
 
+    $ div {
+        display: block;
+    }
+
     & button {
         border: none;
         background: var(--grey);
+    }
+}
+
+.cookies-banner {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: var(--header-height);
+    padding: 2rem;
+    color: var(--white);
+    background: var(--red);
+    text-align: center;
+    z-index: 5;
+
+    @media (--md-up) {
+        top: 0;
+    }
+
+    & .cookie-title {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    & a {
+        color: var(--white);
+        text-decoration: underline;
+    }
+
+    & .button {
+        align-self: center;
+        height: 3rem;
+        margin-left: 20px;
     }
 }
 

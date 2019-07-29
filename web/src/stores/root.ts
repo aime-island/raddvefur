@@ -127,23 +127,26 @@ store.subscribe(async () => {
   //   ga('send', 'pageview');
   // }
 
-  for (const field of Object.keys(fieldTrackers)) {
-    const typedField = field as keyof User.State;
-    if (prevUser && user[typedField] !== prevUser[typedField]) {
-      fieldTrackers[typedField](locale);
-    }
-  }
+  // for (const field of Object.keys(fieldTrackers)) {
+  //   const typedField = field as keyof User.State;
+  //   if (prevUser && user[typedField] !== prevUser[typedField]) {
+  //     fieldTrackers[typedField](locale);
+  //   }
+  // }
   prevUser = user;
 
-  localStorage[USER_KEY] = JSON.stringify({
-    ...user,
-    account: null,
-    isFetchingAccount: true,
-  });
+  if (user.cookiesAgreed) {
+    localStorage[USER_KEY] = JSON.stringify({
+      ...user,
+      account: null,
+      isFetchingAccount: true,
+    });
+  }
 });
 
-// Only check for storage events in non-IE browsers, as it misfires in IE
-if (!(document as any).documentMode) {
+const { user } = store.getState();
+//Only check for storage events in non-IE browsers, as it misfires in IE
+if (!(document as any).documentMode && user.cookiesAgreed) {
   window.addEventListener('storage', (storage: StorageEvent) => {
     if (storage.key === USER_KEY) {
       store.dispatch(User.actions.update(JSON.parse(storage.newValue)) as any);

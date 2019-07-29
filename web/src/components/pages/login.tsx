@@ -55,11 +55,7 @@ export const LoginSuccess = connect<PropsFromState>(({ user }: StateTree) => ({
       redirect({ history, user }: Props) {
         const { account, isFetchingAccount } = user;
         if (isFetchingAccount) return;
-        const redirectURL = sessionStorage.getItem('redirectURL');
-        sessionStorage.removeItem('redirectURL');
-        history.replace(
-          redirectURL || (account ? URLS.ROOT : URLS.PROFILE_INFO)
-        );
+        history.replace(URLS.ROOT);
       }
 
       render(): React.ReactNode {

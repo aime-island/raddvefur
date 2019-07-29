@@ -1,3 +1,5 @@
+import store from './root';
+
 export namespace Flags {
   export type MessageOverwrites = {
     [locale: string]: string;
@@ -26,10 +28,15 @@ export namespace Flags {
     }),
   };
 
+  // needs refactoring
   export function reducer(
     state: State = {
       messageOverwrites: JSON.parse(
-        sessionStorage.getItem('messageOverwrites') || '{}'
+        store
+          ? store.getState().user.cookiesAgreed
+            ? sessionStorage.getItem('messageOverwrites') || '{}'
+            : '{}'
+          : '{}'
       ),
       homeHeroes: ['speak', 'listen'],
     },

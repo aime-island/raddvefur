@@ -38,11 +38,12 @@ import Layout from './layout/layout';
 import NotificationBanner from './notification-banner/notification-banner';
 import NotificationPill from './notification-pill/notification-pill';
 import { LoginFailure, LoginSuccess } from './pages/login';
-import { Spinner } from './ui/ui';
+import { Spinner, Button } from './ui/ui';
 import {
   isContributable,
   localeConnector,
   LocalePropsFromState,
+  LocaleLink,
 } from './locale-helpers';
 import { Flags } from '../stores/flags';
 const rtlLocales = require('../../../locales/rtl.json');
@@ -53,6 +54,7 @@ const SpeakPage = React.lazy(() => import('./pages/contribution/speak/speak'));
 
 interface PropsFromState {
   api: API;
+  user: User.State;
   account: UserClient;
   notifications: Notifications.State;
   uploads: Uploads.State;
@@ -64,6 +66,7 @@ interface PropsFromDispatch {
   removeUpload: typeof Uploads.actions.remove;
   setLocale: typeof Locale.actions.set;
   refreshUser: typeof User.actions.refresh;
+  updateUser: typeof User.actions.update;
 }
 
 interface LocalizedPagesProps
@@ -78,6 +81,7 @@ interface LocalizedPagesState {
   hasScrolled: boolean;
   bundleGenerator: any;
   uploadPercentage?: number;
+  showCookiesBanner: boolean;
 }
 
 let LocalizedPage: any = class extends React.Component<
@@ -89,6 +93,7 @@ let LocalizedPage: any = class extends React.Component<
     hasScrolled: false,
     bundleGenerator: null,
     uploadPercentage: null,
+    showCookiesBanner: true,
   };
 
   isUploading = false;
@@ -102,6 +107,11 @@ let LocalizedPage: any = class extends React.Component<
 
   async componentWillReceiveProps(nextProps: LocalizedPagesProps) {
     const { account, addNotification, api, uploads, userLocales } = nextProps;
+    const { user } = this.props;
+
+    if (user.cookiesAgreed) {
+      this.setState({ showCookiesBanner: false });
+    }
 
     this.runUploads(uploads).catch(e => console.error(e));
 
@@ -198,9 +208,20 @@ let LocalizedPage: any = class extends React.Component<
     }
   };
 
+  acceptCookies = () => {
+    const { updateUser } = this.props;
+    updateUser({ cookiesAgreed: true });
+    this.setState({ showCookiesBanner: false });
+  };
+
+  isTermsPage = () => {
+    const curr = `/is${URLS.TERMS}`;
+    return window.location.pathname == curr;
+  };
+
   render() {
     const { locale, notifications, toLocaleRoute } = this.props;
-    const { bundleGenerator, uploadPercentage } = this.state;
+    const { bundleGenerator, uploadPercentage, showCookiesBanner } = this.state;
 
     if (!bundleGenerator) return null;
 
@@ -223,6 +244,22 @@ let LocalizedPage: any = class extends React.Component<
                 }
           }
         />
+        {showCookiesBanner && !this.isTermsPage() && (
+          <div className="cookies-banner">
+            <div>
+              <div className="cookie-title">
+                Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
+                (e. local storage) til að bæta notendaupplifun á vefsíðunni og
+                bæta afköst hennar.
+              </div>
+              <br />
+              <a href={URLS.TERMS}>Sjá skilmála </a>
+            </div>
+            <Button outline rounded onClick={() => this.acceptCookies()}>
+              Samþykkja
+            </Button>
+          </div>
+        )}
         <LocalizationProvider bundles={bundleGenerator}>
           <div>
             <div className="notifications">
@@ -277,6 +314,7 @@ LocalizedPage = withRouter(
       ({ api, flags, notifications, uploads, user }: StateTree) => ({
         account: user.account,
         api,
+        user,
         messageOverwrites: flags.messageOverwrites,
         notifications,
         uploads,
@@ -286,6 +324,7 @@ LocalizedPage = withRouter(
         removeUpload: Uploads.actions.remove,
         setLocale: Locale.actions.set,
         refreshUser: User.actions.refresh,
+        updateUser: User.actions.update,
       }
     )(LocalizedPage)
   )
@@ -318,14 +357,6 @@ class App extends React.Component {
     }
 
     this.userLocales = negotiateLocales(navigator.languages);
-  }
-
-  async componentDidMount() {
-    if (!isProduction()) {
-      const script = document.createElement('script');
-      script.src = 'https://pontoon.mozilla.org/pontoon.js';
-      document.head.appendChild(script);
-    }
   }
 
   async componentDidCatch(error: Error, errorInfo: any) {

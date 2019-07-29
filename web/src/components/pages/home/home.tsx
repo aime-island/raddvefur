@@ -47,39 +47,10 @@ export default function HomePage() {
       statsRef.current.scrollIntoView(true);
       window.scrollBy(0, -130);
     }
-
-    if (
-      locale == CUSTOM_GOAL_LOCALE &&
-      !isFetchingAccount &&
-      !(account && account.customGoal) &&
-      !localStorage.getItem(GOALS_NOTIFICATION_KEY)
-    ) {
-      setShowGoalsBanner(true);
-    }
   }, [account, isFetchingAccount, locale]);
 
   return (
     <div className="home">
-      {showGoalsBanner && (
-        <Banner
-          className="goals-banner"
-          ctaButtonProps={
-            account
-              ? { children: 'Get Started', to: URLS.GOALS }
-              : { children: 'Log In / Sign Up', href: '/login' }
-          }
-          onClose={() => {
-            setShowGoalsBanner(false);
-            localStorage.setItem(GOALS_NOTIFICATION_KEY, JSON.stringify(true));
-          }}>
-          Help reach 10,000 hours in English, set a{' '}
-          <a
-            href="https://discourse.mozilla.org/t/common-voice-launches-personal-goals/38794"
-            target="_blank">
-            personal goal
-          </a>
-        </Banner>
-      )}
       <ContributableLocaleLock
         render={({ isContributable }: any) =>
           isContributable ? (
