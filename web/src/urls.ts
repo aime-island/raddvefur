@@ -24,6 +24,7 @@ export default Object.freeze({
   FAQ: '/spurtogsvarad',
   PRIVACY: '/personuverndaryfirlysing',
   TERMS: '/skilmalar',
+  COOKIES: '/vafrakokustefna',
   NOTFOUND: '/not-found',
   LANGUAGES: '/takk',
   THANKYOU: '/takk',

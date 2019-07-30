@@ -229,7 +229,8 @@ body:not(.focus) #scroller {
 }
 
 .personuverndaryfirlysing #content,
-.skilmalar #content {
+.skilmalar #content,
+.vafrakokustefna #content {
     & h1 {
         margin: 1rem 0;
         text-decoration: underline;
@@ -241,6 +242,9 @@ body:not(.focus) #scroller {
 
     & a {
         color: var(--link-color);
+    }
+    & p {
+        margin: 0.5rem 0 0.5rem 0;
     }
 }
 

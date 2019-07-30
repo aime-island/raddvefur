@@ -162,7 +162,7 @@ export default class API {
     return this.fetch(`${API_PATH}/language_stats`);
   }
 
-  fetchDocument(name: 'privacy' | 'terms'): Promise<string> {
+  fetchDocument(name: 'privacy' | 'terms' | 'cookies'): Promise<string> {
     return this.fetch(`/${name}/${this.locale}.html`, {
       isJSON: false,
     });

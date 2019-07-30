@@ -214,9 +214,13 @@ let LocalizedPage: any = class extends React.Component<
     this.setState({ showCookiesBanner: false });
   };
 
-  isTermsPage = () => {
-    const curr = `/is${URLS.TERMS}`;
-    return window.location.pathname == curr;
+  isDocumentPage = () => {
+    const docs = [
+      `/is${URLS.TERMS}`,
+      `/is${URLS.PRIVACY}`,
+      `/is${URLS.COOKIES}`,
+    ];
+    return docs.includes(window.location.pathname);
   };
 
   render() {
@@ -244,13 +248,13 @@ let LocalizedPage: any = class extends React.Component<
                 }
           }
         />
-        {showCookiesBanner && !this.isTermsPage() && (
+        {showCookiesBanner && !this.isDocumentPage() && (
           <div className="cookies-banner">
             <div>
               <div className="cookie-title">
                 Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
                 (e. local storage) til að bæta notendaupplifun á vefsíðunni og
-                bæta afköst hennar. <a href={URLS.TERMS}>Sjá skilmála </a>
+                bæta afköst hennar. <a href={URLS.COOKIES}>Sjá nánar</a>
               </div>
             </div>
             <Button outline rounded onClick={() => this.acceptCookies()}>
