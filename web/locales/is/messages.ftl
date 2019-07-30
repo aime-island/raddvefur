@@ -142,7 +142,7 @@ contact = Hafa samband
 privacy = Persónuvernd
 terms = Skilmálar
 see-terms = Sjá skilmála
-cookies = Smákökur
+cookies = Vafrakökur
 faq = Algengar spurningar
 content-license-text = Efni birt undir merkjum <licenseLink>Creative Commons</licenseLink>.
 #Changed:

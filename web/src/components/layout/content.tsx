@@ -88,6 +88,11 @@ export default function Content() {
             path={toLocaleRoute(URLS.TERMS)}
             render={() => <DocumentPage key="t" name="terms" />}
           />
+          <Route
+            exact
+            path={toLocaleRoute(URLS.COOKIES)}
+            render={() => <DocumentPage key="t" name="cookies" />}
+          />
           {/* <Route
             exact
             path={toLocaleRoute('/landing/sodedif')}

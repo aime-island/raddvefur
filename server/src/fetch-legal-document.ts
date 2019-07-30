@@ -19,7 +19,6 @@ export default async function fetchLegalDocument(
   if (textHTML && fetchedAt > Date.now() - CACHE_AGE) {
     return textHTML;
   }
-
   const [status, text] = await request({
     uri: `https://raw.githubusercontent.com/aime-island/legal-docs/master/raddvefur/${name}/${locale}.md`,
     resolveWithFullResponse: true,

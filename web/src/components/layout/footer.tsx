@@ -53,12 +53,7 @@ export default React.memo(() => {
             <LocalizedLocaleLink id="terms" to={URLS.TERMS} />
           </div>
           <div>
-            <Localized id="cookies">
-              <a
-                target="_blank"
-                href="http://www.gottimatinn.is/uppskriftir/kokur/smakokur"
-              />
-            </Localized>
+            <LocalizedLocaleLink id="cookies" to={URLS.COOKIES} />
             <LocalizedLocaleLink id="faq" to={URLS.FAQ} />
           </div>
         </div>
