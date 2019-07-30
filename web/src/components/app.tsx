@@ -250,10 +250,8 @@ let LocalizedPage: any = class extends React.Component<
               <div className="cookie-title">
                 Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
                 (e. local storage) til að bæta notendaupplifun á vefsíðunni og
-                bæta afköst hennar.
+                bæta afköst hennar. <a href={URLS.TERMS}>Sjá skilmála </a>
               </div>
-              <br />
-              <a href={URLS.TERMS}>Sjá skilmála </a>
             </div>
             <Button outline rounded onClick={() => this.acceptCookies()}>
               Samþykkja

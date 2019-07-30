@@ -122,7 +122,7 @@ button {
 
 .cookies-banner {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     position: sticky;
     top: var(--header-height);
     padding: 2rem;
@@ -147,8 +147,6 @@ button {
 
     & .button {
         align-self: center;
-        height: 3rem;
-        margin-left: 20px;
     }
 }
 
