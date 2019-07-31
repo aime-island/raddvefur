@@ -13,7 +13,7 @@ import { useLocale } from '../locale-helpers';
 import './share-buttons.css';
 import { useAction } from '../../hooks/store-hooks';
 
-const SHARE_URL = 'https://almannaromur.is/'; //Breyta í Almannaróms url eða hitt urlið sem við notum
+const SHARE_URL = 'https://aime.moon.do/'; //Breyta í Almannaróms url eða hitt urlið sem við notum
 
 interface Props extends LocalizationProps {
   shareText?: string;
