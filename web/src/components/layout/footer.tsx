@@ -10,7 +10,7 @@ import {
   SupportIcon,
 } from '../ui/icons';
 import { TextButton } from '../ui/ui';
-import { LocaleLink, useLocale } from '../locale-helpers';
+import { LocaleLink, useLocale, LocaleNavLink } from '../locale-helpers';
 import Logo from './logo';
 import SubscribeNewsletter from './subscribe-newsletter';
 import { DiscourseLink, GitHubLink } from '../shared/links';
@@ -25,14 +25,24 @@ export const LocalizedLocaleLink = ({ id, to }: { id: string; to: string }) => {
     </Localized>
   );
 };
+
+const LocalizedNavLink = ({ id, to }: { id: string; to: string }) => {
+  const [locale] = useLocale();
+  return (
+    <Localized id={id}>
+      <LocaleNavLink to={to} exact onClick={() => trackNav(id, locale)} />
+    </Localized>
+  );
+};
+
 export default React.memo(() => {
   return (
     <footer>
       <div id="moz-links">
         <div className="logo-container">
-          <h1>
-            <strong>Samrómur</strong>
-          </h1>
+          <div className="samromur">
+            <LocalizedNavLink id="samromur" to="" />
+          </div>
           <p className="license">
             <Localized
               id="content-license-text"

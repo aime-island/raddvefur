@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { LOCALES, NATIVE_NAMES } from '../../services/localization';
-import { trackGlobal } from '../../services/tracker';
+import { trackGlobal, trackNav } from '../../services/tracker';
 import StateTree from '../../stores/tree';
 import { User } from '../../stores/user';
 import { Locale } from '../../stores/locale';
@@ -15,7 +15,7 @@ import {
   isSafari,
   replacePathLocale,
 } from '../../utility';
-import { LocaleLink, LocaleNavLink } from '../locale-helpers';
+import { LocaleLink, LocaleNavLink, useLocale } from '../locale-helpers';
 import {
   CogIcon,
   DashboardIcon,
@@ -32,6 +32,8 @@ import Nav from './nav';
 import UserMenu from './user-menu';
 import * as cx from 'classnames';
 import { isStaging } from '../../utility';
+
+import './layout.css';
 
 const LOCALES_WITH_NAMES = LOCALES.map(code => [
   code,
@@ -58,6 +60,15 @@ interface LayoutState {
   hasScrolledDown: boolean;
   showStagingBanner: boolean;
 }
+
+const LocalizedNavLink = ({ id, to }: { id: string; to: string }) => {
+  const [locale] = useLocale();
+  return (
+    <Localized id={id}>
+      <LocaleNavLink to={to} exact onClick={() => trackNav(id, locale)} />
+    </Localized>
+  );
+};
 
 class Layout extends React.PureComponent<LayoutProps, LayoutState> {
   private header: HTMLElement;
@@ -203,9 +214,9 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
           ref={header => {
             this.header = header as HTMLElement;
           }}>
-          <h1>
-            <strong>Samrómur</strong>
-          </h1>
+          <div className="samromur">
+            <LocalizedNavLink id="samromur" to="" />
+          </div>
           <div>
             <Nav id="main-nav" />
           </div>

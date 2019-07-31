@@ -642,6 +642,7 @@ action-tap = Snerta
 contribute = Leggðu lið
 listen = Hlusta
 skip = Fara í næstu
+samromur = Samrómur
 home = Forsíða
 shortcuts = Flýtileiðir
 clips-with-count = <bold>{ $count }</bold> upptökur
