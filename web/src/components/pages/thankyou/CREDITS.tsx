@@ -13,12 +13,11 @@ const CREDITS = [
   },
   {
     who: 'Common Voice',
-    why:
-      'Samrómur er byggt á Mozilla verkefninu Common Voice. Við þökkum fallega grafík og góða undirstöðu til að byggja verkefnið okkar ofan á.',
+    why: 'Samrómur er byggt á Mozilla verkefninu Common Voice.',
   },
   {
     who: 'Rafmynt ehf.',
-    why: 'Fyrir afnot á vélbúnaði til þjálfunar á talgreini.'
+    why: 'Fyrir afnot á vélbúnaði til þjálfunar á talgreini.',
   },
 ];
 
