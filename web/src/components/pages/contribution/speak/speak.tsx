@@ -814,6 +814,7 @@ class SpeakPage extends React.Component<Props, State> {
           onReset={() => this.resetState()}
           onSkip={this.handleSkip}
           onSubmit={() => this.upload()}
+          setShowDemographicModal={() => this.setShowDemographicModal()}
           primaryButtons={
             <RecordButton
               status={recordingStatus}

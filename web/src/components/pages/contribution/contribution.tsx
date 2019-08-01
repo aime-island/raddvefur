@@ -27,6 +27,7 @@ import Success from './success';
 import Wave from './wave';
 
 import './contribution.css';
+import { LANGUAGES, AGES, SEXES } from '../../../stores/demographics';
 
 export const SET_COUNT = 5;
 
@@ -67,6 +68,7 @@ interface Props extends LocalizationProps, PropsFromState {
     action: () => any;
   }[];
   type: 'speak' | 'listen';
+  setShowDemographicModal?: () => any;
 }
 
 interface State {
@@ -209,7 +211,14 @@ class ContributionPage extends React.Component<Props, State> {
   };
 
   render() {
-    const { errorContent, getString, isSubmitted, type, user } = this.props;
+    const {
+      errorContent,
+      getString,
+      isSubmitted,
+      type,
+      user,
+      setShowDemographicModal,
+    } = this.props;
     const { showShareModal, showShortcutsModal } = this.state;
 
     return (
@@ -307,6 +316,8 @@ class ContributionPage extends React.Component<Props, State> {
       primaryButtons,
       sentences,
       type,
+      user,
+      setShowDemographicModal,
     } = this.props;
     const { selectedPill } = this.state;
 
@@ -318,7 +329,6 @@ class ContributionPage extends React.Component<Props, State> {
           <React.Fragment>
             <div className="cards-and-pills">
               <div />
-
               <div className="cards-and-instruction">
                 {instruction({
                   $actionType: getString('action-click'),
@@ -354,7 +364,46 @@ class ContributionPage extends React.Component<Props, State> {
                   })}
                 </div>
               </div>
-
+              {this.isDone && (
+                <div className="review-demo">
+                  <div className="inner">
+                    <div className="review-demo-titles">
+                      <Localized id="review-demo-title">
+                        <span />
+                      </Localized>
+                    </div>
+                    <div className="my-demo">
+                      <Localized
+                        id="review-age"
+                        bold={<b />}
+                        $age={AGES[user.demographicInfo.age] || ''}>
+                        <span className="text" />
+                      </Localized>
+                      <Localized
+                        id="review-gender"
+                        bold={<b />}
+                        $sex={SEXES[user.demographicInfo.sex] || ''}>
+                        <span className="text" />
+                      </Localized>
+                      <Localized
+                        id="review-native-language"
+                        bold={<b />}
+                        $native_language={
+                          LANGUAGES[user.demographicInfo.native_language] || ''
+                        }>
+                        <span className="text" />
+                      </Localized>
+                    </div>
+                    <Localized id="change-demo">
+                      <PrimaryButton
+                        className="submit-demo"
+                        disabled={!this.isDone}
+                        onClick={setShowDemographicModal}
+                      />
+                    </Localized>
+                  </div>
+                </div>
+              )}
               <div className="pills">
                 <div className="inner">
                   {!errorContent && (
