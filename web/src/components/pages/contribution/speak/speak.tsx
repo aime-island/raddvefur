@@ -146,11 +146,11 @@ const initialState: State = {
   showDiscardModal: false,
   showDemographicInfo: false,
   showDemographicModal: true,
-  showLanguageSelect: false,
+  showLanguageSelect: true,
   demographic: {
     sex: '',
     age: '',
-    native_language: DEFAULT_LANGUAGE,
+    native_language: '',
   },
 };
 
@@ -498,7 +498,7 @@ class SpeakPage extends React.Component<Props, State> {
 
   private userDemographicInfoToState = () => {
     const { user } = this.props;
-    if (!this.getDemographicError(user.demographicInfo)) {
+    if (!this.getDemographicError(user.demographicInfo) && user.hasInfo) {
       this.setState({
         showDemographicModal: false,
         demographic: user.demographicInfo,
@@ -525,16 +525,13 @@ class SpeakPage extends React.Component<Props, State> {
   };
 
   private getDemographicError = (demographic: DemoInfo): DemographicError => {
-    if (demographic.age == '' || !(demographic.age in AGES)) {
+    if (!(demographic.age in AGES)) {
       return DemographicError.NO_AGE;
     }
-    if (
-      demographic.native_language == '' ||
-      !(demographic.native_language in LANGUAGES)
-    ) {
+    if (!(demographic.native_language in LANGUAGES)) {
       return DemographicError.NO_NATIVE_LANGUAGE;
     }
-    if (demographic.sex == '' || !(demographic.sex in SEXES)) {
+    if (!(demographic.sex in SEXES)) {
       return DemographicError.NO_SEX;
     }
     return null;
@@ -574,15 +571,21 @@ class SpeakPage extends React.Component<Props, State> {
   };
 
   private toggleNativeIcelandic = () => {
-    this.setState({
-      showLanguageSelect: !this.state.showLanguageSelect,
-    });
-    if (!this.state.showLanguageSelect) {
+    if (this.state.showLanguageSelect) {
       this.setState({
         demographic: {
           ...this.state.demographic,
           native_language: DEFAULT_LANGUAGE,
         },
+        showLanguageSelect: false,
+      });
+    } else {
+      this.setState({
+        demographic: {
+          ...this.state.demographic,
+          native_language: '',
+        },
+        showLanguageSelect: true,
       });
     }
   };
@@ -592,6 +595,13 @@ class SpeakPage extends React.Component<Props, State> {
       showDemographicInfo: !this.state.showDemographicInfo,
     });
   }
+
+  private setShowDemographicModal = () => {
+    console.log(this.state.showDemographicModal);
+    this.setState({
+      showDemographicModal: !this.state.showDemographicModal,
+    });
+  };
 
   render() {
     const { getString, user } = this.props;
@@ -661,7 +671,7 @@ class SpeakPage extends React.Component<Props, State> {
         {showDemographicModal && (
           <Modal
             innerClassName="demographic-modal"
-            onRequestClose={this.resetAndGoHome}>
+            onRequestClose={this.setShowDemographicModal}>
             <Localized id="demographic-form-title" className="form-title">
               <h1 className="title" />
             </Localized>

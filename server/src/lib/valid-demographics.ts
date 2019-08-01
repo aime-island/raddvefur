@@ -1,4 +1,5 @@
 export const LANGUAGES: any = [
+  '',
   'albanska',
   'arabiska',
   'bulgarska',
@@ -52,6 +53,7 @@ export const LANGUAGES: any = [
 ];
 
 export const AGES = [
+  '',
   'barn',
   'unglingur',
   'tvitugt',
@@ -64,7 +66,7 @@ export const AGES = [
   'niraett',
 ];
 
-export const SEXES = ['annad', 'karl', 'kona'];
+export const SEXES = ['', 'annad', 'karl', 'kona'];
 
 export interface DemoInfo {
   sex: string;
