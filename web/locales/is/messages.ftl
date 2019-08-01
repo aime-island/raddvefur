@@ -7,6 +7,8 @@ return-to-cv = Til baka í Samróm
 email-input =
     .label = Tölvupóstur
 submit-form-action = Senda inn
+change-demo = Breyta
+review-demo-title = Þín rödd
 loading = Hleður...
 email-opt-in-info = Ég vil gjarnan fá tölvupóst um markmiðsáminningar, framvindu mína og fréttabréf Samróms.
 email-opt-in-privacy = Með því að kjósa að fá tölvupóst frá okkur samþykkir þú að Mozilla notist við þær upplýsingar eins og lýst er í <privacyLink>Meðferð persónuupplýsinga<privacyLink>.
@@ -279,6 +281,10 @@ status-hours =
 # $goal - number of hours representing the next goal
 status-goal = Næsta markmið: { $goal }
 english = Enska
+
+review-age = Aldur: <bold>{ $age }</bold>
+review-gender = Kyn: <bold>{ $sex }</bold>
+review-native-language = Móðurmál: <bold>{ $native_language }</bold>
 
 ## demographicForm
 demographic-form-title = Þín rödd

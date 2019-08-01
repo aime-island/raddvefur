@@ -52,7 +52,7 @@ export const LANGUAGES: any = {
   annad: 'Annað',
 };
 
-export const AGES = {
+export const AGES: any = {
   '': '',
   barn: '< 13',
   unglingur: '13 - 18',
@@ -66,7 +66,7 @@ export const AGES = {
   niraett: '> 89',
 };
 
-export const SEXES = {
+export const SEXES: any = {
   '': '',
   karl: 'Karl',
   kona: 'Kona',

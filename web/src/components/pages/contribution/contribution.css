@@ -286,6 +286,88 @@
         }
     }
 
+    & .review-demo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media (--sm-down) {
+            margin-top: 20px;
+        }
+
+        @media (--md-up) {
+            flex: 1;
+            margin-top: 70px;
+            position: absolute;
+        }
+
+        & .inner {
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+
+            @media (--md-up) {
+                margin-top: 0;
+                margin-inline-start: auto;
+                width: fit-content;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+        }
+
+        & .review-demo-titles {
+            font-style: italic;
+
+            @media (--sm-down) {
+                max-width: 120px;
+                text-align: center;
+                font-size: var(--font-size-xs);
+            }
+
+            @media (--md-up) {
+                right: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                font-size: var(--font-size-xl);
+            }
+        }
+
+        & .my-demo {
+            display: inline-flex;
+            font-weight: 600;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            & .text {
+                margin-inline-start: 10px;
+                font-weight: normal;
+                @media (--sm-up) {
+                    font-size: var(--font-size);
+                }
+                @media (--md-up) {
+                    font-size: var(--font-size-lg);
+                }
+            }
+        }
+
+        & button {
+            border: none;
+            border-radius: 50px;
+            width: 178px;
+            height: 57px;
+            color: var(--white);
+            background: var(--valid-green);
+            text-transform: uppercase;
+            font-family: var(--base-font-family);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    }
+
     & .pills {
         @media (--sm-down) {
             margin-top: 20px;
