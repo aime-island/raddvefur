@@ -40,8 +40,8 @@ export default React.memo(() => {
     <footer>
       <div id="moz-links">
         <div className="logo-container">
-          <div className="samromur">
-            <LocalizedNavLink id="samromur" to="" />
+          <div className="almannaromur">
+            <LocalizedNavLink id="almannaromur" to="" />
           </div>
           <p className="license">
             <Localized

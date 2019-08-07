@@ -214,8 +214,8 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
           ref={header => {
             this.header = header as HTMLElement;
           }}>
-          <div className="samromur">
-            <LocalizedNavLink id="samromur" to="" />
+          <div className="almannaromur">
+            <LocalizedNavLink id="almannaromur" to="" />
           </div>
           <div>
             <Nav id="main-nav" />
