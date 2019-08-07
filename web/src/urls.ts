@@ -19,7 +19,7 @@ export default Object.freeze({
   AWARDS: '/awards',
 
   DATA: '/data', // old, here for redirect purposes
-  DATASETS: '/gagnasofn',
+  DATASETS: '/gagnasafn',
 
   FAQ: '/spurtogsvarad',
   PRIVACY: '/personuverndaryfirlysing',

@@ -135,6 +135,7 @@ zh-TW = Kínverska (Taívan)
 speak = Tala
 speak-now = Talaðu núna
 datasets = Gagnasöfn
+dataset = Gagnasafn
 #Changed:
 languages = Þakkir
 about = Um verkefnið
