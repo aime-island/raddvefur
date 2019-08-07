@@ -15,13 +15,11 @@ const memoize = require('lodash.memoize');
 export const SECTIONS: any = {
   whatIsCV: 'what-is-common-voice',
   usingCV: 'using-common-voice',
-  glossary: 'glossary',
 };
 
 const SECTION_NAMES: any = {
   [SECTIONS.whatIsCV]: 'faq-what-cv-q',
   [SECTIONS.usingCV]: 'faq-using-cv',
-  [SECTIONS.glossary]: 'glossary',
 };
 
 const SECTION_CONTENTS: any = {
@@ -35,12 +33,25 @@ const SECTION_CONTENTS: any = {
         mozillaLink: <StyledLink href="https://voice.mozilla.org/en" blank />,
       },
     ],
-    'faq-what-cv-and-deepspeech',
-    'faq-is-goal-assistant',
-    /*[
-      'faq-when-release-q',
-      'faq-when-release-a',
-    ],*/
+    [
+      'faq-whos-involved-q',
+      'faq-whos-involved-a',
+      {
+        deloitteLink: (
+          <StyledLink href="https://www2.deloitte.com/is/is.html" blank />
+        ),
+        almannaLink: (
+          <StyledLink href="https://www.facebook.com/almannaromur/" blank />
+        ),
+        skemaLink: <StyledLink href="https://www.ru.is/skema/" blank />,
+        nyskLink: (
+          <StyledLink
+            href="https://www.rannis.is/sjodir/menntun/nyskopunarsjodur-namsmanna/"
+            blank
+          />
+        ),
+      },
+    ],
   ],
   [SECTIONS.usingCV]: [
     [
@@ -89,18 +100,8 @@ const SECTION_CONTENTS: any = {
         ),
       },*/,
     ],
-    ['faq-why-account-q', 'faq-why-account-a'],
-    /*['faq-is-account-public-q', WHATS_PUBLIC],*/
-    'faq-how-privacy',
+    'faq-why-participate',
     'faq-what-determine-identity',
-  ],
-  [SECTIONS.glossary]: [
-    ['localization', 'localization-explanation'],
-    ['sentence-collection', 'sentence-collection-explanation'],
-    ['hours-recorded', 'hours-recorded-explanation'],
-    ['hours-validated', 'hours-validated-explanation'],
-    ['sst', 'sst-explanation'],
-    ['de-identified', 'de-identified-explanation'],
   ],
 };
 

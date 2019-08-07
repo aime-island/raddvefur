@@ -13,7 +13,7 @@ const CREDITS = [
   },
   {
     who: 'Common Voice',
-    why: 'Samrómur er byggt á Mozilla verkefninu Common Voice.',
+    why: 'Almannarómur er byggt á Mozilla verkefninu Common Voice.',
   },
   {
     who: 'Rafmynt ehf.',
