@@ -83,11 +83,11 @@ export function isMobileResolution(): boolean {
 }
 
 export function isProduction(): boolean {
-  return window.location.origin === 'https://aime.moon.do';
+  return window.location.origin === 'https://almannaromur.is';
 }
 
 export function isStaging(): boolean {
-  return window.location.origin === 'https://staging-aime.moon.do';
+  return window.location.origin === 'https://staging-almannaromur.is';
 }
 
 export function getItunesURL(): string {
