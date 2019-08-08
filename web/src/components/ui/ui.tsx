@@ -179,3 +179,15 @@ export const Toggle = ({
     </Localized>
   </div>
 );
+
+export const ToggleIs = ({
+  offText,
+  onText,
+  ...props
+}: { offText: string; onText: string } & HTMLProps<HTMLInputElement>) => (
+  <div className="toggle-input">
+    <input type="checkbox" {...props} />
+    <div>{offText}</div>
+    <div>{onText}</div>
+  </div>
+);

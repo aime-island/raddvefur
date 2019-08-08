@@ -28,16 +28,10 @@ export namespace Flags {
     }),
   };
 
-  // needs refactoring
+  // 'messageOverwrites' can be fetched from the sessionStorage -> disabled for now
   export function reducer(
     state: State = {
-      messageOverwrites: JSON.parse(
-        store
-          ? store.getState().user.cookiesAgreed
-            ? sessionStorage.getItem('messageOverwrites') || '{}'
-            : '{}'
-          : '{}'
-      ),
+      messageOverwrites: JSON.parse('{}'),
       homeHeroes: ['speak', 'listen'],
     },
     action: Action

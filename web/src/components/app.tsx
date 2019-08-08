@@ -38,7 +38,7 @@ import Layout from './layout/layout';
 import NotificationBanner from './notification-banner/notification-banner';
 import NotificationPill from './notification-pill/notification-pill';
 import { LoginFailure, LoginSuccess } from './pages/login';
-import { Spinner, Button } from './ui/ui';
+import { Spinner, Button, ToggleIs } from './ui/ui';
 import {
   isContributable,
   localeConnector,
@@ -46,6 +46,8 @@ import {
   LocaleLink,
 } from './locale-helpers';
 import { Flags } from '../stores/flags';
+import { Cookies } from '../stores/cookies';
+import { InfoIcon } from './ui/icons';
 const rtlLocales = require('../../../locales/rtl.json');
 const ListenPage = React.lazy(() =>
   import('./pages/contribution/listen/listen')
@@ -59,6 +61,7 @@ interface PropsFromState {
   notifications: Notifications.State;
   uploads: Uploads.State;
   messageOverwrites: Flags.MessageOverwrites;
+  cookies: Cookies.State;
 }
 
 interface PropsFromDispatch {
@@ -67,6 +70,7 @@ interface PropsFromDispatch {
   setLocale: typeof Locale.actions.set;
   refreshUser: typeof User.actions.refresh;
   updateUser: typeof User.actions.update;
+  updateCookies: typeof Cookies.actions.update;
 }
 
 interface LocalizedPagesProps
@@ -82,6 +86,9 @@ interface LocalizedPagesState {
   bundleGenerator: any;
   uploadPercentage?: number;
   showCookiesBanner: boolean;
+  showCookiesPreference: boolean;
+  statCo: boolean;
+  prefCo: boolean;
 }
 
 let LocalizedPage: any = class extends React.Component<
@@ -94,6 +101,9 @@ let LocalizedPage: any = class extends React.Component<
     bundleGenerator: null,
     uploadPercentage: null,
     showCookiesBanner: true,
+    showCookiesPreference: false,
+    statCo: false,
+    prefCo: true,
   };
 
   isUploading = false;
@@ -107,9 +117,9 @@ let LocalizedPage: any = class extends React.Component<
 
   async componentWillReceiveProps(nextProps: LocalizedPagesProps) {
     const { account, addNotification, api, uploads, userLocales } = nextProps;
-    const { user } = this.props;
+    const { cookies } = this.props;
 
-    if (user.cookiesAgreed) {
+    if (cookies.set) {
       this.setState({ showCookiesBanner: false });
     }
 
@@ -208,10 +218,14 @@ let LocalizedPage: any = class extends React.Component<
     }
   };
 
-  acceptCookies = () => {
-    const { updateUser } = this.props;
-    updateUser({ cookiesAgreed: true });
-    this.setState({ showCookiesBanner: false });
+  setCookiePreference = () => {
+    const { updateCookies } = this.props;
+    updateCookies({ set: true, ud: this.state.prefCo, ga: this.state.statCo });
+    this.setState({ showCookiesBanner: false, showCookiesPreference: false });
+  };
+
+  setShowCookiePreference = () => {
+    this.setState({ showCookiesPreference: !this.state.showCookiesPreference });
   };
 
   isDocumentPage = () => {
@@ -225,7 +239,14 @@ let LocalizedPage: any = class extends React.Component<
 
   render() {
     const { locale, notifications, toLocaleRoute } = this.props;
-    const { bundleGenerator, uploadPercentage, showCookiesBanner } = this.state;
+    const {
+      bundleGenerator,
+      uploadPercentage,
+      showCookiesBanner,
+      showCookiesPreference,
+      statCo,
+      prefCo,
+    } = this.state;
 
     if (!bundleGenerator) return null;
 
@@ -249,17 +270,100 @@ let LocalizedPage: any = class extends React.Component<
           }
         />
         {showCookiesBanner && !this.isDocumentPage() && (
-          <div className="cookies-banner">
+          <div
+            className={`cookies-banner ${
+              showCookiesPreference ? 'expanded' : ''
+            }`}>
             <div>
-              <div className="cookie-title">
+              <div className="banner-title">
                 Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
-                (e. local storage) til að bæta notendaupplifun á vefsíðunni og
-                bæta afköst hennar. <a href={URLS.COOKIES}>Sjá nánar</a>
+                (e. local storage) til að bæta upplifun þína á vefsíðunni.{' '}
+                <a href={URLS.COOKIES}>Sjá nánar</a>
               </div>
             </div>
-            <Button outline rounded onClick={() => this.acceptCookies()}>
-              Samþykkja
+            <Button
+              outline
+              rounded
+              className="cont-btn"
+              onClick={() => this.setShowCookiePreference()}>
+              Áfram
             </Button>
+            <Button
+              outline
+              rounded
+              className="save-btn"
+              onClick={() => this.setCookiePreference()}>
+              Vista
+            </Button>
+            <div className="preferences">
+              <div className="toggle-with-info">
+                <div className="pref">
+                  <h3 className="cookie-title">Frammistaða og virkni</h3>
+                  <div className="toggle-container">
+                    <div className="cookie-name">
+                      Nafn: <strong>user</strong>
+                    </div>
+                    <ToggleIs
+                      onText="Leyfa"
+                      offText="Ekki leyfa"
+                      defaultChecked={prefCo}
+                      onChange={(
+                        event: React.ChangeEvent<HTMLInputElement>
+                      ) => {
+                        this.setState({ prefCo: event.target.checked });
+                      }}
+                    />
+                  </div>
+                  <div className="info">
+                    <InfoIcon />
+                    <div className="cookie-text">
+                      Notkun vefgeymslu vafrans til að halda um upplýsingar sem
+                      bæta afköst síðunar og notendaupplifun. Þetta eru
+                      upplýsingar sem notandi hefur skráð inn, samþykktir,
+                      einstakt notanda númer, fjöldi raddsýna sem notandi hefur
+                      gefið og fjöldi raddsýna sem notandi hefur hlustað á. Með
+                      því að nota vefgeymslu vafrans á þennan hátt komum við í
+                      veg fyrir að notandi þurfi skrá inn sömu upplýsingarnar
+                      við hverja heimsókn, gefa sömu samþykki og til þess að
+                      lágmarka líkur á að notandi fái sama raddsýni oftar en
+                      einu sinni til hlustunar.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="toggle-with-info">
+                <div className="stat">
+                  <h3 className="cookie-title">Tölfræði um notkun</h3>
+                  <div className="toggle-container">
+                    <div className="cookie-name">
+                      Nafn: <strong>ga</strong>
+                    </div>
+                    <ToggleIs
+                      onText="Leyfa"
+                      offText="Ekki leyfa"
+                      defaultChecked={statCo}
+                      onChange={(
+                        event: React.ChangeEvent<HTMLInputElement>
+                      ) => {
+                        this.setState({ statCo: event.target.checked });
+                      }}
+                    />
+                  </div>
+                  <div className="info">
+                    <InfoIcon />
+                    <div className="cookie-text">
+                      Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum
+                      innan vefsíðunnar, það hjálpar okkur að meta hvað þarf að
+                      bæta, til þess notum við kökur fyrir Google Analyctics.
+                      Með því getum við séð notkunarmynstur á síðunni yfir
+                      heildina í stað þess að sjá notkun einstaka notanda. Við
+                      notum upplýsingarnar til að greina umferð á vefsíðunni en
+                      ekki til að skoða persónugreinanlegar upplýsingar.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
         <LocalizationProvider bundles={bundleGenerator}>
@@ -313,13 +417,14 @@ let LocalizedPage: any = class extends React.Component<
 LocalizedPage = withRouter(
   localeConnector(
     connect<PropsFromState, PropsFromDispatch>(
-      ({ api, flags, notifications, uploads, user }: StateTree) => ({
+      ({ api, flags, notifications, uploads, user, cookies }: StateTree) => ({
         account: user.account,
         api,
         user,
         messageOverwrites: flags.messageOverwrites,
         notifications,
         uploads,
+        cookies,
       }),
       {
         addNotification: Notifications.actions.addBanner,
@@ -327,6 +432,7 @@ LocalizedPage = withRouter(
         setLocale: Locale.actions.set,
         refreshUser: User.actions.refresh,
         updateUser: User.actions.update,
+        updateCookies: Cookies.actions.update,
       }
     )(LocalizedPage)
   )
