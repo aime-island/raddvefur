@@ -45,6 +45,7 @@ import {
   LocalePropsFromState,
   LocaleLink,
 } from './locale-helpers';
+import Modal, { ModalButtons } from './modal/modal';
 import { Flags } from '../stores/flags';
 import { Cookies } from '../stores/cookies';
 import { InfoIcon } from './ui/icons';
@@ -85,7 +86,7 @@ interface LocalizedPagesState {
   hasScrolled: boolean;
   bundleGenerator: any;
   uploadPercentage?: number;
-  showCookiesBanner: boolean;
+  showCookiesModal: boolean;
   showCookiesPreference: boolean;
   statCo: boolean;
   prefCo: boolean;
@@ -100,7 +101,7 @@ let LocalizedPage: any = class extends React.Component<
     hasScrolled: false,
     bundleGenerator: null,
     uploadPercentage: null,
-    showCookiesBanner: true,
+    showCookiesModal: true,
     showCookiesPreference: false,
     statCo: false,
     prefCo: true,
@@ -120,7 +121,7 @@ let LocalizedPage: any = class extends React.Component<
     const { cookies } = this.props;
 
     if (cookies.set) {
-      this.setState({ showCookiesBanner: false });
+      this.setState({ showCookiesModal: false });
     }
 
     this.runUploads(uploads).catch(e => console.error(e));
@@ -221,7 +222,7 @@ let LocalizedPage: any = class extends React.Component<
   setCookiePreference = () => {
     const { updateCookies } = this.props;
     updateCookies({ set: true, ud: this.state.prefCo, ga: this.state.statCo });
-    this.setState({ showCookiesBanner: false, showCookiesPreference: false });
+    this.setState({ showCookiesModal: false, showCookiesPreference: false });
   };
 
   setShowCookiePreference = () => {
@@ -242,7 +243,7 @@ let LocalizedPage: any = class extends React.Component<
     const {
       bundleGenerator,
       uploadPercentage,
-      showCookiesBanner,
+      showCookiesModal,
       showCookiesPreference,
       statCo,
       prefCo,
@@ -269,102 +270,78 @@ let LocalizedPage: any = class extends React.Component<
                 }
           }
         />
-        {showCookiesBanner && !this.isDocumentPage() && (
-          <div
-            className={`cookies-banner ${
-              showCookiesPreference ? 'expanded' : ''
-            }`}>
+        {showCookiesModal && !this.isDocumentPage() && (
+          <Modal innerClassName="cookie-modal">
             <div>
-              <div className="banner-title">
+              <div className="modal-title">
                 Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
                 (e. local storage) til að bæta upplifun þína á vefsíðunni.{' '}
                 <a href={URLS.COOKIES}>Sjá nánar</a>
               </div>
             </div>
-            <Button
-              outline
-              rounded
-              className="cont-btn"
-              onClick={() => this.setShowCookiePreference()}>
-              Áfram
-            </Button>
-            <Button
-              outline
-              rounded
-              className="save-btn"
-              onClick={() => this.setCookiePreference()}>
-              Vista
-            </Button>
-            <div className="preferences">
-              <div className="toggle-with-info">
-                <div className="pref">
-                  <h3 className="cookie-title">Frammistaða og virkni</h3>
-                  <div className="toggle-container">
-                    <div className="cookie-name">
-                      Nafn: <strong>user</strong>
-                    </div>
-                    <ToggleIs
-                      onText="Leyfa"
-                      offText="Ekki leyfa"
-                      defaultChecked={prefCo}
-                      onChange={(
-                        event: React.ChangeEvent<HTMLInputElement>
-                      ) => {
-                        this.setState({ prefCo: event.target.checked });
-                      }}
-                    />
-                  </div>
-                  <div className="info">
-                    <InfoIcon />
-                    <div className="cookie-text">
-                      Notkun vefgeymslu vafrans til að halda um upplýsingar sem
-                      bæta afköst síðunar og notendaupplifun. Þetta eru
-                      upplýsingar sem notandi hefur skráð inn, samþykktir,
-                      einstakt notanda númer, fjöldi raddsýna sem notandi hefur
-                      gefið og fjöldi raddsýna sem notandi hefur hlustað á. Með
-                      því að nota vefgeymslu vafrans á þennan hátt komum við í
-                      veg fyrir að notandi þurfi skrá inn sömu upplýsingarnar
-                      við hverja heimsókn, gefa sömu samþykki og til þess að
-                      lágmarka líkur á að notandi fái sama raddsýni oftar en
-                      einu sinni til hlustunar.
-                    </div>
-                  </div>
+            <div className="toggle-with-info">
+              <h3 className="cookie-title">Frammistaða og virkni</h3>
+              <div className="toggle-container">
+                <div className="cookie-name">
+                  Nafn: <strong>user</strong>
                 </div>
+                <ToggleIs
+                  onText="Leyfa"
+                  offText="Ekki leyfa"
+                  defaultChecked={prefCo}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    this.setState({ prefCo: event.target.checked });
+                  }}
+                />
               </div>
-              <div className="toggle-with-info">
-                <div className="stat">
-                  <h3 className="cookie-title">Tölfræði um notkun</h3>
-                  <div className="toggle-container">
-                    <div className="cookie-name">
-                      Nafn: <strong>ga</strong>
-                    </div>
-                    <ToggleIs
-                      onText="Leyfa"
-                      offText="Ekki leyfa"
-                      defaultChecked={statCo}
-                      onChange={(
-                        event: React.ChangeEvent<HTMLInputElement>
-                      ) => {
-                        this.setState({ statCo: event.target.checked });
-                      }}
-                    />
-                  </div>
-                  <div className="info">
-                    <InfoIcon />
-                    <div className="cookie-text">
-                      Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum
-                      innan vefsíðunnar, það hjálpar okkur að meta hvað þarf að
-                      bæta, til þess notum við kökur fyrir Google Analyctics.
-                      Með því getum við séð notkunarmynstur á síðunni yfir
-                      heildina í stað þess að sjá notkun einstaka notanda. Við
-                      notum upplýsingarnar til að greina umferð á vefsíðunni en
-                      ekki til að skoða persónugreinanlegar upplýsingar.
-                    </div>
-                  </div>
+              <div className="info">
+                <InfoIcon />
+                <div className="cookie-text">
+                  Notkun vefgeymslu vafrans til að halda um upplýsingar sem bæta
+                  afköst síðunar og notendaupplifun. Þetta eru upplýsingar sem
+                  notandi hefur skráð inn, samþykki, einstakt notanda númer,
+                  fjöldi raddsýna sem notandi hefur gefið og fjöldi raddsýna sem
+                  notandi hefur hlustað á.
                 </div>
               </div>
             </div>
-          </div>
+            <div className="toggle-with-info">
+              <h3 className="cookie-title">Tölfræði um notkun</h3>
+              <div className="toggle-container">
+                <div className="cookie-name">
+                  Nafn: <strong>ga</strong>
+                </div>
+                <ToggleIs
+                  onText="Leyfa"
+                  offText="Ekki leyfa"
+                  defaultChecked={statCo}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    this.setState({ statCo: event.target.checked });
+                  }}
+                />
+              </div>
+              <div className="info">
+                <InfoIcon />
+                <div className="cookie-text">
+                  Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum innan
+                  vefsíðunnar, það hjálpar okkur að meta hvað þarf að bæta, til
+                  þess notum við kökur fyrir Google Analyctics. Með því getum
+                  við séð notkunarmynstur á síðunni yfir heildina í stað þess að
+                  sjá notkun einstaka notanda. Við notum upplýsingarnar til að
+                  greina umferð á vefsíðunni en ekki til að skoða
+                  persónugreinanlegar upplýsingar.
+                </div>
+              </div>
+            </div>
+            <ModalButtons>
+              <Button
+                rounded
+                className="btn-grn"
+                onClick={() => this.setCookiePreference()}>
+                Áfram
+              </Button>
+            </ModalButtons>
+          </Modal>
         )}
         <LocalizationProvider bundles={bundleGenerator}>
           <div>

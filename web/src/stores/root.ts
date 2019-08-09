@@ -141,6 +141,10 @@ let prevUser: User.State = null;
 store.subscribe(async () => {
   const { locale, user, cookies } = store.getState();
 
+  if (cookies.set) {
+    localStorage[USER_COOKIES_AGREED] = JSON.stringify(cookies);
+  }
+
   if (cookies.ga && ga && (!prevUser || !prevUser.account) && user.account) {
     ga('set', 'userId', await hash(user.account.client_id));
     ga('send', 'pageview');
