@@ -96,7 +96,14 @@ a:active {
 
 .btn-grn:hover {
     background: var(--valid-green) !important;
-    color: var(--white);
+    color: var(--white) !important;
+    box-shadow: 0 0 2px 2px var(--grey) !important;
+}
+
+.btn-grn:active {
+    background: var(--valid-green) !important;
+    color: var(--white) !important;
+    box-shadow: 0 0 2px 2px var(--grey) !important;
 }
 
 button {
@@ -130,6 +137,35 @@ button {
         border: none;
         background: var(--grey);
     }
+}
+
+.cookie-corner {
+    display: flex;
+    background-color: var(--red);
+    opacity: 0.8;
+    webkit-clip-path: polygon(0 0, 0 100%, 100% 100%);
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    width: 3em;
+    position: fixed;
+    height: 3em;
+    left: 0px;
+    bottom: 0px;
+    z-index: 10;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    & svg {
+        margin: 0.2em;
+        width: 22px;
+    }
+
+    & path {
+        fill: var(--white);
+    }
+}
+
+.cookie-corner:hover {
+    cursor: pointer;
 }
 
 .cookie-modal {
