@@ -132,6 +132,35 @@ button {
     }
 }
 
+.cookie-corner {
+    display: flex;
+    background-color: var(--red);
+    opacity: 0.8;
+    webkit-clip-path: polygon(0 0, 0 100%, 100% 100%);
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    width: 3em;
+    position: fixed;
+    height: 3em;
+    left: 0px;
+    bottom: 0px;
+    z-index: 10;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    & :hover {
+        cursor: pointer;
+    }
+
+    & svg {
+        margin: 0.2em;
+        width: 22px;
+    }
+
+    & path {
+        fill: var(--white);
+    }
+}
+
 .cookie-modal {
     display: flex;
     flex-direction: column;

@@ -48,7 +48,7 @@ import {
 import Modal, { ModalButtons } from './modal/modal';
 import { Flags } from '../stores/flags';
 import { Cookies } from '../stores/cookies';
-import { InfoIcon } from './ui/icons';
+import { InfoIcon, CogIcon } from './ui/icons';
 const rtlLocales = require('../../../locales/rtl.json');
 const ListenPage = React.lazy(() =>
   import('./pages/contribution/listen/listen')
@@ -222,11 +222,11 @@ let LocalizedPage: any = class extends React.Component<
   setCookiePreference = () => {
     const { updateCookies } = this.props;
     updateCookies({ set: true, ud: this.state.prefCo, ga: this.state.statCo });
-    this.setState({ showCookiesModal: false, showCookiesPreference: false });
+    this.setState({ showCookiesModal: false });
   };
 
-  setShowCookiePreference = () => {
-    this.setState({ showCookiesPreference: !this.state.showCookiesPreference });
+  setShowCookiesModal = () => {
+    this.setState({ showCookiesModal: !this.state.showCookiesModal });
   };
 
   isDocumentPage = () => {
@@ -244,7 +244,6 @@ let LocalizedPage: any = class extends React.Component<
       bundleGenerator,
       uploadPercentage,
       showCookiesModal,
-      showCookiesPreference,
       statCo,
       prefCo,
     } = this.state;
@@ -342,6 +341,13 @@ let LocalizedPage: any = class extends React.Component<
               </Button>
             </ModalButtons>
           </Modal>
+        )}
+        {!showCookiesModal && !this.isDocumentPage() && (
+          <div
+            className="cookie-corner"
+            onClick={() => this.setShowCookiesModal()}>
+            <CogIcon />
+          </div>
         )}
         <LocalizationProvider bundles={bundleGenerator}>
           <div>
