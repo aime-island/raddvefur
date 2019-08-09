@@ -153,6 +153,7 @@ button {
     z-index: 10;
     align-items: flex-end;
     justify-content: flex-start;
+    cursor: pointer;
 
     & svg {
         margin: 0.2em;
@@ -164,9 +165,6 @@ button {
     }
 }
 
-& .cookie-corner:hover {
-    cursor: pointer;
-}
 .cookie-modal {
     display: flex;
     flex-direction: column;
