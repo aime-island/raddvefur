@@ -344,7 +344,7 @@ let LocalizedPage: any = class extends React.Component<
         )}
         {!showCookiesModal && !this.isDocumentPage() && (
           <div
-            className="cookie-corner"
+            className="cookie-corner" 
             onClick={() => this.setShowCookiesModal()}>
             <CogIcon />
           </div>

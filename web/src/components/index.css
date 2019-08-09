@@ -96,7 +96,14 @@ a:active {
 
 .btn-grn:hover {
     background: var(--valid-green) !important;
-    color: var(--white);
+    color: var(--white) !important;
+    box-shadow: 0 0 2px 2px var(--grey) !important;
+}
+
+.btn-grn:active {
+    background: var(--valid-green) !important;
+    color: var(--white) !important;
+    box-shadow: 0 0 2px 2px var(--grey) !important;
 }
 
 button {
