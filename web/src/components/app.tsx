@@ -225,7 +225,7 @@ let LocalizedPage: any = class extends React.Component<
     this.setState({ showCookiesModal: false });
   };
 
-  setShowCookieModal = () => {
+  setShowCookiesModal = () => {
     this.setState({ showCookiesModal: !this.state.showCookiesModal });
   };
 
@@ -244,7 +244,6 @@ let LocalizedPage: any = class extends React.Component<
       bundleGenerator,
       uploadPercentage,
       showCookiesModal,
-      showCookiesPreference,
       statCo,
       prefCo,
     } = this.state;
@@ -345,8 +344,8 @@ let LocalizedPage: any = class extends React.Component<
         )}
         {!showCookiesModal && !this.isDocumentPage() && (
           <div
-            className="cookie-corner"
-            onClick={() => this.setShowCookieModal()}>
+            className="cookie-corner" 
+            onClick={() => this.setShowCookiesModal()}>
             <CogIcon />
           </div>
         )}

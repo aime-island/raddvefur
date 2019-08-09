@@ -154,6 +154,10 @@ button {
     align-items: flex-end;
     justify-content: flex-start;
 
+    & :hover {
+        cursor: pointer;
+    }
+
     & svg {
         margin: 0.2em;
         width: 22px;
@@ -162,10 +166,6 @@ button {
     & path {
         fill: var(--white);
     }
-}
-
-.cookie-corner:hover {
-    cursor: pointer;
 }
 
 .cookie-modal {
