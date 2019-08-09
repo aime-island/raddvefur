@@ -12,17 +12,37 @@ import { Sentences } from './sentences';
 import StateTree from './tree';
 import { Uploads } from './uploads';
 import { User } from './user';
+import { Cookies } from './cookies';
 
-export const USER_KEY = 'userdata';
+export const USER_KEY = 'user';
+export const USER_COOKIES_AGREED = 'cookiesAgreed';
 
 let preloadedState = null;
-try {
-  preloadedState = {
-    user: JSON.parse(localStorage.getItem(USER_KEY)) || undefined,
-  };
-} catch (e) {
-  console.error('failed parsing storage', e);
-  localStorage.removeItem(USER_KEY);
+let fcookies =
+  JSON.parse(localStorage.getItem(USER_COOKIES_AGREED)) || undefined;
+
+preloadedState = {
+  user: undefined,
+  cookies: undefined,
+};
+
+if (fcookies) {
+  try {
+    preloadedState.cookies = fcookies;
+  } catch (e) {
+    console.error('failed parsing storage', e);
+    localStorage.removeItem(USER_COOKIES_AGREED);
+  }
+
+  if (fcookies.ud) {
+    try {
+      preloadedState.user =
+        JSON.parse(localStorage.getItem(USER_KEY)) || undefined;
+    } catch (e) {
+      console.error('failed parsing storage', e);
+      localStorage.removeItem(USER_KEY);
+    }
+  }
 }
 
 const composeEnhancers =
@@ -38,6 +58,7 @@ const store = createStore(
       locale,
       notifications,
       uploads,
+      cookies,
     }: StateTree = {
       api: undefined,
       clips: undefined,
@@ -48,6 +69,7 @@ const store = createStore(
       sentences: undefined,
       uploads: undefined,
       user: undefined,
+      cookies: undefined,
     },
     action:
       | Clips.Action
@@ -57,6 +79,7 @@ const store = createStore(
       | Sentences.Action
       | Uploads.Action
       | User.Action
+      | Cookies.Action
   ): StateTree {
     const newState = {
       clips: Clips.reducer(locale, clips, action as Clips.Action),
@@ -74,6 +97,7 @@ const store = createStore(
       notifications: Notifications.reducer(notifications, action as any),
       uploads: Uploads.reducer(uploads, action as Uploads.Action),
       user: User.reducer(user, action as User.Action),
+      cookies: Cookies.reducer(cookies, action as Cookies.Action),
     };
 
     return { api: new API(newState.locale, newState.user), ...newState };
@@ -115,27 +139,27 @@ declare const ga: any;
 
 let prevUser: User.State = null;
 store.subscribe(async () => {
-  const { locale, user } = store.getState();
+  const { locale, user, cookies } = store.getState();
 
-  // if (ga && (!prevUser || !prevUser.account) && user.account) {
-  //   ga('set', 'userId', await hash(user.account.client_id));
-  //   const { customGoal } = user.account;
-  //   if (customGoal) {
-  //     const goals = Object.keys(customGoal.current);
-  //     ga('set', 'dimension1', goals.length > 1 ? 'both' : goals[0]);
-  //   }
-  //   ga('send', 'pageview');
-  // }
+  if (cookies.set) {
+    localStorage[USER_COOKIES_AGREED] = JSON.stringify(cookies);
+  }
 
-  // for (const field of Object.keys(fieldTrackers)) {
-  //   const typedField = field as keyof User.State;
-  //   if (prevUser && user[typedField] !== prevUser[typedField]) {
-  //     fieldTrackers[typedField](locale);
-  //   }
-  // }
+  if (cookies.ga && ga && (!prevUser || !prevUser.account) && user.account) {
+    ga('set', 'userId', await hash(user.account.client_id));
+    ga('send', 'pageview');
+  }
+
+  for (const field of Object.keys(fieldTrackers)) {
+    const typedField = field as keyof User.State;
+    if (prevUser && user[typedField] !== prevUser[typedField]) {
+      fieldTrackers[typedField](locale);
+    }
+  }
+
   prevUser = user;
 
-  if (user.cookiesAgreed) {
+  if (cookies.ud) {
     localStorage[USER_KEY] = JSON.stringify({
       ...user,
       account: null,
@@ -144,9 +168,8 @@ store.subscribe(async () => {
   }
 });
 
-const { user } = store.getState();
 //Only check for storage events in non-IE browsers, as it misfires in IE
-if (!(document as any).documentMode && user.cookiesAgreed) {
+if (!(document as any).documentMode && store.getState().cookies.ud) {
   window.addEventListener('storage', (storage: StorageEvent) => {
     if (storage.key === USER_KEY) {
       store.dispatch(User.actions.update(JSON.parse(storage.newValue)) as any);

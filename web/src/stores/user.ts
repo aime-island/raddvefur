@@ -15,7 +15,6 @@ export namespace User {
     validateTally: number;
     hasInfo: boolean;
     demographicInfo: DemoInfo;
-    cookiesAgreed: boolean;
 
     userClients: UserClient[];
     isFetchingAccount: boolean;
@@ -33,7 +32,6 @@ export namespace User {
       validateTally: 0,
       hasInfo: false,
       demographicInfo: { sex: '', age: '', native_language: '' },
-      cookiesAgreed: false,
       userClients: [],
       isFetchingAccount: true,
       account: null,

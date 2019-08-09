@@ -83,8 +83,20 @@ a:active {
     text-decoration: underline;
 
     &:hover {
-        color: var(--blue);
+        color: var(--valid-green);
     }
+}
+
+.btn-grn {
+    margin-top: 20px;
+    align-self: center;
+    background: var(--valid-green);
+    border: 0px;
+}
+
+.btn-grn:hover {
+    background: var(--valid-green) !important;
+    color: var(--white);
 }
 
 button {
@@ -120,33 +132,83 @@ button {
     }
 }
 
-.cookies-banner {
+.cookie-modal {
     display: flex;
     flex-direction: column;
-    position: sticky;
-    top: var(--header-height);
     padding: 2rem;
-    color: var(--white);
-    background: var(--red);
     text-align: center;
     z-index: 5;
 
-    @media (--md-up) {
-        top: 0;
-    }
-
-    & .cookie-title {
+    & .modal-title {
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
+        /* font-style: italic; */
     }
 
     & a {
-        color: var(--white);
+        color: var(--black);
         text-decoration: underline;
     }
 
-    & .button {
-        align-self: center;
+    & .toggle-with-info {
+        display: flex;
+        flex-direction: column;
+
+        & .toggle-container {
+            margin-bottom: 20px;
+            align-items: center;
+            align-self: center;
+        }
+
+        & .toggle-input {
+            height: 30px;
+            margin-top: 5px;
+            background: var(--very-dark-grey);
+            font-size: var(--font-size-xs);
+
+            & input::before {
+                background: var(--warm-grey);
+            }
+
+            & input:checked::before {
+                background: var(--valid-green);
+            }
+
+            & div {
+                margin: 0 20px;
+            }
+        }
+
+        & .info {
+            display: flex;
+            flex-direction: row;
+            font-size: var(--font-size-xs);
+            color: var(--near-black);
+            letter-spacing: 0.5px;
+            text-align: left;
+        }
+
+        & svg {
+            margin-inline-end: 5px;
+            flex-shrink: 0;
+            width: 22px;
+        }
+
+        & path {
+            fill: var(--warm-grey);
+        }
+    }
+
+    & .cookie-name {
+        font-family: var(--strong-font-family);
+        font-size: var(--font-size);
+    }
+
+    & .cookie-title {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: var(--font-size);
+        font-family: var(--strong-font-family);
     }
 }
 
