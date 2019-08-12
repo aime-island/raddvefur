@@ -7,6 +7,7 @@ import {
 import URLS from '../urls';
 import { LocaleLink } from './locale-helpers';
 import Modal from './modal/modal';
+import './terms-modal.css';
 
 const TermsModal = ({
   getString,
