@@ -19,6 +19,10 @@ const CREDITS = [
     who: 'Rafmynt ehf.',
     why: 'Fyrir afnot á vélbúnaði til þjálfunar á talgreini.',
   },
+  {
+    who: 'Vilt þú leggja verkefninu lið?',
+    why: 'Til þess að búa til raddgagnasafnið Almannaróm þá þarf mikinn fjölda íslenskra setninga. Það hefði því ekki verið hægt að gera þetta verkefni án þeirra aðila sem hafa góðfúslega gefið efnið sitt í verkefnið. Ef þú átt bók, ritgerð, safn af pistlum eða annan texta sem inniheldur málfræðilega réttar setniningar og myndir vilja leggja verkefninu lið þá máttu endilega senda línu á almannaromur@almannaromur.is.'
+  }
 ];
 
 export default CREDITS;
