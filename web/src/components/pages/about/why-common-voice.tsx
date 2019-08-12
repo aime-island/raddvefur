@@ -39,6 +39,51 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
           </div>
         </div>
       </div>
+      <div className="deloitte-project">
+        <div className="deloitte-project-about">
+          <div className="deloitte-project-text">
+            <Localized id="deloitte-project-title">
+              <h1 className="deloitte-project-text-description" />
+            </Localized>
+
+            <Localized id="deloitte-project-description-1">
+              <h2 className="deloitte-project-text-description" />
+            </Localized>
+
+            <Localized id="deloitte-project-description-2">
+              <h2 className="deloitte-project-text-description" />
+            </Localized>
+
+            <Localized id="deloitte-project-description-3">
+              <h2 className="deloitte-project-text-description" />
+            </Localized>
+
+            <Localized id="deloitte-project-description-4">
+              <h2 className="deloitte-project-text-description" />
+            </Localized>
+
+            <Localized id="deloitte-project-description-5">
+              <h2 className="deloitte-project-text-description" />
+            </Localized>
+
+            <Localized id="deloitte-project-team-title">
+              <h2 className="deloitte-project-team-description" />
+            </Localized>
+
+            <Localized id="deloitte-project-team-members">
+              <h2 className="deloitte-project-team-description" />
+            </Localized>
+          </div>
+          <div className="deloitte-img">
+            <div className="line" />
+            <img
+              className="aime"
+              src={require('./images/aime-ut.jpg')}
+              alt="Aime"
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

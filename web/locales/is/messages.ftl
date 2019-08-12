@@ -158,7 +158,8 @@ logout = Útskrá
 ## Home Page
 
 #Changed: 
-home-title = Almannarómur er fyrsta íslenska opna hópaflaða gagnasafnið. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla þá sem nota hana.
+<#--  home-title = Almannarómur er fyrsta íslenska opna hópaflaða gagnasafnið. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla þá sem nota hana.  -->
+home-title = Almannarómur er fyrsta íslenska opna hópaflaða raddgagnasafnið. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla þá sem nota hana.
 home-cta = Hækkið róminn, deilið hér!
 wall-of-text-start = Rödd er náttúruleg, rödd er mennsk. Þess vegna heillumst við af sköpun nothæfrar raddtækni handa vélunum okkar. En til þess að skapa raddkerfi þörfnumst við mýgrúts gagna.
 wall-of-text-more-mobile = Flest gögn sem stórfyrirtæki nota eru ekki aðgengileg almenningi. Að okkar mati heldur það aftur af nýsköpun. Fyrir vikið höfum við sett á laggirnar Almannaróm, verkefni til að gera talgreiningu aðgengilega og frjálsa öllum.
@@ -440,6 +441,15 @@ about-subtitle = Á stafrænum tímum er margt sem breytist. Raddtækni er ein �
 about-header-description =
     Það sem við notum, það lærum við og ef við þurfum ekki að nota íslenskuna, þá deyr hún út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda svo hægt verði að nýta það við hugbúnaðargerð jafnt öðrum tungumálum. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.  
 how-does-it-work-title = Hvernig virkar það?
+deloitte-project-title = Oft veltir lítil þúfa þungu hlassi
+deloitte-project-description-1 = Upphafið af þessu verkefni hófst með þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, afurð gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir og gangandi gátu farið í nokkra skemmtilega og einfalda leiki með vélmenninu og fékk það mikla og verðskuldaða athygli.
+deloitte-project-description-2 = En AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku, var ekki um auðugan garð að gresja þegar kom að tæknilegum lausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og hröð þróun tæknilegra lausna er á góðri leið með að útiloka íslenska tungu alfarið ef fer fram sem horfir. 
+deloitte-project-description-3 = Var því ákveðið að þróa AIME, sem nú fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Almannarómur, Skema í Háskólanum í Reykjavík og Deloitte tóku höndum saman að frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða. 
+deloitte-project-description-4 = Styrkur frá Nýsköpunarsjóði námsmanna gerði samstarfsaðilunum kleift að til að ráða fjóra framúrskarandi nemendur í tölvunar-og verkfræði í sumarverkefni til að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur fyrir hvers kyn tækja- og hugbúnað framtíðarinnar. Því leggja samstarfsaðilarnir áherslu á að allar þær afurðir sem hópurinn þróar og útfærir, séu nú og munu áfram verða, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source). 
+deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í takt við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni, sköpunar tækifæra fyrir mannauð framtíðarinnar og tæknimenntunar.
+deloitte-project-team-title = Þróunarteymið skipa: 
+deloitte-project-team-members = Eyþór Máni Steinarsson verkefnastjóri, David Erik Mollberg,  Ólafur Helgi Jónsson, Sunneva Þorsteinsdóttir og Viktor Sveinsson.
+
 #Changed:
 how-does-it-work-text = Við hópvæðum öflun opins raddgagnasafns. Leggðu fram röddina þína, staðfestu nákvæmni hljóðbrota frá öðrum, gerðu gagnasafnið betra fyrir alla.
 about-speak = Tal
@@ -627,6 +637,8 @@ language-section-in-progress = Í vinnslu
 language-section-in-progress-new-description = Þessi tungumál eru um þessar mundir í þróun hjá Almannarómssamfélaginu. Stikan sýnir hversu langt hvert tungmál er komið í <localizationGlossaryLink>vefsíðuþýðingu</localizationGlossaryLink> og <sentenceCollectionGlossaryLink>söfnun setninga</sentenceCollectionGlossaryLink>.
 #Changed:
 language-section-launched = Við viljum þakka...
+ 
+Ef þú átt bók, ritgerð, safn af pistlum eða annan texta sem inniheldur málfræðilega réttar setniningar og myndir vilja leggja verkefninu lið þá máttu endilega senda línu á almannaromur@almannaromur.is.
 #Changed:
 language-section-launched-description = Við viljum þakka öllum þeim sem gáfu settningar úr verkum sínum til þess að Almannarómur geti orðið að veruleika. Þeirra framlag má sjá hér að neðan.
 languages-show-more = Sjá meira

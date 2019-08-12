@@ -1,15 +1,15 @@
 const CREDITS = [
   {
-    who: 'Málföng',
-    why: 'Fyrir setningar úr Risamálheildinni (RMH2).',
-  },
-  {
     who: 'Kristlaug María Sigurðardóttir',
     why: 'Fyrir setningar úr verkum sínum þar á meðal Ávaxtakörfunni.',
   },
   {
     who: 'Vísindavefurinn',
     why: 'Fyrir setningar úr greinum sínum.',
+  },
+  {
+    who: 'Málföng',
+    why: 'Fyrir setningar úr Risamálheildinni (RMH2).',
   },
   {
     who: 'Common Voice',
