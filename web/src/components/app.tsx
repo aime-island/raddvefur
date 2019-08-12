@@ -281,9 +281,9 @@ let LocalizedPage: any = class extends React.Component<
             <div className="toggle-with-info">
               <h3 className="cookie-title">Frammistaða og virkni</h3>
               <div className="toggle-container">
-                <div className="cookie-name">
+                {/* <div className="cookie-name">
                   Nafn: <strong>user</strong>
-                </div>
+                </div> */}
                 <ToggleIs
                   onText="Leyfa"
                   offText="Ekki leyfa"
@@ -307,9 +307,9 @@ let LocalizedPage: any = class extends React.Component<
             <div className="toggle-with-info">
               <h3 className="cookie-title">Tölfræði um notkun</h3>
               <div className="toggle-container">
-                <div className="cookie-name">
+                {/* <div className="cookie-name">
                   Nafn: <strong>ga</strong>
-                </div>
+                </div> */}
                 <ToggleIs
                   onText="Leyfa"
                   offText="Ekki leyfa"
@@ -344,7 +344,7 @@ let LocalizedPage: any = class extends React.Component<
         )}
         {!showCookiesModal && !this.isDocumentPage() && (
           <div
-            className="cookie-corner" 
+            className="cookie-corner"
             onClick={() => this.setShowCookiesModal()}>
             <CogIcon />
           </div>
