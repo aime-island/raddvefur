@@ -19,6 +19,7 @@ const TermsModal = ({
     termsLink={<LocaleLink to={URLS.TERMS} blank />}
     privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
     <Modal
+      innerClassName="terms-modal"
       buttons={{
         [getString('terms-agree')]: onAgree,
         [getString('terms-disagree')]: onDisagree,
