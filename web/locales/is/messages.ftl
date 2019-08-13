@@ -706,7 +706,7 @@ listen-instruction = { $actionType }<playIcon></playIcon> var setningin rétt le
 listen-again-instruction = Vel gert! <playIcon></playIcon> Hlustaðu aftur þegar þú ert til
 listen-3rd-time-instruction = Tvær búnar, haltu þínu striki! <playIcon></playIcon>
 listen-last-time-instruction = <playIcon></playIcon> Síðasta!
-nothing-to-validate = Ekkert er fyrir hendi um þetta tungumál, hjálpaðu okkur að fylla í röðina.
+nothing-to-validate = Engar upptökur eftir til að staðfesta, viltu lesa upp í staðinn?
 record-button-label = Raddupptaka
 share-title-new = <bold>Leggið lið</bold> við að leita upp fleiri raddir
 
