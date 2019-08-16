@@ -36,7 +36,12 @@ import {
   LabeledSelect,
   LabeledCheckbox,
 } from '../../../ui/ui';
-import { getItunesURL, isFirefoxFocus, isNativeIOS } from '../../../../utility';
+import {
+  getItunesURL,
+  isFirefoxFocus,
+  isNativeIOS,
+  isFacebook,
+} from '../../../../utility';
 import ContributionPage, {
   ContributionPillProps,
   SET_COUNT,
@@ -218,6 +223,7 @@ class SpeakPage extends React.Component<Props, State> {
     if (
       !this.audio.isMicrophoneSupported() ||
       !this.audio.isAudioRecordingSupported() ||
+      isFacebook() ||
       isFirefoxFocus()
     ) {
       this.isUnsupportedPlatform = true;
