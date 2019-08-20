@@ -677,8 +677,8 @@ contribute-more =
        *[other] Til í að gera { $count } í viðbót?
     }
 record-cta = Hefja upptöku
-record-platform-not-supported = Því miður er ekki stuðningur við tölvukerfið þitt að svo stöddu.
-record-platform-not-supported-desktop = Á borðtölvum er hægt að niðurhala nýjasta:
+record-platform-not-supported = Því miður er ekki stuðningur við þennan vafra að svo stöddu.
+record-platform-not-supported-desktop = Hægt er að nota vefinn á: 
 record-platform-not-supported-ios = <bold>iOS</bold> notendur geta niðurhalað fría smáforritinu okkar:
 record-must-allow-microphone = Þú þarft að leyfa aðgang að hljóðnemanum.
 record-no-mic-found = Hljóðnemi fannst ekki.
