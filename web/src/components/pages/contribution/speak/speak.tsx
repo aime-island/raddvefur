@@ -227,6 +227,7 @@ class SpeakPage extends React.Component<Props, State> {
       isFirefoxFocus()
     ) {
       this.isUnsupportedPlatform = true;
+      this.setState({ showDemographicModal: false });
     }
 
     this.userDemographicInfoToState();
