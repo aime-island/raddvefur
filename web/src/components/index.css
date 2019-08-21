@@ -44,6 +44,17 @@ body,
 body {
 }
 
+.inner {
+    -webkit-overflow-scrolling: auto;
+    scroll-behavior: auto;
+}
+
+.ReactModal__Body--open {
+    position: fixed;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+}
 h1,
 h2,
 h3,
