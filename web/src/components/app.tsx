@@ -21,6 +21,7 @@ import {
   isProduction,
   isStaging,
   replacePathLocale,
+  isMobileResolution,
 } from '../utility';
 import {
   createBundleGenerator,
@@ -248,151 +249,237 @@ let LocalizedPage: any = class extends React.Component<
       prefCo,
     } = this.state;
 
+    console.log(!bundleGenerator);
     if (!bundleGenerator) return null;
 
     return (
-      <div>
+      <>
+        {/* <div style={`display: ${
+          showCookiesModal && isMobileResolution() ? 'block' : 'none'
+        }`}> */}
         <div
-          className="upload-progress"
-          style={
-            uploadPercentage === null
-              ? {
-                  opacity: 0,
-                  width: '100%',
-                  background: '#59cbb7',
-                  animationPlayState: 'paused',
-                }
-              : {
-                  opacity: 1,
-                  width: uploadPercentage * 100 + '%',
-                  animationPlayState: 'running',
-                }
-          }
-        />
-        {showCookiesModal && !this.isDocumentPage() && (
-          <Modal innerClassName="cookie-modal">
-            <div>
-              <div className="modal-title">
-                Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
-                (e. local storage) til að bæta upplifun þína á vefsíðunni.{' '}
-                <a href={URLS.COOKIES}>Sjá nánar</a>
+          className="cookie-modal"
+          style={{
+            display: `${
+              showCookiesModal && isMobileResolution() ? 'flex' : 'none'
+            }`,
+          }}>
+          <div>
+            <div className="modal-title">
+              Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
+              (e. local storage) til að bæta upplifun þína á vefsíðunni.{' '}
+              <a href={URLS.COOKIES}>Sjá nánar</a>
+            </div>
+          </div>
+          <div className="toggle-with-info">
+            <h3 className="cookie-title">Frammistaða og virkni</h3>
+            <div className="toggle-container">
+              {/* <div className="cookie-name">
+              Nafn: <strong>user</strong>
+            </div> */}
+              <ToggleIs
+                onText="Leyfa"
+                offText="Ekki leyfa"
+                defaultChecked={prefCo}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  this.setState({ prefCo: event.target.checked });
+                }}
+              />
+            </div>
+            <div className="info">
+              <InfoIcon />
+              <div className="cookie-text">
+                Notkun vefgeymslu vafrans til að halda um upplýsingar sem bæta
+                afköst síðunar og notendaupplifun. Þetta eru upplýsingar sem
+                notandi hefur skráð inn, samþykki, einstakt notanda númer,
+                fjöldi raddsýna sem notandi hefur gefið og fjöldi raddsýna sem
+                notandi hefur hlustað á.
               </div>
             </div>
-            <div className="toggle-with-info">
-              <h3 className="cookie-title">Frammistaða og virkni</h3>
-              <div className="toggle-container">
-                {/* <div className="cookie-name">
+          </div>
+          <div className="toggle-with-info">
+            <h3 className="cookie-title">Tölfræði um notkun</h3>
+            <div className="toggle-container">
+              {/* <div className="cookie-name">
+              Nafn: <strong>ga</strong>
+            </div> */}
+              <ToggleIs
+                onText="Leyfa"
+                offText="Ekki leyfa"
+                defaultChecked={statCo}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  this.setState({ statCo: event.target.checked });
+                }}
+              />
+            </div>
+            <div className="info">
+              <InfoIcon />
+              <div className="cookie-text">
+                Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum innan
+                vefsíðunnar, það hjálpar okkur að meta hvað þarf að bæta, til
+                þess notum við kökur fyrir Google Analyctics. Með því getum við
+                séð notkunarmynstur á síðunni yfir heildina í stað þess að sjá
+                notkun einstaka notanda. Við notum upplýsingarnar til að greina
+                umferð á vefsíðunni en ekki til að skoða persónugreinanlegar
+                upplýsingar.
+              </div>
+            </div>
+          </div>
+          <Button
+            rounded
+            className="btn-grn"
+            onClick={() => this.setCookiePreference()}>
+            Áfram
+          </Button>
+        </div>
+        <div
+          style={{
+            display: `${
+              showCookiesModal && isMobileResolution() ? 'none' : 'block'
+            }`,
+          }}>
+          <div
+            className="upload-progress"
+            style={
+              uploadPercentage === null
+                ? {
+                    opacity: 0,
+                    width: '100%',
+                    background: '#59cbb7',
+                    animationPlayState: 'paused',
+                  }
+                : {
+                    opacity: 1,
+                    width: uploadPercentage * 100 + '%',
+                    animationPlayState: 'running',
+                  }
+            }
+          />
+          {showCookiesModal && !isMobileResolution() && !this.isDocumentPage() && (
+            <Modal innerClassName="cookie-modal show">
+              <div>
+                <div className="modal-title">
+                  Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu
+                  vafra (e. local storage) til að bæta upplifun þína á
+                  vefsíðunni. <a href={URLS.COOKIES}>Sjá nánar</a>
+                </div>
+              </div>
+              <div className="toggle-with-info">
+                <h3 className="cookie-title">Frammistaða og virkni</h3>
+                <div className="toggle-container">
+                  {/* <div className="cookie-name">
                   Nafn: <strong>user</strong>
                 </div> */}
-                <ToggleIs
-                  onText="Leyfa"
-                  offText="Ekki leyfa"
-                  defaultChecked={prefCo}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    this.setState({ prefCo: event.target.checked });
-                  }}
-                />
-              </div>
-              <div className="info">
-                <InfoIcon />
-                <div className="cookie-text">
-                  Notkun vefgeymslu vafrans til að halda um upplýsingar sem bæta
-                  afköst síðunar og notendaupplifun. Þetta eru upplýsingar sem
-                  notandi hefur skráð inn, samþykki, einstakt notanda númer,
-                  fjöldi raddsýna sem notandi hefur gefið og fjöldi raddsýna sem
-                  notandi hefur hlustað á.
+                  <ToggleIs
+                    onText="Leyfa"
+                    offText="Ekki leyfa"
+                    defaultChecked={prefCo}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                      this.setState({ prefCo: event.target.checked });
+                    }}
+                  />
+                </div>
+                <div className="info">
+                  <InfoIcon />
+                  <div className="cookie-text">
+                    Notkun vefgeymslu vafrans til að halda um upplýsingar sem
+                    bæta afköst síðunar og notendaupplifun. Þetta eru
+                    upplýsingar sem notandi hefur skráð inn, samþykki, einstakt
+                    notanda númer, fjöldi raddsýna sem notandi hefur gefið og
+                    fjöldi raddsýna sem notandi hefur hlustað á.
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="toggle-with-info">
-              <h3 className="cookie-title">Tölfræði um notkun</h3>
-              <div className="toggle-container">
-                {/* <div className="cookie-name">
+              <div className="toggle-with-info">
+                <h3 className="cookie-title">Tölfræði um notkun</h3>
+                <div className="toggle-container">
+                  {/* <div className="cookie-name">
                   Nafn: <strong>ga</strong>
                 </div> */}
-                <ToggleIs
-                  onText="Leyfa"
-                  offText="Ekki leyfa"
-                  defaultChecked={statCo}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    this.setState({ statCo: event.target.checked });
-                  }}
-                />
-              </div>
-              <div className="info">
-                <InfoIcon />
-                <div className="cookie-text">
-                  Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum innan
-                  vefsíðunnar, það hjálpar okkur að meta hvað þarf að bæta, til
-                  þess notum við kökur fyrir Google Analyctics. Með því getum
-                  við séð notkunarmynstur á síðunni yfir heildina í stað þess að
-                  sjá notkun einstaka notanda. Við notum upplýsingarnar til að
-                  greina umferð á vefsíðunni en ekki til að skoða
-                  persónugreinanlegar upplýsingar.
+                  <ToggleIs
+                    onText="Leyfa"
+                    offText="Ekki leyfa"
+                    defaultChecked={statCo}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                      this.setState({ statCo: event.target.checked });
+                    }}
+                  />
+                </div>
+                <div className="info">
+                  <InfoIcon />
+                  <div className="cookie-text">
+                    Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum innan
+                    vefsíðunnar, það hjálpar okkur að meta hvað þarf að bæta,
+                    til þess notum við kökur fyrir Google Analyctics. Með því
+                    getum við séð notkunarmynstur á síðunni yfir heildina í stað
+                    þess að sjá notkun einstaka notanda. Við notum
+                    upplýsingarnar til að greina umferð á vefsíðunni en ekki til
+                    að skoða persónugreinanlegar upplýsingar.
+                  </div>
                 </div>
               </div>
+              <ModalButtons>
+                <Button
+                  rounded
+                  className="btn-grn"
+                  onClick={() => this.setCookiePreference()}>
+                  Áfram
+                </Button>
+              </ModalButtons>
+            </Modal>
+          )}
+          {!showCookiesModal && !this.isDocumentPage() && (
+            <div
+              className="cookie-corner"
+              onClick={() => this.setShowCookiesModal()}>
+              <CogIcon />
             </div>
-            <ModalButtons>
-              <Button
-                rounded
-                className="btn-grn"
-                onClick={() => this.setCookiePreference()}>
-                Áfram
-              </Button>
-            </ModalButtons>
-          </Modal>
-        )}
-        {!showCookiesModal && !this.isDocumentPage() && (
-          <div
-            className="cookie-corner"
-            onClick={() => this.setShowCookiesModal()}>
-            <CogIcon />
-          </div>
-        )}
-        <LocalizationProvider bundles={bundleGenerator}>
-          <div>
-            <div className="notifications">
-              {notifications
-                .slice()
-                .reverse()
-                .map(notification =>
-                  notification.kind == 'pill' ? (
-                    <NotificationPill
-                      key={notification.id}
-                      {...{ notification }}
-                    />
-                  ) : (
-                    <NotificationBanner
-                      key={notification.id}
-                      {...{ notification }}
-                    />
-                  )
-                )}
-            </div>
-
-            <Switch>
-              {[
-                { route: URLS.SPEAK, Component: SpeakPage },
-                { route: URLS.LISTEN, Component: ListenPage },
-              ].map(({ route, Component }: any) => (
-                <Route
-                  key={route}
-                  exact
-                  path={toLocaleRoute(route)}
-                  render={props =>
-                    isContributable(locale) ? (
-                      <Component {...props} />
+          )}
+          <LocalizationProvider bundles={bundleGenerator}>
+            <div>
+              <div className="notifications">
+                {notifications
+                  .slice()
+                  .reverse()
+                  .map(notification =>
+                    notification.kind == 'pill' ? (
+                      <NotificationPill
+                        key={notification.id}
+                        {...{ notification }}
+                      />
                     ) : (
-                      <Redirect to={toLocaleRoute(URLS.ROOT)} />
+                      <NotificationBanner
+                        key={notification.id}
+                        {...{ notification }}
+                      />
                     )
-                  }
-                />
-              ))}
-              <Layout />
-            </Switch>
-          </div>
-        </LocalizationProvider>
-      </div>
+                  )}
+              </div>
+
+              <Switch>
+                {[
+                  { route: URLS.SPEAK, Component: SpeakPage },
+                  { route: URLS.LISTEN, Component: ListenPage },
+                ].map(({ route, Component }: any) => (
+                  <Route
+                    key={route}
+                    exact
+                    path={toLocaleRoute(route)}
+                    render={props =>
+                      isContributable(locale) ? (
+                        <Component {...props} />
+                      ) : (
+                        <Redirect to={toLocaleRoute(URLS.ROOT)} />
+                      )
+                    }
+                  />
+                ))}
+                <Layout />
+              </Switch>
+            </div>
+          </LocalizationProvider>
+        </div>
+      </>
     );
   }
 };
