@@ -1,6 +1,6 @@
 import { isNativeIOS } from '../../../../utility';
 
-const AUDIO_TYPE = 'audio/wav';
+const AUDIO_TYPE = 'audio/ogg; codecs=opus';
 
 var createObjectURL =
   (window.URL || window.webkitURL || {}).createObjectURL || function() {};
