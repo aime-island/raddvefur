@@ -89,6 +89,10 @@ export default class AudioWeb {
     return typeof MediaRecorder !== 'undefined';
   }
 
+  isPolyfillRecording() {
+    return MediaRecorder.notSupported !== undefined;
+  }
+
   private visualize() {
     this.analyzerNode.getByteFrequencyData(this.frequencyBins);
 
@@ -133,44 +137,52 @@ export default class AudioWeb {
     }
 
     const microphone = await this.getMicrophone();
-
     this.microphone = microphone;
     var audioContext = new AudioContext();
-    var sourceNode = audioContext.createMediaStreamSource(microphone);
-    var volumeNode = audioContext.createGain();
-    var analyzerNode = audioContext.createAnalyser();
-    var outputNode = audioContext.createMediaStreamDestination();
-
-    // Make sure we're doing mono everywhere.
-    sourceNode.channelCount = 1;
-    volumeNode.channelCount = 1;
-    analyzerNode.channelCount = 1;
-    outputNode.channelCount = 1;
-
-    // Connect the nodes together
-    sourceNode.connect(volumeNode);
-    volumeNode.connect(analyzerNode);
-    analyzerNode.connect(outputNode);
-
-    // and set up the recorder.
-    this.recorder = new MediaRecorder(outputNode.stream);
 
     // Set up the analyzer node, and allocate an array for its data
     // FFT size 64 gives us 32 bins. But those bins hold frequencies up to
     // 22kHz or more, and we only care about visualizing lower frequencies
     // which is where most human voice lies, so we use fewer bins
+    var analyzerNode = audioContext.createAnalyser();
+    analyzerNode.channelCount = 1;
     analyzerNode.fftSize = 128;
     analyzerNode.smoothingTimeConstant = 0.96;
     this.frequencyBins = new Uint8Array(analyzerNode.frequencyBinCount);
+
+    if (this.isPolyfillRecording()) {
+      // Safari and Edge
+      analyzerNode.connect(audioContext.destination);
+      this.recorder = new MediaRecorder(microphone);
+    } else {
+      // Not Safari / Edge
+      var sourceNode = audioContext.createMediaStreamSource(microphone);
+      var volumeNode = audioContext.createGain();
+      var outputNode = audioContext.createMediaStreamDestination();
+
+      // Make sure we're doing mono everywhere.
+      sourceNode.channelCount = 1;
+      volumeNode.channelCount = 1;
+      outputNode.channelCount = 1;
+
+      // Connect the nodes together
+      sourceNode.connect(volumeNode);
+      volumeNode.connect(analyzerNode);
+      analyzerNode.connect(outputNode);
+
+      // and set up the recorder.
+      this.recorder = new MediaRecorder(outputNode.stream);
+
+      // Another audio node used by the beep() function
+      var beeperVolume = audioContext.createGain();
+      beeperVolume.connect(audioContext.destination);
+    }
 
     // Setup audio visualizer.
     this.jsNode = audioContext.createScriptProcessor(256, 1, 1);
     this.jsNode.connect(audioContext.destination);
 
-    // Another audio node used by the beep() function
-    var beeperVolume = audioContext.createGain();
-    beeperVolume.connect(audioContext.destination);
-
+    //
     this.analyzerNode = analyzerNode;
     this.audioContext = audioContext;
   }
@@ -183,14 +195,15 @@ export default class AudioWeb {
 
     return new Promise<void>((res: Function, rej: Function) => {
       this.chunks = [];
-      this.recorder.ondataavailable = (e: BlobEvent) => {
-        this.chunks.push(e.data);
-      };
 
-      this.recorder.onstart = (e: Event) => {
+      this.recorder.addEventListener('dataavailable', (e: BlobEvent) => {
+        this.chunks.push(e.data);
+      });
+
+      this.recorder.addEventListener('start', (e: Event) => {
         this.clear();
         res();
-      };
+      });
 
       // We want to be able to record up to 60s of audio in a single blob.
       // Without this argument to start(), Chrome will call dataavailable
@@ -209,14 +222,19 @@ export default class AudioWeb {
     return new Promise((res: Function, rej: Function) => {
       this.stopVisualize();
 
-      this.recorder.onstop = (e: Event) => {
+      this.recorder.addEventListener('start', (e: Event) => {
+        this.clear();
+        res();
+      });
+
+      this.recorder.addEventListener('stop', (e: Event) => {
         let blob = new Blob(this.chunks, { type: AUDIO_TYPE });
         this.last = {
           url: URL.createObjectURL(blob),
           blob: blob,
         };
         res(this.last);
-      };
+      });
       this.recorder.stop();
     });
   }

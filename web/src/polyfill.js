@@ -1,1 +1,3 @@
-window.MediaRecorder = require('audio-recorder-polyfill');
+if (!window.MediaRecorder) {
+  window.MediaRecorder = require('audio-recorder-polyfill');
+}

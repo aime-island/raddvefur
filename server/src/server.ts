@@ -33,6 +33,7 @@ const CSP_HEADER = [
   `font-src 'self' https://fonts.gstatic.com`,
   `connect-src 'self' https://*.amazonaws.com https://*.amazon.com https://www.gstatic.com https://www.google-analytics.com https://sentry.io`,
   `frame-src https://optimize.google.com`,
+  `worker-src blob:`,
 ].join(';');
 
 export default class Server {
