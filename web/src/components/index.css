@@ -26,12 +26,6 @@ html {
     scroll-behavior: smooth;
 }
 
-@media (--md-down) {
-    html {
-        overflow: hidden;
-    }
-}
-
 html,
 body,
 #main {
