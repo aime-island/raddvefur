@@ -138,7 +138,9 @@ export default class AudioWeb {
 
     const microphone = await this.getMicrophone();
     this.microphone = microphone;
-    var audioContext = new AudioContext();
+
+    var AContext = window.AudioContext || window.webkitAudioContext;
+    var audioContext = new AContext();
 
     // Set up the analyzer node, and allocate an array for its data
     // FFT size 64 gives us 32 bins. But those bins hold frequencies up to
