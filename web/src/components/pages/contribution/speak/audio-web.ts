@@ -2,6 +2,9 @@ import { isNativeIOS } from '../../../../utility';
 
 const AUDIO_TYPE = 'audio/ogg; codecs=opus';
 
+var createObjectURL =
+  (window.URL || window.webkitURL || {}).createObjectURL || function() {};
+
 interface BlobEvent extends Event {
   data: Blob;
 }
@@ -232,7 +235,7 @@ export default class AudioWeb {
       this.recorder.addEventListener('stop', (e: Event) => {
         let blob = new Blob(this.chunks, { type: AUDIO_TYPE });
         this.last = {
-          url: URL.createObjectURL(blob),
+          url: createObjectURL(blob),
           blob: blob,
         };
         res(this.last);
