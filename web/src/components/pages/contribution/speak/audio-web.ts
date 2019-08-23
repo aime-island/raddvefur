@@ -1,6 +1,6 @@
 import { isNativeIOS } from '../../../../utility';
 
-const AUDIO_TYPE = 'audio/mp4;base64';
+const AUDIO_TYPE = 'audio/ogg; codecs=opus';
 
 var createObjectURL =
   (window.URL || window.webkitURL || {}).createObjectURL || function() {};
@@ -238,6 +238,7 @@ export default class AudioWeb {
           url: createObjectURL(blob),
           blob: blob,
         };
+        console.log(this.last);
         res(this.last);
       });
       this.recorder.stop();

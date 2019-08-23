@@ -72,6 +72,7 @@ function RecordingPill({
             preload="auto"
             onEnded={toggleIsPlaying}
             ref={audioRef}
+            itemType="audio/ogg"
           />
           <Tooltip
             arrow
