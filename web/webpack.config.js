@@ -11,10 +11,13 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const OUTPUT_PATH = path.resolve(__dirname, 'dist');
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: {
+    app: './src/main.ts',
+    polyfill: './src/polyfill',
+  },
   output: {
     path: OUTPUT_PATH,
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/dist/',
   },
   devtool: 'source-map',

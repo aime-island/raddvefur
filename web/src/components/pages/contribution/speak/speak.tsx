@@ -223,7 +223,6 @@ class SpeakPage extends React.Component<Props, State> {
     if (
       !this.audio.isMicrophoneSupported() ||
       !this.audio.isAudioRecordingSupported() ||
-      isFacebook() ||
       isFirefoxFocus()
     ) {
       this.isUnsupportedPlatform = true;
@@ -313,8 +312,10 @@ class SpeakPage extends React.Component<Props, State> {
     if (length > MAX_RECORDING_MS) {
       return RecordingError.TOO_LONG;
     }
-    if (this.maxVolume < MIN_VOLUME) {
-      return RecordingError.TOO_QUIET;
+    if (!this.audio.isPolyfillRecording()) {
+      if (this.maxVolume < MIN_VOLUME) {
+        return RecordingError.TOO_QUIET;
+      }
     }
     return null;
   };

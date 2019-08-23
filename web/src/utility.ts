@@ -44,6 +44,11 @@ export function isFacebook(): boolean {
   return ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1;
 }
 
+export function isFacebookIOS(): boolean {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  return ua.indexOf('FBIOS') > -1;
+}
+
 /**
  * Test whether this is a browser on iOS.
  */
