@@ -165,11 +165,11 @@ wall-of-text-start = Rödd er náttúruleg, rödd er mennsk. Þess vegna heillum
 wall-of-text-more-mobile = Flest gögn sem stórfyrirtæki nota eru ekki aðgengileg almenningi. Að okkar mati heldur það aftur af nýsköpun. Fyrir vikið höfum við sett á laggirnar Almannaróm, verkefni til að gera talgreiningu aðgengilega og frjálsa öllum.
 #Changed:
 wall-of-text-more-desktop =
-    Nú getur þú gefið raddsýni til þess að hjálpa okkur að byggja opinn gagnasett radda sem nýtist við gerð talgreina og annarri máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
+    Nú getur þú gefið raddsýni til þess að hjálpa okkur að byggja opið gagnasett radda sem nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
 #Changed:
 wall-of-text-first = Röddin er mannlegt, náttúrulegt fyrirbæri. Það er spennandi að nýta hana fyrir tækin okkar en það þarf gríðarlegt magn fjölbreyttra raddgagna ef vel á til að takast.
 #Changed:
-wall-of-text-second = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efndum við til þessa verkefnis, Almannarómur, með það markmið að stuðla að talgreiningartækni, sem allir geta notað.
+wall-of-text-second = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efndum við til þessa verkefnis, Almannarómur, með það markmið að byggja upp talgreiningartækni, sem allir geta notað.
 show-wall-of-text = Lesa meira
 help-us-title = Hjálpaðu okkur að meta setningar!
 help-us-explain = Veldu afspilun, hlustaðu og svaraðu: var setningin að neðan sögð rétt?
@@ -178,7 +178,7 @@ vote-yes = Já
 vote-no = Nei
 toggle-play-tooltip = Veldu { shortcut-play-toggle } til þess að skipta um afspilunarham
 speak-subtitle = Gefðu rödd þína
-speak-paragraph = Hljóðritun raddgagna er órofa þáttur af þróun gagnapakkans okkar; sumir myndu líka segja að það væri skemmtilegi parturinn.
+speak-paragraph = Hljóðritun raddgagna er mikilvægasti þátturinn í þróun gagnapakkans okkar; sumir myndu líka segja að það væri skemmtilegi parturinn.
 speak-goal-text = Raddupptökur
 listen-subtitle = Hjálpaðu okkur að staðfesta raddir
 listen-paragraph = Að staðfesta aðsendar raddupptökur er jafn mikilvægt fyrir Almannaróm og upptökurnar sjálfar. Hlustaðu og hjálpaðu til við að þróa hágæða opin raddgögn.
@@ -374,8 +374,8 @@ faq-what-cv-a =
 #Changed:
 faq-why-important-q = Afhverju er Almannarómur mikilvægur?
 #Changed:
-faq-why-important-a = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri mál. Í framtíðinni mun slík tækni verða enn útbreiddari spila stóran þátt í okkar daglega lífi.
-    Það sem við notum, það lærum við og ef við þurfum ekki að nota íslenskuna, þá deyr hún út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda svo hægt verði að nýta íslenskuna við hugbúnaðargerð jafnt öðrum tungumálum.
+faq-why-important-a = Allt er breytingum háð ekki síst á tímum stafrænnar tækni. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri mál. Í framtíðinni mun slík tækni verða enn útbreiddari spila stóran þátt í okkar daglega lífi.
+    Það tungmál sem við notum, lærum við og ef við þurfum ekki að nota íslenskuna, þá er hætta á að hún deyji út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda sem nýtist við hugbúnaðargerð til jafns við önnur tungumál.
 #Changed:
 faq-how-get-q = Hvernig get ég nálgast Almannarómsgagnasafnið?
 #Changed:
@@ -436,28 +436,28 @@ faq-search-for-answers =
 
 about-title = Afhverju?
 #Changed:
-about-subtitle = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri tungumál. Í framtíðinni mun slík tækni verða enn útbreiddari og spila stóran þátt í okkar daglega lífi. 
+about-subtitle = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri tungumál. Í framtíðinni mun slík tækni verða enn útbreiddari og eiga stóran þátt í okkar daglega lífi. 
 #Changed:
 about-header-description =
-    Það sem við notum, það lærum við og ef við þurfum ekki að nota íslenskuna, þá deyr hún út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda svo hægt verði að nýta það við hugbúnaðargerð jafnt öðrum tungumálum. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.  
+    Það tungmál sem við notum, lærum við og ef við þurfum ekki að nota íslenskuna, þá er hætta á að hún deyji út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda sem nýtist við hugbúnaðargerð til jafns við önnur tungumál. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.  
 how-does-it-work-title = Hvernig virkar það?
 deloitte-project-title = Oft veltir lítil þúfa þungu hlassi
-deloitte-project-description-1 = Upphafið af þessu verkefni hófst með þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, afurð gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir og gangandi gátu farið í nokkra skemmtilega og einfalda leiki með vélmenninu og fékk það mikla og verðskuldaða athygli.
+deloitte-project-description-1 = Upphaf þessa verkefns var þátttaka Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, afurð gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir og gangandi gátu farið í nokkra skemmtilega og einfalda leiki með vélmenninu og fékk það mikla og verðskuldaða athygli.
 deloitte-project-description-2 = En AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku, var ekki um auðugan garð að gresja þegar kom að tæknilegum lausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og hröð þróun tæknilegra lausna er á góðri leið með að útiloka íslenska tungu alfarið ef fer fram sem horfir. 
 deloitte-project-description-3 = Var því ákveðið að þróa AIME, sem nú fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Almannarómur, Skema í Háskólanum í Reykjavík og Deloitte tóku höndum saman að frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða. 
 deloitte-project-description-4 = Styrkur frá Nýsköpunarsjóði námsmanna gerði samstarfsaðilunum kleift að til að ráða fjóra framúrskarandi nemendur í tölvunar-og verkfræði í sumarverkefni til að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur fyrir hvers kyn tækja- og hugbúnað framtíðarinnar. Því leggja samstarfsaðilarnir áherslu á að allar þær afurðir sem hópurinn þróar og útfærir, séu nú og munu áfram verða, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source). 
-deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í takt við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni, sköpunar tækifæra fyrir mannauð framtíðarinnar og tæknimenntunar.
+deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í takt við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni ásamt því að skapa tækifæri fyrir mannauð framtíðarinnar og tæknimenntun.
 deloitte-project-team-title = Þróunarteymið skipa: 
-deloitte-project-team-members = Eyþór Máni Steinarsson verkefnastjóri, David Erik Mollberg,  Ólafur Helgi Jónsson, Sunneva Þorsteinsdóttir og Viktor Sveinsson.
+deloitte-project-team-members = Eyþór Máni Steinarsson verkefnastjóri, David Erik Mollberg, Ólafur Helgi Jónsson, Sunneva Þorsteinsdóttir og Viktor Sveinsson.
 
 #Changed:
-how-does-it-work-text = Við hópvæðum öflun opins raddgagnasafns. Leggðu fram röddina þína, staðfestu nákvæmni hljóðbrota frá öðrum, gerðu gagnasafnið betra fyrir alla.
+how-does-it-work-text = Með því að virkja almenning á Íslandi og þannig afla efnis í opið raddgagnasafn. Þá leggur almenningur fram rödd sína, staðfest nákvæmni hljóðbrota frá öðrum og með því verður gagnasafnið betra fyrir alla.
 about-speak = Tal
 about-speak-text = Þátttakendur taka upp lestur setninga sem fengnar er úr banka gefinna setninga.
 about-listen-queue = Hlustunarröð
 about-listen-queue-text = Þegar hljóðbrot kemur inn þá fer það í stafla og er undirbúið fyrir hlustun.
 about-listen = Hlusta
-about-listen-text = Notendur staðfesta nákvæmnina af gefnum hljóðbrotum og athuga hvort mælandinn hafi sagt setninguna rétt.
+about-listen-text = Notendur staðfesta nákvæmni af gefinna hljóðbrota og athuga hvort mælandinn hafi sagt setninguna rétt.
 about-is-it-valid = Er þetta hljóðbrot gilt?
 about-is-it-valid-text = Hljóðbrot er merkt „staðfest“ þegar notandi gefur því Já atkvæði.
 about-yes-votes = ≥ 2 Já atkvæði
@@ -542,14 +542,14 @@ review-delete-recordings = Eyða upptökum
 ## Datasets Page
 
 #Changed:
-datasets-headline = Við viljum byggja opið og aðgengilegt gagnasafn radda sem hver sem er getur notað til þess að þjálfa raddstýrð forrit.
+datasets-headline = Almannarómur verður opið og aðgengilegt gagnasafn radda og öllum frjálst að nýta það til þjálfunar raddstýrðra forrita.
 #Changed:
 datasets-positioning =
-    Við trúum því að að stór gagnasett sem eru opin almenningi muni styðja við nýsköpun og stuðla að heilbrigðri markaðssamkeppni innan tæknigeirans á sviði máltæknilausna.
+    Stór gagnasett sem opin eru almenningi munu styðja við nýsköpun og stuðla að heilbrigðri markaðssamkeppni innan tæknigeirans á sviði máltæknilausna.
     
-    Við bindum vonir við að Almannarómsgagnasafnið verði það stærsta sinnar tegundar. Það er þó ekki það eina en nokkrar málheildir og önnur tól eru nú þegar til. 
+    Vonir standa til að Almannarómsgagnasafnið verði það stærsta sinnar tegundar. Fleiri slík söfn eru til en nokkrar málheildir og önnur tól eru nú þegar til. 
     
-    Þú getur litið til þessarar síðu sem miðlægrar upplýsingasíðu fyrir önnur opin raddgagnasöfn, talgreina, málheilda og fleira máltækni efnis. 
+    Þú getur litið á þessa síðu sem miðlægra upplýsingasíðu fyrir önnur opin raddgagnasöfn, talgreina, málheildir og annars máltækni efnis. 
 language = Tungumál
 # File size in gigabytes
 size = Stærð
