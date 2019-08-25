@@ -252,6 +252,7 @@ export default class AudioWeb {
       }
     }
     this.microphone = null;
+    return 'nothing';
   }
 
   clear() {
