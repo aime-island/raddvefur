@@ -160,7 +160,7 @@ export default class AudioWeb {
       // Safari and Edge
       AUDIO_TYPE = 'audio/wav';
       analyzerNode.connect(audioContext.destination);
-      this.recorder = new MediaRecorder(microphone);
+      this.recorder = new MediaRecorder(this.microphone);
     } else {
       // Not Safari / Edge
       var sourceNode = audioContext.createMediaStreamSource(microphone);
@@ -243,8 +243,7 @@ export default class AudioWeb {
         res(this.last);
       });
       this.recorder.stop();
-      this.release();
-      this.init();
+      this.recorder = new MediaRecorder(this.microphone);
     });
   }
 
@@ -255,8 +254,6 @@ export default class AudioWeb {
       }
     }
     this.microphone = null;
-    this.audioContext.close();
-    this.recorder = null;
   }
 
   clear() {
