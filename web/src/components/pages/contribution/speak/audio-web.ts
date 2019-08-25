@@ -243,6 +243,7 @@ export default class AudioWeb {
         res(this.last);
       });
       this.recorder.stop();
+      this.release();
       this.init();
     });
   }
