@@ -97,12 +97,10 @@ MediaRecorder.prototype = {
     if (!processor) {
       processor = context.createScriptProcessor(2048, 1, 1);
     }
-    var i = 0;
+
     var recorder = this;
     processor.onaudioprocess = function(e) {
       if (recorder.state === 'recording') {
-        console.log(i);
-        i++;
         recorder.encoder.postMessage([
           'encode',
           e.inputBuffer.getChannelData(0),

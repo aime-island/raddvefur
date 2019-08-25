@@ -348,6 +348,7 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     try {
+      await this.audio.release();
       await this.audio.init();
       await this.startRecording();
     } catch (err) {
