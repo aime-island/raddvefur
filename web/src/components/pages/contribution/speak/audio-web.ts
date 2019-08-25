@@ -1,6 +1,7 @@
 import { isNativeIOS } from '../../../../utility';
+import { bool } from 'prop-types';
 
-const AUDIO_TYPE = 'audio/wav';
+let AUDIO_TYPE = 'audio/wav';
 
 var createObjectURL =
   (window.URL || window.webkitURL || {}).createObjectURL || function() {};
@@ -157,6 +158,7 @@ export default class AudioWeb {
 
     if (this.isPolyfillRecording()) {
       // Safari and Edge
+      AUDIO_TYPE = 'audio/mp4;base64';
       analyzerNode.connect(audioContext.destination);
       this.recorder = new MediaRecorder(microphone);
     } else {
@@ -238,7 +240,6 @@ export default class AudioWeb {
           url: createObjectURL(blob),
           blob: blob,
         };
-        console.log(this.last);
         res(this.last);
       });
       this.recorder.stop();
