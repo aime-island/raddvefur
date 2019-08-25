@@ -243,7 +243,7 @@ export default class AudioWeb {
         res(this.last);
       });
       this.recorder.stop();
-      this.recorder.stream.getTracks().forEach(i => i.stop());
+      this.recorder.stream.getTracks().forEach((i: any) => i.stop());
     });
   }
 
