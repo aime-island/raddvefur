@@ -43,15 +43,15 @@ function RecordingPill({
   const audioRef = useRef(null);
 
   const toggleIsPlaying = () => {
-    const { current: audio } = audioRef;
+    //const { current: audio } = audioRef;
     let nextIsPlaying = !isPlaying;
     if (nextIsPlaying) {
       trackRecording('listen', locale);
-      audio.load();
-      audio.play();
+      //audio.load();
+      audioRef.current.play();
     } else {
-      audio.pause();
-      audio.currentTime = 0;
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
     }
     setIsPlaying(nextIsPlaying);
   };
