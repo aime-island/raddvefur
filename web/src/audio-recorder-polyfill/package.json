@@ -1,0 +1,20 @@
+{
+  "name": "audio-recorder-polyfill",
+  "version": "0.1.6",
+  "description": "MediaRecorder polyfill to record audio in Edge and Safari",
+  "keywords": [
+    "mediarecorder",
+    "polyfill",
+    "edge",
+    "safari",
+    "wave",
+    "wav",
+    "webrtc",
+    "audio",
+    "web audio api",
+    "recorder"
+  ],
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "license": "MIT",
+  "repository": "ai/audio-recorder-polyfill"
+}
