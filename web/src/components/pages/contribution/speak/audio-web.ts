@@ -199,7 +199,7 @@ export default class AudioWeb {
       console.error('Cannot record audio before microhphone is ready.');
       return Promise.resolve();
     }
-
+    console.log(this.recorder);
     return new Promise<void>((res: Function, rej: Function) => {
       this.chunks = [];
 
@@ -243,7 +243,6 @@ export default class AudioWeb {
         res(this.last);
       });
       this.recorder.stop();
-      this.recorder = new MediaRecorder(this.microphone);
     });
   }
 
