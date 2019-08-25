@@ -144,13 +144,13 @@ export default class AudioWeb {
     this.microphone = microphone;
 
     var AContext = window.AudioContext || window.webkitAudioContext;
-    var audioContext = new AContext();
+    var audioContext = await new AContext();
 
     // Set up the analyzer node, and allocate an array for its data
     // FFT size 64 gives us 32 bins. But those bins hold frequencies up to
     // 22kHz or more, and we only care about visualizing lower frequencies
     // which is where most human voice lies, so we use fewer bins
-    var analyzerNode = audioContext.createAnalyser();
+    var analyzerNode = await audioContext.createAnalyser();
     analyzerNode.channelCount = 1;
     analyzerNode.fftSize = 128;
     analyzerNode.smoothingTimeConstant = 0.96;
