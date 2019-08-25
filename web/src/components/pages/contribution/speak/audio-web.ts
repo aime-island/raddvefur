@@ -6,6 +6,8 @@ let AUDIO_TYPE = 'audio/ogg; codecs=opus';
 var createObjectURL =
   (window.URL || window.webkitURL || {}).createObjectURL || function() {};
 
+var AudioContext = window.AudioContext || window.webkitAudioContext;
+
 interface BlobEvent extends Event {
   data: Blob;
 }
@@ -142,9 +144,11 @@ export default class AudioWeb {
 
     const microphone = await this.getMicrophone();
     this.microphone = microphone;
-
-    var AContext = window.AudioContext || window.webkitAudioContext;
-    var audioContext = await new AContext();
+    try {
+      var audioContext = await new AudioContext();
+    } catch (e) {
+      console.log(e);
+    }
 
     // Set up the analyzer node, and allocate an array for its data
     // FFT size 64 gives us 32 bins. But those bins hold frequencies up to
