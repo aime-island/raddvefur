@@ -91,7 +91,7 @@ MediaRecorder.prototype = {
     if (!context) {
       context = new AudioContext();
     }
-    this.clone = this.stream; //.clone()
+    this.clone = this.stream.clone();
     var input = context.createMediaStreamSource(this.clone);
 
     if (!processor) {
@@ -143,9 +143,9 @@ MediaRecorder.prototype = {
 
     this.requestData();
     this.state = 'inactive';
-    /* this.clone.getTracks().forEach(function (track) {
-      track.stop()
-    }) */
+    this.clone.getTracks().forEach(function(track) {
+      track.stop();
+    });
     return clearInterval(this.slicing);
   },
 
