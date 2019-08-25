@@ -255,6 +255,8 @@ export default class AudioWeb {
       }
     }
     this.microphone = null;
+    this.audioContext = null;
+    this.recorder = null;
   }
 
   clear() {
