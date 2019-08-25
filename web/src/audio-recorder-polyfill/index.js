@@ -143,9 +143,9 @@ MediaRecorder.prototype = {
 
     this.requestData();
     this.state = 'inactive';
-    this.clone.getTracks().forEach(function(track) {
-      track.stop();
-    });
+    /* this.clone.getTracks().forEach(function (track) {
+      track.stop()
+    }) */
     return clearInterval(this.slicing);
   },
 
