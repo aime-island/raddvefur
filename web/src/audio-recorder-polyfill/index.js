@@ -1,6 +1,4 @@
 var AudioContext = window.AudioContext || window.webkitAudioContext;
-var createObjectURL =
-  (window.URL || window.webkitURL || {}).createObjectURL || function() {};
 
 function createWorker(fn) {
   var js = fn
@@ -8,21 +6,14 @@ function createWorker(fn) {
     .replace(/^function\s*\(\)\s*{/, '')
     .replace(/}$/, '');
   var blob = new Blob([js]);
-  return new Worker(createObjectURL(blob));
+  return new Worker(URL.createObjectURL(blob));
 }
-
-function error(method) {
-  var event = new Event('error');
-  event.data = new Error('Wrong state for ' + method);
-  return event;
-}
-
-var context, processor;
 
 /**
  * Audio Recorder with MediaRecorder API.
  *
  * @param {MediaStream} stream The audio stream to record.
+ * @param {MediaStreamConstraints} deferredStreamOptions In lieu of stream.
  *
  * @example
  * navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
@@ -31,12 +22,24 @@ var context, processor;
  *
  * @class
  */
-function MediaRecorder(stream) {
-  /**
-   * The `MediaStream` passed into the constructor.
-   * @type {MediaStream}
-   */
-  this.stream = stream;
+function MediaRecorder(stream, deferredStreamOptions) {
+  if (deferredStreamOptions) {
+    /**
+     * The `MediaStreamConstraints` (e.g. `{audio: true}`) used to create a new
+     * media stream on `recorder.start()`. This is a hack that differs from the
+     * `MediaRecorder` spec and allows recording in Mobile Safari by creating
+     * the `MediaStream` after the `AudioContext`. See 2017-10-03 post on
+     * https://forums.developer.apple.com/thread/86286
+     * @type {MediaStreamConstraints}
+     */
+    this.streamOptions = deferredStreamOptions;
+  } else {
+    /**
+     * The `MediaStream` passed into the constructor.
+     * @type {MediaStream}
+     */
+    this.stream = stream;
+  }
 
   /**
    * The current state of recording process.
@@ -45,7 +48,6 @@ function MediaRecorder(stream) {
   this.state = 'inactive';
 
   this.em = document.createDocumentFragment();
-  //this.encoder = new Worker(MediaRecorder.encoder);
   this.encoder = createWorker(MediaRecorder.encoder);
 
   var recorder = this;
@@ -81,46 +83,51 @@ MediaRecorder.prototype = {
    * })
    */
   start: function start(timeslice) {
-    /**
-      Create a clone of stream and start recording
-    */
-    if (this.state !== 'inactive') {
-      return this.em.dispatchEvent(error('start'));
-    }
-
-    this.state = 'recording';
-
-    if (!context) {
-      context = new AudioContext();
-    }
-    this.clone = this.stream.clone();
-    var input = context.createMediaStreamSource(this.clone);
-
-    if (!processor) {
-      processor = context.createScriptProcessor(2048, 1, 1);
-    }
-
     var recorder = this;
-    processor.onaudioprocess = function(e) {
-      if (recorder.state === 'recording') {
-        recorder.encoder.postMessage([
-          'encode',
-          e.inputBuffer.getChannelData(0),
-        ]);
+    function startMain() {
+      var input = recorder.context.createMediaStreamSource(recorder.stream);
+      var processor = recorder.context.createScriptProcessor(2048, 1, 1);
+
+      processor.onaudioprocess = function(e) {
+        if (recorder.state === 'recording') {
+          recorder.encoder.postMessage([
+            'encode',
+            e.inputBuffer.getChannelData(0),
+          ]);
+        }
+      };
+
+      input.connect(processor);
+      processor.connect(recorder.context.destination);
+
+      recorder.em.dispatchEvent(new Event('start'));
+
+      if (timeslice) {
+        recorder.slicing = setInterval(function() {
+          if (recorder.state === 'recording') recorder.requestData();
+        }, timeslice);
       }
-    };
-
-    input.connect(processor);
-    processor.connect(context.destination);
-
-    this.em.dispatchEvent(new Event('start'));
-
-    if (timeslice) {
-      this.slicing = setInterval(function() {
-        if (recorder.state === 'recording') recorder.requestData();
-      }, timeslice);
     }
+    if (this.state === 'inactive') {
+      this.state = 'recording';
 
+      this.context = new AudioContext();
+      this.context.resume(); // necessary for Mobile Safari??
+
+      if (!this.streamOptions) {
+        startMain();
+      } else {
+        return navigator.mediaDevices
+          .getUserMedia(this.streamOptions)
+          .then(function gotStream(stream) {
+            recorder.stream = stream;
+            startMain();
+          })
+          .catch(function failedToGetStream(err) {
+            console.error(err);
+          });
+      }
+    }
     return undefined;
   },
 
@@ -135,19 +142,11 @@ MediaRecorder.prototype = {
    * })
    */
   stop: function stop() {
-    /**
-      Stop stream and end cloned stream tracks
-    */
-    if (this.state === 'inactive') {
-      return this.em.dispatchEvent(error('stop'));
+    if (this.state !== 'inactive') {
+      this.requestData();
+      this.state = 'inactive';
+      clearInterval(this.slicing);
     }
-
-    this.requestData();
-    this.state = 'inactive';
-    this.clone.getTracks().forEach(function(track) {
-      track.stop();
-    });
-    return clearInterval(this.slicing);
   },
 
   /**
@@ -161,12 +160,10 @@ MediaRecorder.prototype = {
    * })
    */
   pause: function pause() {
-    if (this.state !== 'recording') {
-      return this.em.dispatchEvent(error('pause'));
+    if (this.state === 'recording') {
+      this.state = 'paused';
+      this.em.dispatchEvent(new Event('pause'));
     }
-
-    this.state = 'paused';
-    return this.em.dispatchEvent(new Event('pause'));
   },
 
   /**
@@ -180,12 +177,10 @@ MediaRecorder.prototype = {
    * })
    */
   resume: function resume() {
-    if (this.state !== 'paused') {
-      return this.em.dispatchEvent(error('resume'));
+    if (this.state === 'paused') {
+      this.state = 'recording';
+      this.em.dispatchEvent(new Event('resume'));
     }
-
-    this.state = 'recording';
-    return this.em.dispatchEvent(new Event('resume'));
   },
 
   /**
@@ -199,18 +194,15 @@ MediaRecorder.prototype = {
    * })
    */
   requestData: function requestData() {
-    if (this.state === 'inactive') {
-      return this.em.dispatchEvent(error('requestData'));
+    if (this.state !== 'inactive') {
+      this.encoder.postMessage(['dump', this.context.sampleRate]);
     }
-
-    return this.encoder.postMessage(['dump', context.sampleRate]);
   },
 
   /**
    * Add listener for specified event type.
    *
-   * @param {"start"|"stop"|"pause"|"resume"|"dataavailable"|"error"}
-   * type Event type.
+   * @param {"start"|"stop"|"pause"|"resume"|"dataavailable"} type Event type.
    * @param {function} listener The listener function.
    *
    * @return {undefined}
@@ -227,8 +219,7 @@ MediaRecorder.prototype = {
   /**
    * Remove event listener.
    *
-   * @param {"start"|"stop"|"pause"|"resume"|"dataavailable"|"error"}
-   * type Event type.
+   * @param {"start"|"stop"|"pause"|"resume"|"dataavailable"} type Event type.
    * @param {function} listener The same function used in `addEventListener`.
    *
    * @return {undefined}

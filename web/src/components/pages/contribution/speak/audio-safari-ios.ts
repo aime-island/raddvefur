@@ -1,7 +1,7 @@
 import { isNativeIOS } from '../../../../utility';
 import { bool } from 'prop-types';
 
-let AUDIO_TYPE = 'audio/ogg; codecs=opus';
+let AUDIO_TYPE = 'audio/wav';
 
 var createObjectURL =
   (window.URL || window.webkitURL || {}).createObjectURL || function() {};
@@ -23,7 +23,7 @@ export interface AudioInfo {
   blob: Blob;
 }
 
-export default class AudioWeb {
+export default class AudioSafariIOS {
   microphone: MediaStream;
   analyzerNode: AnalyserNode;
   audioContext: AudioContext;
@@ -43,41 +43,6 @@ export default class AudioWeb {
     }
 
     this.visualize = this.visualize.bind(this);
-  }
-
-  private isReady(): boolean {
-    return !!this.microphone;
-  }
-
-  private getMicrophone(): Promise<MediaStream> {
-    return new Promise(function(res: Function, rej: Function) {
-      function deny(error: MediaStreamError) {
-        rej(
-          ({
-            NotAllowedError: AudioError.NOT_ALLOWED,
-            NotFoundError: AudioError.NO_MIC,
-          } as { [errorName: string]: AudioError })[error.name] || error
-        );
-      }
-      function resolve(stream: MediaStream) {
-        res(stream);
-      }
-
-      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices
-          .getUserMedia({ audio: true })
-          .then(resolve, deny);
-      } else if (navigator.getUserMedia) {
-        navigator.getUserMedia({ audio: true }, resolve, deny);
-      } else if (navigator.webkitGetUserMedia) {
-        navigator.webkitGetUserMedia({ audio: true }, resolve, deny);
-      } else if (navigator.mozGetUserMedia) {
-        navigator.mozGetUserMedia({ audio: true }, resolve, deny);
-      } else {
-        // Browser does not support getUserMedia
-        rej(AudioError.NO_SUPPORT);
-      }
-    });
   }
 
   // Check all the browser prefixes for microhpone support.
@@ -137,70 +102,34 @@ export default class AudioWeb {
    * the page is reloaded if the user decides to do so.
    *
    */
-  async init() {
-    if (this.isReady()) {
-      return;
-    }
-
-    const microphone = await this.getMicrophone();
-    this.microphone = microphone;
-
-    var audioContext = await new AudioContext();
-
-    // Set up the analyzer node, and allocate an array for its data
-    // FFT size 64 gives us 32 bins. But those bins hold frequencies up to
-    // 22kHz or more, and we only care about visualizing lower frequencies
-    // which is where most human voice lies, so we use fewer bins
-    var analyzerNode = await audioContext.createAnalyser();
-    analyzerNode.channelCount = 1;
-    analyzerNode.fftSize = 128;
-    analyzerNode.smoothingTimeConstant = 0.96;
-    this.frequencyBins = new Uint8Array(analyzerNode.frequencyBinCount);
-
-    if (this.isPolyfillRecording()) {
-      // Safari and Edge
-      AUDIO_TYPE = 'audio/wav';
-      analyzerNode.connect(audioContext.destination);
-      this.recorder = new MediaRecorder(this.microphone);
-    } else {
-      // Not Safari / Edge
-      var sourceNode = audioContext.createMediaStreamSource(microphone);
-      var volumeNode = audioContext.createGain();
-      var outputNode = audioContext.createMediaStreamDestination();
-
-      // Make sure we're doing mono everywhere.
-      sourceNode.channelCount = 1;
-      volumeNode.channelCount = 1;
-      outputNode.channelCount = 1;
-
-      // Connect the nodes together
-      sourceNode.connect(volumeNode);
-      volumeNode.connect(analyzerNode);
-      analyzerNode.connect(outputNode);
-
-      // and set up the recorder.
-      this.recorder = new MediaRecorder(outputNode.stream);
-
-      // Another audio node used by the beep() function
-      var beeperVolume = audioContext.createGain();
-      beeperVolume.connect(audioContext.destination);
-    }
-
-    // Setup audio visualizer.
-    this.jsNode = audioContext.createScriptProcessor(256, 1, 1);
-    this.jsNode.connect(audioContext.destination);
-
-    //
-    this.analyzerNode = analyzerNode;
-    this.audioContext = audioContext;
+  init() {
+    return;
   }
-
   start(): Promise<void> {
-    if (!this.isReady()) {
-      console.error('Cannot record audio before microhphone is ready.');
-      return Promise.resolve();
-    }
-    return new Promise<void>((res: Function, rej: Function) => {
+    return new Promise<void>(async (res: Function, rej: Function) => {
+      var audioContext = await new AudioContext();
+
+      // Set up the analyzer node, and allocate an array for its data
+      // FFT size 64 gives us 32 bins. But those bins hold frequencies up to
+      // 22kHz or more, and we only care about visualizing lower frequencies
+      // which is where most human voice lies, so we use fewer bins
+      var analyzerNode = await audioContext.createAnalyser();
+      analyzerNode.channelCount = 1;
+      analyzerNode.fftSize = 128;
+      analyzerNode.smoothingTimeConstant = 0.96;
+      this.frequencyBins = new Uint8Array(analyzerNode.frequencyBinCount);
+
+      analyzerNode.connect(audioContext.destination);
+      this.recorder = new MediaRecorder(null, { audio: true });
+
+      // Setup audio visualizer.
+      this.jsNode = audioContext.createScriptProcessor(256, 1, 1);
+      this.jsNode.connect(audioContext.destination);
+
+      //
+      this.analyzerNode = analyzerNode;
+      this.audioContext = audioContext;
+
       this.chunks = [];
 
       this.recorder.addEventListener('dataavailable', (e: BlobEvent) => {
@@ -221,11 +150,6 @@ export default class AudioWeb {
   }
 
   stop(): Promise<AudioInfo> {
-    if (!this.isReady()) {
-      console.error('Cannot stop audio before microhphone is ready.');
-      return Promise.reject();
-    }
-
     return new Promise((res: Function, rej: Function) => {
       this.stopVisualize();
 

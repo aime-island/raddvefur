@@ -2,7 +2,7 @@ import 'focus-visible';
 import * as React from 'react';
 import { render } from 'react-dom';
 import './components/index.css';
-import { isFacebook, isFacebookIOS } from './utility';
+import { isFacebook, isIOS } from './utility';
 
 declare var require: any;
 
@@ -13,9 +13,15 @@ document.addEventListener('touchstart', function() {}, true);
 document.addEventListener('DOMContentLoaded', async () => {
   const isFace = await isFacebook();
   if (isFace) {
-    const isFaceIOS = await isFacebookIOS();
-    if (!isFaceIOS) {
+    const isFBIOS = await isIOS();
+    if (!isFBIOS) {
       window.location.href = 'http://almannaromur.page.link/is';
+    } else {
+      const FacebookIOSMessage = require('./components/facebook-ios-message');
+      render(
+        React.createElement(FacebookIOSMessage),
+        document.getElementById('root')
+      );
     }
   } else {
     if (typeof window.IntersectionObserver === 'undefined') {
