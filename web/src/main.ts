@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       //window.location.href = 'http://almannaromur.page.link/is';
     } else {
       setTimeout(function() {
-        window.location.href = 'https://aime.moon.do';
+        window.location.href = 'safari://https://aime.moon.do';
       }, 500);
       /* const FacebookIOSMessage = require('./components/facebook-ios-message');
       render(
