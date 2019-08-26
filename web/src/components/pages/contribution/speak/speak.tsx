@@ -36,12 +36,7 @@ import {
   LabeledSelect,
   LabeledCheckbox,
 } from '../../../ui/ui';
-import {
-  getItunesURL,
-  isFirefoxFocus,
-  isNativeIOS,
-  isFacebook,
-} from '../../../../utility';
+import { isFirefoxFocus, isSafariIOS, isFacebook } from '../../../../utility';
 import ContributionPage, {
   ContributionPillProps,
   SET_COUNT,
@@ -215,7 +210,7 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.audio = isNativeIOS() ? new AudioIOS() : new AudioSafariIOS();
+    this.audio = isSafariIOS() ? new AudioSafariIOS() : new AudioWeb();
     this.audio.setVolumeCallback(this.updateVolume.bind(this));
 
     document.addEventListener('visibilitychange', this.releaseMicrophone);

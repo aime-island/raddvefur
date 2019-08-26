@@ -35,6 +35,10 @@ export function isNativeIOS(): boolean {
   );
 }
 
+export function isSafariIOS(): boolean {
+  return isMobileWebkit();
+}
+
 export function isFirefoxFocus(): boolean {
   return navigator.userAgent.indexOf('Focus') !== -1;
 }
