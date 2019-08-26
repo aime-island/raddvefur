@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     const App = require('./components/app').default;
     render(React.createElement(App), document.getElementById('root'));
-  //}
+  }
 });
