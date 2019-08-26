@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       window.location.href = 'https://randomwalk.page.link/6SuK';
       //window.location.href = 'http://almannaromur.page.link/is';
     } else {
-      window.location.href = 'https://aime.moon.do';
+      setTimeout(function() {
+        window.location.href = 'https://aime.moon.do';
+      }, 500);
       /* const FacebookIOSMessage = require('./components/facebook-ios-message');
       render(
         React.createElement(FacebookIOSMessage),
