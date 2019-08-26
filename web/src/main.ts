@@ -19,8 +19,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       //window.location.href = 'http://almannaromur.page.link/is';
     } else {
       //window.location.assign('safari://https://aime.moon.do');
-      const FacebookIOSMessage = require('./components/facebook-ios-message');
-      render(FacebookIOSMessage, document.getElementById('root'));
+      const FacebookIOSMessage = require('./components/facebook-ios-message')
+        .default;
+      render(
+        React.createElement(FacebookIOSMessage),
+        document.getElementById('root')
+      );
     }
   } else {
     if (typeof window.IntersectionObserver === 'undefined') {
