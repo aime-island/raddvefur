@@ -11,7 +11,7 @@ document.addEventListener('touchstart', function() {}, true);
 
 // Start the app when DOM is ready.
 document.addEventListener('DOMContentLoaded', async () => {
-  const isFace = await isFacebook();
+  /*   const isFace = await isFacebook();
   if (isFace) {
     const isFBIOS = await isIOS();
     if (!isFBIOS) {
@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('root')
       );
     }
-  } else {
-    if (typeof window.IntersectionObserver === 'undefined') {
-      await require('intersection-observer');
-    }
-    const App = require('./components/app').default;
-    render(React.createElement(App), document.getElementById('root'));
+  } else { */
+  if (typeof window.IntersectionObserver === 'undefined') {
+    await require('intersection-observer');
   }
+  const App = require('./components/app').default;
+  render(React.createElement(App), document.getElementById('root'));
+  //}
 });
