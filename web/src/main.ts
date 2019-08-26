@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (isFace) {
     const isFBIOS = await isIOS();
     if (!isFBIOS) {
-      window.location.href = 'http://almannaromur.page.link/is';
+      window.location.href = 'https://randomwalk.page.link/6SuK';
+      //window.location.href = 'http://almannaromur.page.link/is';
     } else {
       const FacebookIOSMessage = require('./components/facebook-ios-message');
       render(
