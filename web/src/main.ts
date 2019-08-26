@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const isFBIOS = await isIOS();
     if (!isFBIOS) {
       window.location.href = 'http://almannaromur.page.link/is';
+    } else {
+      const FacebookIOSMessage = require('./components/facebook-ios-message');
+      render(
+        React.createElement(FacebookIOSMessage),
+        document.getElementById('root')
+      );
     }
   } else {
     if (typeof window.IntersectionObserver === 'undefined') {
