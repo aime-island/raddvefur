@@ -4,12 +4,7 @@ export default function FacebookIOSMessage() {
   return (
     <div>
       Hæ iphone notandi <br />
-      <a href="safari://aime.moon.do">Opna með safari</a>
-      <br />
-      <br />
-      <link rel="alternate" href="safari://aime.moon.do">
-        Opna líka með safari
-      </link>
+      <a href="x-web-search://?https://aime.moon.do">Opna með safari</a>
     </div>
   );
 }
