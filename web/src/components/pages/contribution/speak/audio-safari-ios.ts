@@ -102,7 +102,9 @@ export default class AudioSafariIOS {
    * the page is reloaded if the user decides to do so.
    *
    */
-
+  init() {
+    return;
+  }
   start(): Promise<void> {
     return new Promise<void>(async (res: Function, rej: Function) => {
       var audioContext = await new AudioContext();

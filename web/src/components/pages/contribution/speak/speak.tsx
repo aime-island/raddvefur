@@ -210,6 +210,7 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    console.log('Is Safari IOS: ', isSafariIOS());
     this.audio = isSafariIOS() ? new AudioSafariIOS() : new AudioWeb();
     this.audio.setVolumeCallback(this.updateVolume.bind(this));
 
@@ -344,9 +345,13 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     try {
-      //let nothing = await this.audio.release();
-      //await this.audio.init();
-      await this.startRecording();
+      if (isSafariIOS()) {
+        await this.startRecording();
+      } else {
+        let nothing = await this.audio.release();
+        await this.audio.init();
+        await this.startRecording();
+      }
     } catch (err) {
       if (err in AudioError) {
         this.setState({ error: err });
