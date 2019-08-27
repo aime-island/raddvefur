@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       //window.location.href = 'http://almannaromur.page.link/is';
     } else {
       //window.location.assign('safari://https://aime.moon.do');
-      const FacebookIOSMessage = require('./components/facebook-ios-message')
+      const FacebookIOSMessage = require('./components/pages/iphone/facebook-landing')
         .default;
       render(
         React.createElement(FacebookIOSMessage),
