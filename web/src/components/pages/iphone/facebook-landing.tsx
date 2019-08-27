@@ -5,9 +5,20 @@ import './facebook-landing.css';
 export default function FacebookIOSMessage() {
   return (
     <div className="iphone-landing">
-      Hæ iphone notandi <br />
-      <a href="googlechrome://aime.moon.do">Opna með Chrome</a>
-      <a href="https://aime.moon.do">Aime.moon.do</a>
+      <div className="iphone-landing-items">
+        <h2>Almannarómur</h2>
+        <div className="iphone-images">
+          <img className="cancel" src={require('./images/cancel.png')} />
+          <img
+            className="microphone"
+            src={require('./images/microphone.png')}
+          />
+        </div>
+        <p>
+          Hljóðnemi er ekki studdur hér. Vinsamlegast opnaðu með Safari eða
+          öðrum vafra.
+        </p>
+      </div>
     </div>
   );
 }
