@@ -20,8 +20,6 @@ function renderFacebook() {
 
 // Start the app when DOM is ready.
 document.addEventListener('DOMContentLoaded', async () => {
-  renderFacebook();
-  return;
   const isFace = await isFacebook();
   if (isFace) {
     const isFBIOS = await isIOS();
