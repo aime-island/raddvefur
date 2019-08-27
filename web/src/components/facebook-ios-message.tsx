@@ -4,7 +4,7 @@ export default function FacebookIOSMessage() {
   var iframe = document.createElement('iframe');
   document.body.appendChild(iframe);
   iframe.setAttribute('style', 'display:none;');
-  iframe.src = 'safari://launch?var=val';
+  iframe.src = 'youtube://launch?var=val';
 
   return (
     <div>
