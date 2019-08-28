@@ -98,7 +98,7 @@
     }
 
     &.open {
-        justify-content: flex-end;
+        justify-content: space-between;
 
         @media (--sm-down) {
             width: auto;
@@ -109,7 +109,7 @@
         }
 
         & .num {
-            border: solid 1px #f5f4f3;
+            /*border: solid 1px #f5f4f3; */
             margin: 7px;
             background: var(--desert-storm);
 

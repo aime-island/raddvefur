@@ -249,6 +249,8 @@
         }
 
         & .cards {
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
             position: relative;
             max-width: 700px;
             height: 223px;

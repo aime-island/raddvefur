@@ -9,19 +9,26 @@ declare var require: any;
 // Safari hack to allow :active styles.
 document.addEventListener('touchstart', function() {}, true);
 
+function renderFacebook() {
+  const FacebookIOSMessage = require('./components/pages/iphone/facebook-landing')
+    .default;
+  render(
+    React.createElement(FacebookIOSMessage),
+    document.getElementById('root')
+  );
+}
+
 // Start the app when DOM is ready.
 document.addEventListener('DOMContentLoaded', async () => {
   const isFace = await isFacebook();
   if (isFace) {
     const isFBIOS = await isIOS();
     if (!isFBIOS) {
-      window.location.href = 'http://almannaromur.page.link/is';
+      window.location.href = 'https://randomwalk.page.link/6SuK';
+      //window.location.href = 'http://almannaromur.page.link/is';
     } else {
-      const FacebookIOSMessage = require('./components/facebook-ios-message');
-      render(
-        React.createElement(FacebookIOSMessage),
-        document.getElementById('root')
-      );
+      //window.location.assign('safari://https://aime.moon.do');
+      renderFacebook();
     }
   } else {
     if (typeof window.IntersectionObserver === 'undefined') {
