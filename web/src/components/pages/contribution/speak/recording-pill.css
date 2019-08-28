@@ -50,6 +50,7 @@
     }
 
     & .placeholder {
-        width: 110px;
+        width: 53px;
+        padding: 0;
     }
 }

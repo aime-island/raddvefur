@@ -779,9 +779,9 @@ class SpeakPage extends React.Component<Props, State> {
           activeIndex={recordingIndex}
           errorContent={this.isUnsupportedPlatform && <UnsupportedInfo />}
           extraButton={
-            <Localized id="unable-speak">
-              <LocaleLink to={URLS.LISTEN} />
-            </Localized>
+            <Button rounded outline className="skip" onClick={this.handleSkip}>
+              Tilkynna setningu
+            </Button>
           }
           instruction={props =>
             error ? (

@@ -8,6 +8,10 @@
     position: absolute;
 }
 
+.copy-link-h2 {
+    margin-top: 2rem;
+}
+
 .iphone-landing-items {
     width: 80%;
     display: flex;
