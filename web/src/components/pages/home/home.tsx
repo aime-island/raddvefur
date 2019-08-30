@@ -116,7 +116,7 @@ export default function HomePage() {
 
             {showWallOfText && (
               <React.Fragment>
-                <Localized id="wall-of-text-more-desktop">
+                <Localized id="wall-of-text-more">
                   <p />
                 </Localized>
                 <br />

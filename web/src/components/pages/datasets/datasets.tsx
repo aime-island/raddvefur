@@ -12,8 +12,6 @@ import './datasets.css';
 export default () => (
   <div className="datasets-content">
     <DatasetInfo />
-    <Subscribe />
-    <Resources />
     <div className="mars-validate">
       <div>
         <img src={require('./images/mars.svg')} alt="" />
