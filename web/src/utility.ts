@@ -35,6 +35,10 @@ export function isNativeIOS(): boolean {
   );
 }
 
+export function isSafariIOS(): boolean {
+  return isMobileWebkit();
+}
+
 export function isFirefoxFocus(): boolean {
   return navigator.userAgent.indexOf('Focus') !== -1;
 }
@@ -42,6 +46,11 @@ export function isFirefoxFocus(): boolean {
 export function isFacebook(): boolean {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
   return ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1;
+}
+
+export function isFacebookIOS(): boolean {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  return ua.indexOf('FBIOS') > -1;
 }
 
 /**

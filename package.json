@@ -5,6 +5,7 @@
   "repository": "mozilla/voice-web",
   "private": true,
   "dependencies": {
+    "audio-recorder-polyfill": "^0.1.6",
     "concurrently": "^4.1.0",
     "fluent-syntax": "^0.13.0",
     "prettier": "^1.18.2",

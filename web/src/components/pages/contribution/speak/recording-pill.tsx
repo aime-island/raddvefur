@@ -47,6 +47,7 @@ function RecordingPill({
     let nextIsPlaying = !isPlaying;
     if (nextIsPlaying) {
       trackRecording('listen', locale);
+      audio.load();
       audio.play();
     } else {
       audio.pause();
@@ -100,11 +101,6 @@ function RecordingPill({
                   </span>
                 </button>
               </Tooltip>
-              <button className="share" type="button" onClick={onShare}>
-                <span className="padder">
-                  <ShareIcon />
-                </span>
-              </button>
             </React.Fragment>
           )}
         </React.Fragment>

@@ -36,12 +36,7 @@ import {
   LabeledSelect,
   LabeledCheckbox,
 } from '../../../ui/ui';
-import {
-  getItunesURL,
-  isFirefoxFocus,
-  isNativeIOS,
-  isFacebook,
-} from '../../../../utility';
+import { isFirefoxFocus, isSafariIOS, isFacebook } from '../../../../utility';
 import ContributionPage, {
   ContributionPillProps,
   SET_COUNT,
@@ -51,6 +46,7 @@ import {
   RecordingStatus,
 } from '../../../primary-buttons/primary-buttons';
 import AudioIOS from './audio-ios';
+import AudioSafariIOS from './audio-safari-ios';
 import AudioWeb, { AudioError, AudioInfo } from './audio-web';
 import RecordingPill from './recording-pill';
 import { SentenceRecording } from './sentence-recording';
@@ -179,7 +175,7 @@ const Options = withLocalization(
 class SpeakPage extends React.Component<Props, State> {
   state: State = initialState;
 
-  audio: AudioWeb | AudioIOS;
+  audio: AudioWeb | AudioIOS | AudioSafariIOS;
   isUnsupportedPlatform = false;
   maxVolume = 0;
   recordingStartTime = 0;
@@ -214,7 +210,8 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.audio = isNativeIOS() ? new AudioIOS() : new AudioWeb();
+    console.log('Is Safari IOS: ', isSafariIOS());
+    this.audio = isSafariIOS() ? new AudioSafariIOS() : new AudioWeb();
     this.audio.setVolumeCallback(this.updateVolume.bind(this));
 
     document.addEventListener('visibilitychange', this.releaseMicrophone);
@@ -223,7 +220,6 @@ class SpeakPage extends React.Component<Props, State> {
     if (
       !this.audio.isMicrophoneSupported() ||
       !this.audio.isAudioRecordingSupported() ||
-      isFacebook() ||
       isFirefoxFocus()
     ) {
       this.isUnsupportedPlatform = true;
@@ -313,8 +309,10 @@ class SpeakPage extends React.Component<Props, State> {
     if (length > MAX_RECORDING_MS) {
       return RecordingError.TOO_LONG;
     }
-    if (this.maxVolume < MIN_VOLUME) {
-      return RecordingError.TOO_QUIET;
+    if (!this.audio.isPolyfillRecording()) {
+      if (this.maxVolume < MIN_VOLUME) {
+        return RecordingError.TOO_QUIET;
+      }
     }
     return null;
   };
@@ -348,8 +346,13 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     try {
-      await this.audio.init();
-      await this.startRecording();
+      if (isSafariIOS()) {
+        await this.startRecording();
+      } else {
+        let nothing = await this.audio.release();
+        await this.audio.init();
+        await this.startRecording();
+      }
     } catch (err) {
       if (err in AudioError) {
         this.setState({ error: err });
@@ -777,9 +780,9 @@ class SpeakPage extends React.Component<Props, State> {
           activeIndex={recordingIndex}
           errorContent={this.isUnsupportedPlatform && <UnsupportedInfo />}
           extraButton={
-            <Localized id="unable-speak">
-              <LocaleLink to={URLS.LISTEN} />
-            </Localized>
+            <Button rounded outline className="skip" onClick={this.handleSkip}>
+              Tilkynna setningu
+            </Button>
           }
           instruction={props =>
             error ? (

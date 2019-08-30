@@ -330,11 +330,6 @@ class ContributionPage extends React.Component<Props, State> {
             <div className="cards-and-pills">
               <div />
               <div className="cards-and-instruction">
-                {instruction({
-                  $actionType: getString('action-click'),
-                  children: <div className="instruction hidden-sm-down" />,
-                }) || <div className="instruction hidden-sm-down" />}
-
                 <div className="cards">
                   {sentences.map((sentence, i) => {
                     const activeSentenceIndex = this.isDone
@@ -363,6 +358,10 @@ class ContributionPage extends React.Component<Props, State> {
                     );
                   })}
                 </div>
+                {instruction({
+                  $actionType: getString('action-click'),
+                  children: <div className="instruction hidden-sm-down" />,
+                }) || <div className="instruction hidden-sm-down" />}
               </div>
               {this.isDone && (
                 <div className="review-demo">

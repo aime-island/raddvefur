@@ -24,15 +24,17 @@ const consul = require('consul')({ promisify: true });
 const FULL_CLIENT_PATH = path.join(__dirname, '..', '..', 'web');
 
 const CSP_HEADER = [
-  `default-src 'none'`,
-  `style-src 'self' https://fonts.googleapis.com https://optimize.google.com 'unsafe-inline'`,
-  `img-src 'self' www.google-analytics.com www.gstatic.com https://optimize.google.com https://www.gstatic.com https://gravatar.com data:`,
+  `default-src blob:`,
+  `style-src blob: 'self' https://fonts.googleapis.com https://optimize.google.com 'unsafe-inline'`,
+  `img-src blob: 'self' www.google-analytics.com www.gstatic.com https://optimize.google.com https://www.gstatic.com https://gravatar.com data:`,
   `media-src data: blob: https://*.amazonaws.com https://*.amazon.com`,
   // Note: we allow unsafe-eval locally for certain webpack functionality.
-  `script-src 'self' 'unsafe-eval' 'sha256-CPdbR9S4PxK+qCPKelo76ESu1Wx1EED0imEj3KmYG8c=' https://www.google-analytics.com https://optimize.google.com https://sentry.io`,
-  `font-src 'self' https://fonts.gstatic.com`,
-  `connect-src 'self' https://*.amazonaws.com https://*.amazon.com https://www.gstatic.com https://www.google-analytics.com https://sentry.io`,
-  `frame-src https://optimize.google.com`,
+  `script-src blob: 'self' 'unsafe-eval' 'unsafe-inline' 'sha256-CPdbR9S4PxK+qCPKelo76ESu1Wx1EED0imEj3KmYG8c=' https://www.google-analytics.com https://optimize.google.com https://sentry.io`,
+  `font-src blob: 'self' https://fonts.gstatic.com`,
+  `connect-src blob: 'self' https://*.amazonaws.com https://*.amazon.com https://www.gstatic.com https://www.google-analytics.com https://sentry.io`,
+  `frame-src blob: https://optimize.google.com`,
+  `worker-src blob:`,
+  `child-src blob:`,
 ].join(';');
 
 export default class Server {
