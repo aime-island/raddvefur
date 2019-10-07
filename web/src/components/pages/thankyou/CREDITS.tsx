@@ -1,14 +1,14 @@
 const CREDITS = [
   {
-    who: 'Kristlaug María Sigurðardóttir',
-    why: 'Fyrir setningar úr verkum sínum þar á meðal Ávaxtakörfunni.',
+    who: 'Kristlaugu Maríu Sigurðardóttur',
+    why: 'Fyrir setningar úr verkum hennar, þar á meðal Ávaxtakörfunni.',
   },
   {
     who: 'Jón Gnarr',
-    why: 'Fyrir setningar úr ritverkum sínum.',
+    why: 'Fyrir setningar úr ritverkum hans.',
   },
   {
-    who: 'Vísindavefurinn',
+    who: 'Vísindavefnum',
     why: 'Fyrir setningar úr greinum sínum.',
   },
   {
@@ -17,7 +17,7 @@ const CREDITS = [
   },
   {
     who: 'Common Voice',
-    why: 'Almannarómur er byggt á Mozilla verkefninu Common Voice.',
+    why: 'Almannarómur er byggir á Mozilla verkefninu Common Voice.',
   },
   {
     who: 'Rafmynt ehf.',
@@ -26,7 +26,7 @@ const CREDITS = [
   {
     who: 'Vilt þú leggja verkefninu lið?',
     why:
-      'Til þess að búa til raddgagnasafnið Almannaróm þá þarf mikinn fjölda íslenskra setninga. Það hefði því ekki verið hægt að gera þetta verkefni án þeirra aðila sem hafa góðfúslega gefið efnið sitt í verkefnið. Ef þú átt bók, ritgerð, safn af pistlum eða annan texta sem inniheldur málfræðilega réttar setniningar og myndir vilja leggja verkefninu lið þá máttu endilega senda línu á almannaromur@almannaromur.is.',
+      'Til að búa til raddgagnasafnið Almannaróm þarf mikinn fjölda íslenskra setninga. Það hefði því ekki verið hægt að ráðst í þetta verkefni án þeirra sem hafa góðfúslega gefið efnið sitt til þess. Ef þú átt bók, ritgerð, safn af pistlum eða annan texta sem inniheldur málfræðilega réttar setniningar og myndir vilja leggja verkefninu lið sendu okkur þá endilega línu á almannaromur@almannaromur.is.',
   },
 ];
 
