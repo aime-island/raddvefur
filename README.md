@@ -7,6 +7,7 @@ Using the Common Voice platform to kickstart speech collecting in Iceland by not
 - External data such as sentences mustn't be under CC0.
 - The product of using the software can be under various licenses, e.g. data within downloadable datasets may have various licenses.
 - Enforced demographic info collection.
+- GDPR compliant
 
 ### Info about Common Voice below:
 

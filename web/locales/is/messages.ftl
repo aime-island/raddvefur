@@ -30,7 +30,7 @@ speak-goal-text             = Raddupptökur
 
 listen                      = Hlusta
 listen-subtitle             = Hjálpaðu okkur að staðfesta raddir
-listen-paragraph            = Að staðfesta fyrirliggjandi raddupptökur er jafn mikilvægt fyrir Almannaróm og upptökurnar sjálfar. Hlustaðu og hjálpaðu okkur að þróa hágæða safn opinna raddagagna.
+listen-paragraph            = Að staðfesta fyrirliggjandi raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar. Hlustaðu og hjálpaðu okkur að þróa hágæða safn opinna raddgagna.
 listen-goal-text            = Staðfestar raddupptökur
 
 todays-progress             = Árangur dagsins
@@ -39,11 +39,9 @@ read-terms-q                = Hefurðu lesið skilmálana?
 
 home-title                  = Þú getur lagt þitt af mörkum til að bjarga íslenskunni frá stafrænum dauða. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla sem nota hana.
 wall-of-text-first          = Allar raddir eru einstakar. Það er spennandi að nýta röddina fyrir tækin okkar en til þess þarf gríðarlegt magn fjölbreyttra raddsýna ef vel á að takast.
+
 wall-of-text-second         = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efnir Almannarómur til þessa verkefnis, með það að markmiði að byggja upp talgreiningartækni, sem allir geta notað.
 wall-of-text-third          = Með því að gefa raddsýni hjálpar þú okkur að byggja upp opið gagnasafn radda sem mun nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
-
-show-wall-of-text           = Lesa meira
-wall-of-text-more           = Með því að gefa raddsýni hjálpar þú okkur að byggja upp opið gagnasafn radda sem mun nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
 
 hours-recorded              = Klukkustundir hljóðritaðar
 hours-validated             = Klukkustundir staðfestar
@@ -83,17 +81,17 @@ toggle-play-tooltip         = Veldu { shortcut-play-toggle } til þess að skipt
 ## General
 vote-yes                    = Já
 vote-no                     = Nei
-yes-receive-emails          = Já, sendið mér tölvupóst. Ég vil fylgjast með Almannaróm.
+yes-receive-emails          = Já, sendið mér tölvupóst. Ég vil fylgjast með Samróm.
 stayintouch                 = Við hjá Mozilla erum að setja á laggirnar raddtæknisamfélag. Við viljum vera í sambandi varðandi uppfærslur, nýjar gagnaveitur og til að fá að heyra meira um hvernig þessi gögn eru nýtt.
 privacy-info                = Við heitum því að meðhöndla upplýsingarnar þínar af varkárni. Nánar í <privacyLink>Tilkynningu um persónuvernd</privacyLink>.
-return-to-cv                = Til baka í Almannaróm
+return-to-cv                = Til baka í Samróm
 email-input                 = .label = Tölvupóstur
 submit-form-action          = Senda inn
 change-demo                 = Breyta
 today                       = Í dag
 review-demo-title           = Þín rödd
 loading                     = Hleður...
-email-opt-in-info           = Ég vil gjarnan fá tölvupóst um markmiðsáminningar, framvindu mína og fréttabréf Almannaróms.
+email-opt-in-info           = Ég vil gjarnan fá tölvupóst um markmiðsáminningar, framvindu mína og fréttabréf Samróms.
 email-opt-in-privacy        = Með því að kjósa að fá tölvupóst frá okkur samþykkir þú að Mozilla notist við þær upplýsingar eins og lýst er í <privacyLink>Meðferð persónuupplýsinga<privacyLink>.
 indicates-required          = * táknar nauðsynlegan reit
 not-available-abbreviation  = Á ekki við
@@ -140,7 +138,7 @@ shortcut-record-toggle-label    = Taka upp/Stöðva
 shortcut-rerecord-toggle        = [1-5]
 shortcut-rerecord-toggle-label  = Taka upp aftur
 
-request-language-text       = Hvernig varð Almannarómur að veruleika?
+request-language-text       = Hvernig varð Samrómur að veruleika?
 request-language-button     = Biðja um tungumál
 
 ## ProjectStatus
@@ -170,7 +168,7 @@ about-header-description       = Það tungumál sem við notum, lærum við og 
 deloitte-project-title         = Oft veltir lítil þúfa þungu hlassi
 deloitte-project-description-1 = Upphaf þessa verkefns má rekja til þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, sem þróað var í gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir gátu þá farið í skemmtilega og einfalda leiki með vélmenninu sem vakti mikla og verðskuldaða athygli.
 deloitte-project-description-2 = AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku, var ekki um auðugan garð að gresja þegar kom að tæknilausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og ef fram fer sem horfir er hröð þróun tæknilegra lausna á góðri leið með að útiloka íslenska tungu alfarið á þessum vettvangi.
-deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Almannarómur, Háskólanum í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
+deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Samrómur, Skema í Háskólanum í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
 deloitte-project-description-4 = Styrkur frá Nýsköpunarsjóði námsmanna gerði samstarfsaðilunum kleiftað ráða fjóra framúrskarandi nemendur í tölvunar-og verkfræði í sumarverkefni við að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur hvers kyn tækja- og hugbúnaði í framtíðinni. Því leggja samstarfsaðilarnir áherslu á að allar afurðir sem hópurinn þróar og útfærir, séu nú og verði áfram, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source).
 deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í samræmi við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni og til þess fallin að skapa tækifæri fyrir mannauð framtíðarinnar og tæknimenntun.
 deloitte-project-team-title    = Þróunarteymið skipa: 
@@ -192,16 +190,16 @@ about-listen-text           = Notendur staðfesta nákvæmni gefinna hljóðbrot
 about-is-it-valid           = Er þetta hljóðbrot gilt?
 about-is-it-valid-text      = Hljóðbrot er merkt „staðfest“ þegar notandi gefur því Já atkvæði.
 about-yes-votes             = ≥ 2 Já atkvæði
-about-yes-votes-text        = Til að komast inn í gagnasafn Almannaróms þarf hljóðbrot að vera yfirfarið af tveim einstaklingum.
+about-yes-votes-text        = Til að komast inn í gagnasafn Samróms þarf hljóðbrot að vera yfirfarið af tveim einstaklingum.
 about-no-votes              = ≥ 2 Nei atkvæði
 about-no-votes-text         = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í hlustunarröðina. Ef því er hafnað í annað sinn, þá fer hljóð&shy;brotið í Hljóð&shy;brota&shy;graf&shy;reitinn.
-about-dataset-new           = Almannarómsgagnasafnið
-about-dataset-new-text      = Almannarómsgagnasafnið samanstendur af fjölda raddhljóðbrota sem hjálpa þróunaraðilum að smíða talgreina.
+about-dataset-new           = Gagnasafn Samróms
+about-dataset-new-text      = Gagnasafn Samróms hefur að geyma fjölda raddhljóðbrota sem auðvelda þróunaraðilum að smíða máltækni lausnir.
 about-clip-graveyard        = Hljóðbrotagrafreitur
-about-clip-graveyard-text   = Hljóð&shy;brota&shy;graf&shy;reiturinn saman&shy;stendur af radd&shy;hljóð&shy;brotum sem gátu ekki orðið hluti af Almannaróms&shy;gagna&shy;safninu. Rétt eins og gagna&shy;safnið er Hljóð&shy;brota&shy;graf&shy;reiturinn aðgengi&shy;legur til niðurhals.
+about-clip-graveyard-text   = í hljóð&shy;brota&shy;graf&shy;reitnum eru radd&shy;hljóð&shy;brotum sem gátu ekki orðið hluti af gagnasafni Samróms&shy;s. Rétt eins og gagna&shy;safnið er Hljóð&shy;brota&shy;graf&shy;reiturinn aðgengi&shy;legur til niðurhals.
 about-partners              = Samstarfsaðilar
 about-become-a-partner      = Skráðu þig sem samstarfsaðila
-about-partnership           = Almannarómur er samstarfsverkefni, og við erum háð samfélaginu okkar af samstarfsaðilum og almeningi sem leggur sitt að mörkum til þess að byggja stærsta opna raddgagnasafn sem fyrirfinnst.
+about-partnership           = Samrómur er samstarfsverkefni, og við erum háð samfélaginu okkar af samstarfsaðilum og almeningi sem leggur sitt að mörkum til þess að byggja stærsta opna raddgagnasafn sem fyrirfinnst.
 
 about-nav-get-involved      = Samstarfsaðilar
 about-get-involved          = Samstarfsaðilar
@@ -222,7 +220,7 @@ mycroft-secondary-description = Þetta er opinn hugbúnaður sem má breyta, bæ
 
 
 ## Languages Overview
-language-section-launched    = Við viljum þakka...
+language-section-launched    = Við þökkum...
 
 
 ## New Contribution
@@ -235,11 +233,11 @@ action-tap              = Snerta
 contribute              = Leggðu lið
 skip                    = Fara í næstu
 samromur                = Samrómur
-almannaromur            = Almannarómur
+almannaromur            = Samrómur
 home                    = Forsíða
 shortcuts               = Flýtileiðir
 clips-with-count        = <bold>{ $count }</bold> upptökur
-goal-help-recording     = Þú hefur hjálpað Almannarómi að ná <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
+goal-help-recording     = Þú hefur hjálpað Samrómi að ná <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
 goal-help-validation    = Með þinni hjálp höfum við náð að staðfesta <goalPercentage></goalPercentage >af þeim setningum sem við ætluðum okkur að klára í dag!  ({ $goalValue } á dag)
 contribute-more         = {
      $count ->
@@ -328,7 +326,7 @@ profile-form-submit-save = Vista
 profile-form-submit-saved = Vistað
 
 why-profile-title = Hvers vegna prófíl?
-why-profile-text = Með því að útvega einhverjar upplýsingar um sjálfan þig, þá verða hljóðgögnin sem þú sendir inn í Almannaróm gagnlegri í talgreiningarvélar sem nota þessi gögn til þess að bæta á nákvæmni.
+why-profile-text = Með því að útvega einhverjar upplýsingar um sjálfan þig, þá verða hljóðgögnin sem þú sendir inn í Samróm gagnlegri í talgreiningarvélar sem nota þessi gögn til þess að bæta á nákvæmni.
 dashboard = Skjáborð
 build-profile = Búa til prófíl
 avatar = Prófílmynd
@@ -367,29 +365,29 @@ change-email-setings = Breyta netfangi með því að nota stillingar undir Inns
 ## FAQ
 faq-title               = Algengar spurningar
 
-faq-what-cv-q           = Hvað er Almannarómur?
-faq-what-cv-a           = Almannarómur er málheild sem á rætur sínar að rekja til Common Voice verkefnis Mozilla. Almannarómur samanstendur af raddsýnum og setningum sem fólk leggur til og gerir hverjum sem er hæglega kleift að þjálfa og skilyrða raddstýrðan hugbúnað. 
+faq-what-cv-q           = Hvað er Samrómur?
+faq-what-cv-a           = Samrómur er málheild sem á rætur sínar að rekja til Common Voice verkefnis Mozilla. Samrómur samanstendur af raddsýnum og setningum sem fólk leggur til og gerir hverjum sem er hæglega kleift að þjálfa og skilyrða raddstýrðan hugbúnað. 
 
-faq-why-important-q     = Afhverju er Almannarómur mikilvægur?
+faq-why-important-q     = Afhverju er Samrómur mikilvægur?
 faq-why-important-a     = Allt er breytingum háð ekki síst á tímum stafrænnar tækni. Raddtækni er ein þessara breytinga en nú þegar er búið að þróa hana fyrir ensku og nokkur önnur stærri mál. Í framtíðinni mun slík tækni verða enn útbreiddari spila stóran þátt í okkar daglega lífi.
     Það tungmál sem við notum, lærum við og ef við þurfum ekki að nota íslenskuna, þá er hætta á að hún deyji út. Sökum þessa er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda sem nýtist við hugbúnaðargerð til jafns við önnur tungumál.
 
-faq-how-get-q           = Hvernig get ég nálgast Almannarómsgagnasafnið?
-faq-how-get-a           = Almannarómsgagnasafnið er ekki aðgengilegt sem stendur en verður gert aðgengilegt hér á síðunni þegar gagnasafnið er orðið nægjanlega stórt.
+faq-how-get-q           = Hvernig get ég nálgast Samrómsgagnasafnið?
+faq-how-get-a           = Samrómsgagnasafnið er ekki aðgengilegt sem stendur en verður gert aðgengilegt hér á síðunni þegar gagnasafnið er orðið nægjanlega stórt.
 
-faq-why-mission-q       = Hver er munurinn á Almannaróm og Common Voice?
-faq-why-mission-a       = Almannarómur byggir á Mozilla verkefninu <mozillaLink>Common Voice</mozillaLink>. Meðal annars vegna þess hve erfitt er að fá mikinn fjölda setninga með CC-0 leyfi og til að auka nýtingargildi gagnanna var ákveðið að þróa Almannaróm sem einskonar grein út frá Common Voice verkefninu.  
+faq-why-mission-q       = Hver er munurinn á Samróm og Common Voice?
+faq-why-mission-a       = Samrómur byggir á Mozilla verkefninu <mozillaLink>Common Voice</mozillaLink>. Meðal annars vegna þess hve erfitt er að fá mikinn fjölda setninga með CC-0 leyfi og til að auka nýtingargildi gagnanna var ákveðið að þróa Samróm sem einskonar grein út frá Common Voice verkefninu.  
  
 faq-whos-involved-q     = Hverjir eru að vinna að Samróm?
 faq-whos-involved-a     = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar. Þeir sem standa við bakið á verkefninu eru 
     <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Almannarómur</almannaLink>, <hrLink>Háskólinn í Reykjavík</hrLink>, 
     og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunnarsjóður námsmanna.
 
-faq-what-cv-and-deepspeech-q = Hver er munurinn á Almannaróm og Deep Speech?
-faq-what-cv-and-deepspeech-a = Þar sem Almannarómur byggir á Common Voice er Almannarómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.
+faq-what-cv-and-deepspeech-q = Hver er munurinn á Samróm og Deep Speech?
+faq-what-cv-and-deepspeech-a = Þar sem Samrómur byggir á Common Voice er Samrómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.
 
-faq-is-alm-sam-q        = Hver er munurinn á Almannaróm og Samróm?
-faq-is-alm-sam-a        = Samrómur er gagnasafnið sem við erum að búa til en Almannarómur er heiti verkefnisins og eru einnig góðgerðarsamtök sem vilja vernda íslenska tungu og tryggja að hún standi jafnfætis öðrum tungumálum.  
+faq-is-alm-sam-q        = Hver er munurinn á Samróm og Samróm?
+faq-is-alm-sam-a        = Samrómur er gagnasafnið sem við erum að búa til en Samrómur er heiti verkefnisins og eru einnig góðgerðarsamtök sem vilja vernda íslenska tungu og tryggja að hún standi jafnfætis öðrum tungumálum.  
 faq-do-want-native-q    = Ég tala ekki þetta tungumál að móðurmáli og er með hreim, er enn áhugi fyrir því að ég leggi til raddupptökur?
 faq-do-want-native-a    = Já, við viljum endilega fá þína rödd! Við viljum að talgreinir geti skilið alla en til þess þarf gögn frá öllum. Það gerir það að verkum að raddframlög einstaklinga með annað móðurmál eru sérstaklega mikilvæg.
 faq-why-different-speakers-q = Hvers vegna þarf svona margar mismunandi raddir fyrir hvert tungumál?
@@ -400,12 +398,12 @@ faq-why-my-lang-q = Afhverju þarf ég að gefa lýðfræðilegar upplýsingar?
 faq-why-my-lang-new-a = Einfaldlega til að auka gæði gagnanna. Mörg gögn eru lýðfræðilega bjöguð þar sem hallar á alla nema <articleLink>karlmenn í millistétt</articleLink> og viljum við tryggja fjölbreytileika í okkar gagnasafni. 
 
 faq-what-quality-q      = Hversu góð þurfa hljóðgæðin að vera til að upptaka verði notuð í gagnasafninu?
-faq-what-quality-a      = Við viljum að Almannarómsgagnasafnið endurspegli hljóðgæði sem talgreinir gæti lent í við daglega notkun, svo við vonumst eftir upptökum bæði í góðum og slæmum gæðum. Með fjölbreytilegan hóp raddgjafa og upptökur í mismunandi gæðum getum við kennt talgreinum að ráða við ýmsar raunverulegar aðstæður, t.d. þar sem aðrar samræður er í bakgrunni eða þar sem heyrist í bílvél. Svo lengi sem hægt er að greina talið í upptökunni ætti það að duga fyrir gagnasafnið.
+faq-what-quality-a      = Við viljum að Samrómsgagnasafnið endurspegli hljóðgæði sem talgreinir gæti lent í við daglega notkun, svo við vonumst eftir upptökum bæði í góðum og slæmum gæðum. Með fjölbreytilegan hóp raddgjafa og upptökur í mismunandi gæðum getum við kennt talgreinum að ráða við ýmsar raunverulegar aðstæður, t.d. þar sem aðrar samræður er í bakgrunni eða þar sem heyrist í bílvél. Svo lengi sem hægt er að greina talið í upptökunni ætti það að duga fyrir gagnasafnið.
 
 faq-why-10k-hours-q     = Hvers vegna er upptökumarkmiðið 10.000 klst á tungumál?
 faq-why-10k-hours-a     = Þetta er um það bil sá fjöldi klukkustunda sem þarf til að þjálfa markaðshæfan talgreini.
 
-faq-how-calc-hours-q    = Hvernig reiknar Almannarómur þessa klukkutíma?
+faq-how-calc-hours-q    = Hvernig reiknar Samrómur þessa klukkutíma?
 
 faq-how-calc-hours-a    = Við teljum klukkustundirnar með því að áætla meðallengd hverrar upptöku og mörgföldum svo þá tölu með heildarfjölda upptaka.
 faq-where-src-from-2-q  = Hvaðan kemur lestextinn?
@@ -416,16 +414,16 @@ faq-why-not-ask-read-a  = ...
 faq-why-participate-q   = Afhverju ætti ég að taka þátt?
 faq-why-participate-a   = Þú hjálpar til við að vernda íslenskuna og þitt framlag stuðlar að því að máltæknilausnir framtíðarinnar skilji fólk eins og þig.
 faq-is-account-public-q = Verða mínar reikningsupplýsingar opinberar?
-faq-how-privacy-q = Hvernig tryggið þið nafnleysi og friðhelgi þeirra sem ljá Almannaróm röddina sína?
+faq-how-privacy-q = Hvernig tryggið þið nafnleysi og friðhelgi þeirra sem ljá Samróm röddina sína?
 faq-how-privacy-a = Persónulega einkennandi gögn hafa verið fjarlægð úr öllum raddhljóðbrotum í safninu. Lýðfræðilegu upplýsingarnar eru aftengdar upptökum þeirra en fylgja öðrum lýðfræðigögnum í niðurhali á gagnasafninu.
-faq-what-determine-identity-q = Hvað þýðir það að ég geti ekki „borið kennsl á“ raddgjafa í Almannarómsgagnasafninu?
+faq-what-determine-identity-q = Hvað þýðir það að ég geti ekki „borið kennsl á“ raddgjafa í Samrómsgagnasafninu?
 faq-what-determine-identity-a =
-    Almannarómsgagnasafnið er opið og aðgengilegt almenning svo hægt sé að nota það til að þjálfa margs konar raddstýrð kerfi. Fyrir öryggi raddgjafanna biðjum við alla sem sækja Almannarómsgagnasafnið að virða friðhelgi einkalífs þeirra.
+    Samrómsgagnasafnið er opið og aðgengilegt almenning svo hægt sé að nota það til að þjálfa margs konar raddstýrð kerfi. Fyrir öryggi raddgjafanna biðjum við alla sem sækja Samrómsgagnasafnið að virða friðhelgi einkalífs þeirra.
     
     Þegar maður sækir gagnasafnið samþykkir maður að reyna ekki að bera kennsl á neinn raddgjafanna. Það þýðir að það má ekki reyna að tengja upptökur í gagnasafninu við einstaklinga sem hafa lagt til upptökur. Það má hins vegar nota gagnasafnið til að þjálfa talgreina, málshafagreina og fleiri kerfi, t.d. með því að tengja saman upplýsingar innan gagnasafnsins.
-faq-what-is-cv = Hvað er Almannarómur?
-faq-using-cv = Notkun Almannaróms
-faq-description = Almannarómur er fyrsta íslenska hópaflaða málheildin. Hvað langar þig að vita?
+faq-what-is-cv = Hvað er Samrómur?
+faq-using-cv = Notkun Samróms
+faq-description = Samrómur er fyrsta íslenska hópaflaða málheildin. Hvað langar þig að vita?
 faq-search-for-answers =
     .label = Leita að svörum
 
@@ -450,45 +448,42 @@ notfound-content = Ég veit því miður ekki að hverju þú leitar.
 
 ## Data
 
-data-download-button = Niðurhala gögnum úr Almannarómi.
-data-download-yes = Já
-data-download-deny = Nei
-data-download-license = Leyfi: <licenseLink>CC-0</licenseLink>
-data-download-modal = Þú ert í þann mund að niðurhala <size>{ $size }GB</size>, halda áfram?
-data-subtitle = Við erum að þróa opið gagnasafn fyrir almenning úr raddgögnum sem allir geta notað til að þjálfa raddstýrð forrit.
-data-explanatory-text = Við trúum að stór raddgagnasöfn sem eru aðgengileg almenningi hvetji til nýsköpunar og heilbrigðrar samkeppni í raddbúnaði sem byggir á vélagreind. Þetta er alþjóðlegt átak og öllum er boðið að taka þátt. Okkar markmið er að stuðla að alhliða raddtækni, sem endurspeglar fjölbreytileika raddsýnanna sem eru fengin alls staðar úr heiminum.
-data-get-started = <speechBlogLink>Byrjaðu að talgreina</speechBlogLink>
-data-other-title = Önnur raddgagnasöfn...
-data-other-goto = Fara í { $name }
-data-other-download = Niðurhala gögnum
-data-bundle-button = Niðurhala gagnasafnapakka
-data-bundle-description = Gögn Almannaróms og öll gagnasöfnin að ofan.
+data-download-button    = Niðurhala gögnum úr Samrómi.
+data-download-yes       = Já
+data-download-deny      = Nei
+data-download-license   = Leyfi: <licenseLink>CC-0</licenseLink>
+data-download-modal     = Þú ert í þann mund að niðurhala <size>{ $size }GB</size>, halda áfram?
+data-subtitle           = Við erum að þróa opið gagnasafn fyrir almenning úr raddgögnum sem allir geta notað til að þjálfa raddstýrð forrit.
+data-explanatory-text   = Við trúum því að að stór gagnasöfn sem eru opin almenningi muni styðja við nýsköpun og stuðla að heilbrigðri samkeppni innan tæknigeirans á sviði máltæknilausna. Þetta er alþjóðlegt átak og öllum er boðið að taka þátt. Okkar markmið er að stuðla að alhliða raddtækni, sem endurspeglar fjölbreytileika raddsýnanna sem eru fengin alls staðar úr heiminum.
+data-get-started        = <speechBlogLink>Byrjaðu að talgreina</speechBlogLink>
+data-other-title        = Önnur raddgagnasöfn...
+data-other-goto         = Fara í { $name }
+data-other-download     = Niðurhala gögnum
+data-bundle-button      = Niðurhala gagnasafnapakka
+data-bundle-description = Gögn Samróms og öll gagnasöfnin að ofan.
 license = Leyfi: <licenseLink>{ $license }</licenseLink>
-license-mixed = Blandað
-review-terms = Með notkun Almannaróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins
-terms-agree = Áfram
-terms-disagree = Hætta við  
-review-aborted = Hætt var við að senda inn. Viltu eyða því sem þú tókst upp?
-review-submit-title = Fara yfir & senda inn
-review-submit-msg = Takk fyrir upptökuna!<lineBreak></lineBreak>Vinsamlegast farðu yfir og sendu svo upptökuna inn hér fyrir neðan.
-review-recording = Yfirferð
-review-rerecord = Endurtaka upptöku
-review-cancel = Hætta við að senda inn
-review-keep-recordings = Geyma upptökur
-review-delete-recordings = Eyða upptökum
+license-mixed           = Blandað
+review-terms            = Með notkun Samróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins
+terms-agree             = Áfram
+terms-disagree          = Hætta við  
+review-aborted          = Hætt var við að senda inn. Viltu eyða því sem þú tókst upp?
+review-submit-title     = Fara yfir & senda inn
+review-submit-msg       = Takk fyrir upptökuna!<lineBreak></lineBreak>Vinsamlegast farðu yfir og sendu svo upptökuna inn hér fyrir neðan.
+review-recording        = Yfirferð
+review-rerecord         = Endurtaka upptöku
+review-cancel           = Hætta við að senda inn
+review-keep-recordings  = Geyma upptökur
+review-delete-recordings= Eyða upptökum
 
 ## Datasets Page
 
 
-datasets-headline = Almannarómur verður opið og aðgengilegt gagnasafn radda og öllum frjálst að nýta það til þjálfunar raddstýrðra forrita.
+datasets-headline       = Samrómur verður opið og aðgengilegt gagnasafn radda og öllum frjálst að nýta það til þjálfunar raddstýrðra forrita.
 
 datasets-positioning =
-    Stór gagnasett sem opin eru almenningi munu styðja við nýsköpun og stuðla að heilbrigðri markaðssamkeppni innan tæknigeirans á sviði máltæknilausna.
+    Gagnasafnið er öllum aðgengilegt með einu smelli neðar á þessari síðu. Gagnasafnið samanstendur af setningum og svo hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. 
     
-    Vonir standa til að Almannarómsgagnasafnið verði það stærsta sinnar tegundar. Fleiri slík söfn eru til en nokkrar málheildir og önnur tól eru nú þegar til. 
-    
-    Þú getur litið á þessa síðu sem miðlægra upplýsingasíðu fyrir önnur opin raddgagnasöfn, talgreina, málheildir og annars máltækni efnis. 
-language = Tungumál
+    Með þinni hjálp getur þetta orðið stærsta gagnasafn sinnar tegundar fyrir íslenska tungu.
 # File size in gigabytes
 size = Stærð
 validated-hr-total = Staðfestar klst.
@@ -503,25 +498,25 @@ confirm-size = Þú getur nú hafið niðurhal að stærð <b>{ $size }</b>.
 click-to-download = Smelltu hér til að sækja málheildina
 size-gigabyte = GB
 size-megabyte = MB
-confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera kennsl á mælendur í málheild Almannaróms.
+confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera kennsl á mælendur í málheild Samróms.
 download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
-whats-inside = Hvað er í málheild Almannaróms?
+whats-inside = Hvað er í Samróms gagnasafninu?
 
 dataset-description-hours =
     Hver færsla í gagnasafninu samanstendur af einstöku MP3 hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem safnast hafa innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
     
-    Í gagnasafninu eru <b>{ $valid }</b> staðfestar klukkustundirum hljóðbrota en alltaf má bæta við fleiri röddum.
+    Í gagnasafninu eru <b>{ $valid }</b> staðfestar klukkustundir hljóðbrota en alltaf má bæta við fleiri röddum.
 
-want-dataset-update = Langar þig að heyra meira um starf Almannaróms? Skráðu þig þá á póstlistann.
+want-dataset-update = Langar þig að heyra meira um starf Samróms? Skráðu þig þá á póstlistann.
 subscribe = Gerast áskrifandi
 
 get-started-speech = Hefjast handa við talgreiningu
 
 other-datasets = Annað gagnlegt
 feedback-q = Ertu með ábendingar?
-deepspeech-info = Þar sem Almannarómsgagnasafnið er byggt á Common Voice er þægilegt að nýta það með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Með honum getur þú hannað talgreiningarforrit. Kynntu þér <githubLink>yfirlitið á Github</githubLink> eða taktu þátt á <discourseLink>DeepSpeech umræðuvefnum</discourseLink> til að læra um hvernig best er að byrja.
+deepspeech-info = Þar sem Samrómsgagnasafnið er byggt á Common Voice er þægilegt að nýta það með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Með honum getur þú hannað talgreiningarforrit. Kynntu þér <githubLink>yfirlitið á Github</githubLink> eða taktu þátt á <discourseLink>DeepSpeech umræðuvefnum</discourseLink> til að læra um hvernig best er að byrja.
 
 data-other-tal-description = Tal er íslenskur talgreinir. Hann var þróaður af Mál- og raddtæknistofu Gervigreindarseturs Háskólans í Reykjavík með hugbúnaðinum Kaldi og gögnum söfnuðum í samstarfi við google. 
 kaldi-info = Kaldi er tól til að eiga við raddgögn sem er ætlað þeim sem rannsaka eða starfa við máltækni, og er aðgengilegt öllum. Hægt er að lesa meira á <discourseLink>heimasíðu Kaldi</discourseLink> eða á <githubLink>Github</githubLink>.
@@ -530,7 +525,7 @@ data-other-ted-description = TED-LIUM textasafnið var þróað úr talsetningum
 data-other-voxforge-description = VoxForge var sett upp til að safna umrituðum hljóðupptökum sem nota má í opnum og frjálsum talgreiningarhugbúnaði.
 data-other-malfong-description = Málföng er vefsíða sem inniheldur upplýsingar um flest sem við kemur íslenskri máltækni. Þar má meðal annars finna málheildir og orðasöfn.  
 
-your-feedback = Ertu með hugmyndir um hvernig mætti bæta Almannarómsgagnasafnið? Láttu okkur vita á Discourse
+your-feedback = Ertu með hugmyndir um hvernig mætti bæta Samrómsgagnasafnið? Láttu okkur vita á Discourse
 go-discourse = Fara á Discourse
 missing-language = Sérðu ekki tungumálið þitt í gagnasafninu? Biddu um að því verði bætt við á Tungumála síðunni.
 go-languages-page = Fara á tungumálasíðu
@@ -565,7 +560,7 @@ request-language-title = Beiðni um tungumál
 request-language-form-language =
     .label = Tungumál
 request-language-success-title = Tungumálabeiðni tókst að senda inn. Takk fyrir.
-request-language-success-content = Við munum vera í sambandi fljótlega til að útskýra betur hvernig hægt er að bæta þínu tungumáli við Almannaróm.
+request-language-success-content = Við munum vera í sambandi fljótlega til að útskýra betur hvernig hægt er að bæta þínu tungumáli við Samróm.
 select-language = Velja tungumál...
 other-language = Annað tungumál
 
@@ -606,8 +601,8 @@ your-languages = Þín tungumál
 toward-next-goal = Að næsta markmiði
 clips-you-recorded = Upptökur sem þú hefur skráð
 clips-you-validated = Upptökur sem þú hefur samþykkt
-todays-recorded-progress = Framför dagsins í að skrá gögn í Almannaróm
-todays-validated-progress = Framför dagsins í að samþykkja gögn í Almannaróm
+todays-recorded-progress = Framför dagsins í að skrá gögn í Samróm
+todays-validated-progress = Framför dagsins í að samþykkja gögn í Samróm
 stats = Tölfræði
 you = Þú
 everyone = Allir
@@ -620,18 +615,18 @@ overall-accuracy = Almenn nákvæmni
 
 ## Profile Delete
 
-delete-q = Vilt þú fara fram á að þínum raddgögnum verði líka eytt, eða viltu frekar halda þeim í gagnasafni Almannaróms?
+delete-q = Vilt þú fara fram á að þínum raddgögnum verði líka eytt, eða viltu frekar halda þeim í gagnasafni Samróms?
 keep = Halda
 remove = Fjarlægja
-keep-info = Nafnlausu raddgögnin þín verða áfram í gagnasafni Almannaróms. Þegar prófíl hefur verið eytt þá er ekki lengur hægt að biðja um að raddgögn honum tengd verði fjarlægð úr gagnasafninu.
+keep-info = Nafnlausu raddgögnin þín verða áfram í gagnasafni Samróms. Þegar prófíl hefur verið eytt þá er ekki lengur hægt að biðja um að raddgögn honum tengd verði fjarlægð úr gagnasafninu.
 remove-info = Við munum skoða beiðni þína um að eyða raddgögnum úr gagnasafninu. Ef beiðnin er samþykkt, þá verður haft samband við þá sem hafa halað niður gagnasafninu og þeir líka beðnir um að eyða út raddgögnunum þínum.
-why-delete-recordings = Upptökusafn Almannaróms er ætlað handa fræðafólki, litlum fyrirtækjum og áhugafólki um talgreina, í því skyni að þjálfa verkfæri á borð við raddlíkön, aðgengileg og opin almenningi.
+why-delete-recordings = Upptökusafn Samróms er ætlað handa fræðafólki, litlum fyrirtækjum og áhugafólki um talgreina, í því skyni að þjálfa verkfæri á borð við raddlíkön, aðgengileg og opin almenningi.
 profile-form-delete = Eyða prófíl
 
 ## Landing
 
 welcome-staff = Velkomin/n { $company }!
-help-contribute = Þú getur hjálpað til við uppbyggingu fjölbreytts, opins gagnasafns með því að búa til Almannaróms aðgang og gefa raddsýni.
+help-contribute = Þú getur hjálpað til við uppbyggingu fjölbreytts, opins gagnasafns með því að búa til Samróms aðgang og gefa raddsýni.
 login-company = Innskráning / nýskráning með netfangi hjá { $company }
 
 profile-not-required = Prófíls er ekki krafist til að taka þátt!

@@ -18,7 +18,7 @@ class ThankYou extends React.Component {
 
           <div className="text">
             <div className="inner">
-              <h1>Við viljum þakka...</h1>
+              <h1>Við þökkum...</h1>
             </div>
           </div>
         </div>
