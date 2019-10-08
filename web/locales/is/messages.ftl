@@ -40,6 +40,8 @@ read-terms-q                = Hefurðu lesið skilmálana?
 home-title                  = Þú getur lagt þitt af mörkum til að bjarga íslenskunni frá stafrænum dauða. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla sem nota hana.
 wall-of-text-first          = Allar raddir eru einstakar. Það er spennandi að nýta röddina fyrir tækin okkar en til þess þarf gríðarlegt magn fjölbreyttra raddsýna ef vel á að takast.
 wall-of-text-second         = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efnir Almannarómur til þessa verkefnis, með það að markmiði að byggja upp talgreiningartækni, sem allir geta notað.
+wall-of-text-third          = Með því að gefa raddsýni hjálpar þú okkur að byggja upp opið gagnasafn radda sem mun nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
+
 show-wall-of-text           = Lesa meira
 wall-of-text-more           = Með því að gefa raddsýni hjálpar þú okkur að byggja upp opið gagnasafn radda sem mun nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
 
@@ -168,7 +170,7 @@ about-header-description       = Það tungumál sem við notum, lærum við og 
 deloitte-project-title         = Oft veltir lítil þúfa þungu hlassi
 deloitte-project-description-1 = Upphaf þessa verkefns má rekja til þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, sem þróað var í gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir gátu þá farið í skemmtilega og einfalda leiki með vélmenninu sem vakti mikla og verðskuldaða athygli.
 deloitte-project-description-2 = AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku, var ekki um auðugan garð að gresja þegar kom að tæknilausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og ef fram fer sem horfir er hröð þróun tæknilegra lausna á góðri leið með að útiloka íslenska tungu alfarið á þessum vettvangi.
-deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Almannarómur, Skema í Háskólanum í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
+deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Almannarómur, Háskólanum í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
 deloitte-project-description-4 = Styrkur frá Nýsköpunarsjóði námsmanna gerði samstarfsaðilunum kleiftað ráða fjóra framúrskarandi nemendur í tölvunar-og verkfræði í sumarverkefni við að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur hvers kyn tækja- og hugbúnaði í framtíðinni. Því leggja samstarfsaðilarnir áherslu á að allar afurðir sem hópurinn þróar og útfærir, séu nú og verði áfram, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source).
 deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í samræmi við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni og til þess fallin að skapa tækifæri fyrir mannauð framtíðarinnar og tæknimenntun.
 deloitte-project-team-title    = Þróunarteymið skipa: 
@@ -205,7 +207,7 @@ about-nav-get-involved      = Samstarfsaðilar
 about-get-involved          = Samstarfsaðilar
 about-get-involved-text =
     Þeir sem standa við bakið á Almannaróm eru <githubLink>Deloitte</githubLink>, 
-    <almannaLink>Almannarómur</almannaLink>, <slackLink>Skema í HR</slackLink>, 
+    <almannaLink>Almannarómur</almannaLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
     og <discourseLink>Nýsköpunnarsjóður námsmanna</discourseLink>.
 
 
@@ -378,10 +380,10 @@ faq-how-get-a           = Almannarómsgagnasafnið er ekki aðgengilegt sem sten
 faq-why-mission-q       = Hver er munurinn á Almannaróm og Common Voice?
 faq-why-mission-a       = Almannarómur byggir á Mozilla verkefninu <mozillaLink>Common Voice</mozillaLink>. Meðal annars vegna þess hve erfitt er að fá mikinn fjölda setninga með CC-0 leyfi og til að auka nýtingargildi gagnanna var ákveðið að þróa Almannaróm sem einskonar grein út frá Common Voice verkefninu.  
  
-faq-whos-involved-q     = Hverjir eru að vinna að Almannaróm?
+faq-whos-involved-q     = Hverjir eru að vinna að Samróm?
 faq-whos-involved-a     = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar. Þeir sem standa við bakið á verkefninu eru 
-    <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Almannarómur</almannaLink>, <skemaLink>Skema í HR</skemaLink>, 
-    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Skema í HR, og Nýsköpunnarsjóður námsmanna.
+    <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Almannarómur</almannaLink>, <hrLink>Háskólinn í Reykjavík</hrLink>, 
+    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunnarsjóður námsmanna.
 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Almannaróm og Deep Speech?
 faq-what-cv-and-deepspeech-a = Þar sem Almannarómur byggir á Common Voice er Almannarómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.
