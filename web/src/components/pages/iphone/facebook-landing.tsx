@@ -10,7 +10,7 @@ export default function FacebookIOSMessage() {
   return (
     <div className="iphone-landing">
       <div className="iphone-landing-items">
-        <h2>Almannarómur</h2>
+        <h2>Samrómur</h2>
         <div className="iphone-images">
           <img className="cancel" src={require('./images/cancel.png')} />
           <img
