@@ -104,6 +104,7 @@
 
     & p {
         font-size: 14px;
+        color: var(--near-black);
 
         @media (--sm-down) {
             margin: 0 auto;
