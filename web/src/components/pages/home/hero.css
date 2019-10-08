@@ -18,7 +18,7 @@
     @media (--md-up) {
         padding: 130px 100px 0;
         width: 100%;
-        min-height: 500px;
+        min-height: 450px;
         box-sizing: border-box;
         flex-direction: row;
     }
@@ -104,7 +104,7 @@
 
     & p {
         font-size: 14px;
-        color: var(--warm-grey);
+        color: var(--near-black);
 
         @media (--sm-down) {
             margin: 0 auto;
@@ -190,7 +190,7 @@
         }
 
         & .current {
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size);
         }
 
         & .total {

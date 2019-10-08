@@ -39,9 +39,9 @@ read-terms-q                = Hefurðu lesið skilmálana?
 
 home-title                  = Þú getur lagt þitt af mörkum til að bjarga íslenskunni frá stafrænum dauða. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla sem nota hana.
 wall-of-text-first          = Allar raddir eru einstakar. Það er spennandi að nýta röddina fyrir tækin okkar en til þess þarf gríðarlegt magn fjölbreyttra raddsýna ef vel á að takast.
-wall-of-text-second         = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efnir Samrómur til þessa verkefnis, með það að markmiði að byggja upp talgreiningartækni, sem allir geta notað.
-show-wall-of-text           = Lesa meira
-wall-of-text-more           = Með því að gefa raddsýni hjálpar þú okkur að byggja upp opið gagnasafn radda sem mun nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Samróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
+
+wall-of-text-second         = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efnir Almannarómur til þessa verkefnis, með það að markmiði að byggja upp talgreiningartækni, sem allir geta notað.
+wall-of-text-third          = Með því að gefa raddsýni hjálpar þú okkur að byggja upp opið gagnasafn radda sem mun nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
 
 hours-recorded              = Klukkustundir hljóðritaðar
 hours-validated             = Klukkustundir staðfestar
@@ -204,9 +204,9 @@ about-partnership           = Samrómur er samstarfsverkefni, og við erum háð
 about-nav-get-involved      = Samstarfsaðilar
 about-get-involved          = Samstarfsaðilar
 about-get-involved-text =
-    Samstarfsaðilar Samróms eru <githubLink>Deloitte</githubLink>, 
-    <almannaLink>Almannarómur</almannaLink>, <slackLink>Skema í HR</slackLink>, 
-    og <discourseLink>Nýsköpunarsjóður námsmanna</discourseLink>.
+    Þeir sem standa við bakið á Almannaróm eru <githubLink>Deloitte</githubLink>, 
+    <almannaLink>Almannarómur</almannaLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
+    og <discourseLink>Nýsköpunnarsjóður námsmanna</discourseLink>.
 
 
     Við þökkum eftirfarandi aðilum og samtökum fyrir þeirra framlag til verkefnisins:
@@ -380,8 +380,8 @@ faq-why-mission-a       = Samrómur byggir á Mozilla verkefninu <mozillaLink>Co
  
 faq-whos-involved-q     = Hverjir eru að vinna að Samróm?
 faq-whos-involved-a     = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar. Þeir sem standa við bakið á verkefninu eru 
-    <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Samrómur</almannaLink>, <skemaLink>Skema í HR</skemaLink>, 
-    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Samrómur, Skema í HR, og Nýsköpunnarsjóður námsmanna.
+    <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Almannarómur</almannaLink>, <hrLink>Háskólinn í Reykjavík</hrLink>, 
+    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunnarsjóður námsmanna.
 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Samróm og Deep Speech?
 faq-what-cv-and-deepspeech-a = Þar sem Samrómur byggir á Common Voice er Samrómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.

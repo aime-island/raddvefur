@@ -114,28 +114,11 @@ export default function HomePage() {
 
             <br />
 
-            {showWallOfText && (
-              <React.Fragment>
-                <Localized id="wall-of-text-more">
-                  <p />
-                </Localized>
-                <br />
-              </React.Fragment>
-            )}
-
-            <Localized
-              id={showWallOfText ? 'languages-show-less' : 'show-wall-of-text'}>
-              <button
-                className="show-more"
-                type="button"
-                onClick={() => {
-                  if (showWallOfText) {
-                    trackHome('read-more', locale);
-                  }
-                  setShowWallOfText(!showWallOfText);
-                }}
-              />
+            <Localized id="wall-of-text-third">
+              <p />
             </Localized>
+
+            <br />
           </div>
         </div>
       </div>

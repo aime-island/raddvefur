@@ -39,7 +39,7 @@ export const AlmannaLink = ({ dispatch, ...props }: SharedLinkProps) => {
 };
 
 export const SlackLink = ({ dispatch, ...props }: SharedLinkProps) => {
-  return <a target="blank" href="https://www.ru.is/skema/" {...props} />;
+  return <a target="blank" href="https://www.ru.is" {...props} />;
 };
 
 export const MozillaLink = ({ dispatch, ...props }: SharedLinkProps) => {
