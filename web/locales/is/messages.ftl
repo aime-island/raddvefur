@@ -205,9 +205,9 @@ about-partnership           = Samrómur er samstarfsverkefni, og við erum háð
 about-nav-get-involved      = Samstarfsaðilar
 about-get-involved          = Samstarfsaðilar
 about-get-involved-text =
-    Samstarfsaðilar Samróms eru <githubLink>Deloitte</githubLink>, 
-    <almannaLink>Almannarómur</almannaLink>, <slackLink>Skema í HR</slackLink>, 
-    og <discourseLink>Nýsköpunarsjóður námsmanna</discourseLink>.
+    Þeir sem standa við bakið á Almannaróm eru <githubLink>Deloitte</githubLink>, 
+    <almannaLink>Almannarómur</almannaLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
+    og <discourseLink>Nýsköpunnarsjóður námsmanna</discourseLink>.
 
 
     Við þökkum eftirfarandi aðilum og samtökum fyrir þeirra framlag til verkefnisins:
@@ -381,8 +381,8 @@ faq-why-mission-a       = Samrómur byggir á Mozilla verkefninu <mozillaLink>Co
  
 faq-whos-involved-q     = Hverjir eru að vinna að Samróm?
 faq-whos-involved-a     = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar. Þeir sem standa við bakið á verkefninu eru 
-    <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Samrómur</almannaLink>, <skemaLink>Skema í HR</skemaLink>, 
-    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Samrómur, Skema í HR, og Nýsköpunnarsjóður námsmanna.
+    <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Almannarómur</almannaLink>, <hrLink>Háskólinn í Reykjavík</hrLink>, 
+    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunnarsjóður námsmanna.
 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Samróm og Deep Speech?
 faq-what-cv-and-deepspeech-a = Þar sem Samrómur byggir á Common Voice er Samrómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.

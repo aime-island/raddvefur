@@ -43,7 +43,7 @@ const SECTION_CONTENTS: any = {
         almannaLink: (
           <StyledLink href="https://www.facebook.com/almannaromur/" blank />
         ),
-        skemaLink: <StyledLink href="https://www.ru.is/skema/" blank />,
+        hrLink: <StyledLink href="https://www.ru.is" blank />,
         nyskLink: (
           <StyledLink
             href="https://www.rannis.is/sjodir/menntun/nyskopunarsjodur-namsmanna/"
