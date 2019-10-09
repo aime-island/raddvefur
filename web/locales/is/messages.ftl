@@ -42,7 +42,7 @@ wall-of-text-first          = Íslenska er einstakt tungumál sem hefur breyst m
 
 wall-of-text-second         = Þess vegna þurfum við aðstoð þína við að safna raddsýnum í opinn gagnagrunn til afnota fyrir þá sem vinna að því að samþætta íslensku og hina stafrænu tækni. Ferlið er einfalt og fljótlegt. Með því að smella á tala bíða þín fimm setningar sem við biðjum þig um að lesa inn.
 show-wall-of-text           = Lesa meira
-wall-of-text-third          = Því fleiri og fjölbreyttari hópur fólks sem ljáir verkefninu rödd sían, þeim mun meiri líkur eru á að tæknin geti talað og skilið íslensku svo vel sé. Það er á okkar valdi að alltaf megi finna svar á íslensku.
+wall-of-text-third          = Því fleiri og fjölbreyttari hópur fólks sem ljáir verkefninu rödd sína, þeim mun meiri líkur eru á að tæknin geti talað og skilið íslensku svo vel sé. Það er á okkar valdi að alltaf megi finna svar á íslensku.
 
 hours-recorded              = Klukkustundir hljóðritaðar
 hours-validated             = Klukkustundir staðfestar
