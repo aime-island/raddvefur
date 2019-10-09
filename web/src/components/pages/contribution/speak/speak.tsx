@@ -472,9 +472,10 @@ class SpeakPage extends React.Component<Props, State> {
             let msg;
             if (error.message === 'save_clip_error') {
               msg =
-                'Innsending raddsýnis mistekst sífellt á netþjóni, prófaðu að endurhlaða síðunni eða reyndu aftur eftir smá stund';
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
             } else {
-              msg = 'Innsending raddsýnis mistekst sífellt, reyna áfram?';
+              msg =
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
             }
             retries--;
             await new Promise(resolve => setTimeout(resolve, 1000));

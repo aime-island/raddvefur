@@ -17,16 +17,16 @@ const CREDITS = [
   },
   {
     who: 'Common Voice',
-    why: 'Samrómur er byggir á Mozilla verkefninu Common Voice.',
+    why: 'Samrómur byggir á Mozilla verkefninu Common Voice.',
   },
   {
     who: 'Rafmynt ehf.',
-    why: 'Fyrir afnot á vélbúnaði til þjálfunar á talgreini.',
+    why: 'Fyrir afnot á vélbúnaði til þjálfunar talgreinis.',
   },
   {
     who: 'Vilt þú leggja verkefninu lið?',
     why:
-      'Til að búa til raddgagnasafnið Almannaróm þarf mikinn fjölda íslenskra setninga. Það hefði því ekki verið hægt að ráðst í þetta verkefni án þeirra sem hafa góðfúslega gefið efnið sitt til þess. Ef þú átt bók, ritgerð, safn af pistlum eða annan texta sem inniheldur málfræðilega réttar setniningar og myndir vilja leggja verkefninu lið sendu okkur þá endilega línu á almannaromur@almannaromur.is.',
+      'Til að búa til raddgagnasafnið Samróm þarf mikinn fjölda íslenskra setninga. Það hefði því ekki verið hægt að ráðsta í þetta verkefni án þeirra sem hafa góðfúslega gefið efnið sitt til þess. Ef þú átt bók, ritgerð, safn af pistlum eða annan texta sem inniheldur málfræðilega réttar setningar og vilt leggja verkefninu lið sendu okkur þá endilega línu á samromur@ru.is.',
   },
 ];
 
