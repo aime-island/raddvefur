@@ -226,7 +226,6 @@
 
         & .button {
             border-color: transparent;
-            padding: 15px 30px;
             background: var(--blue);
             color: var(--white);
 
