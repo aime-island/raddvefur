@@ -320,7 +320,7 @@ class LanguagesPage extends React.PureComponent<Props, State> {
                 <h2>
                   <strong>Common Voice</strong>
                 </h2>
-                <p>Almannarómur er byggt á Mozilla verkefninu Common Voice.</p>
+                <p>Samrómur er byggt á Mozilla verkefninu Common Voice.</p>
               </li>
             </ul>
           </section>

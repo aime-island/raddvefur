@@ -1,4 +1,4 @@
-# Almannarómur
+# Samrómur
 
 Using the Common Voice platform to kickstart speech collecting in Iceland by not only offering sentences under CC0. This enables us to lunch the web with a number of CC by 4.0 sentences that have been pre-collected for other language technology projects, along with sentences from well known content in Iceland, donated from the writers themselves.
 
@@ -7,6 +7,7 @@ Using the Common Voice platform to kickstart speech collecting in Iceland by not
 - External data such as sentences mustn't be under CC0.
 - The product of using the software can be under various licenses, e.g. data within downloadable datasets may have various licenses.
 - Enforced demographic info collection.
+- GDPR compliant
 
 ### Info about Common Voice below:
 
