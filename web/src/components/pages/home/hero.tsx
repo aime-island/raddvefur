@@ -51,7 +51,18 @@ class Hero extends React.Component<
   componentWillUnmount() {
     window.removeEventListener('resize', this.showToMeasure);
   }
+  /*
+  componentSmaller() {
+    window.addEventListener('resize', this.activate.bind(this));
+    this.activate();
+}
 
+activate() {
+  console.log('Hemm');
+  console.log(this.state);
+    //this.setState({window.innerWidth <= 992});
+}
+*/
   componentDidUpdate() {
     if (this.state.showToMeasure) {
       this.measure();
@@ -87,7 +98,7 @@ class Hero extends React.Component<
   }
 
   render() {
-    const { locale, onHide, onShow, status, type } = this.props;
+    let { locale, onHide, onShow, status, type } = this.props;
     const { count } = this.state;
     const isSpeak = type == 'speak';
     const PrimaryLink = isSpeak ? RecordLink : PlayLink;

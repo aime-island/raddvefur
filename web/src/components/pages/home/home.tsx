@@ -63,7 +63,10 @@ export default function HomePage() {
                   key={type + locale}
                   type={type}
                   status={
-                    heroes.length == 1 || activeHero === type
+                    activeHero === type ||
+                    (type === 'speak' &&
+                      window.innerWidth < 992 &&
+                      activeHero !== 'listen')
                       ? 'active'
                       : activeHero
                       ? 'compressed'
