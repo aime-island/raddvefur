@@ -9,7 +9,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 6rem;
+    max-height: 6rem;
     background-color: var(--light-grey);
 
     @media (--md-up) {
@@ -85,14 +85,14 @@ footer {
 
     & .logo-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         margin-top: 4rem;
 
         @media (--md-up) {
-            flex-direction: column;
             min-width: 9rem;
-            margin-right: 8rem;
+            margin-right: 6rem;
+            margin-left: 0.5rem;
             margin-top: 0;
         }
 
@@ -123,7 +123,7 @@ footer {
     & .links {
         margin-top: 2rem;
         padding: 0 1rem;
-        width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
         display: flex;
         flex-direction: row;
@@ -139,11 +139,13 @@ footer {
         & a {
             box-sizing: border-box;
             margin-bottom: 8px;
+            margin-right: 0.5rem;
         }
 
         & > div {
             display: flex;
             flex-direction: column;
+            margin: 0, 0.5rem;
         }
     }
 
