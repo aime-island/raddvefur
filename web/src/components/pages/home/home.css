@@ -83,8 +83,8 @@
             padding: 30px 20px 15px;
         }
         @media (--md-up) {
-            padding-top: 40px;
-            padding-bottom: 190px;
+            padding-top: 2rem;
+            padding-bottom: 9.5rem;
 
             & .title,
             & .description {
