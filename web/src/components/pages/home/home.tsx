@@ -111,23 +111,18 @@ export default function HomePage() {
 
             <br />
 
-            <Localized id="wall-of-text-second">
-              <p />
-            </Localized>
-
-            <br />
-
-            <Localized id="wall-of-text-third">
-              <p />
-            </Localized>
-
-            <br />
-
             {showWallOfText && (
               <React.Fragment>
-                <Localized id="wall-of-text-more">
+                <Localized id="wall-of-text-second">
                   <p />
                 </Localized>
+
+                <br />
+
+                <Localized id="wall-of-text-third">
+                  <p />
+                </Localized>
+
                 <br />
               </React.Fragment>
             )}
