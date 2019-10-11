@@ -249,7 +249,7 @@ let LocalizedPage: any = class extends React.Component<
       prefCo,
     } = this.state;
 
-    console.log(!bundleGenerator);
+    // console.log(!bundleGenerator);
     if (!bundleGenerator) return null;
 
     return (
