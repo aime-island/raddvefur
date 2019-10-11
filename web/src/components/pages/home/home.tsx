@@ -63,7 +63,10 @@ export default function HomePage() {
                   key={type + locale}
                   type={type}
                   status={
-                    heroes.length == 1 || activeHero === type
+                    activeHero === type ||
+                    (type === 'speak' &&
+                      window.innerWidth < 992 &&
+                      activeHero !== 'listen')
                       ? 'active'
                       : activeHero
                       ? 'compressed'
@@ -119,6 +122,29 @@ export default function HomePage() {
             </Localized>
 
             <br />
+
+            {showWallOfText && (
+              <React.Fragment>
+                <Localized id="wall-of-text-more">
+                  <p />
+                </Localized>
+                <br />
+              </React.Fragment>
+            )}
+
+            <Localized
+              id={showWallOfText ? 'languages-show-less' : 'show-wall-of-text'}>
+              <button
+                className="show-more"
+                type="button"
+                onClick={() => {
+                  if (showWallOfText) {
+                    trackHome('read-more', locale);
+                  }
+                  setShowWallOfText(!showWallOfText);
+                }}
+              />
+            </Localized>
           </div>
         </div>
       </div>

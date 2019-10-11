@@ -11,7 +11,7 @@ const LanguagesPages = React.lazy(() => import('../pages/languages/languages'));
 const ThankYouPages = React.lazy(() => import('../pages/thankyou/thankyou'));
 const DashboardPage = React.lazy(() => import('../pages/dashboard/dashboard'));
 const ProfileLayoutPage = React.lazy(() => import('../pages/profile/layout'));
-const FAQPage = React.lazy(() => import('../pages/faq/faq'));
+//const FAQPage = React.lazy(() => import('../pages/faq/faq'));
 const AboutPage = React.lazy(() => import('../pages/about/about'));
 const LandingPage = React.lazy(() => import('../pages/landing/landing'));
 
@@ -76,7 +76,6 @@ export default function Content() {
             path={toLocaleRoute(URLS.PROFILE_GOALS)}
             render={() => <Redirect to={toLocaleRoute(URLS.GOALS)} />}
           /> */}
-          <Route exact path={toLocaleRoute(URLS.FAQ)} component={FAQPage} />
           <Route exact path={toLocaleRoute(URLS.ABOUT)} component={AboutPage} />
           <Route
             exact
