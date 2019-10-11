@@ -506,7 +506,7 @@ recorded-hours = Uppteknar klukkustundir
 whats-inside = Hvað er í Samróms gagnasafninu?
 
 dataset-description-hours =
-    Hver færsla í gagnasafninu samanstendur af einstöku MP3 hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem safnast hafa innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
+    Hver færsla í gagnasafninu samanstendur af einstöku WAV hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem safnast hafa innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
     
     Í gagnasafninu eru <b>{ $valid }</b> staðfestar klukkustundir hljóðbrota en alltaf má bæta við fleiri röddum.
 

@@ -50,7 +50,7 @@ export default class Bucket {
 
           return {
             id,
-            glob: path.replace('.mp3', ''),
+            glob: path.replace('.wav', ''),
             text: sentence,
             sound: this.getPublicUrl(path),
           };
