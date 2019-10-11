@@ -266,7 +266,7 @@ let LocalizedPage: any = class extends React.Component<
           }}>
           <div>
             <div className="modal-title">
-              Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
+              Þessi vefsíða notar vafrakökur (e. cookies) og skyndiminni í vafra
               (e. local storage) til að bæta upplifun þína á vefsíðunni.{' '}
               <a href={URLS.COOKIES}>Sjá nánar</a>
             </div>
@@ -289,11 +289,11 @@ let LocalizedPage: any = class extends React.Component<
             <div className="info">
               <InfoIcon />
               <div className="cookie-text">
-                Notkun vefgeymslu vafrans til að halda um upplýsingar sem bæta
-                afköst síðunar og notendaupplifun. Þetta eru upplýsingar sem
-                notandi hefur skráð inn, samþykki, einstakt notanda númer,
-                fjöldi raddsýna sem notandi hefur gefið og fjöldi raddsýna sem
-                notandi hefur hlustað á.
+                Notkun skyndiminnisNotkun vefgeymslu vafrans til að halda um
+                upplýsingar sem bæta afköst síðunar og notendaupplifun. Þetta
+                eru upplýsingar sem notandi hefur skráð inn, samþykki, einstakt
+                notanda númer, fjöldi raddsýna sem notandi hefur gefið og fjöldi
+                raddsýna sem notandi hefur hlustað á.
               </div>
             </div>
           </div>
@@ -359,9 +359,8 @@ let LocalizedPage: any = class extends React.Component<
             <Modal innerClassName="cookie-modal show">
               <div>
                 <div className="modal-title">
-                  Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu
-                  vafra (e. local storage) til að bæta upplifun þína á
-                  vefsíðunni. <a href={URLS.COOKIES}>Sjá nánar</a>
+                  Þessi vefsíða notar vafrakökur (e. cookies) til að bæta
+                  upplifun þína á vefsíðunni.
                 </div>
               </div>
               <div className="toggle-with-info">
@@ -382,11 +381,8 @@ let LocalizedPage: any = class extends React.Component<
                 <div className="info">
                   <InfoIcon />
                   <div className="cookie-text">
-                    Notkun vefgeymslu vafrans til að halda um upplýsingar sem
-                    bæta afköst síðunar og notendaupplifun. Þetta eru
-                    upplýsingar sem notandi hefur skráð inn, samþykki, einstakt
-                    notanda númer, fjöldi raddsýna sem notandi hefur gefið og
-                    fjöldi raddsýna sem notandi hefur hlustað á.
+                    Með því að leyfa vafrakökur fyrir frammistöðu og virkni þá
+                    tryggist eðlileg virkni og góða notendaupplifun vefsins.
                   </div>
                 </div>
               </div>
@@ -408,13 +404,14 @@ let LocalizedPage: any = class extends React.Component<
                 <div className="info">
                   <InfoIcon />
                   <div className="cookie-text">
-                    Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum innan
-                    vefsíðunnar, það hjálpar okkur að meta hvað þarf að bæta,
-                    til þess notum við kökur fyrir Google Analyctics. Með því
-                    getum við séð notkunarmynstur á síðunni yfir heildina í stað
-                    þess að sjá notkun einstaka notanda. Við notum
-                    upplýsingarnar til að greina umferð á vefsíðunni en ekki til
-                    að skoða persónugreinanlegar upplýsingar.
+                    Með því að leyfa vafrakökur fyrir mælingar á notkun ýmsa
+                    undirsíða innan vefsins, hjálpar það okkur að meta upplifun
+                    notenda af vefnum. Til þess notum við Google Analyctics, með
+                    því getum við séð heildarnotkunarmynstur af notkun á
+                    síðunni. Upplýsingarnar notum við til að greina umferð um
+                    vefsíðuna en ekki til að skoða persónugreinanlegar
+                    upplýsingar eða notkun einstaka notenda.{' '}
+                    <a href={URLS.COOKIES}>Sjá meira um vafrakökur</a>
                   </div>
                 </div>
               </div>
