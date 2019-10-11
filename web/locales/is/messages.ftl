@@ -37,11 +37,12 @@ todays-progress             = Árangur dagsins
 help-reach-goal             = Hjálpaðu okkur að ná { $goal }
 read-terms-q                = Hefurðu lesið skilmálana?
 
-home-title                  = Þú getur lagt þitt af mörkum til að bjarga íslenskunni frá stafrænum dauða. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla sem nota hana.
-wall-of-text-first          = Allar raddir eru einstakar. Það er spennandi að nýta röddina fyrir tækin okkar en til þess þarf gríðarlegt magn fjölbreyttra raddsýna ef vel á að takast.
+home-title                  = Ljáðu íslensku tungunni rödd þína. Það er á okkar valdi að alltaf megi finna svar á íslensku.
+wall-of-text-first          = Íslenska er einstakt tungumál sem hefur breyst minna en flest önnur mál undanfarin þúsund ár. Vegna örra tæknibreytinga er þó hætt við því að hún eigi undir högg að sækja en mörg okkar eiga nú þegar samskipti við tölvur og ýmis tæki á erlendu máli. Ef við getum kennt tölvum íslensku aukum við líkurnar á því að tungumálið okkar lifi áfram og eflist í stað þess að láta undan síga. Þetta er á okkar valdi. 
 
-wall-of-text-second         = Söfnun raddgagna á íslensku er skammt á veg komin. Þess vegna efnir Almannarómur til þessa verkefnis, með það að markmiði að byggja upp talgreiningartækni, sem allir geta notað.
-wall-of-text-third          = Með því að gefa raddsýni hjálpar þú okkur að byggja upp opið gagnasafn radda sem mun nýtast við gerð talgreina og annarrar máltækni. Lestu setningu inn í Almannaróm eða staðfestu lesnar setningar frá öðrum. Svo einfalt er það!
+wall-of-text-second         = Þess vegna þurfum við aðstoð þína við að safna raddsýnum í opinn gagnagrunn til afnota fyrir þá sem vinna að því að samþætta íslensku og hina stafrænu tækni. Ferlið er einfalt og fljótlegt. Með því að smella á tala bíða þín fimm setningar sem við biðjum þig um að lesa inn.
+show-wall-of-text           = Lesa meira
+wall-of-text-third          = Því fleiri og fjölbreyttari hópur fólks sem ljáir verkefninu rödd sína, þeim mun meiri líkur eru á að tæknin geti talað og skilið íslensku svo vel sé. Það er á okkar valdi að alltaf megi finna svar á íslensku.
 
 hours-recorded              = Klukkustundir hljóðritaðar
 hours-validated             = Klukkustundir staðfestar
@@ -505,7 +506,7 @@ recorded-hours = Uppteknar klukkustundir
 whats-inside = Hvað er í Samróms gagnasafninu?
 
 dataset-description-hours =
-    Hver færsla í gagnasafninu samanstendur af einstöku MP3 hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem safnast hafa innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
+    Hver færsla í gagnasafninu samanstendur af einstöku WAV hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem safnast hafa innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
     
     Í gagnasafninu eru <b>{ $valid }</b> staðfestar klukkustundir hljóðbrota en alltaf má bæta við fleiri röddum.
 

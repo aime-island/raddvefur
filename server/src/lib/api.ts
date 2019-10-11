@@ -278,7 +278,7 @@ export default class API {
     const { client_id, headers, user } = request;
 
     const folder = client_id;
-    const clipFileName = folder + '.mp3';
+    const clipFileName = folder + '.wav';
     try {
       // If upload was base64, make sure we decode it first.
       let transcoder;
@@ -308,8 +308,8 @@ export default class API {
             Bucket: getConfig().BUCKET_NAME,
             Key: clipFileName,
             Body: transcoder
-              .audioCodec('mp3')
-              .format('mp3')
+              .audioCodec('pcm_s32le')
+              .format('wav')
               .stream(),
           })
           .promise(),
