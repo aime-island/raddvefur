@@ -146,20 +146,26 @@ export default function Success({
         </div>
       ) : (
         <div className="info-card">
-          <Localized id="listen-paragraph">
+          <Localized id="speak-paragraph">
             <p />
           </Localized>
-          <Localized id="listen-subtitle">
-            <LinkButton rounded href="/hlusta" />
+          <Localized id="contribute-more" $count={SET_COUNT}>
+            <LinkButton rounded href="/tala" />
           </Localized>
         </div>
       )}
 
       <ContributeMoreButton>
-        {type === 'speak' ? <MicIcon /> : <PlayOutlineIcon />}
-        <Localized id="contribute-more" $count={SET_COUNT}>
-          <span />
-        </Localized>
+        <PlayOutlineIcon />
+        {type === 'speak' ? (
+          <Localized id="listen-subtitle">
+            <LocaleLink to={URLS.LISTEN} />
+          </Localized>
+        ) : (
+          <Localized id="contribute-more" $count={SET_COUNT}>
+            <span />
+          </Localized>
+        )}
       </ContributeMoreButton>
 
       {hasAccount && (
