@@ -294,12 +294,12 @@
         align-items: center;
 
         @media (--sm-down) {
-            margin-top: 20px;
+            margin-top: 0px;
         }
 
         @media (--md-up) {
             flex: 1;
-            margin-top: 70px;
+            margin-top: 170px;
             position: absolute;
         }
 
@@ -343,11 +343,14 @@
             flex-direction: column;
             margin-top: 20px;
             margin-bottom: 20px;
-
+            @media (--sm-down) {
+                margin-top: 10px;
+                margin-down: 10px;
+            }
             & .text {
                 margin-inline-start: 10px;
                 font-weight: normal;
-                @media (--sm-up) {
+                @media (--sm-down) {
                     font-size: var(--font-size);
                 }
                 @media (--md-up) {
@@ -372,7 +375,7 @@
 
     & .pills {
         @media (--sm-down) {
-            margin-top: 20px;
+            margin-top: 0px;
         }
 
         @media (--md-up) {
@@ -435,7 +438,9 @@
 
         display: flex;
         justify-content: space-between;
-
+        @media (--sm-down) {
+            margin-top: 0px;
+        }
         @media (--md-up) {
             margin-top: 3.5vh;
         }

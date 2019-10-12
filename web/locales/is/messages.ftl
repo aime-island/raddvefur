@@ -24,16 +24,20 @@ logout                      = Útskrá
 ## Home Page 
 speak                       = Tala
 speak-subtitle              = Smelltu hér til að lesa inn
-speak-paragraph             = Hljóðritun radda er mikilvægasti þátturinn í þróun gagnasafnsins, sumir segja þetta skemmtilegasta hlutann.
+speak-paragraph             = Með því að lesa inn í Samróm leggur þú þitt af mörkum við varðveislu íslensku tungunnar. Það er á okkar valdi að alltaf megi finna svar á íslensku.
 speak-paragraph-mobile      = Þú getur lagt þitt af mörkum til að bjarga íslenskunni frá stafrænum dauða. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla sem nota hana.
 speak-goal-text             = Raddupptökur
+speak-click-here            = Smelltu hér til þess að lesa inn
 
 listen                      = Hlusta
-listen-subtitle             = Hjálpaðu okkur að staðfesta raddir
-listen-paragraph            = Að staðfesta fyrirliggjandi raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar. Hlustaðu og hjálpaðu okkur að þróa hágæða safn opinna raddgagna.
+listen-subtitle             = Smelltu hér til að staðfesta raddupptökur
+listen-paragraph            = Að staðfesta fyrirliggjandi raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar.
 listen-goal-text            = Staðfestar raddupptökur
+listen-click-here           = Smelltu hér til þess að hlusta
 
 todays-progress             = Árangur dagsins
+
+ 
 help-reach-goal             = Hjálpaðu okkur að ná { $goal }
 read-terms-q                = Hefurðu lesið skilmálana?
 
@@ -107,7 +111,7 @@ demographic-form-age        =
 demographic-form-native-language =
     .label = Móðurmál
 why-demographic             = Hvers vegna skiptir þetta máli? 
-why-demographic-explanation = Lýðfræðileg notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
+why-demographic-explanation = Ofantaldar upplýsingar eru notaðar til að meta hversu lýðfræðilega dreift gagnasafnið Samrómur er. Því dreifðara og fjölbreyttara sem það er, því betra. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
 demographic-form-other-native-language = Íslenska er mitt móðurmál
 demographic-form-submit     = Áfram
 male                        = Karlkyns
@@ -169,7 +173,7 @@ about-header-description       = Þess vegna er mikilvægt að missa ekki af les
 deloitte-project-title         = Oft veltir lítil þúfa þungu hlassi
 deloitte-project-description-1 = Upphaf þessa verkefnis má rekja til þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, sem þróað var í gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir gátu þá farið í skemmtilega og einfalda leiki með vélmenninu sem vakti mikla og verðskuldaða athygli.
 deloitte-project-description-2 = AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku, var ekki um auðugan garð að gresja þegar kom að tæknilausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og ef fram fer sem horfir er hröð þróun tæknilegra lausna á góðri leið með að útiloka íslenska tungu alfarið á þessum vettvangi.
-deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Samrómur, Skema í Háskólanum í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
+deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Almannarómur, Háskólinn í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
 deloitte-project-description-4 = Með styrk frá Nýsköpunarsjóði námsmanna réðu samstarfsaðilar fjóra framúrskarandi nemendur í tölvunar- og verkfræði í sumarverkefni við að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur einnig öðrum tækja- og hugbúnaði í framtíðinni. Því leggja samstarfsaðilarnir áherslu á að allar afurðir sem hópurinn þróar og útfærir, séu nú og verði áfram, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source).
 deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í samræmi við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni og til þess fallin að skapa tækifæri fyrir mannauð framtíðarinnar og tæknimenntun.
 deloitte-project-team-title    = Þróunarteymið skipa: 
@@ -205,9 +209,9 @@ about-partnership           = Samrómur er samstarfsverkefni, og við erum háð
 about-nav-get-involved      = Samstarfsaðilar
 about-get-involved          = Samstarfsaðilar
 about-get-involved-text =
-    Þeir sem standa við bakið á Samróm eru <githubLink>Deloitte</githubLink>, 
-    <almannaLink>Almannarómur</almannaLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
-    og <discourseLink>Nýsköpunnarsjóður námsmanna</discourseLink>.
+    Þeir sem standa við bakið á Samróm eru <almannaLink>Almannarómur</almannaLink>, 
+    <githubLink>Deloitte</githubLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
+    og <discourseLink>Nýsköpunarsjóður námsmanna</discourseLink>.
 
 mycroft-title               = Mycroft Ai
 mycroft-subtitle            = Gervigreind
@@ -226,8 +230,8 @@ no-age                  = Vinsamlegast settu inn þitt aldursbil
 no-native-language      = Vinsamlegast settu inn þitt móðurmál
 no-sex                  = Vinsamlegast settu inn þitt kyn
 
-action-click            = Smella
-action-tap              = Snerta
+action-click            = Smelltu
+action-tap              = Smelltu
 contribute              = Leggðu lið
 skip                    = Fara í næstu
 samromur                = Samrómur
@@ -236,7 +240,7 @@ home                    = Forsíða
 shortcuts               = Flýtileiðir
 clips-with-count        = <bold>{ $count }</bold> upptökur
 goal-help-recording     = Þú hefur hjálpað Samrómi að ná <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
-goal-help-validation    = Með þinni hjálp höfum við náð að staðfesta <goalPercentage></goalPercentage >af þeim setningum sem við ætluðum okkur að klára í dag!  ({ $goalValue } á dag)
+goal-help-validation    = Þú hefur hjálpað Samrómi að ná að staðfesta <goalPercentage></goalPercentage> af daglegu { $goalValue } markmiði!
 contribute-more         = {
      $count ->
      [one] Til í að gera { $count } í viðbót?
@@ -253,25 +257,26 @@ record-error-too-long   = Upptakan var of löng.
 record-error-too-quiet  = Ekki heyrðist nógu vel í upptökunni.
 record-cancel           = Hætta við að endurtaka upptöku
 record-instruction      = Smelltu á <recordIcon></recordIcon> og lestu svo setninguna upphátt
-record-stop-instruction = { $actionType }<stopIcon></stopIcon> stöðva upptöku
+record-stop-instruction = Smelltu á <stopIcon></stopIcon> til þess að stöðva upptöku
 record-three-more-instruction = Þrjár eftir!
 record-again-instruction      = Snilld! <recordIcon></recordIcon> Taktu upp næstu
-record-again-instruction2     = Þetta gengur vel, taktu upp aftur <recordIcon></recordIcon>
-record-last-instruction       = <recordIcon></recordIcon> Síðasta!
-review-tooltip          = Yfirfara og endurtaka upptökur hér jafnóðum
+record-again-instruction2     = Þetta gengur vel! <recordIcon></recordIcon> Taktu upp aðra
+record-last-instruction       = Frábært! <recordIcon></recordIcon> Ein eftir!
+review-tooltip          = Endurtaka upptöku
 unable-speak            = Ómögulegt að lesa upphátt að svo stöddu?
 review-instruction      = Yfirfara og endurtaka upptöku ef þörf krefur
-record-submit-tooltip   = { $actionType } senda inn þegar hægt er
+record-submit-tooltip   = Smelltu hér til að senda inn
 clips-uploaded          = Upptökur sendar inn
-record-abort-title      = Stöðva upptöku fyrst?
-record-abort-text       = Ef þú hættir núna glatast það sem komið er
+record-abort-title      = Ertu viss?
+record-abort-text       = Ef þú hættir núna glatast það sem þú ert búinn að taka upp
 record-abort-submit     = Senda inn upptökur
-record-abort-continue   = Stöðva upptöku
+record-abort-continue   = Halda upptökum áfram
 record-abort-delete     = Hætta og eyða upptökum
-listen-instruction      = { $actionType }<playIcon></playIcon> var setningin rétt lesin upp?
-listen-again-instruction        = Vel gert! <playIcon></playIcon> Hlustaðu aftur þegar þú ert til
-listen-3rd-time-instruction     = Tvær búnar, haltu þínu striki! <playIcon></playIcon>
-listen-last-time-instruction    = <playIcon></playIcon> Síðasta!
+listen-instruction      = Smelltu á <playIcon></playIcon> til þess að hlusta og meta upptöku
+listen-hasplayed-instruction      = Var setningin lesin rétt upp og var upplesturinn skiljanlegur?
+listen-again-instruction        = Vel gert! <playIcon></playIcon> Hlustaðu á aðra
+listen-3rd-time-instruction     = Vel gert! <playIcon></playIcon> Hlustaðu á aðra 
+listen-last-time-instruction    = Frábært! <playIcon></playIcon> Ein eftir!
 nothing-to-validate     = Engar upptökur eftir til að staðfesta, viltu lesa upp í staðinn?
 record-button-label     = Raddupptaka
 share-title-new         = Hjálpumst að við að finna fleiri raddir
@@ -379,7 +384,7 @@ faq-why-mission-a       = Samrómur byggir á Mozilla verkefninu <mozillaLink>Co
 faq-whos-involved-q     = Hverjir eru að vinna að Samróm?
 faq-whos-involved-a     = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar. Þeir sem standa við bakið á verkefninu eru 
     <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Almannarómur</almannaLink>, <hrLink>Háskólinn í Reykjavík</hrLink>, 
-    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunnarsjóður námsmanna.
+    og <nyskLink>Nýsköpunarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunarsjóður námsmanna.
 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Samróm og Deep Speech?
 faq-what-cv-and-deepspeech-a = Þar sem Samrómur byggir á Common Voice er Samrómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.
@@ -461,7 +466,7 @@ data-bundle-button      = Niðurhala gagnasafnapakka
 data-bundle-description = Gögn Samróms og öll gagnasöfnin að ofan.
 license = Leyfi: <licenseLink>{ $license }</licenseLink>
 license-mixed           = Blandað
-review-terms            = Með notkun Samróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins
+review-terms            = Með notkun Samróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
 terms-agree             = Áfram
 terms-disagree          = Hætta við  
 review-aborted          = Hætt var við að senda inn. Viltu eyða því sem þú tókst upp?

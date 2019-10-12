@@ -52,11 +52,24 @@ export const LANGUAGES: any = {
   annad: 'Annað',
 };
 
-export const AGES: any = {
+/* export const AGES: any = {
   '': '',
   barn: '< 13',
   unglingur: '13 - 18',
   tvitugt: '19 - 29',
+  thritugt: '30 - 39',
+  fertugt: '40 - 49',
+  fimmtugt: '50 - 59',
+  sextugt: '60 - 69',
+  sjotugt: '70 - 79',
+  attraett: '80 - 89',
+  niraett: '> 89',
+}; */
+
+export const AGES: any = {
+  '': '',
+  unglingur: '18 - 19',
+  tvitugt: '20 - 29',
   thritugt: '30 - 39',
   fertugt: '40 - 49',
   fimmtugt: '50 - 59',

@@ -220,13 +220,12 @@ class ListenPage extends React.Component<Props, State> {
             )
           }
           instruction={props =>
-            activeClip &&
-            !isPlaying &&
-            !hasPlayedSome &&
-            !hasPlayed && (
+            activeClip && (
               <Localized
                 id={
-                  clipIndex === SET_COUNT - 1
+                  hasPlayed
+                    ? 'listen-hasplayed-instruction'
+                    : clipIndex === SET_COUNT - 1
                     ? 'listen-last-time-instruction'
                     : [
                         'listen-instruction',

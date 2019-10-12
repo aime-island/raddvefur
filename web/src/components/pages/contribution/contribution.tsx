@@ -363,46 +363,6 @@ class ContributionPage extends React.Component<Props, State> {
                   children: <div className="instruction hidden-sm-down" />,
                 }) || <div className="instruction hidden-sm-down" />}
               </div>
-              {this.isDone && (
-                <div className="review-demo">
-                  <div className="inner">
-                    <div className="review-demo-titles">
-                      <Localized id="review-demo-title">
-                        <span />
-                      </Localized>
-                    </div>
-                    <div className="my-demo">
-                      <Localized
-                        id="review-age"
-                        bold={<b />}
-                        $age={AGES[user.demographicInfo.age] || ''}>
-                        <span className="text" />
-                      </Localized>
-                      <Localized
-                        id="review-gender"
-                        bold={<b />}
-                        $sex={SEXES[user.demographicInfo.sex] || ''}>
-                        <span className="text" />
-                      </Localized>
-                      <Localized
-                        id="review-native-language"
-                        bold={<b />}
-                        $native_language={
-                          LANGUAGES[user.demographicInfo.native_language] || ''
-                        }>
-                        <span className="text" />
-                      </Localized>
-                    </div>
-                    <Localized id="change-demo">
-                      <PrimaryButton
-                        className="submit-demo"
-                        disabled={!this.isDone}
-                        onClick={setShowDemographicModal}
-                      />
-                    </Localized>
-                  </div>
-                </div>
-              )}
               <div className="pills">
                 <div className="inner">
                   {!errorContent && (
@@ -454,7 +414,46 @@ class ContributionPage extends React.Component<Props, State> {
               <canvas ref={this.canvasRef} />
               {primaryButtons}
             </div>
-
+            {this.isDone && (
+              <div className="review-demo">
+                <div className="inner">
+                  <div className="review-demo-titles">
+                    <Localized id="review-demo-title">
+                      <span />
+                    </Localized>
+                  </div>
+                  <div className="my-demo">
+                    <Localized
+                      id="review-age"
+                      bold={<b />}
+                      $age={AGES[user.demographicInfo.age] || ''}>
+                      <span className="text" />
+                    </Localized>
+                    <Localized
+                      id="review-gender"
+                      bold={<b />}
+                      $sex={SEXES[user.demographicInfo.sex] || ''}>
+                      <span className="text" />
+                    </Localized>
+                    <Localized
+                      id="review-native-language"
+                      bold={<b />}
+                      $native_language={
+                        LANGUAGES[user.demographicInfo.native_language] || ''
+                      }>
+                      <span className="text" />
+                    </Localized>
+                  </div>
+                  <Localized id="change-demo">
+                    <PrimaryButton
+                      className="submit-demo"
+                      disabled={!this.isDone}
+                      onClick={setShowDemographicModal}
+                    />
+                  </Localized>
+                </div>
+              </div>
+            )}
             <div className="buttons">
               <div>
                 <Button

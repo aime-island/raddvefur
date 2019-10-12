@@ -147,7 +147,7 @@ const initialState: State = {
   showDiscardModal: false,
   showDemographicInfo: false,
   showDemographicModal: true,
-  showLanguageSelect: true,
+  showLanguageSelect: false,
   demographic: {
     sex: '',
     age: '',
@@ -770,7 +770,10 @@ class SpeakPage extends React.Component<Props, State> {
 
                 <DownIcon />
               </button>
-              <Localized id="why-demographic-explanation">
+              <Localized
+                id="why-demographic-explanation"
+                termsLink={<LocaleLink to={URLS.TERMS} blank />}
+                privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
                 <div className="explanation" />
               </Localized>
             </div>

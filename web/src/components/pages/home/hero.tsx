@@ -112,25 +112,31 @@ activate() {
           <Localized id={type}>
             <h1 />
           </Localized>
-          <h3>
+          {
+            // Removed subtitle
+            /* <h3>
             <Localized id={type + '-subtitle'}>
-              <span />
+              <span className='front-page-subtitle'/>
             </Localized>
-          </h3>
+          </h3> */
+          }
           <div {...this.getToggleableProps(0)}>
             <Localized id={type + '-paragraph'}>
               <p className="description" />
             </Localized>
-            <Localized id="read-terms-q">
+            {
+              // Removed terms
+              /* <Localized id="read-terms-q">
               <LocaleLink to={URLS.TERMS} className="terms" />
-            </Localized>
+            </Localized> */
+            }
           </div>
         </div>
         <div className="column cta">
           <PrimaryLink onClick={() => trackHome(type, locale)} />
           <div {...this.getToggleableProps(1, 'line ' + type)} />
           <div {...this.getToggleableProps(2)}>
-            <Localized id="help-reach-goal" $goal={DAILY_GOAL[type]}>
+            <Localized id={type + '-click-here'}>
               <div className="cta-message" />
             </Localized>
           </div>
