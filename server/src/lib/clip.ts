@@ -87,7 +87,7 @@ export default class Clip {
     await this.model.db.saveVote(id, client_id, isValid);
     await Awards.checkProgress(client_id);
 
-    const glob = clip.path.replace('.mp3', '');
+    const glob = clip.path.replace('.wav', '');
     const voteFile = glob + '-by-' + client_id + '.vote';
 
     await this.s3
@@ -128,7 +128,7 @@ export default class Clip {
     // Where is our audio clip going to be located?
     const folder = client_id + '/';
     const filePrefix = hash(sentence);
-    const clipFileName = folder + filePrefix + '.mp3';
+    const clipFileName = folder + filePrefix + '.wav';
     const sentenceFileName = folder + filePrefix + '.txt';
 
     // if the folder does not exist, we create it
@@ -166,8 +166,8 @@ export default class Clip {
             Bucket: getConfig().BUCKET_NAME,
             Key: clipFileName,
             Body: transcoder
-              .audioCodec('mp3')
-              .format('mp3')
+              .audioCodec('pcm_s32le')
+              .format('wav')
               .stream(),
           })
           .promise(),

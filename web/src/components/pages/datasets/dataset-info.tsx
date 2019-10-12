@@ -204,7 +204,7 @@ class DatasetInfo extends React.Component<Props, State> {
                   'overall-hr-total': totalHours.toLocaleString(),
                   'cv-license': 'Ýmis',
                   'number-of-voices': localeStats.users.toLocaleString(),
-                  'audio-format': 'MP3',
+                  'audio-format': 'WAV',
                   splits: Object.entries(localeStats.splits)
                     .filter(([, values]) => Object.keys(values).length > 1)
                     .map(([category, values]) => (

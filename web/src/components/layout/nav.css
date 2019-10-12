@@ -12,7 +12,6 @@ header {
     z-index: var(--top-z-index);
     transition: background-color var(--transition-duration) linear,
         box-shadow var(--transition-duration) linear;
-    padding: var(--page-margin);
     background: var(--white);
 
     @media (--lg-up) {

@@ -64,7 +64,6 @@ export default React.memo(() => {
           </div>
           <div>
             <LocalizedLocaleLink id="cookies" to={URLS.COOKIES} />
-            <LocalizedLocaleLink id="faq" to={URLS.FAQ} />
           </div>
         </div>
 
