@@ -480,6 +480,24 @@ class ContributionPage extends React.Component<Props, State> {
                   </Localized>{' '}
                   <SkipIcon />
                 </Button>
+                {onSubmit && (
+                  <Tooltip
+                    arrow
+                    disabled={!this.isDone}
+                    open={isFirstSubmit || undefined}
+                    title={getString('record-submit-tooltip', {
+                      actionType: getString('action-tap'),
+                    })}>
+                    <Localized id="submit-form-action">
+                      <PrimaryButton
+                        className="submit"
+                        disabled={!this.isDone}
+                        onClick={onSubmit}
+                        type="submit"
+                      />
+                    </Localized>
+                  </Tooltip>
+                )}
               </div>
             </div>
           </React.Fragment>
