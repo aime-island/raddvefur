@@ -191,11 +191,11 @@ class ListenPage extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <audio
-          {...(activeClip && { src: activeClip.audioSrc })}
+          //{...(activeClip && { src: activeClip.audioSrc })}
           preload="auto"
           onEnded={this.hasPlayed}
           ref={this.audioRef}>
-          <source type="audio/wav" />
+          <source src={activeClip.audioSrc} type="audio/wav" />
         </audio>
         <ContributionPage
           activeIndex={clipIndex}
