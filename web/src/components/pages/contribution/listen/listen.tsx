@@ -194,8 +194,9 @@ class ListenPage extends React.Component<Props, State> {
           {...(activeClip && { src: activeClip.audioSrc })}
           preload="auto"
           onEnded={this.hasPlayed}
-          ref={this.audioRef}
-        />
+          ref={this.audioRef}>
+          <source type="audio/wav" />
+        </audio>
         <ContributionPage
           activeIndex={clipIndex}
           errorContent={
