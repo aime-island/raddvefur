@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import './facebook-landing.css';
 
 export default function FacebookIOSMessage() {
-  const SHARE_URL = 'https://samromur.is/';
+  const SHARE_URL = 'https://almannaromur.is/';
   const shareURLInputRef = useRef(null);
 
   return (

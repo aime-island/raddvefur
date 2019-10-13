@@ -58,7 +58,6 @@ a {
     outline: none;
     text-decoration: none;
     color: var(--black);
-    margin-left: 0.5rem;
 }
 
 p,
@@ -537,10 +536,6 @@ a.small,
 
     & .arrow-regular {
         border-top-color: var(--near-black) !important;
-    }
-
-    @media (--md-down) {
-        display: None;
     }
 }
 
