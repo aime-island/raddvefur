@@ -1,7 +1,7 @@
 import { isNativeIOS } from '../../../../utility';
 import { bool } from 'prop-types';
 
-let AUDIO_TYPE = 'audio/ogg; codecs=opus';
+let AUDIO_TYPE = 'audio/wav';
 
 var createObjectURL =
   (window.URL || window.webkitURL || {}).createObjectURL || function() {};
