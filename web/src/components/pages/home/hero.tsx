@@ -40,7 +40,6 @@ class Hero extends React.Component<
     window.addEventListener('resize', this.showToMeasure);
     this.measure();
     const { api, type, onShow } = this.props;
-    type === 'speak' && window.innerWidth < 992 && onShow();
     this.setState({
       count: await (type === 'speak'
         ? api.fetchDailyClipsCount()

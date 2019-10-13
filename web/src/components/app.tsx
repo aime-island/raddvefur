@@ -466,7 +466,11 @@ let LocalizedPage: any = class extends React.Component<
                     }
                   />
                 ))}
-                <Layout />
+                {window.innerWidth > 991 ? (
+                  <Layout />
+                ) : (
+                  !showCookiesModal && <Layout />
+                )}
               </Switch>
             </div>
           </LocalizationProvider>
