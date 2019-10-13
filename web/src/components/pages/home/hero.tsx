@@ -39,8 +39,8 @@ class Hero extends React.Component<
   async componentDidMount() {
     window.addEventListener('resize', this.showToMeasure);
     this.measure();
-
-    const { api, type } = this.props;
+    const { api, type, onShow } = this.props;
+    type === 'speak' && window.innerWidth < 992 && onShow();
     this.setState({
       count: await (type === 'speak'
         ? api.fetchDailyClipsCount()
@@ -51,18 +51,7 @@ class Hero extends React.Component<
   componentWillUnmount() {
     window.removeEventListener('resize', this.showToMeasure);
   }
-  /*
-  componentSmaller() {
-    window.addEventListener('resize', this.activate.bind(this));
-    this.activate();
-}
 
-activate() {
-  console.log('Hemm');
-  console.log(this.state);
-    //this.setState({window.innerWidth <= 992});
-}
-*/
   componentDidUpdate() {
     if (this.state.showToMeasure) {
       this.measure();
@@ -112,14 +101,11 @@ activate() {
           <Localized id={type}>
             <h1 />
           </Localized>
-          {
-            // Removed subtitle
-            /* <h3>
+          <h3 className="front-page-subtitle">
             <Localized id={type + '-subtitle'}>
-              <span className='front-page-subtitle'/>
+              <span />
             </Localized>
-          </h3> */
-          }
+          </h3>
           <div {...this.getToggleableProps(0)}>
             <Localized id={type + '-paragraph'}>
               <p className="description" />
