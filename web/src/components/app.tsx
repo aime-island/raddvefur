@@ -466,7 +466,11 @@ let LocalizedPage: any = class extends React.Component<
                     }
                   />
                 ))}
-                <Layout />
+                {window.innerWidth > 991 ? (
+                  <Layout />
+                ) : (
+                  !showCookiesModal && <Layout />
+                )}
               </Switch>
             </div>
           </LocalizationProvider>
@@ -578,26 +582,15 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/login-failure" component={LoginFailure} />
               <Route exact path="/login-success" component={LoginSuccess} />
-              {Object.values(URLS).map(url => (
-                <Route
-                  key={url}
-                  exact
-                  path={url || '/'}
-                  render={() => (
-                    <Redirect
-                      to={'/' + this.userLocales[0] + url + location.search}
-                    />
-                  )}
-                />
-              ))}
+
               <Route
-                path="/:locale"
+                path="/"
                 render={({
                   match: {
                     params: { locale },
                   },
                 }) => (
-                  <LocalizedPage userLocales={[locale, ...this.userLocales]} />
+                  <LocalizedPage userLocales={['is', ...this.userLocales]} />
                 )}
               />
             </Switch>

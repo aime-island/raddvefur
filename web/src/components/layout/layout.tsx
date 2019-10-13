@@ -171,7 +171,8 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
     const isBuildingProfile = location.pathname.includes(URLS.PROFILE_INFO);
 
     const pathParts = location.pathname.split('/');
-    const className = cx(pathParts[2] ? pathParts.slice(2).join(' ') : 'home', {
+    console.log(pathParts);
+    const className = cx(pathParts[1] ? pathParts.slice(1).join(' ') : 'home', {
       'staging-banner-is-visible': showStagingBanner,
     });
 

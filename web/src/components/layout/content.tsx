@@ -21,7 +21,7 @@ export default function Content() {
     <div id="content">
       <React.Suspense fallback={<Spinner />}>
         <Switch>
-          <Route exact path={toLocaleRoute(URLS.ROOT)} component={HomePage} />
+          <Route exact path="/" component={HomePage} />
           <Route
             exact
             path={toLocaleRoute('/new')}
