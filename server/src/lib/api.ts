@@ -308,7 +308,7 @@ export default class API {
             Bucket: getConfig().BUCKET_NAME,
             Key: clipFileName,
             Body: transcoder
-              .audioCodec('pcm_s32le')
+              .audioCodec('pcm_s16le')
               .format('wav')
               .stream(),
           })
