@@ -58,6 +58,7 @@ a {
     outline: none;
     text-decoration: none;
     color: var(--black);
+    margin-left: 0.5rem;
 }
 
 p,
