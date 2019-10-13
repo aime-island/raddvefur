@@ -63,7 +63,9 @@ export default function HomePage() {
                   key={type + locale}
                   type={type}
                   status={
-                    heroes.length == 1 || activeHero === type
+                    window.innerWidth < 992
+                      ? 'active'
+                      : heroes.length == 1 || activeHero === type
                       ? 'active'
                       : activeHero
                       ? 'compressed'
