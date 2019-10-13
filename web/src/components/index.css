@@ -538,6 +538,10 @@ a.small,
     & .arrow-regular {
         border-top-color: var(--near-black) !important;
     }
+
+    @media (--md-down) {
+        display: None;
+    }
 }
 
 @keyframes move-background {
