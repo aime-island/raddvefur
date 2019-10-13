@@ -417,7 +417,7 @@
         align-items: center;
 
         @media (--md-up) {
-            margin-top: 12vh;
+            margin-top: 3rem;
         }
 
         & canvas {
