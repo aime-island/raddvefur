@@ -292,7 +292,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         @media (--sm-down) {
             margin-top: 0px;
         }
