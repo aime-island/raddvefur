@@ -227,13 +227,22 @@
             &.header-description {
                 font-size: var(--font-size);
                 font-family: var(--base-font-family);
-                margin-bottom: 2rem;
+                margin-bottom: 1.25rem;
                 margin-top: 1.25rem;
                 white-space: pre-line;
 
                 @media (--sm-down) {
                     font-size: var(--font-size);
                     line-height: 1.5rem;
+                }
+            }
+
+            &.about-more-to-read {
+                margin-bottom: 1.25rem;
+                font-size: var(--font-size);
+                font-family: var(--base-font-family);
+                & a {
+                    color: var(--blue);
                 }
             }
         }

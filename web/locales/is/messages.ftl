@@ -168,7 +168,8 @@ review-native-language      = Móðurmál: <bold>{ $native_language }</bold>
 
 about-title                    = Af hverju?
 about-subtitle                 = Á síðstu árum hefur verið bylting í raddtækni og því hvernig við notum röddina til þess að stjórna tækninni. Íslenskan á undir högg að sækja vegna þeirra öru tæknibreytinga en mörg okkar eiga nú þegar samskipti við tölvur og ýmis tæki á erlendu máli. Fólk mun nota röddina í auknum mæli til að stýra hvers kyns tækjum og tólum en vandinn er sá að tækin skilja ekki íslensku. 
-about-header-description       = Þess vegna er mikilvægt að missa ekki af lestinni og með því að safna nógu mörgum raddsýnum á íslensku er hægt að vinna að því að kenna stafrænni tækni íslensku. Samrómur verður opið gagnasafn raddsýna fyrir íslensku sem hver sem er getur notað til þess að þróa eigin máltæknilausnir. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum. 
+about-header-description       = Þess vegna er mikilvægt að missa ekki af lestinni og nú er hafin vinna við stórt samstarfsverkefni til þess að gera íslensku gjaldgenga í tölvum og tækjum. Að því koma íslenskir háskólar, stofnanir, fyrirtæki og félagasamtök, sem munu á næstu árum þróa nauðsynlega innviði fyrir hugbúnað sem skilur og talar íslensku. Samrómur verður hluti af þessu verkefni, opið gagnasafn raddsýna fyrir íslensku sem hver sem getur notað til þess að þróa sínar máltæknilausnir. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.
+about-more-to-read             = Lesa má meira um máltækni áætlun íslands <malaetlun>hér</malaetlun>.
 
 deloitte-project-title         = Oft veltir lítil þúfa þungu hlassi
 deloitte-project-description-1 = Upphaf þessa verkefnis má rekja til þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, sem þróað var í gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir gátu þá farið í skemmtilega og einfalda leiki með vélmenninu sem vakti mikla og verðskuldaða athygli.
