@@ -192,9 +192,11 @@
         align-items: center;
         font-style: italic;
         color: var(--near-black);
+        flex-wrap: wrap;
 
         @media (--sm-down) {
             text-align: center;
+            margin-bottom: 1rem;
         }
 
         @media (--md-up) {
@@ -203,8 +205,7 @@
         }
 
         & svg {
-            display: none;
-            margin: 0 10px 0 16px;
+            margin: 0 0.3rem 0 0.6rem;
             width: 23px;
             height: 23px;
 

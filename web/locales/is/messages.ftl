@@ -24,15 +24,15 @@ logout                      = Útskrá
 ## Home Page 
 speak                       = Tala
 speak-subtitle              = Smelltu hér til að lesa inn
-speak-paragraph             = Með því að lesa inn í Samróm leggur þú þitt af mörkum við varðveislu íslensku tungunnar. Það er á okkar valdi að alltaf megi finna svar á íslensku.
+speak-paragraph             = Með því að lesa inn í Samróm leggur þú þitt af mörkum við varðveislu íslenskunnar. Það er á okkar valdi að alltaf megi finna svar á íslensku.
 speak-paragraph-mobile      = Þú getur lagt þitt af mörkum til að bjarga íslenskunni frá stafrænum dauða. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla sem nota hana.
-speak-goal-text             = Raddupptökur
+speak-goal-text             = 
 speak-click-here            = Smelltu hér til þess að lesa inn
 
 listen                      = Hlusta
 listen-subtitle             = Smelltu hér til að staðfesta raddupptökur
 listen-paragraph            = Að staðfesta fyrirliggjandi raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar.
-listen-goal-text            = Staðfestar raddupptökur
+listen-goal-text            = 
 listen-click-here           = Smelltu hér til þess að hlusta
 
 todays-progress             = Árangur dagsins
@@ -112,7 +112,7 @@ demographic-form-native-language =
     .label = Móðurmál
 why-demographic             = Hvers vegna skiptir þetta máli? 
 why-demographic-explanation = Ofantaldar upplýsingar eru notaðar til að meta hversu lýðfræðilega dreift gagnasafnið Samrómur er. Því dreifðara og fjölbreyttara sem það er, því betra. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
-demographic-form-other-native-language = Íslenska er mitt móðurmál
+demographic-form-other-native-language = Móðurmál mitt er íslenska
 demographic-form-submit     = Áfram
 male                        = Karlkyns
 female                      = Kvenkyns
@@ -167,13 +167,13 @@ review-native-language      = Móðurmál: <bold>{ $native_language }</bold>
 ##Um verkefnið
 
 about-title                    = Af hverju?
-about-subtitle                 = Á síðstu árum hefur verið bylting í raddtækni og hvernig við notum röddina til þess að stjórna tækninni. Íslenska á undir högg að sækja vegna þeirra örru tæknibreytinga en mörg okkar eiga nú þegar samskipti við tölvur og ýmis tæki á erlendu máli. Fólk mun nota röddina í auknum mæli til að stýra hvers kyns tækjum og tólum en vandinn er sá að tækin skilja ekki íslensku. 
-about-header-description       = Þess vegna er mikilvægt að missa ekki af lestinni og með því að safna nógu mörgum raddsýnum á íslensku er hægt að vinna að því að kenna stafrænni tækni íslensku. Samrómur verður opið gagnasafn raddsýna fyrir íslensku sem hver sem getur notað til þess að þróa sínar máltækni lausnir. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum. 
+about-subtitle                 = Á síðstu árum hefur verið bylting í raddtækni og því hvernig við notum röddina til þess að stjórna tækninni. Íslenskan á undir högg að sækja vegna þeirra öru tæknibreytinga en mörg okkar eiga nú þegar samskipti við tölvur og ýmis tæki á erlendu máli. Fólk mun nota röddina í auknum mæli til að stýra hvers kyns tækjum og tólum en vandinn er sá að tækin skilja ekki íslensku. 
+about-header-description       = Þess vegna er mikilvægt að missa ekki af lestinni og með því að safna nógu mörgum raddsýnum á íslensku er hægt að vinna að því að kenna stafrænni tækni íslensku. Samrómur verður opið gagnasafn raddsýna fyrir íslensku sem hver sem er getur notað til þess að þróa eigin máltæknilausnir. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum. 
 
 deloitte-project-title         = Oft veltir lítil þúfa þungu hlassi
 deloitte-project-description-1 = Upphaf þessa verkefnis má rekja til þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, sem þróað var í gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir gátu þá farið í skemmtilega og einfalda leiki með vélmenninu sem vakti mikla og verðskuldaða athygli.
-deloitte-project-description-2 = AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku, var ekki um auðugan garð að gresja þegar kom að tæknilausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og ef fram fer sem horfir er hröð þróun tæknilegra lausna á góðri leið með að útiloka íslenska tungu alfarið á þessum vettvangi.
-deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Almannarómur, Háskólinn í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
+deloitte-project-description-2 = AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku var ekki um auðugan garð að gresja þegar kom að tæknilausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og ef fram fer sem horfir er hröð þróun tæknilegra lausna á góðri leið með að útiloka íslenska tungu alfarið á þessum vettvangi.
+deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún gæti skilið og talað íslensku. Almannarómur, Háskólinn í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
 deloitte-project-description-4 = Með styrk frá Nýsköpunarsjóði námsmanna réðu samstarfsaðilar fjóra framúrskarandi nemendur í tölvunar- og verkfræði í sumarverkefni við að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur einnig öðrum tækja- og hugbúnaði í framtíðinni. Því leggja samstarfsaðilarnir áherslu á að allar afurðir sem hópurinn þróar og útfærir, séu nú og verði áfram, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source).
 deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í samræmi við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni og til þess fallin að skapa tækifæri fyrir mannauð framtíðarinnar og tæknimenntun.
 deloitte-project-team-title    = Þróunarteymið skipa: 
@@ -183,25 +183,25 @@ about-nav-why-common-voice  = Af hverju?
 about-nav-how-it-works      = Hvernig?
 about-nav-partners          = Samstarfsaðilar
 
-how-does-it-work-title       = Hvernig virkar það?
+how-does-it-work-title       = Hvernig virkar þetta?
 
 how-does-it-work-text       = Með því að virkja almenning á Íslandi og afla þannig efnis í opið raddgagnasafn. Almenningur leggur fram rödd sína, staðfestir nákvæmni hljóðbrota frá öðrum og stuðlar þannig að betra gagnasafni fyrir alla.
 about-speak                 = Tal
-about-speak-text            = Þátttakendur taka upp lestur setninga sem fengnar úr setningabanka.
+about-speak-text            = Þátttakendur taka upp lestur setninga sem fengnar eru úr setningabanka.
 about-listen-queue          = Hlustunarröð
 about-listen-queue-text     = Nýtt hljóðbrot fer í stafla og er undirbúið fyrir hlustun.
 about-listen                = Hlustun
 about-listen-text           = Notendur staðfesta nákvæmni gefinna hljóðbrota og athuga hvort mælandinn hafi sagt setninguna rétt.
 about-is-it-valid           = Er þetta hljóðbrot gilt?
-about-is-it-valid-text      = Hljóðbrot er merkt „staðfest“ þegar notandi gefur því "Já" atkvæði.
-about-yes-votes             = ≥ 2 Já atkvæði
+about-is-it-valid-text      = Hljóðbrot er merkt „staðfest“ þegar notandi gefur því "Já"-atkvæði.
+about-yes-votes             = ≥ 2 Já-atkvæði
 about-yes-votes-text        = Til að komast inn í gagnasafn Samróms þarf hljóðbrot að vera yfirfarið af tveim einstaklingum.
-about-no-votes              = ≥ 2 Nei atkvæði
-about-no-votes-text         = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í hlustunarröðina. Ef því er hafnað í annað sinn, þá fer hljóð&shy;brotið í Hljóð&shy;brota&shy;graf&shy;reitinn.
+about-no-votes              = ≥ 2 Nei-atkvæði
+about-no-votes-text         = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í hlustunarröðina. Ef hljóðbroti er hafnað í annað sinn fer það í Hljóð&shy;brota&shy;graf&shy;reitinn.
 about-dataset-new           = Gagnasafn Samróms
 about-dataset-new-text      = Gagnasafn Samróms hefur að geyma fjölda raddhljóðbrota sem auðvelda þróunaraðilum að smíða máltæknilausnir.
 about-clip-graveyard        = Hljóðbrotagrafreitur
-about-clip-graveyard-text   = í hljóð&shy;brota&shy;graf&shy;reitnum eru radd&shy;hljóð&shy;brotum sem gátu ekki orðið hluti af gagnasafni Samróms&shy;s. Rétt eins og gagna&shy;safnið er Hljóð&shy;brota&shy;graf&shy;reiturinn aðgengi&shy;legur til niðurhals.
+about-clip-graveyard-text   = í Hljóð&shy;brota&shy;graf&shy;reitnum eru radd&shy;hljóð&shy;brot sem gátu ekki orðið hluti af gagnasafni Samróms&shy;. Rétt eins og gagna&shy;safnið er Hljóð&shy;brota&shy;graf&shy;reiturinn aðgengi&shy;legur til niðurhals.
 about-partners              = Samstarfsaðilar
 about-become-a-partner      = Skráðu þig sem samstarfsaðila
 about-partnership           = Samrómur er samstarfsverkefni, og við erum háð samfélaginu okkar af samstarfsaðilum og almeningi sem leggur sitt að mörkum til þess að byggja stærsta opna raddgagnasafn sem fyrirfinnst.
@@ -209,7 +209,7 @@ about-partnership           = Samrómur er samstarfsverkefni, og við erum háð
 about-nav-get-involved      = Samstarfsaðilar
 about-get-involved          = Samstarfsaðilar
 about-get-involved-text =
-    Þeir sem standa við bakið á Samróm eru <almannaLink>Almannarómur</almannaLink>, 
+    Þeir sem standa á bak við Samróm eru <almannaLink>Almannarómur</almannaLink>, 
     <githubLink>Deloitte</githubLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
     og <discourseLink>Nýsköpunarsjóður námsmanna</discourseLink>.
 
@@ -264,7 +264,7 @@ record-again-instruction2     = Þetta gengur vel! <recordIcon></recordIcon> Tak
 record-last-instruction       = Frábært! <recordIcon></recordIcon> Ein eftir!
 review-tooltip          = Endurtaka upptöku
 unable-speak            = Ómögulegt að lesa upphátt að svo stöddu?
-review-instruction      = Yfirfara og endurtaka upptöku ef þörf krefur
+review-instruction      = Yfirfarðu og endurtaktu upptöku ef þörf krefur
 record-submit-tooltip   = Smelltu hér til að senda inn
 clips-uploaded          = Upptökur sendar inn
 record-abort-title      = Ertu viss?
@@ -508,7 +508,7 @@ recorded-hours = Uppteknar klukkustundir
 whats-inside = Hvað er í Samróms gagnasafninu?
 
 dataset-description-hours =
-    Hver færsla í gagnasafninu samanstendur af WAV hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem er safnað innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
+    Hver færsla í gagnasafninu samanstendur af WAV-hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem er safnað innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
     
     Í gagnasafninu eru <b>{ $valid }</b> staðfestar klukkustundir hljóðbrota en alltaf má bæta við fleiri röddum.
 
