@@ -218,7 +218,6 @@
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
-
         @media (--md-up) {
             flex-direction: row;
         }
@@ -292,7 +291,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         @media (--sm-down) {
             margin-top: 0px;
         }

@@ -516,7 +516,27 @@ class SpeakPage extends React.Component<Props, State> {
     }
   };
 
-  private submitDemographic = () => {
+  private checkNativeLanguage = () => {
+    return new Promise((resolve, reject) => {
+      if (
+        this.state.demographic.age &&
+        this.state.demographic.sex &&
+        !this.state.showLanguageSelect
+      ) {
+        this.setState({
+          demographic: {
+            ...this.state.demographic,
+            native_language: DEFAULT_LANGUAGE,
+          },
+        });
+        resolve();
+      } else {
+        resolve();
+      }
+    });
+  };
+  private submitDemographic = async () => {
+    await this.checkNativeLanguage();
     const demographicError = this.getDemographicError(this.state.demographic);
     if (demographicError) {
       return this.setState({
