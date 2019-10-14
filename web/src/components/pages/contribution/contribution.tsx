@@ -445,7 +445,7 @@ class ContributionPage extends React.Component<Props, State> {
                     </Localized>
                   </div>
                   <Localized id="change-demo">
-                    <PrimaryButton
+                    <Button
                       className="submit-demo"
                       disabled={!this.isDone}
                       onClick={setShowDemographicModal}
