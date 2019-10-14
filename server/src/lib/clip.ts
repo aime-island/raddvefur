@@ -214,6 +214,8 @@ export default class Clip {
       params.locale,
       parseInt(query.count, 10) || 1
     );
+    console.log(clips);
+    response.contentType('audio/x-wav');
     response.json(clips);
   };
 
