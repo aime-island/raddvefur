@@ -40,13 +40,13 @@
     & .deloitte-project {
         padding-left: calc((100% - 76rem) / 2);
         max-width: inherit !important;
+        margin-bottom: 0.5rem;
     }
 
     & .deloitte-project-about {
         display: flex;
         position: relative;
         @media (--md-down) {
-            padding: 40px 0 30px;
             flex-direction: column;
         }
 
@@ -66,6 +66,7 @@
 
     & .deloitte-project-text {
         position: relative;
+        padding: 0 0.7rem;
         @media (--lg-up) {
             max-width: 560px;
             width: 100%;
@@ -73,10 +74,6 @@
             &:first-child {
                 margin-inline-end: 50px;
             }
-        }
-
-        @media (--md-down) {
-            padding-right: 1.25rem;
         }
 
         & .line {
@@ -146,20 +143,12 @@
         z-index: var(--middle-z-index);
         flex: 1;
         text-align: right;
-
-        @media (--md-up) {
-            margin: 6rem 0 0 3rem;
-        }
-        @media (--md-down) {
-            margin: 2rem 0 0 auto;
-        }
-        @media (--sm-down) {
-            margin-top: 0;
-        }
+        margin: auto;
+        padding: 0 0.7rem;
 
         & .aime {
             max-width: 100%;
-            margin: 0, auto;
+            margin-bottom: 1rem;
         }
     }
 
@@ -187,6 +176,8 @@
     }
     & .about-header-text {
         position: relative;
+        padding: 0 0.7rem;
+        margin-bottom: 0.5rem;
         @media (--lg-up) {
             max-width: 560px;
             width: 100%;
@@ -195,12 +186,7 @@
                 margin-inline-end: 50px;
             }
         }
-
-        @media (--md-down) {
-            padding-right: 1.25rem;
-        }
-
-        & .line {
+        s & .line {
             width: 70px;
             height: 3px;
             background: linear-gradient(to right, #f89096, #b1b4e5);
@@ -266,14 +252,8 @@
         text-align: right;
         max-height: 100%;
 
-        @media (--md-up) {
-            /*margin: 4rem 0 0 3rem;*/
-        }
         @media (--md-down) {
-            margin: 2rem 0 0 auto;
-        }
-        @media (--sm-down) {
-            margin-top: 0;
+            margin: auto;
         }
 
         & .robot {
