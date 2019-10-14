@@ -214,12 +214,6 @@ export default class Clip {
       params.locale,
       parseInt(query.count, 10) || 1
     );
-    console.log(clips);
-    response.writeHead(206, {
-      'Content-Range': 'bytes XX-XX/XX',
-      'Content-Type': 'audio/wav',
-      'Content-Length': 'XX',
-    });
     response.json(clips);
   };
 
