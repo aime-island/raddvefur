@@ -166,7 +166,7 @@ class DatasetInfo extends React.Component<Props, State> {
     const totalHours = msToHours(localeStats.duration);
     return (
       <div className="dataset-info">
-        <div className="top">
+        {/* <div className="top">
           <div className="cloud-circle">
             <CloudIcon />
           </div>
@@ -276,7 +276,7 @@ class DatasetInfo extends React.Component<Props, State> {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="description">
           <CircleStats {...globalStats} className="hidden-md-down" />
