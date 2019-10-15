@@ -169,6 +169,7 @@ export default class Clip {
               .audioCodec('pcm_s16le')
               .format('wav')
               .stream(),
+            ContentType: 'audio/mpeg',
           })
           .promise(),
         this.s3
