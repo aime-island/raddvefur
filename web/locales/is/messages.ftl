@@ -13,6 +13,7 @@ privacy                     = Persónuvernd
 terms                       = Skilmálar
 see-terms                   = Sjá skilmála
 cookies                     = Vafrakökur
+mail-to-samromur            = Hafa samband
 faq                         = Algengar spurningar
 content-license-text        = Efni birt undir merkjum <licenseLink>Creative Commons</licenseLink>.
 share-title                 = Hvettu aðra til að gefa raddsýni!
