@@ -10,7 +10,7 @@ export namespace Clips {
     id: string;
     glob: string;
     sentence: string;
-    audioSrc: string;
+    audioSrc: any;
   }
 
   export interface State {
