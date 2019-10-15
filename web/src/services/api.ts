@@ -6,7 +6,7 @@ import { User } from '../stores/user';
 import { USER_KEY } from '../stores/root';
 import { Sentences } from '../stores/sentences';
 import { DemoInfo } from '../stores/demographics';
-import { firstRound, secondRound, thirdRound } from '../../../radstefnusetningar';
+import { fixedSentences } from '../../../radstefnusetningar';
 
 export interface Clip {
   id: string;
@@ -97,24 +97,7 @@ export default class API {
   }
   
   fetchFixedSentences(count: number = 0): Sentences.Sentence[] {
-    // Divide count by 5 until it's under 15, this allows the same 3 lists to be fetched in order again and again.
-    while(count >= 15)
-    {
-      count = Math.floor(count / 5);
-    }
-    
-    if(count < 5)
-    {
-      return firstRound;
-    }
-    else if(count < 10)
-    {
-      return secondRound;
-    }
-    else
-    {
-      return thirdRound;
-    }
+    return fixedSentences;
   }
 
   async fetchRandomClips(count: number = 1): Promise<Clip[]> {
