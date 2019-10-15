@@ -290,8 +290,8 @@
         }
 
         @media (--lg-up) {
-            margin-top: 50px;
-            margin-bottom: 110px;
+            margin-top: 70px;
+            margin-bottom: 80px;
             flex-direction: row;
             justify-content: center;
 
