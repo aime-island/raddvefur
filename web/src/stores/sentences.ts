@@ -41,11 +41,8 @@ export namespace Sentences {
     ) => {
       try {
         const state = getState();
-        if (Object.keys(localeSentences(state)).length >= CACHE_SET_COUNT) {
-          return;
-        }
-        const newSentences = await state.api.fetchRandomSentences(
-          CACHE_SET_COUNT
+        const newSentences = state.api.fetchFixedSentences(
+          state.user.recordTally
         );
         dispatch({
           type: ActionType.REFILL,
