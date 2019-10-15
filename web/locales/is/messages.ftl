@@ -72,7 +72,7 @@ ready-to-record             = Ertu tilbúin(n) að gefa raddsýni?
 
 ## Footer
 email-subscription-title    = skráðu þig til að fá tölvupóst um framgang og annað efni tengt verkefninu.
-accept-privacy              = Það er í lagi að meðhöndla þessar upplýsingar í samræmi við persónuverndarlög.
+accept-privacy              = Það er í lagi að meðhöndla þessar upplýsingar í samræmi við <privacyLink>persónuverndaryfirlýsingu</privacyLink>.
 
 ## Óflokkað
 all-locales                 = Allt
