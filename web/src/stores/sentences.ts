@@ -41,9 +41,7 @@ export namespace Sentences {
     ) => {
       try {
         const state = getState();
-        const newSentences = state.api.fetchFixedSentences(
-          state.user.recordTally
-        );
+        const newSentences = state.api.fetchFixedSentences();
         dispatch({
           type: ActionType.REFILL,
           sentences: newSentences,

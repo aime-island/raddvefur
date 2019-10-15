@@ -96,7 +96,7 @@ export default class API {
     return this.fetch(`${this.getLocalePath()}/sentences?count=${count}`);
   }
   
-  fetchFixedSentences(count: number = 0): Sentences.Sentence[] {
+  fetchFixedSentences(): Sentences.Sentence[] {
     return fixedSentences;
   }
 
@@ -203,9 +203,7 @@ export default class API {
   }
 
   skipSentence(id: string) {
-    return this.fetch(`${API_PATH}/skipped_sentences/` + id, {
-      method: 'POST',
-    });
+    return {};
   }
 
   fetchClipsStats(
