@@ -81,6 +81,12 @@
                 box-shadow: var(--vote-button-box-shadow)
                     color-mod(var(--valid-green) alpha(70%));
             }
+
+            @media (--md-down) {
+                background: var(--valid-green);
+                box-shadow: var(--vote-button-box-shadow)
+                    color-mod(var(--valid-green) alpha(70%));
+            }
         }
 
         &.no {
@@ -93,10 +99,24 @@
                 box-shadow: var(--vote-button-box-shadow)
                     color-mod(var(--red) alpha(60%));
             }
+
+            @media (--md-down) {
+                background-color: var(--red);
+                box-shadow: var(--vote-button-box-shadow)
+                    color-mod(var(--red) alpha(60%));
+            }
         }
 
         &:hover,
         &:active {
+            color: var(--white);
+
+            & path {
+                fill: var(--white);
+            }
+        }
+
+        @media (--md-down) {
             color: var(--white);
 
             & path {
