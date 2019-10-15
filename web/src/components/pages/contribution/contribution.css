@@ -301,18 +301,17 @@
             position: absolute;
         }
 
-        & .inner {
+        & .demo-inner {
             width: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-direction: column;
 
             @media (--md-up) {
                 margin-top: 0;
                 margin-inline-start: auto;
                 width: fit-content;
-                flex-direction: column;
+                flex-direction: row;
                 justify-content: flex-start;
             }
         }
