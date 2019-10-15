@@ -69,7 +69,6 @@
         }
 
         @media (--lg-up) {
-            margin-bottom: 70px;
             padding-top: 90px;
             padding-bottom: 135px;
             padding-inline-start: calc(
@@ -329,12 +328,12 @@
 
                 @media (--md-down) {
                     margin-bottom: 20px;
-                    font-size: 36px;
+                    font-size: 24px;
                 }
 
                 @media (--lg-up) {
                     margin-bottom: 30px;
-                    font-size: 48px;
+                    font-size: 36px;
                 }
             }
 
