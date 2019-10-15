@@ -509,11 +509,11 @@ recorded-hours = Uppteknar klukkustundir
 whats-inside = Gagnasafnið Samrómur
 
 dataset-description-hours =
-    Samrómur er opið og aðgengilegt gagnasafn radda sem öllum er frjálst að nýta til þróunar hugbúnaðs á íslensku. 
+    Samrómur er opið og aðgengilegt gagnasafn radda sem öllum er frjálst að nýta við þróun hugbúnaðar á íslensku. 
     
     Gagnasafnið samanstendur af setningum og hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. Hver færsla í gagnasafninu inniheldur WAV-hljóðbrot og samsvarandi textaskrá.
 
-    Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann, hér fyrir neðan, til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
+    Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
     
 want-dataset-update = Langar þig að heyra meira um starf Samróms? Skráðu þig þá á póstlistann.
 subscribe = Gerast áskrifandi
