@@ -95,6 +95,20 @@ export default function SubscribeNewsletter() {
               })}
         />
       </div>
+      <LabeledCheckbox
+        label={
+          <Localized
+            id="accept-privacy"
+            privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
+            <span />
+          </Localized>
+        }
+        checked={privacyAgreed}
+        onChange={(event: any) => {
+          setStatus(null);
+          setPrivacyAgreed(event.target.checked);
+        }}
+      />
     </form>
   );
 }

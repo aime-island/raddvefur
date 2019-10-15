@@ -32,7 +32,6 @@ const msToHours = (ms: number) => Math.floor(ms / 1000 / 60 / 60);
 const validHours = Object.entries(stats.locales).reduce(
   (obj, [locale, localeStats]) => {
     const avgDuration = localeStats.duration / localeStats.clips;
-    console.log(locale, avgDuration);
     obj[locale] = msToHours(localeStats.buckets.validated * avgDuration);
     return obj;
   },
@@ -115,6 +114,9 @@ type State = {
   email: string;
   confirmSize: boolean;
   confirmNoIdentify: boolean;
+  userCount: number;
+  total: number;
+  valid: number;
 };
 
 class DatasetInfo extends React.Component<Props, State> {
@@ -129,6 +131,9 @@ class DatasetInfo extends React.Component<Props, State> {
       email: '',
       confirmSize: false,
       confirmNoIdentify: false,
+      userCount: null,
+      total: null,
+      valid: null,
     };
   }
 
@@ -145,6 +150,21 @@ class DatasetInfo extends React.Component<Props, State> {
     await this.props.api.forLocale(locale).saveHasDownloaded(email);
   };
 
+  componentDidMount = async () => {
+    await this.updateData();
+  };
+
+  updateData = async () => {
+    const { locale } = this.state;
+    let userCount = await this.props.api.fetchUserCount('everyone', locale);
+    let userStats = await this.props.api.fetchClipsStats(locale);
+    this.setState({
+      userCount: userCount,
+      total: userStats[userStats.length - 1].total,
+      valid: userStats[userStats.length - 1].valid,
+    });
+  };
+
   render() {
     const { getString } = this.props;
     const {
@@ -157,7 +177,11 @@ class DatasetInfo extends React.Component<Props, State> {
     } = this.state;
     const localeStats = stats.locales[locale as keyof typeof stats.locales];
     const voices = localeStats.users;
-    const globalStats = { total, valid, voices };
+    const globalStats = {
+      total: this.state.total,
+      valid: this.state.valid,
+      voices: this.state.userCount,
+    };
     const megabytes = Math.floor(localeStats.size / 1000 / 1000);
     const size =
       megabytes > 1000
@@ -166,7 +190,7 @@ class DatasetInfo extends React.Component<Props, State> {
     const totalHours = msToHours(localeStats.duration);
     return (
       <div className="dataset-info">
-        <div className="top">
+        {/* <div className="top">
           <div className="cloud-circle">
             <CloudIcon />
           </div>
@@ -192,7 +216,7 @@ class DatasetInfo extends React.Component<Props, State> {
           </div>
           <div className="info">
             <div className="inner">
-              <ul className="facts">
+              {<ul className="facts">
                 {Object.entries({
                   size,
                   'dataset-version': (
@@ -221,7 +245,8 @@ class DatasetInfo extends React.Component<Props, State> {
                     <span className="value">{value}</span>
                   </li>
                 ))}
-              </ul>
+              </ul>}
+              
               {hideEmailForm ? (
                 <>
                   <Button
@@ -276,7 +301,7 @@ class DatasetInfo extends React.Component<Props, State> {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="description">
           <CircleStats {...globalStats} className="hidden-md-down" />
@@ -300,6 +325,7 @@ class DatasetInfo extends React.Component<Props, State> {
             </Localized>
           </div>
         </div>
+        {/*  <Subscribe /> */}
       </div>
     );
   }

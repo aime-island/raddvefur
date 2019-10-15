@@ -1,5 +1,5 @@
 export default {
-  bundleURLTemplate: 'https://almannaromur.is/',
+  bundleURLTemplate: 'https://samromur.is/',
   date: '2019-17-11',
   locales: {
     is: {
