@@ -117,6 +117,9 @@ export default class API {
     router.get('/contribution_activity', this.getContributionActivity);
     router.get('/:locale/contribution_activity', this.getContributionActivity);
 
+    router.get('/user_count', this.getUserCount);
+    router.get('/:locale/user_count', this.getUserCount);
+
     router.get('/requested_languages', this.getRequestedLanguages);
     router.post('/requested_languages', this.createLanguageRequest);
 
@@ -354,6 +357,13 @@ export default class API {
         ? this.model.db.getContributionStats(locale, client_id)
         : this.model.getContributionStats(locale))
     );
+  };
+
+  getUserCount = async (
+    { client_id, params: { locale }, query }: Request,
+    response: Response
+  ) => {
+    response.json(await this.model.db.getUserCount(locale, client_id));
   };
 
   createCustomGoal = async (request: Request, response: Response) => {
