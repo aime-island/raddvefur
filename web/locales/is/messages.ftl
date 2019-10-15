@@ -13,6 +13,7 @@ privacy                     = Persónuvernd
 terms                       = Skilmálar
 see-terms                   = Sjá skilmála
 cookies                     = Vafrakökur
+mail-to-samromur            = Hafa samband
 faq                         = Algengar spurningar
 content-license-text        = Efni birt undir merkjum <licenseLink>Creative Commons</licenseLink>.
 share-title                 = Hvettu aðra til að gefa raddsýni!
@@ -506,13 +507,15 @@ confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera 
 download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
-whats-inside = Hvað er í Samróms gagnasafninu?
+whats-inside = Gagnasafnið Samrómur
 
 dataset-description-hours =
-    Hver færsla í gagnasafninu samanstendur af WAV-hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem er safnað innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
+    Samrómur er opið og aðgengilegt gagnasafn radda sem öllum er frjálst að nýta við þróun hugbúnaðar á íslensku. 
     
-    Í gagnasafninu eru <b>{ $valid }</b> staðfestar klukkustundir hljóðbrota en alltaf má bæta við fleiri röddum.
+    Gagnasafnið samanstendur af setningum og hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. Hver færsla í gagnasafninu inniheldur WAV-hljóðbrot og samsvarandi textaskrá.
 
+    Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
+    
 want-dataset-update = Langar þig að heyra meira um starf Samróms? Skráðu þig þá á póstlistann.
 subscribe = Gerast áskrifandi
 

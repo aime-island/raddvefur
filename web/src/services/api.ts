@@ -230,6 +230,12 @@ export default class API {
     );
   }
 
+  fetchUserCount(from: 'you' | 'everyone', locale?: string): Promise<number> {
+    return this.fetch(
+      API_PATH + (locale ? '/' + locale : '') + '/user_count?from=' + from
+    );
+  }
+
   fetchUserClients(): Promise<UserClient[]> {
     return this.fetch(API_PATH + '/user_clients');
   }

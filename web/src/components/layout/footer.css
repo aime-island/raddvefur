@@ -140,6 +140,7 @@ footer {
             box-sizing: border-box;
             margin-bottom: 8px;
             margin-right: 0.5rem;
+            padding-right: 1rem;
         }
 
         & > div {
