@@ -38,6 +38,16 @@ export const AlmannaLink = ({ dispatch, ...props }: SharedLinkProps) => {
   );
 };
 
+export const MalaetlunLink = ({ dispatch, ...props }: SharedLinkProps) => {
+  return (
+    <a
+      target="blank"
+      href="https://www.stjornarradid.is/lisalib/getfile.aspx?itemid=56f6368e-54f0-11e7-941a-005056bc530c"
+      {...props}
+    />
+  );
+};
+
 export const SlackLink = ({ dispatch, ...props }: SharedLinkProps) => {
   return <a target="blank" href="https://www.ru.is" {...props} />;
 };
