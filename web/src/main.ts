@@ -24,10 +24,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (isFace) {
     const isFBIOS = await isIOS();
     if (!isFBIOS) {
-      window.location.href = 'https://randomwalk.page.link/6SuK';
-      //window.location.href = 'http://almannaromur.page.link/is';
+      window.location.href = 'https://samromur.page.link/redirect';
     } else {
-      //window.location.assign('safari://https://aime.moon.do');
       renderFacebook();
     }
   } else {
