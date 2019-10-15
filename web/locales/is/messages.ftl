@@ -505,7 +505,7 @@ size-megabyte = MB
 confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera kennsl á mælendur í málheild Samróms.
 download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
-recorded-hours = Staðfestar klukkustundir
+recorded-hours = Uppteknar klukkustundir
 whats-inside = Gagnasafnið Samrómur
 
 dataset-description-hours =
