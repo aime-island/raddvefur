@@ -242,7 +242,7 @@ home                    = Forsíða
 shortcuts               = Flýtileiðir
 clips-with-count        = <bold>{ $count }</bold> upptökur
 goal-help-recording     = Þú hefur hjálpað Samrómi að ná <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
-goal-help-validation    = Þú hefur hjálpað Samrómi að ná að staðfesta <goalPercentage></goalPercentage> af daglegu { $goalValue } markmiði!
+goal-help-validation    = Þú hefur hjálpað Samrómi að staðfesta <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
 contribute-more         = {
      $count ->
      [one] Til í að gera { $count } í viðbót?
