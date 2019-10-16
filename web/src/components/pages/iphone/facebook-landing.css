@@ -11,7 +11,32 @@
 }
 
 .copy-link-h2 {
-    margin-top: 2rem;
+}
+
+.share-button {
+    display: flex;
+    align-content: center;
+}
+
+#link-copy {
+    border: none;
+    padding: 0;
+    width: auto;
+    background: transparent;
+
+    &:active {
+        color: var(--black);
+    }
+
+    &:hover [data-icon] {
+        color: var(--blue);
+    }
+
+    & input {
+        position: fixed;
+        top: 1000rem;
+        left: 1000rem;
+    }
 }
 
 .iphone-landing-items {
@@ -20,6 +45,7 @@
     flex-direction: column;
     justify-content: center;
     & h2 {
+        margin-left: 10px;
         font-weight: 700;
         margin-bottom: 1rem;
     }
@@ -29,8 +55,8 @@
     }
 
     & p {
-        font-size: 1rem;
-        margin: 1.3rem 2.5rem;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
     }
 }
 

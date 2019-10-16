@@ -45,7 +45,11 @@ export function isFirefoxFocus(): boolean {
 
 export function isFacebook(): boolean {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
-  return ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1;
+  return (
+    ua.indexOf('FBAN') > -1 ||
+    ua.indexOf('FBAV') > -1 ||
+    ua.indexOf('FB_IAB') > -1
+  );
 }
 
 export function isFacebookIOS(): boolean {
