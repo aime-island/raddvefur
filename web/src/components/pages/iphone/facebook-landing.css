@@ -11,6 +11,27 @@
     margin-top: 2rem;
 }
 
+#link-copy {
+    border: none;
+    padding: 0;
+    width: auto;
+    background: transparent;
+
+    &:active {
+        color: var(--black);
+    }
+
+    &:hover [data-icon] {
+        color: var(--blue);
+    }
+
+    & input {
+        position: fixed;
+        top: 1000rem;
+        left: 1000rem;
+    }
+}
+
 .iphone-landing-items {
     width: 80%;
     display: flex;

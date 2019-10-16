@@ -19,8 +19,8 @@ export default function FacebookIOSMessage() {
           />
         </div>
         <p>
-          Hljóðnemi er ekki studdur hér. Vinsamlegast opnaðu með Safari eða
-          öðrum vafra.
+          Hljóðnemi er ekki studdur í þessum vafra. Vinsamlegast opnaðu með
+          Chrome, Safari eða öðrum vafra.
         </p>
         <button
           id="link-copy"
