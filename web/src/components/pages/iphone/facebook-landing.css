@@ -1,10 +1,13 @@
 .iphone-landing {
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: 50% 90%;
-    height: 100%;
-    width: 100%;
+    margin: 0;
     position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-image: url('./images/light-waves.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-clip: border-box;
 }
 
 .copy-link-h2 {
@@ -12,19 +15,22 @@
 }
 
 .iphone-landing-items {
-    width: 80%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 0 auto;
-    margin-top: 10%;
-
+    flex-direction: column;
+    justify-content: center;
     & h2 {
         font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    & img {
+        margin: 0 0.5rem;
     }
 
     & p {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin: 1.3rem 2.5rem;
     }
 }
 
@@ -42,4 +48,12 @@
 .microphone {
     width: 50px;
     height: 50px;
+}
+
+.share-button {
+    margin-top: 1.5rem;
+}
+
+.waves {
+    max-width: 80%;
 }

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useRef } from 'react';
 
 import './facebook-landing.css';
+import imgSrc from './images/Eq.svg';
 
 export default function FacebookIOSMessage() {
   const SHARE_URL = 'https://samromur.is/';
@@ -22,6 +23,7 @@ export default function FacebookIOSMessage() {
           Hljóðnemi er ekki studdur hér. Vinsamlegast opnaðu með Safari eða
           öðrum vafra.
         </p>
+        <img className="waves" src={imgSrc} />
         <button
           id="link-copy"
           className="share-button"
