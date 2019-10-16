@@ -83,7 +83,7 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
             <div className="line" />
             <img
               className="aime"
-              src={require('./images/sthAnna.png')}
+              src={require('./images/little-aime.jpg')}
               alt="Aime"
             />
           </div>
