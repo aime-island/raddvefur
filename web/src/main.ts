@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (isFace) {
     const isFBIOS = await isIOS();
     if (!isFBIOS) {
-      renderFacebook();
-      //window.location.href = 'https://samromur.page.link/redirect';
+      window.location.href = 'https://samromur.page.link/redirect';
     } else {
       renderFacebook();
     }
