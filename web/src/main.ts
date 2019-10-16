@@ -22,12 +22,13 @@ function renderFacebook() {
 document.addEventListener('DOMContentLoaded', async () => {
   const isFace = await isFacebook();
   if (isFace) {
-    const isFBIOS = await isIOS();
+    renderFacebook();
+    /* const isFBIOS = await isIOS();
     if (!isFBIOS) {
-      window.location.replace('https://samromur.page.link/redirect');
+      window.location.href = 'https://samromur.page.link/redirect';
     } else {
       renderFacebook();
-    }
+    } */
   } else {
     if (typeof window.IntersectionObserver === 'undefined') {
       await require('intersection-observer');
