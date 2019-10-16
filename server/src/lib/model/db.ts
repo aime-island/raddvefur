@@ -68,8 +68,9 @@ export default class DB {
    * I hope you know what you're doing.
    */
   async drop(): Promise<void> {
-    if (!getConfig().PROD) {
-      await this.schema.dropDatabase();
+    if (false) {
+      console.log('database protection');
+      // await this.schema.dropDatabase();
     }
   }
 
