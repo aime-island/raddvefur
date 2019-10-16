@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useRef } from 'react';
+import { FontIcon } from '../../ui/icons';
 
 import './facebook-landing.css';
 
@@ -19,9 +20,10 @@ export default function FacebookIOSMessage() {
           />
         </div>
         <p>
-          Hljóðnemi er ekki studdur hér. Vinsamlegast opnaðu með Safari eða
-          öðrum vafra.
+          Hljóðnemi er ekki studdur hér. Vinsamlegast opnaðu með Chrome, Safari
+          eða öðrum vafra.
         </p>
+
         <button
           id="link-copy"
           className="share-button"
@@ -35,7 +37,8 @@ export default function FacebookIOSMessage() {
             value={SHARE_URL}
             ref={shareURLInputRef}
           />
-          <h2 className="copy-link-h2">Afrita hlekk</h2>
+          <FontIcon type="link" className="icon" />
+          <h2 className="copy-link-h2"> Afrita hlekk</h2>
         </button>
       </div>
     </div>
