@@ -8,7 +8,11 @@
 }
 
 .copy-link-h2 {
-    margin-top: 2rem;
+}
+
+.share-button {
+    display: flex;
+    align-content: center;
 }
 
 #link-copy {
@@ -41,11 +45,13 @@
     margin-top: 10%;
 
     & h2 {
+        margin-left: 10px;
         font-weight: 700;
     }
 
     & p {
         font-size: 1.2rem;
+        margin-bottom: 2rem;
     }
 }
 
