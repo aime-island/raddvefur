@@ -175,18 +175,18 @@ export default class Model {
         total: Math.round(stat.total * AVG_CLIP_SECONDS),
         valid: Math.round(stat.valid * AVG_CLIP_SECONDS),
       })),
-    DAY
+    MINUTE
   );
 
   getVoicesStats = lazyCache(
     'voice-stats',
     (locale: string) => this.db.getVoicesStats(locale),
-    20 * MINUTE
+    3 * MINUTE
   );
 
   getContributionStats = lazyCache(
     'contribution-stats',
     (locale?: string) => this.db.getContributionStats(locale),
-    20 * MINUTE
+    3 * MINUTE
   );
 }
