@@ -20,20 +20,20 @@ function renderFacebook() {
 
 // Start the app when DOM is ready.
 document.addEventListener('DOMContentLoaded', async () => {
-  const isFace = await isFacebook();
+  renderFacebook();
+  /*const isFace = await isFacebook();
   if (isFace) {
-    renderFacebook();
-    /* const isFBIOS = await isIOS();
+    const isFBIOS = await isIOS();
     if (!isFBIOS) {
       window.location.href = 'https://samromur.page.link/redirect';
     } else {
       renderFacebook();
-    } */
+    }
   } else {
     if (typeof window.IntersectionObserver === 'undefined') {
       await require('intersection-observer');
     }
     const App = require('./components/app').default;
     render(React.createElement(App), document.getElementById('root'));
-  }
+  }*/
 });
