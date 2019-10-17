@@ -103,7 +103,7 @@ class ListenPage extends React.Component<Props, State> {
       this.stop();
       return;
     }
-
+    this.audioRef.current.load();
     this.audioRef.current.play();
     this.setState({ isPlaying: true });
     clearInterval(this.playedSomeInterval);
@@ -220,13 +220,12 @@ class ListenPage extends React.Component<Props, State> {
             )
           }
           instruction={props =>
-            activeClip &&
-            !isPlaying &&
-            !hasPlayedSome &&
-            !hasPlayed && (
+            activeClip && (
               <Localized
                 id={
-                  clipIndex === SET_COUNT - 1
+                  hasPlayed
+                    ? 'listen-hasplayed-instruction'
+                    : clipIndex === SET_COUNT - 1
                     ? 'listen-last-time-instruction'
                     : [
                         'listen-instruction',
@@ -254,7 +253,7 @@ class ListenPage extends React.Component<Props, State> {
               <VoteButton
                 kind="no"
                 onClick={this.voteNo}
-                disabled={!hasPlayed && !hasPlayedSome}
+                disabled={!hasPlayed}
               />
             </React.Fragment>
           }

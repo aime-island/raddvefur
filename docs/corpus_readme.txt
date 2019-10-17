@@ -63,7 +63,7 @@ Each row of a csv file represents a single audio clip, and contains the followin
 
 
 
-The audio clips for each subset are stored as wav files in folders with the same naming conventions as it’s corresponding csv file. So, for instance, all audio data from the valid train set will be kept in the folder “cv-valid-train” alongside the “cv-valid-train.csv” metadata file.
+The audio clips for each subset are stored as WAV files in folders with the same naming conventions as it’s corresponding csv file. So, for instance, all audio data from the valid train set will be kept in the folder “cv-valid-train” alongside the “cv-valid-train.csv” metadata file.
 
 
 Acknowledgments

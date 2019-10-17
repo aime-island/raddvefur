@@ -68,8 +68,9 @@ export default class DB {
    * I hope you know what you're doing.
    */
   async drop(): Promise<void> {
-    if (!getConfig().PROD) {
-      await this.schema.dropDatabase();
+    if (false) {
+      console.log('database protection');
+      // await this.schema.dropDatabase();
     }
   }
 
@@ -430,6 +431,21 @@ export default class DB {
     );
 
     return rows;
+  }
+
+  async getUserCount(
+    locale?: string,
+    client_id?: string
+  ): Promise<{ date: string; value: number }[]> {
+    const hours = Array.from({ length: 10 }).map((_, i) => i);
+    return (await this.mysql.query(
+      `
+        SELECT COUNT(DISTINCT client_id) AS count FROM clips`,
+      {
+        locale_id: locale ? await getLocaleId(locale) : null,
+        client_id,
+      }
+    ))[0][0].count;
   }
 
   async empty() {

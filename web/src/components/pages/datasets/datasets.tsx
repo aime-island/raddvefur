@@ -14,7 +14,7 @@ export default () => (
     <DatasetInfo />
     {/* <Subscribe />
     <Resources /> */}
-    <div className="mars-validate">
+    {/* <div className="mars-validate">
       <div>
         <img src={require('./images/mars.svg')} alt="" />
       </div>
@@ -28,6 +28,6 @@ export default () => (
           </Localized>
         </div>
       </div>
-    </div>
+    </div> */}
   </div>
 );

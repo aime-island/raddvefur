@@ -1,10 +1,6 @@
 .almannaromur {
-    display: block;
     font-family: var(--strong-font-family);
     font-size: 1.8rem;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
+    margin: auto 1rem;
     font-weight: bold;
 }

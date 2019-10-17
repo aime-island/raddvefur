@@ -13,10 +13,11 @@ privacy                     = Persónuvernd
 terms                       = Skilmálar
 see-terms                   = Sjá skilmála
 cookies                     = Vafrakökur
+mail-to-samromur            = Hafa samband
 faq                         = Algengar spurningar
 content-license-text        = Efni birt undir merkjum <licenseLink>Creative Commons</licenseLink>.
 share-title                 = Hvettu aðra til að gefa raddsýni!
-share-text                  = Hjálpið að kenna vélum hvernig alvöru fólk talar, gefðu raddsýni á { $link }
+share-text                  = Ljáðu íslenskri tungu rödd þína, gefðu raddsýni á { $link }
 link-copied                 = Hlekkur afritaður
 back-top                    = Tilbaka
 logout                      = Útskrá
@@ -24,25 +25,29 @@ logout                      = Útskrá
 ## Home Page 
 speak                       = Tala
 speak-subtitle              = Smelltu hér til að lesa inn
-speak-paragraph             = Hljóðritun radda er mikilvægasti þátturinn í þróun gagnasafnsins, sumir segja þetta skemmtilegasta hlutann.
+speak-paragraph             = Með því að lesa inn í Samróm leggur þú þitt af mörkum við varðveislu íslenskunnar. Það er á okkar valdi að alltaf megi finna svar á íslensku.
 speak-paragraph-mobile      = Þú getur lagt þitt af mörkum til að bjarga íslenskunni frá stafrænum dauða. Við viljum raddir allra hópa svo tækni framtíðarinnar skilji alla sem nota hana.
-speak-goal-text             = Raddupptökur
+speak-goal-text             = 
+speak-click-here            = Smelltu hér til þess að lesa inn
 
 listen                      = Hlusta
-listen-subtitle             = Hjálpaðu okkur að staðfesta raddir
-listen-paragraph            = Að staðfesta fyrirliggjandi raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar. Hlustaðu og hjálpaðu okkur að þróa hágæða safn opinna raddgagna.
-listen-goal-text            = Staðfestar raddupptökur
+listen-subtitle             = Smelltu hér til að staðfesta raddupptökur
+listen-paragraph            = Að staðfesta fyrirliggjandi raddupptökur er jafn mikilvægt fyrir Samróm og upptökurnar sjálfar.
+listen-goal-text            = 
+listen-click-here           = Smelltu hér til þess að hlusta
 
 todays-progress             = Árangur dagsins
+
+ 
 help-reach-goal             = Hjálpaðu okkur að ná { $goal }
 read-terms-q                = Hefurðu lesið skilmálana?
 
-home-title                  = Ljáðu íslensku tungunni rödd þína. Það er á okkar valdi að alltaf megi finna svar á íslensku.
-wall-of-text-first          = Íslenska er einstakt tungumál sem hefur breyst minna en flest önnur mál undanfarin þúsund ár. Vegna örra tæknibreytinga er þó hætt við því að hún eigi undir högg að sækja en mörg okkar eiga nú þegar samskipti við tölvur og ýmis tæki á erlendu máli. Ef við getum kennt tölvum íslensku aukum við líkurnar á því að tungumálið okkar lifi áfram og eflist í stað þess að láta undan síga. Þetta er á okkar valdi. 
+home-title                  = Ljáðu íslenskri tungu rödd þína. Það er á okkar valdi að alltaf megi finna svar á íslensku.
+wall-of-text-first          = Íslenska er einstakt tungumál sem hefur breyst minna en flest önnur mál undanfarin þúsund ár. Vegna örra tæknibreytinga er þó hætt við því að hún eigi undir högg að sækja en mörg okkar eiga nú þegar samskipti við tölvur og ýmis tæki á erlendu máli. Ef við kennum tölvum að tala og skilja íslensku aukum við líkurnar á því að tungumálið okkar lifi áfram og eflist í stað þess að láta undan síga. Þetta er á okkar valdi. 
 
-wall-of-text-second         = Þess vegna þurfum við aðstoð þína við að safna raddsýnum í opinn gagnagrunn til afnota fyrir þá sem vinna að því að samþætta íslensku og hina stafrænu tækni. Ferlið er einfalt og fljótlegt. Með því að smella á tala bíða þín fimm setningar sem við biðjum þig um að lesa inn.
+wall-of-text-second         = Þess vegna þurfum við þína aðstoð við söfnun raddsýna í opinn gagnagrunn til afnota fyrir þá sem vinna að samþættingu íslensku og stafrænnar tækni. Ferlið er einfalt og fljótlegt. Með því að smella á "Tala" hér að ofan bíða þín fimm setningar sem við biðjum þig um að lesa inn.
 show-wall-of-text           = Lesa meira
-wall-of-text-third          = Því fleiri og fjölbreyttari hópur fólks sem ljáir verkefninu rödd sína, þeim mun meiri líkur eru á að tæknin geti talað og skilið íslensku svo vel sé. Það er á okkar valdi að alltaf megi finna svar á íslensku.
+wall-of-text-third          = Því stærri og fjölbreyttari hópur fólks sem ljáir verkefninu rödd sína, því betur skilur tæknin málið. Það er á okkar valdi að alltaf megi finna svar á íslensku.
 
 hours-recorded              = Klukkustundir hljóðritaðar
 hours-validated             = Klukkustundir staðfestar
@@ -63,11 +68,11 @@ x-years-short               = {
     *[other] { $count }ár
     }
 
-ready-to-record             = Tilbúin(n) að gefa raddsýni?
+ready-to-record             = Ertu tilbúin(n) að gefa raddsýni?
 
 ## Footer
-email-subscription-title    = skráðu þig til að fá tölvupóst
-accept-privacy              = Það er í lagi að meðhöndla þessar upplýsingar í samræmi við persónuverndarlög.
+email-subscription-title    = skráðu þig til að fá tölvupóst um framgang og annað efni tengt verkefninu.
+accept-privacy              = Það er í lagi að meðhöndla þessar upplýsingar í samræmi við <privacyLink>persónuverndaryfirlýsingu</privacyLink>.
 
 ## Óflokkað
 all-locales                 = Allt
@@ -107,8 +112,8 @@ demographic-form-age        =
 demographic-form-native-language =
     .label = Móðurmál
 why-demographic             = Hvers vegna skiptir þetta máli? 
-why-demographic-explanation = Lýðfræðileg notendagögn líkt og aldur, kyn og móðurmál hjálpa til við að bæta hljóðgögnin sem notuð eru til að þjálfa nákvæmni talgreiningarvéla. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
-demographic-form-other-native-language = Íslenska er mitt móðurmál
+why-demographic-explanation = Ofantaldar upplýsingar eru notaðar til að meta hversu lýðfræðilega dreift gagnasafnið Samrómur er. Því dreifðara og fjölbreyttara sem það er, því betra. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
+demographic-form-other-native-language = Móðurmál mitt er íslenska
 demographic-form-submit     = Áfram
 male                        = Karlkyns
 female                      = Kvenkyns
@@ -163,14 +168,15 @@ review-native-language      = Móðurmál: <bold>{ $native_language }</bold>
 ##Um verkefnið
 
 about-title                    = Af hverju?
-about-subtitle                 = Á stafrænum tímum er margt sem breytist. Raddtækni er ein þessara breytinga sem nú þegar  hefur verið þróuð fyrir ensku og nokkur önnur stærri tungumál. Í framtíðinni mun slík tækni verða enn útbreiddari og eiga stóran þátt í okkar daglega lífi. 
-about-header-description       = Það tungumál sem við notum, lærum við og ef við þurfum ekki að nota íslenskuna, er hætta á að hún deyi út. Þess vegna er mikilvægt að missa ekki af lestinni. Við viljum búa til opið gagnasafn radda sem nýtist við hugbúnaðargerð fyrir íslensku til jafns við önnur tungumál. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.
+about-subtitle                 = Á síðstu árum hefur verið bylting í raddtækni og því hvernig við notum röddina til þess að stjórna tækninni. Íslenskan á undir högg að sækja vegna þeirra öru tæknibreytinga en mörg okkar eiga nú þegar samskipti við tölvur og ýmis tæki á erlendu máli. Fólk mun nota röddina í auknum mæli til að stýra hvers kyns tækjum og tólum en vandinn er sá að tækin skilja ekki íslensku. 
+about-header-description       = Þess vegna er mikilvægt að missa ekki af lestinni og nú er hafin vinna við stórt samstarfsverkefni til þess að gera íslensku gjaldgenga í tölvum og tækjum. Að því koma íslenskir háskólar, stofnanir, fyrirtæki og félagasamtök, sem munu á næstu árum þróa nauðsynlega innviði fyrir hugbúnað sem skilur og talar íslensku. Samrómur verður hluti af þessu verkefni, opið gagnasafn raddsýna fyrir íslensku sem hver sem getur notað til þess að þróa sínar máltæknilausnir. Með þessu tryggjum við öryggi íslenskunnar á stafrænum tímum.
+about-more-to-read             = Lesa má meira um máltækni áætlun íslands <malaetlun>hér</malaetlun>.
 
 deloitte-project-title         = Oft veltir lítil þúfa þungu hlassi
-deloitte-project-description-1 = Upphaf þessa verkefns má rekja til þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, sem þróað var í gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir gátu þá farið í skemmtilega og einfalda leiki með vélmenninu sem vakti mikla og verðskuldaða athygli.
-deloitte-project-description-2 = AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku, var ekki um auðugan garð að gresja þegar kom að tæknilausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og ef fram fer sem horfir er hröð þróun tæknilegra lausna á góðri leið með að útiloka íslenska tungu alfarið á þessum vettvangi.
-deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún geti skilið og talað íslensku. Samrómur, Skema í Háskólanum í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
-deloitte-project-description-4 = Styrkur frá Nýsköpunarsjóði námsmanna gerði samstarfsaðilunum kleiftað ráða fjóra framúrskarandi nemendur í tölvunar-og verkfræði í sumarverkefni við að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur hvers kyn tækja- og hugbúnaði í framtíðinni. Því leggja samstarfsaðilarnir áherslu á að allar afurðir sem hópurinn þróar og útfærir, séu nú og verði áfram, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source).
+deloitte-project-description-1 = Upphaf þessa verkefnis má rekja til þátttöku Deloitte á Íslandi í UTmessunni árið 2019 þegar vélmennið AIME, sem þróað var í gervigreindarvinnu Deloitte í Hollandi, var sýnt í bás Deloitte. Gestir gátu þá farið í skemmtilega og einfalda leiki með vélmenninu sem vakti mikla og verðskuldaða athygli.
+deloitte-project-description-2 = AIME gat einungis átt samskipti á ensku og þegar Deloitte fór að kanna hvort ekki væri hægt að fá AIME til að eiga samskipti á íslensku var ekki um auðugan garð að gresja þegar kom að tæknilausnum. Íslenskuleysi AIME endurspeglaði í raun þá áskorun Íslendinga að tungumál okkar er á undanhaldi í stafrænum heimi og ef fram fer sem horfir er hröð þróun tæknilegra lausna á góðri leið með að útiloka íslenska tungu alfarið á þessum vettvangi.
+deloitte-project-description-3 = Því var ákveðið að þróa AIME, sem fékk íslenska nafnið ANNA, þannig að hún gæti skilið og talað íslensku. Almannarómur, Háskólinn í Reykjavík og Deloitte tóku höndum saman um frekari þróun á íslenskum máltæknilausnum til að bjarga íslenskunni frá stafrænum dauða.
+deloitte-project-description-4 = Með styrk frá Nýsköpunarsjóði námsmanna réðu samstarfsaðilar fjóra framúrskarandi nemendur í tölvunar- og verkfræði í sumarverkefni við að þróa áfram íslenska málheild og máltæknilausnir. Sú vinna mun ekki bara nýtast ÖNNU, heldur einnig öðrum tækja- og hugbúnaði í framtíðinni. Því leggja samstarfsaðilarnir áherslu á að allar afurðir sem hópurinn þróar og útfærir, séu nú og verði áfram, opnar og aðgengilegar öllum, þeim að kostnaðarlausu (e. open source).
 deloitte-project-description-5 = Frekari þróun á íslenskri máltækni er í samræmi við hlutverk framangreindra aðila á sviði nýsköpunar í máltækni og til þess fallin að skapa tækifæri fyrir mannauð framtíðarinnar og tæknimenntun.
 deloitte-project-team-title    = Þróunarteymið skipa: 
 deloitte-project-team-members  = Eyþór Máni Steinarsson verkefnastjóri, David Erik Mollberg, Ólafur Helgi Jónsson, Sunneva Þorsteinsdóttir og Viktor Sveinsson.
@@ -179,25 +185,25 @@ about-nav-why-common-voice  = Af hverju?
 about-nav-how-it-works      = Hvernig?
 about-nav-partners          = Samstarfsaðilar
 
-how-does-it-work-title       = Hvernig virkar það?
+how-does-it-work-title       = Hvernig virkar þetta?
 
 how-does-it-work-text       = Með því að virkja almenning á Íslandi og afla þannig efnis í opið raddgagnasafn. Almenningur leggur fram rödd sína, staðfestir nákvæmni hljóðbrota frá öðrum og stuðlar þannig að betra gagnasafni fyrir alla.
 about-speak                 = Tal
-about-speak-text            = Þátttakendur taka upp lestur setninga sem fengnar er úr setningabanka.
+about-speak-text            = Þátttakendur taka upp lestur setninga sem fengnar eru úr setningabanka.
 about-listen-queue          = Hlustunarröð
 about-listen-queue-text     = Nýtt hljóðbrot fer í stafla og er undirbúið fyrir hlustun.
 about-listen                = Hlustun
 about-listen-text           = Notendur staðfesta nákvæmni gefinna hljóðbrota og athuga hvort mælandinn hafi sagt setninguna rétt.
 about-is-it-valid           = Er þetta hljóðbrot gilt?
-about-is-it-valid-text      = Hljóðbrot er merkt „staðfest“ þegar notandi gefur því Já atkvæði.
-about-yes-votes             = ≥ 2 Já atkvæði
+about-is-it-valid-text      = Hljóðbrot er merkt „staðfest“ þegar notandi gefur því "Já"-atkvæði.
+about-yes-votes             = ≥ 2 Já-atkvæði
 about-yes-votes-text        = Til að komast inn í gagnasafn Samróms þarf hljóðbrot að vera yfirfarið af tveim einstaklingum.
-about-no-votes              = ≥ 2 Nei atkvæði
-about-no-votes-text         = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í hlustunarröðina. Ef því er hafnað í annað sinn, þá fer hljóð&shy;brotið í Hljóð&shy;brota&shy;graf&shy;reitinn.
+about-no-votes              = ≥ 2 Nei-atkvæði
+about-no-votes-text         = Þegar notandi hafnar hljóð&shy;broti þá fer það aftur í hlustunarröðina. Ef hljóðbroti er hafnað í annað sinn fer það í Hljóð&shy;brota&shy;graf&shy;reitinn.
 about-dataset-new           = Gagnasafn Samróms
-about-dataset-new-text      = Gagnasafn Samróms hefur að geyma fjölda raddhljóðbrota sem auðvelda þróunaraðilum að smíða máltækni lausnir.
+about-dataset-new-text      = Gagnasafn Samróms hefur að geyma fjölda raddhljóðbrota sem auðvelda þróunaraðilum að smíða máltæknilausnir.
 about-clip-graveyard        = Hljóðbrotagrafreitur
-about-clip-graveyard-text   = í hljóð&shy;brota&shy;graf&shy;reitnum eru radd&shy;hljóð&shy;brotum sem gátu ekki orðið hluti af gagnasafni Samróms&shy;s. Rétt eins og gagna&shy;safnið er Hljóð&shy;brota&shy;graf&shy;reiturinn aðgengi&shy;legur til niðurhals.
+about-clip-graveyard-text   = í Hljóð&shy;brota&shy;graf&shy;reitnum eru radd&shy;hljóð&shy;brot sem gátu ekki orðið hluti af gagnasafni Samróms&shy;. Rétt eins og gagna&shy;safnið er Hljóð&shy;brota&shy;graf&shy;reiturinn aðgengi&shy;legur til niðurhals.
 about-partners              = Samstarfsaðilar
 about-become-a-partner      = Skráðu þig sem samstarfsaðila
 about-partnership           = Samrómur er samstarfsverkefni, og við erum háð samfélaginu okkar af samstarfsaðilum og almeningi sem leggur sitt að mörkum til þess að byggja stærsta opna raddgagnasafn sem fyrirfinnst.
@@ -205,12 +211,9 @@ about-partnership           = Samrómur er samstarfsverkefni, og við erum háð
 about-nav-get-involved      = Samstarfsaðilar
 about-get-involved          = Samstarfsaðilar
 about-get-involved-text =
-    Þeir sem standa við bakið á Almannaróm eru <githubLink>Deloitte</githubLink>, 
-    <almannaLink>Almannarómur</almannaLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
-    og <discourseLink>Nýsköpunnarsjóður námsmanna</discourseLink>.
-
-
-    Við þökkum eftirfarandi aðilum og samtökum fyrir þeirra framlag til verkefnisins:
+    Þeir sem standa á bak við Samróm eru <almannaLink>Almannarómur</almannaLink>, 
+    <githubLink>Deloitte</githubLink>, <slackLink>Háskólinn í Reykjavík</slackLink>, 
+    og <discourseLink>Nýsköpunarsjóður námsmanna</discourseLink>.
 
 mycroft-title               = Mycroft Ai
 mycroft-subtitle            = Gervigreind
@@ -229,8 +232,8 @@ no-age                  = Vinsamlegast settu inn þitt aldursbil
 no-native-language      = Vinsamlegast settu inn þitt móðurmál
 no-sex                  = Vinsamlegast settu inn þitt kyn
 
-action-click            = Smella
-action-tap              = Snerta
+action-click            = Smelltu
+action-tap              = Smelltu
 contribute              = Leggðu lið
 skip                    = Fara í næstu
 samromur                = Samrómur
@@ -239,7 +242,7 @@ home                    = Forsíða
 shortcuts               = Flýtileiðir
 clips-with-count        = <bold>{ $count }</bold> upptökur
 goal-help-recording     = Þú hefur hjálpað Samrómi að ná <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
-goal-help-validation    = Með þinni hjálp höfum við náð að staðfesta <goalPercentage></goalPercentage >af þeim setningum sem við ætluðum okkur að klára í dag!  ({ $goalValue } á dag)
+goal-help-validation    = Þú hefur hjálpað Samrómi að staðfesta <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
 contribute-more         = {
      $count ->
      [one] Til í að gera { $count } í viðbót?
@@ -256,28 +259,29 @@ record-error-too-long   = Upptakan var of löng.
 record-error-too-quiet  = Ekki heyrðist nógu vel í upptökunni.
 record-cancel           = Hætta við að endurtaka upptöku
 record-instruction      = Smelltu á <recordIcon></recordIcon> og lestu svo setninguna upphátt
-record-stop-instruction = { $actionType }<stopIcon></stopIcon> stöðva upptöku
+record-stop-instruction = Smelltu á <stopIcon></stopIcon> til þess að stöðva upptöku
 record-three-more-instruction = Þrjár eftir!
 record-again-instruction      = Snilld! <recordIcon></recordIcon> Taktu upp næstu
-record-again-instruction2     = Þetta gengur vel, taktu upp aftur <recordIcon></recordIcon>
-record-last-instruction       = <recordIcon></recordIcon> Síðasta!
-review-tooltip          = Yfirfara og endurtaka upptökur hér jafnóðum
+record-again-instruction2     = Þetta gengur vel! <recordIcon></recordIcon> Taktu upp aðra
+record-last-instruction       = Frábært! <recordIcon></recordIcon> Ein eftir!
+review-tooltip          = Endurtaka upptöku
 unable-speak            = Ómögulegt að lesa upphátt að svo stöddu?
-review-instruction      = Yfirfara og endurtaka upptöku ef þörf krefur
-record-submit-tooltip   = { $actionType } senda inn þegar hægt er
+review-instruction      = Yfirfarðu og endurtaktu upptöku ef þörf krefur
+record-submit-tooltip   = Smelltu hér til að senda inn
 clips-uploaded          = Upptökur sendar inn
-record-abort-title      = Stöðva upptöku fyrst?
-record-abort-text       = Ef þú hættir núna glatast það sem komið er
+record-abort-title      = Ertu viss?
+record-abort-text       = Ef þú hættir núna glatast það sem þú ert búinn að taka upp
 record-abort-submit     = Senda inn upptökur
-record-abort-continue   = Stöðva upptöku
+record-abort-continue   = Halda upptökum áfram
 record-abort-delete     = Hætta og eyða upptökum
-listen-instruction      = { $actionType }<playIcon></playIcon> var setningin rétt lesin upp?
-listen-again-instruction        = Vel gert! <playIcon></playIcon> Hlustaðu aftur þegar þú ert til
-listen-3rd-time-instruction     = Tvær búnar, haltu þínu striki! <playIcon></playIcon>
-listen-last-time-instruction    = <playIcon></playIcon> Síðasta!
+listen-instruction      = Smelltu á <playIcon></playIcon> til þess að hlusta og meta upptöku
+listen-hasplayed-instruction      = Var setningin lesin rétt upp og var upplesturinn skiljanlegur?
+listen-again-instruction        = Vel gert! <playIcon></playIcon> Hlustaðu á aðra
+listen-3rd-time-instruction     = Vel gert! <playIcon></playIcon> Hlustaðu á aðra 
+listen-last-time-instruction    = Frábært! <playIcon></playIcon> Ein eftir!
 nothing-to-validate     = Engar upptökur eftir til að staðfesta, viltu lesa upp í staðinn?
 record-button-label     = Raddupptaka
-share-title-new         = <bold>Leggið lið</bold> við að leita upp fleiri raddir
+share-title-new         = Hjálpumst að við að finna fleiri raddir
 
 
 ## What's public
@@ -382,7 +386,7 @@ faq-why-mission-a       = Samrómur byggir á Mozilla verkefninu <mozillaLink>Co
 faq-whos-involved-q     = Hverjir eru að vinna að Samróm?
 faq-whos-involved-a     = Fjórir nemendur í Tölvunar- og Rekstrarverkfræði eru að vinna að verkefninu í sumar. Þeir sem standa við bakið á verkefninu eru 
     <deloitteLink>Deloitte</deloitteLink>, <almannaLink>Almannarómur</almannaLink>, <hrLink>Háskólinn í Reykjavík</hrLink>, 
-    og <nyskLink>Nýsköpunnarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunnarsjóður námsmanna.
+    og <nyskLink>Nýsköpunarsjóður námsmanna</nyskLink>. Deloitte, Almannarómur, Háskólinn í Reykjavík, og Nýsköpunarsjóður námsmanna.
 
 faq-what-cv-and-deepspeech-q = Hver er munurinn á Samróm og Deep Speech?
 faq-what-cv-and-deepspeech-a = Þar sem Samrómur byggir á Common Voice er Samrómsgagnasafnið hannað til þess að vinna með talgreini Mozilla, Deep Speech, sem er aðgengilegur öllum. Fyrsta útgáfan af Deep Speech var gefin út í nóvember árið 2017 og er í stöðugri þróun.
@@ -464,7 +468,7 @@ data-bundle-button      = Niðurhala gagnasafnapakka
 data-bundle-description = Gögn Samróms og öll gagnasöfnin að ofan.
 license = Leyfi: <licenseLink>{ $license }</licenseLink>
 license-mixed           = Blandað
-review-terms            = Með notkun Samróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins
+review-terms            = Með notkun Samróms staðfestir þú að hafa kynnt þér <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
 terms-agree             = Áfram
 terms-disagree          = Hætta við  
 review-aborted          = Hætt var við að senda inn. Viltu eyða því sem þú tókst upp?
@@ -482,7 +486,7 @@ review-delete-recordings= Eyða upptökum
 datasets-headline       = Samrómur verður opið og aðgengilegt gagnasafn radda og öllum frjálst að nýta það til þjálfunar raddstýrðra forrita.
 
 datasets-positioning =
-    Gagnasafnið er öllum aðgengilegt með einu smelli neðar á þessari síðu. Gagnasafnið samanstendur af setningum og svo hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. 
+    Gagnasafnið er öllum aðgengilegt með smelli neðar á þessari síðu. Gagnasafnið samanstendur af setningum og svo hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. 
     
     Með þinni hjálp getur þetta orðið stærsta gagnasafn sinnar tegundar fyrir íslenska tungu.
 # File size in gigabytes
@@ -503,13 +507,15 @@ confirm-no-identify = <b>Þú samþykkir</b> að þú munir ekki reyna að bera 
 download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
-whats-inside = Hvað er í Samróms gagnasafninu?
+whats-inside = Gagnasafnið Samrómur
 
 dataset-description-hours =
-    Hver færsla í gagnasafninu samanstendur af einstöku WAV hljóðbroti og samsvarandi textaskrá. Allar þær <b>{ $total }</b> klukkustundir sem safnast hafa innihalda einnig lýðfræðilegar upplýsingar um aldur, kyn og móðurmál. Þetta stuðlar að nákvæmari talgreiningu.
+    Samrómur er opið og aðgengilegt gagnasafn radda sem öllum er frjálst að nýta við þróun hugbúnaðar á íslensku. 
     
-    Í gagnasafninu eru <b>{ $valid }</b> staðfestar klukkustundir hljóðbrota en alltaf má bæta við fleiri röddum.
+    Gagnasafnið samanstendur af setningum og hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. Hver færsla í gagnasafninu inniheldur WAV-hljóðbrot og samsvarandi textaskrá.
 
+    Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
+    
 want-dataset-update = Langar þig að heyra meira um starf Samróms? Skráðu þig þá á póstlistann.
 subscribe = Gerast áskrifandi
 

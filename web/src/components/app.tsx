@@ -249,7 +249,7 @@ let LocalizedPage: any = class extends React.Component<
       prefCo,
     } = this.state;
 
-    console.log(!bundleGenerator);
+    // console.log(!bundleGenerator);
     if (!bundleGenerator) return null;
 
     return (
@@ -266,9 +266,8 @@ let LocalizedPage: any = class extends React.Component<
           }}>
           <div>
             <div className="modal-title">
-              Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu vafra
-              (e. local storage) til að bæta upplifun þína á vefsíðunni.{' '}
-              <a href={URLS.COOKIES}>Sjá nánar</a>
+              Þessi vefsíða notar vafrakökur (e. cookies) til að bæta upplifun
+              þína á vefsíðunni.
             </div>
           </div>
           <div className="toggle-with-info">
@@ -289,11 +288,9 @@ let LocalizedPage: any = class extends React.Component<
             <div className="info">
               <InfoIcon />
               <div className="cookie-text">
-                Notkun vefgeymslu vafrans til að halda um upplýsingar sem bæta
-                afköst síðunar og notendaupplifun. Þetta eru upplýsingar sem
-                notandi hefur skráð inn, samþykki, einstakt notanda númer,
-                fjöldi raddsýna sem notandi hefur gefið og fjöldi raddsýna sem
-                notandi hefur hlustað á.
+                Með því að leyfa vafrakökur fyrir frammistöðu og virkni þá
+                tryggir þú eðlilega virkni og notendaupplifun vefsins.{' '}
+                <a href={URLS.COOKIES}>Sjá nánar</a>
               </div>
             </div>
           </div>
@@ -315,13 +312,12 @@ let LocalizedPage: any = class extends React.Component<
             <div className="info">
               <InfoIcon />
               <div className="cookie-text">
-                Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum innan
-                vefsíðunnar, það hjálpar okkur að meta hvað þarf að bæta, til
-                þess notum við kökur fyrir Google Analyctics. Með því getum við
-                séð notkunarmynstur á síðunni yfir heildina í stað þess að sjá
-                notkun einstaka notanda. Við notum upplýsingarnar til að greina
-                umferð á vefsíðunni en ekki til að skoða persónugreinanlegar
-                upplýsingar.
+                Með því að leyfa vafrakökur fyrir mælingar á notkun vefsins
+                hjálpar þú okkur að meta upplifun notenda af vefnum. Við notum
+                Google Analytics til þess að sjá heildarmynstur á notkun
+                síðunnar. Upplýsingarnar eru ekki persónugreinanlegar og eru
+                eingöngu notaðar til að greina umferð um vefinn en ekki notkun
+                einstaka notenda.
               </div>
             </div>
           </div>
@@ -359,9 +355,8 @@ let LocalizedPage: any = class extends React.Component<
             <Modal innerClassName="cookie-modal show">
               <div>
                 <div className="modal-title">
-                  Þessi vefsíða notar vafrakökur (e. cookies) og vefgeymslu
-                  vafra (e. local storage) til að bæta upplifun þína á
-                  vefsíðunni. <a href={URLS.COOKIES}>Sjá nánar</a>
+                  Þessi vefsíða notar vafrakökur (e. cookies) til að bæta
+                  upplifun þína á vefsíðunni.
                 </div>
               </div>
               <div className="toggle-with-info">
@@ -382,11 +377,9 @@ let LocalizedPage: any = class extends React.Component<
                 <div className="info">
                   <InfoIcon />
                   <div className="cookie-text">
-                    Notkun vefgeymslu vafrans til að halda um upplýsingar sem
-                    bæta afköst síðunar og notendaupplifun. Þetta eru
-                    upplýsingar sem notandi hefur skráð inn, samþykki, einstakt
-                    notanda númer, fjöldi raddsýna sem notandi hefur gefið og
-                    fjöldi raddsýna sem notandi hefur hlustað á.
+                    Með því að leyfa vafrakökur fyrir frammistöðu og virkni þá
+                    tryggir þú eðlilega virkni og notendaupplifun vefsins.{' '}
+                    <a href={URLS.COOKIES}>Sjá nánar</a>
                   </div>
                 </div>
               </div>
@@ -408,13 +401,12 @@ let LocalizedPage: any = class extends React.Component<
                 <div className="info">
                   <InfoIcon />
                   <div className="cookie-text">
-                    Notkun vafrakaka til að mæla notkun á ýmsum undirsíðum innan
-                    vefsíðunnar, það hjálpar okkur að meta hvað þarf að bæta,
-                    til þess notum við kökur fyrir Google Analyctics. Með því
-                    getum við séð notkunarmynstur á síðunni yfir heildina í stað
-                    þess að sjá notkun einstaka notanda. Við notum
-                    upplýsingarnar til að greina umferð á vefsíðunni en ekki til
-                    að skoða persónugreinanlegar upplýsingar.
+                    Með því að leyfa vafrakökur fyrir mælingar á notkun vefsins
+                    hjálpar þú okkur að meta upplifun notenda af vefnum. Við
+                    notum Google Analytics til þess að sjá heildarmynstur á
+                    notkun síðunnar. Upplýsingarnar eru ekki persónugreinanlegar
+                    og eru eingöngu notaðar til að greina umferð um vefinn en
+                    ekki notkun einstaka notenda.
                   </div>
                 </div>
               </div>
@@ -474,7 +466,11 @@ let LocalizedPage: any = class extends React.Component<
                     }
                   />
                 ))}
-                <Layout />
+                {window.innerWidth > 991 ? (
+                  <Layout />
+                ) : (
+                  !showCookiesModal && <Layout />
+                )}
               </Switch>
             </div>
           </LocalizationProvider>
@@ -586,26 +582,15 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/login-failure" component={LoginFailure} />
               <Route exact path="/login-success" component={LoginSuccess} />
-              {Object.values(URLS).map(url => (
-                <Route
-                  key={url}
-                  exact
-                  path={url || '/'}
-                  render={() => (
-                    <Redirect
-                      to={'/' + this.userLocales[0] + url + location.search}
-                    />
-                  )}
-                />
-              ))}
+
               <Route
-                path="/:locale"
+                path="/"
                 render={({
                   match: {
                     params: { locale },
                   },
                 }) => (
-                  <LocalizedPage userLocales={[locale, ...this.userLocales]} />
+                  <LocalizedPage userLocales={['is', ...this.userLocales]} />
                 )}
               />
             </Switch>

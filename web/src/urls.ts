@@ -28,4 +28,5 @@ export default Object.freeze({
   LANGUAGES: '/takk',
   THANKYOU: '/takk',
   ABOUT: '/um',
+  MAIL: 'mailto:samromur@ru.is',
 });

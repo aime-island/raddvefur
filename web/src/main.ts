@@ -20,7 +20,8 @@ function renderFacebook() {
 
 // Start the app when DOM is ready.
 document.addEventListener('DOMContentLoaded', async () => {
-  const isFace = await isFacebook();
+  renderFacebook();
+  /*const isFace = await isFacebook();
   if (isFace) {
     renderFacebook();
     /* const isFBIOS = await isIOS();
@@ -35,5 +36,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     const App = require('./components/app').default;
     render(React.createElement(App), document.getElementById('root'));
-  }
+  }*/
 });

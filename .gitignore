@@ -2,6 +2,7 @@ node_modules
 config.json
 web/dist/
 web/index.html
+web/yarn-error.log
 server/js/
 server/upload/
 xcuserdata/

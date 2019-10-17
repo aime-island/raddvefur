@@ -3,6 +3,8 @@ import { Localized } from 'fluent-react/compat';
 
 import './why-common-voice.css';
 
+import { MalaetlunLink } from '../../shared/links';
+
 const WhyCommonVoice: React.ComponentType<{}> = () => {
   return (
     <>
@@ -27,6 +29,9 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
 
             <Localized id="about-header-description">
               <h2 className="header-description" />
+            </Localized>
+            <Localized id="about-more-to-read" malaetlun={<MalaetlunLink />}>
+              <h2 className="about-more-to-read" />
             </Localized>
           </div>
 
@@ -78,7 +83,7 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
             <div className="line" />
             <img
               className="aime"
-              src={require('./images/aime-ut.jpg')}
+              src={require('./images/little-aime.jpg')}
               alt="Aime"
             />
           </div>

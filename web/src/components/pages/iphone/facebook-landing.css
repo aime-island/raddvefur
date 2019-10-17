@@ -1,31 +1,65 @@
 .iphone-landing {
-    background-image: url(../about/images/robot-footer.svg);
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: 50% 90%;
-    height: 100%;
-    width: 100%;
     position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: auto;
 }
 
 .copy-link-h2 {
-    margin-top: 2rem;
+}
+
+.waves {
+    max-width: 80%;
+    margin-top: 1.5rem;
+}
+
+.share-button {
+    display: flex;
+    align-content: center;
+    margin: 0 2rem;
+}
+
+#link-copy {
+    border: none;
+    padding: 0;
+    width: auto;
+    background: transparent;
+
+    &:active {
+        color: var(--black);
+    }
+
+    &:hover [data-icon] {
+        color: var(--blue);
+    }
+
+    & input {
+        position: fixed;
+        top: 1000rem;
+        left: 1000rem;
+    }
 }
 
 .iphone-landing-items {
-    width: 80%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 0 auto;
-    margin-top: 10%;
-
+    flex-direction: column;
+    justify-content: center;
     & h2 {
+        margin-left: 10px;
         font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    & img {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
     }
 
     & p {
-        font-size: 1.2rem;
+        font-size: 0.83rem;
+        margin: 1rem 1rem 2rem 1rem;
     }
 }
 
