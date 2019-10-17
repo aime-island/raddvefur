@@ -57,7 +57,7 @@ export default class AudioSafariIOS {
 
   // Check if audio recording is supported
   isAudioRecordingSupported() {
-    return typeof MediaRecorder !== 'undefined';
+    return typeof MediaRecorder !== 'undefined' || this.isPolyfillRecording();
   }
 
   isPolyfillRecording() {
