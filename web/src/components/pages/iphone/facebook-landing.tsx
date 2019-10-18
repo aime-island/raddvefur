@@ -38,7 +38,7 @@ export default function FacebookIOSMessage() {
             value={SHARE_URL}
             ref={shareURLInputRef}
           />
-          <FontIcon type="link" className="icon" />
+          {/* <FontIcon type="link" className="icon" /> */}
           <h2 className="copy-link-h2"> Afrita hlekk</h2>
         </button>
         <img className="waves" src={imgSrc} />
