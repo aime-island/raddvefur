@@ -31,6 +31,12 @@
     &:hover [data-icon] {
         color: var(--blue);
     }
+
+    & input {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+    }
 }
 
 .iphone-landing-items {
