@@ -57,7 +57,7 @@ export function isFacebookIOS(): boolean {
   return ua.indexOf('FBIOS') > -1;
 }
 
-export function isInstragram(): boolean {
+export function isInstagram(): boolean {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
   return ua.indexOf('Instagram') > -1;
 }
