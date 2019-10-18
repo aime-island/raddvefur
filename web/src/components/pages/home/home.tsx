@@ -14,6 +14,7 @@ import RequestLanguageModal from '../../request-language-modal/request-language-
 import { LinkButton } from '../../ui/ui';
 import Hero from './hero';
 import { ClipsStats, VoiceStats } from './stats';
+import Video from './video';
 
 import './home.css';
 
@@ -147,6 +148,7 @@ export default function HomePage() {
         <ClipsStats.Root />
         <VoiceStats />
       </div>
+      <Video />
       <section className="contribute-section">
         <div className="mars-container">
           <img src="/img/mars.svg" alt="Mars" />
