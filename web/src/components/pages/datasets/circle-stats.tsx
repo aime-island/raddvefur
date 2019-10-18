@@ -38,11 +38,13 @@ const formatSeconds = (totalSeconds: number) => {
   const timeParts = [];
 
   if (hours > 0) {
-    timeParts.push(hours + 'klst');
+    timeParts.push(hours);
+    timeParts.push('klst');
   }
 
   if (hours < 10 && minutes > 0) {
-    timeParts.push(minutes + 'm');
+    timeParts.push(minutes);
+    timeParts.push('mín');
   }
 
   if (hours == 0 && minutes < 10 && seconds > 0) {
