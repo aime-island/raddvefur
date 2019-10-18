@@ -21,7 +21,9 @@
     border: none;
     padding: 0;
     width: auto;
+    background: transparent;
     text-decoration: underline;
+
     &:active {
         color: var(--black);
     }
