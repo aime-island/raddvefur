@@ -62,6 +62,15 @@ export function isInstagram(): boolean {
   return ua.indexOf('Instagram') > -1;
 }
 
+export function isTwitter(): boolean {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  return ua.indexOf('Twitter') > -1;
+}
+
+export function isSocial(): boolean {
+  return isFacebook() || isInstagram();
+}
+
 /**
  * Test whether this is a browser on iOS.
  */
