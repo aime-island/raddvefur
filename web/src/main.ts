@@ -2,7 +2,7 @@ import 'focus-visible';
 import * as React from 'react';
 import { render } from 'react-dom';
 import './components/index.css';
-import { isFacebook, isIOS } from './utility';
+import { isFacebook, isIOS, isInstagram } from './utility';
 
 declare var require: any;
 
@@ -21,7 +21,8 @@ function renderFacebook() {
 // Start the app when DOM is ready.
 document.addEventListener('DOMContentLoaded', async () => {
   const isFace = await isFacebook();
-  if (isFace) {
+  const isInsta = await isInstagram();
+  if (isFace || isInsta) {
     renderFacebook();
     /* const isFBIOS = await isIOS();
     if (!isFBIOS) {
