@@ -106,8 +106,12 @@
                     color-mod(var(--red) alpha(60%));
             }
             &.hasPlayed {
+                & path {
+                    fill: var(--white);
+                }
                 @media (--md-down) {
                     background-color: var(--red);
+                    color: var(--white);
                     & path {
                         fill: var(--white);
                     }
