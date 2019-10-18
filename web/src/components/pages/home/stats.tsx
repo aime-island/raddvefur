@@ -76,7 +76,7 @@ export namespace ClipsStats {
     const timeParts = [];
 
     if (hours > 0) {
-      timeParts.push(hours + 'klst');
+      timeParts.push(hours + ' klst');
     }
 
     if (hours < 10 && minutes > 0) {
