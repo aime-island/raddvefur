@@ -253,14 +253,14 @@ class ListenPage extends React.Component<Props, State> {
               <VoteButton
                 kind="yes"
                 onClick={this.voteYes}
-                disabled={!hasPlayed && !hasPlayedSome}
+                disabled={!hasPlayed}
                 hasPlayed={hasPlayed}
               />
               <PlayButton isPlaying={isPlaying} onClick={this.play} />
               <VoteButton
                 kind="no"
                 onClick={this.voteNo}
-                disabled={!hasPlayed}
+                disabled={!hasPlayed && !hasPlayedSome}
                 hasPlayed={hasPlayed}
               />
             </React.Fragment>
