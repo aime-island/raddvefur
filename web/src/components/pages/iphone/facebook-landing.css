@@ -1,8 +1,8 @@
 .iphone-landing {
-    position: absolute;
-    top: 50%;
+}
 
-    margin: auto;
+.iphone-landing-items {
+    margin-top: 25%;
 }
 
 .waves {
@@ -29,6 +29,12 @@
 
     &:hover [data-icon] {
         color: var(--blue);
+    }
+
+    & input {
+        position: absolute;
+        left: -100px;
+        top: -100px;
     }
 }
 

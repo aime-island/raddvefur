@@ -29,10 +29,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       window.location.href = 'https://samromur.page.link/redirect';
     } */
   } else {
-    if (typeof window.IntersectionObserver === 'undefined') {
+    renderFacebook();
+    /* if (typeof window.IntersectionObserver === 'undefined') {
       await require('intersection-observer');
     }
     const App = require('./components/app').default;
-    render(React.createElement(App), document.getElementById('root'));
+    render(React.createElement(App), document.getElementById('root')); */
   }
 });
