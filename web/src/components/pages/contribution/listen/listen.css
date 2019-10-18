@@ -108,6 +108,9 @@
             &.hasPlayed {
                 @media (--md-down) {
                     background-color: var(--red);
+                    & path {
+                        fill: var(--white);
+                    }
                     box-shadow: var(--vote-button-box-shadow)
                         color-mod(var(--red) alpha(60%));
                 }
