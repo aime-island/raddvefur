@@ -24,7 +24,7 @@
     border: none;
     padding: 0;
     width: auto;
-
+    color: var(--black);
     &:active {
         color: var(--black);
     }
