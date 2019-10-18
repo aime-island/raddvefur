@@ -29,9 +29,15 @@ const VOTE_NO_PLAY_MS = 3000; // Threshold when to allow voting no
 
 const VoteButton = ({
   kind,
+  hasPlayed,
   ...props
-}: { kind: 'yes' | 'no' } & React.ButtonHTMLAttributes<any>) => (
-  <button type="button" className={['vote-button', kind].join(' ')} {...props}>
+}: { kind: 'yes' | 'no'; hasPlayed: boolean } & React.ButtonHTMLAttributes<
+  any
+>) => (
+  <button
+    type="button"
+    className={['vote-button', kind, hasPlayed && 'hasPlayed'].join(' ')}
+    {...props}>
     {kind === 'yes' && <ThumbsUpIcon />}
     {kind === 'no' && <ThumbsDownIcon />}
     <Localized id={'vote-' + kind}>
@@ -247,13 +253,15 @@ class ListenPage extends React.Component<Props, State> {
               <VoteButton
                 kind="yes"
                 onClick={this.voteYes}
-                disabled={!hasPlayed}
+                disabled={!hasPlayed && !hasPlayedSome}
+                hasPlayed={hasPlayed}
               />
               <PlayButton isPlaying={isPlaying} onClick={this.play} />
               <VoteButton
                 kind="no"
                 onClick={this.voteNo}
                 disabled={!hasPlayed}
+                hasPlayed={hasPlayed}
               />
             </React.Fragment>
           }

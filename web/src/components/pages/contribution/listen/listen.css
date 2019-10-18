@@ -99,11 +99,12 @@
                 box-shadow: var(--vote-button-box-shadow)
                     color-mod(var(--red) alpha(60%));
             }
-
-            @media (--md-down) {
-                background-color: var(--red);
-                box-shadow: var(--vote-button-box-shadow)
-                    color-mod(var(--red) alpha(60%));
+            &.hasPlayed {
+                @media (--md-down) {
+                    background-color: var(--red);
+                    box-shadow: var(--vote-button-box-shadow)
+                        color-mod(var(--red) alpha(60%));
+                }
             }
         }
 
