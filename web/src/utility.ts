@@ -68,7 +68,7 @@ export function isTwitter(): boolean {
 }
 
 export function isSocial(): boolean {
-  return isFacebook() || isInstagram() || isTwitter();
+  return isFacebook() || isInstagram();
 }
 
 /**
