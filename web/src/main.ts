@@ -23,10 +23,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const isFace = await isFacebook();
   const isInsta = await isInstagram();
   if (isFace || isInsta) {
-    renderFacebook();
+    if (!isInsta) {
+      renderFacebook();
+    } else {
+      const iOS = isIOS();
+      if (!iOS) {
+        window.location.href = 'https://samromur.page.link/redirect';
+      }
+    }
     /* const isFBIOS = await isIOS();
     if (!isFBIOS) {
-      window.location.href = 'https://samromur.page.link/redirect';
     } else {
       renderFacebook();
     } */
