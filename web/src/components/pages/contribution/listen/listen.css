@@ -90,8 +90,14 @@
         }
 
         &.no {
+            color: var(--near-black);
+            background: var(--white);
             box-shadow: var(--vote-button-box-shadow)
-                color-mod(var(--red) alpha(20%));
+                color-mod(var(--grey) alpha(80%));
+
+            & path {
+                fill: var(--near-black);
+            }
 
             &:hover,
             &:active {
@@ -100,8 +106,15 @@
                     color-mod(var(--red) alpha(60%));
             }
             &.hasPlayed {
+                & path {
+                    fill: var(--white);
+                }
                 @media (--md-down) {
                     background-color: var(--red);
+                    color: var(--white);
+                    & path {
+                        fill: var(--white);
+                    }
                     box-shadow: var(--vote-button-box-shadow)
                         color-mod(var(--red) alpha(60%));
                 }
