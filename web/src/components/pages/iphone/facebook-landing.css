@@ -33,7 +33,9 @@
     }
 
     & input {
-        display: none;
+        position: fixed;
+        top: 1000rem;
+        left: 1000rem;
     }
 }
 
