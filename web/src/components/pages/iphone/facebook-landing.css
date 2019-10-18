@@ -24,7 +24,6 @@
     border: none;
     padding: 0;
     width: auto;
-    background: transparent;
 
     &:active {
         color: var(--black);
