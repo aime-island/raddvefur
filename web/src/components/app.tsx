@@ -564,13 +564,9 @@ class App extends React.Component {
     if (error) {
       return (
         <div>
-          An error occurred. Sorry!
+          Vefþjónninn er undir álagi. Vinsamlegast reyndu að endurhlaða síðuna.
           <br />
-          <button onClick={() => Sentry.showReportDialog()} disabled={!Sentry}>
-            Report feedback
-          </button>
-          <br />
-          <button onClick={() => location.reload()}>Reload</button>
+          <button onClick={() => location.reload()}>Endurhlaða</button>
         </div>
       );
     }

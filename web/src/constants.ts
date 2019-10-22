@@ -1,4 +1,4 @@
-export const DAILY_GOAL = Object.freeze({ speak: 8000, listen: 8000 });
+export const DAILY_GOAL = Object.freeze({ speak: 1500, listen: 1500 });
 
 /**
  * Hægt að breyta fjölda ástæða fyrir að skrá sig og hvað er opinbert á faq síðu
