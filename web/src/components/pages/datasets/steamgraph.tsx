@@ -13,6 +13,9 @@ import {
   curveCatmullRom,
   area,
 } from 'd3-shape';
+import { EventTracker, HoverState } from '@devexpress/dx-react-chart';
+
+import dummyData from './dummy-data';
 
 import { Stack, Animation } from '@devexpress/dx-react-chart';
 
@@ -29,6 +32,7 @@ const Area = (props: any) => {
 const titleStyle = { marginRight: '120px' };
 const TitleText = (props: any) => <Title.Text {...props} style={titleStyle} />;
 
+const chartStyle = { paddingLeft: '20px' };
 type data = {
   age: string;
   karl: number;
@@ -57,39 +61,44 @@ export default class Steamgraph extends React.PureComponent<Props, State> {
     const chartData = this.props.data;
 
     return (
-      <Paper>
+      <Paper elevation={0}>
         <Chart
           data={chartData}
-          /* style={{ paddingLeft: '20px' }} */
+          /* style={chartStyle} */
         >
-          <ArgumentAxis tickFormat={() => tick => tick} />
+          <ArgumentAxis
+            showTicks={false}
+            showLine={false}
+            indentFromAxis={15}
+            tickFormat={() => tick => tick}
+          />
+
+          <AreaSeries
+            name="Karlar"
+            valueField="karl"
+            argumentField="age"
+            seriesComponent={Area}
+            color="#629ff4"
+          />
 
           <AreaSeries
             name="Konur"
             valueField="kona"
             argumentField="age"
             seriesComponent={Area}
+            color="#ff4f5e"
           />
-          <AreaSeries
-            name="Karlar"
-            valueField="karl"
-            argumentField="age"
-            seriesComponent={Area}
-          />
+
           <AreaSeries
             name="Annað"
             valueField="annad"
             argumentField="age"
             seriesComponent={Area}
+            color="#59cbb7"
           />
           <Animation />
           <Legend />
-          <Title text="Dreifni" textComponent={TitleText} />
-          <Stack
-            stacks={[{ series: ['Konur', 'Karlar', 'Annað'] }]}
-            offset={stackOffsetWiggle}
-            order={stackOrderInsideOut}
-          />
+          {/* <Title text="Dreifni Samróms" textComponent={TitleText} /> */}
         </Chart>
       </Paper>
     );

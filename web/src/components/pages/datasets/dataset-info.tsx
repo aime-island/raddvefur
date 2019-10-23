@@ -314,7 +314,6 @@ class DatasetInfo extends React.Component<Props, State> {
             </div>
           </div>
         </div> */}
-
         <div className="description">
           <CircleStats {...globalStats} className="hidden-md-down" />
           <div className="text">

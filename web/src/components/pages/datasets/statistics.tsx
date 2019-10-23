@@ -50,7 +50,7 @@ export default class Statistics extends React.Component<Props, State> {
     let graphData: data[] = [];
     data.map(age => {
       let newAge: data = {
-        age: AGES[age.age],
+        age: AGES[age.age] == '' ? 'Óskilgreint' : AGES[age.age],
         karl: age.karl,
         kona: age.kona,
         annad: age.annad,
