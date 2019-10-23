@@ -1,0 +1,7 @@
+@import url('../../vars.css');
+
+.statistics {
+    max-width: 60rem;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}

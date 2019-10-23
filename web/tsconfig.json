@@ -4,6 +4,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": true,
+    "noImplicitThis": true,
     "sourceMap": true,
     "jsx": "react",
     "lib": ["es2017", "dom", "esnext.asynciterable"]

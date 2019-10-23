@@ -24,6 +24,7 @@ import {
 } from '../../ui/ui';
 import CircleStats from './circle-stats';
 import stats from './stats';
+import Statistics from './statistics';
 
 import './dataset-info.css';
 
@@ -107,6 +108,13 @@ interface PropsFromState {
 
 type Props = LocalePropsFromState & LocalizationProps & PropsFromState;
 
+type data = {
+  age: string;
+  karl: number;
+  kona: number;
+  annad: number;
+};
+
 type State = {
   locale: string;
   showIntroTextMdDown: boolean;
@@ -117,6 +125,7 @@ type State = {
   userCount: number;
   total: number;
   valid: number;
+  datasetStatistics: data[];
 };
 
 class DatasetInfo extends React.Component<Props, State> {
@@ -134,6 +143,7 @@ class DatasetInfo extends React.Component<Props, State> {
       userCount: null,
       total: null,
       valid: null,
+      datasetStatistics: [],
     };
   }
 
@@ -158,10 +168,12 @@ class DatasetInfo extends React.Component<Props, State> {
     const { locale } = this.state;
     let userCount = await this.props.api.fetchUserCount('everyone', locale);
     let userStats = await this.props.api.fetchClipsStats(locale);
+    let datasetStatistics = await this.props.api.fetchDatasetStatistics();
     this.setState({
       userCount: userCount,
       total: userStats[userStats.length - 1].total,
       valid: userStats[userStats.length - 1].valid,
+      datasetStatistics,
     });
   };
 
@@ -325,7 +337,9 @@ class DatasetInfo extends React.Component<Props, State> {
             </Localized>
           </div>
         </div>
-        {/*  <Subscribe /> */}
+        {this.state.datasetStatistics && (
+          <Statistics data={this.state.datasetStatistics} />
+        )}
       </div>
     );
   }

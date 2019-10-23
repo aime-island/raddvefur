@@ -429,7 +429,20 @@ export default class DB {
         client_id,
       }
     );
+    return rows;
+  }
 
+  async getDatasetStatistics(): Promise<any[]> {
+    const [rows] = await this.mysql.query(
+      `
+      SELECT 
+	        age, 
+          COUNT(case sex when 'karl' then 1 else null end) as karl, 
+          COUNT(case sex when 'kona' then 1 else null end) as kona,
+          COUNT(case sex when 'annad' then 1 else null end) as annad 
+          FROM clips GROUP BY age
+      `
+    );
     return rows;
   }
 

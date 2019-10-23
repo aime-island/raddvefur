@@ -233,6 +233,10 @@ export default class API {
     );
   }
 
+  fetchDatasetStatistics(): Promise<any[]> {
+    return this.fetch(API_PATH + '/dataset_statistics');
+  }
+
   fetchUserClients(): Promise<UserClient[]> {
     return this.fetch(API_PATH + '/user_clients');
   }

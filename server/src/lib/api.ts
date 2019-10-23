@@ -1,6 +1,6 @@
 import * as bodyParser from 'body-parser';
 import { MD5 } from 'crypto-js';
-import { NextFunction, Request, Response, Router } from 'express';
+import { NextFunction, Request, Response, Router, response } from 'express';
 import * as sendRequest from 'request-promise-native';
 import { UserClient as UserClientType } from 'common/user-clients';
 import { getConfig } from '../config-helper';
@@ -115,6 +115,7 @@ export default class API {
     );
 
     router.get('/contribution_activity', this.getContributionActivity);
+    router.get('/dataset_statistics', this.getDatasetStatistics);
     router.get('/:locale/contribution_activity', this.getContributionActivity);
 
     router.get('/user_count', this.getUserCount);
@@ -357,6 +358,10 @@ export default class API {
         ? this.model.db.getContributionStats(locale, client_id)
         : this.model.getContributionStats(locale))
     );
+  };
+
+  getDatasetStatistics = async (request: Request, response: Response) => {
+    response.json(await this.model.db.getDatasetStatistics());
   };
 
   getUserCount = async (
