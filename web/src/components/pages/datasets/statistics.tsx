@@ -68,6 +68,7 @@ export default class Statistics extends React.Component<Props, State> {
         return 0;
       }
     });
+    console.log(graphData);
     this.setState({ graphData: graphData });
   };
 
