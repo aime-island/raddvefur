@@ -113,6 +113,7 @@ type data = {
   karl: number;
   kona: number;
   annad: number;
+  total: number;
 };
 
 type State = {

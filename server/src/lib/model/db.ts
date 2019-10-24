@@ -439,7 +439,8 @@ export default class DB {
 	        age, 
           COUNT(case sex when 'karl' then 1 else null end) as karl, 
           COUNT(case sex when 'kona' then 1 else null end) as kona,
-          COUNT(case sex when 'annad' then 1 else null end) as annad 
+          COUNT(case sex when 'annad' then 1 else null end) as annad,
+          COUNT(*) as total
           FROM clips GROUP BY age
       `
     );

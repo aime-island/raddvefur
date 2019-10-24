@@ -98,7 +98,12 @@ export default class Steamgraph extends React.PureComponent<Props, State> {
           />
           <Animation />
           <Legend />
-          {/* <Title text="Dreifni Samróms" textComponent={TitleText} /> */}
+          <Stack
+            stacks={[{ series: ['Karlar', 'Konur', 'Annað'] }]}
+            offset={stackOffsetWiggle}
+            order={stackOrderInsideOut}
+          />
+          <Title text="Dreifni Samróms" textComponent={TitleText} />
         </Chart>
       </Paper>
     );

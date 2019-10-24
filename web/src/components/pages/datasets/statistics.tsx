@@ -10,12 +10,14 @@ type data = {
   karl: number;
   kona: number;
   annad: number;
+  total: number;
 };
 
 type age = {
   karl: number;
   kona: number;
   annad: number;
+  total: number;
 };
 
 type Props = {
@@ -54,6 +56,7 @@ export default class Statistics extends React.Component<Props, State> {
         karl: age.karl,
         kona: age.kona,
         annad: age.annad,
+        total: age.total,
       };
       graphData.push(newAge);
     });
