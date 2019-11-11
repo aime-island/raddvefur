@@ -10,3 +10,5 @@ declare module '*.svg';
 declare module '*.gif';
 declare module '*.jpeg';
 declare module '*.jpg';
+
+declare module 'react-youtube-background';
