@@ -43,6 +43,10 @@ export function isFirefoxFocus(): boolean {
   return navigator.userAgent.indexOf('Focus') !== -1;
 }
 
+export function getUserAgent(): string {
+  return navigator.userAgent;
+}
+
 export function isFacebook(): boolean {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
   return (

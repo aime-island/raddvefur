@@ -36,7 +36,12 @@ import {
   LabeledSelect,
   LabeledCheckbox,
 } from '../../../ui/ui';
-import { isFirefoxFocus, isSafariIOS, isFacebook } from '../../../../utility';
+import {
+  isFirefoxFocus,
+  isSafariIOS,
+  isFacebook,
+  getUserAgent,
+} from '../../../../utility';
 import ContributionPage, {
   ContributionPillProps,
   SET_COUNT,
@@ -134,6 +139,7 @@ interface State {
   showDemographicModal: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
+  userAgent: string;
 }
 
 const initialState: State = {
@@ -153,6 +159,7 @@ const initialState: State = {
     age: '',
     native_language: '',
   },
+  userAgent: '',
 };
 
 const Options = withLocalization(
@@ -226,6 +233,9 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     this.userDemographicInfoToState();
+
+    const ua = getUserAgent();
+    this.setState({ userAgent: ua });
   }
 
   async componentWillUnmount() {
@@ -447,7 +457,7 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     const clips = this.state.clips.filter(clip => clip.recording);
-
+    const { userAgent } = this.state;
     removeSentences(clips.map(c => c.sentence.id));
 
     this.setState({ clips: [], isSubmitted: true });
@@ -461,7 +471,8 @@ class SpeakPage extends React.Component<Props, State> {
               recording.blob,
               sentence.id,
               sentence.text,
-              demographic
+              demographic,
+              userAgent
             );
             if (!user.account) {
               tallyRecording();

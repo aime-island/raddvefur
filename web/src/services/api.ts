@@ -129,7 +129,8 @@ export default class API {
     blob: Blob,
     sentenceId: string,
     sentence: string,
-    info: DemoInfo
+    info: DemoInfo,
+    userAgent: string
   ): Promise<void> {
     return this.fetch(this.getClipPath(), {
       method: 'POST',
@@ -140,6 +141,7 @@ export default class API {
         sex: info.sex,
         age: info.age,
         native_language: info.native_language,
+        user_agent: userAgent,
       },
       body: blob,
     });

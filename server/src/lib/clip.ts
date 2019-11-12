@@ -116,6 +116,7 @@ export default class Clip {
     const native_language = decodeURIComponent(
       headers.native_language as string
     );
+    const user_agent = decodeURIComponent(headers.user_agent as string);
 
     if (!validateDemographic({ sex, age, native_language })) {
       return;
@@ -193,6 +194,7 @@ export default class Clip {
         sex: headers.sex,
         age: headers.age,
         native_language: headers.native_language,
+        user_agent: user_agent,
       });
       await Awards.checkProgress(client_id);
 
