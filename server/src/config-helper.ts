@@ -28,6 +28,7 @@ export type CommonVoiceConfig = {
   SEND_IN_BLUE_KEY: string;
   IMPORT_SENTENCES: boolean;
   REDIS_URL: string;
+  SENTENCE_VERSION: number;
 };
 
 const DEFAULTS: CommonVoiceConfig = {
@@ -56,6 +57,7 @@ const DEFAULTS: CommonVoiceConfig = {
   IMPORT_SENTENCES: true,
   REDIS_URL: null,
   SEND_IN_BLUE_KEY: null,
+  SENTENCE_VERSION: 1,
 };
 
 let injectedConfig: CommonVoiceConfig;
