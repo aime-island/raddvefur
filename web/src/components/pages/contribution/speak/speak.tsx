@@ -65,7 +65,7 @@ import {
 import './speak.css';
 
 const MIN_RECORDING_MS = 1000;
-const MAX_RECORDING_MS = 10000;
+const MAX_RECORDING_MS = 15000;
 const MIN_VOLUME = 1;
 
 const DEFAULT_LANGUAGE = 'islenska';
