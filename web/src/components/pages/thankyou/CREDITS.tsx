@@ -1,6 +1,6 @@
 const CREDITS = [
   {
-    who: 'Eftirfarandi rithöfundum fyrir settningar úr verkum sínum:',
+    who: 'Eftirfarandi rithöfundum fyrir setningar úr verkum sínum:',
     why:
       'Ármann Jakobsson, Bergrún Íris Sævarsdóttir, Einar Ólafsson, Eva Þengilsdóttir, Eydís Blöndal, Fríða Bonnie Andersen, Hallgrímur Helgason, Jón Daníelsson, Jón Gnarr, Jón M. Ívarsson, Júlía Margrét, Kristín Ragna Gunnarsdóttir, Kristín Steinsdóttir, Kristlaugu Maríu Sigurðardóttur, Ólöf Sverrisdóttir, Pétur Bjarnason, Ragnar Jónsson, Reynir Ingibjartsson, Sigga Hagalín, Sigrún Eldjárn, Sigurbjörg Þrastardóttir, Sigurður Hreiðar, Silja Aðalsteinsdóttir, Sveinn Yngvi, Vala Thorsdóttir, Valur Gunnarsson, Þóra Elfa Björnsson',
   },
