@@ -305,6 +305,7 @@ class DatasetInfo extends React.Component<Props, State> {
 
         <div className="description">
           <CircleStats {...globalStats} className="hidden-md-down" />
+
           <div className="text">
             <div className="line" />
             <Localized id="whats-inside">
@@ -323,6 +324,19 @@ class DatasetInfo extends React.Component<Props, State> {
               )}>
               <p />
             </Localized>
+            <div className="download-button-container">
+              <Localized id="download-dataset">
+                <Button
+                  className="download-button"
+                  rounded
+                  onClick={console.log('pressed')}>
+                  <Localized id="click-to-download">
+                    <span />
+                  </Localized>
+                  <CloudIcon />
+                </Button>
+              </Localized>
+            </div>
           </div>
         </div>
         {/*  <Subscribe /> */}

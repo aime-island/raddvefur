@@ -227,6 +227,7 @@
             border-color: transparent;
             background: var(--blue);
             color: var(--white);
+            margin: 5em, 0;
 
             &:hover {
                 border-color: var(--black);
@@ -341,6 +342,10 @@
                 color: var(--near-black);
                 white-space: pre-line;
                 line-height: 1.5;
+            }
+
+            .download-button {
+                margin: 2rem auto 2rem auto;
             }
         }
     }
