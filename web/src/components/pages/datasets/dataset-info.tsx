@@ -324,18 +324,59 @@ class DatasetInfo extends React.Component<Props, State> {
               )}>
               <p />
             </Localized>
-            <div className="download-button-container">
-              <Localized id="download-dataset">
-                <Button
-                  className="download-button"
-                  rounded
-                  onClick={console.log('pressed')}>
-                  <Localized id="click-to-download">
-                    <span />
-                  </Localized>
-                  <CloudIcon />
-                </Button>
-              </Localized>
+            <div className="info">
+              {hideEmailForm ? (
+                <>
+                  <Button
+                    className="show-email-form"
+                    rounded
+                    onClick={this.showEmailForm}>
+                    <Localized id="click-to-download">
+                      <span />
+                    </Localized>
+                    <CloudIcon />
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <LabeledCheckbox
+                    label={
+                      <Localized id="confirm-size" b={<b />} $size={size}>
+                        <span />
+                      </Localized>
+                    }
+                    name="confirmSize"
+                    checked={confirmSize}
+                    onChange={this.handleInputChange}
+                    style={{ marginBottom: 40 }}
+                  />
+                  <LabeledCheckbox
+                    label={
+                      <Localized id="confirm-no-identify" b={<b />}>
+                        <span />
+                      </Localized>
+                    }
+                    name="confirmNoIdentify"
+                    checked={confirmNoIdentify}
+                    onChange={this.handleInputChange}
+                    style={{ marginBottom: 20 }}
+                  />
+                  <LinkButton
+                    href={
+                      confirmSize && confirmNoIdentify
+                        ? stats.bundleURLTemplate.replace('{locale}', locale)
+                        : null
+                    }
+                    rounded
+                    className="download-language"
+                    style={{ minWidth: 300 }}>
+                    <Localized id="download-language">
+                      <span />
+                    </Localized>
+                    <CloudIcon />
+                  </LinkButton>
+                </>
+              )}
             </div>
           </div>
         </div>

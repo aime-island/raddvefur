@@ -104,7 +104,10 @@
     }
 
     & .info {
-        background: var(--lighter-grey);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 2rem auto 2rem auto;
 
         & .inner {
             @media (--md-down) {
@@ -228,6 +231,7 @@
             background: var(--blue);
             color: var(--white);
             margin: 5em, 0;
+            padding: 1rem;
 
             &:hover {
                 border-color: var(--black);
@@ -239,8 +243,6 @@
         }
 
         & .show-email-form {
-            margin-bottom: 20px;
-
             & span {
                 margin-inline-end: 20px;
             }
@@ -253,13 +255,9 @@
         }
 
         & .download-language {
-            min-width: 300px;
-            display: inline-flex;
+            min-width: 30rem;
+            display: flex;
             justify-content: space-between;
-
-            @media (--lg-up) {
-                margin-bottom: 80px;
-            }
 
             &:not([href]) {
                 background: var(--warm-grey);
@@ -342,10 +340,6 @@
                 color: var(--near-black);
                 white-space: pre-line;
                 line-height: 1.5;
-            }
-
-            .download-button {
-                margin: 2rem auto 2rem auto;
             }
         }
     }
