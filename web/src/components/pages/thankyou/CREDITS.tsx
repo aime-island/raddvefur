@@ -2,7 +2,7 @@ const CREDITS = [
   {
     who: 'Eftirfarandi rithöfundum fyrir setningar úr verkum sínum:',
     why:
-      'Ármann Jakobsson, Bergrún Íris Sævarsdóttir, Einar Ólafsson, Eva Þengilsdóttir, Eydís Blöndal, Fríða Bonnie Andersen, Hallgrímur Helgason, Jón Daníelsson, Jón Gnarr, Jón M. Ívarsson, Júlía Margrét, Kristín Ragna Gunnarsdóttir, Kristín Steinsdóttir, Kristlaugu Maríu Sigurðardóttur, Ólöf Sverrisdóttir, Pétur Bjarnason, Ragnar Jónsson, Reynir Ingibjartsson, Sigríður Hagalín Björnsdóttir, Sigrún Eldjárn, Sigurbjörg Þrastardóttir, Sigurður Hreiðar, Silja Aðalsteinsdóttir, Sveinn Yngvi Egilsson, Vala Thorsdóttir, Valur Gunnarsson, Þóra Elfa Björnsson',
+      'Ármann Jakobsson, Bergrún Íris Sævarsdóttir, Einar Ólafsson, Eva Þengilsdóttir, Eydís Blöndal, Einar Kárason, Fríða Bonnie Andersen, Guðmundur Andri Thorsson, Guðrún Sæmundsen, Hallgrímur Helgason, Jón Daníelsson, Jón Gnarr, Jón M. Ívarsson, Júlía Margrét, Kristín Ragna Gunnarsdóttir, Kristín Steinsdóttir, Kristlaugu Maríu Sigurðardóttur, Ólöf Sverrisdóttir, Pétur Bjarnason, Ragnar Jónsson, Reynir Ingibjartsson, Sigríður Hagalín Björnsdóttir, Stefán Bogi Sveinsson, Sigrún Eldjárn, Sigurbjörg Þrastardóttir, Sigurður Hreiðar, Silja Aðalsteinsdóttir, Sveinn Yngvi Egilsson, Vala Thorsdóttir, Valur Gunnarsson, Þóra Elfa Björnsson',
   },
   {
     who: 'Vísindavefnum',
