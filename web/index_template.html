@@ -37,7 +37,7 @@
     <!--
       Note: this inline script is allowed through CSP using a hash. To change this, you must also modify the hash
     -->
-    <script>
+    <script nonce="2726c7f26c">
       if (window.location.origin !== 'https://samromur.is') {
         console.log('disabling analytics on non production');
         window.ga = function() {};
@@ -67,7 +67,7 @@
           'https://www.google-analytics.com/analytics.js',
           'ga'
         );
-        ga('create', 'UA-143340605-1', 'auto');
+        ga('create', 'UA-149867434-1', 'auto');
         ga('send', 'pageview');
       }
     </script>
@@ -89,16 +89,5 @@
         </li>
       </ul>
     </div>
-    <script>
-      var errorContainer = document.getElementById('error');
-      if (document.querySelector('#root').children.length === 0) {
-        errorContainer.style.display = 'block';
-      }
-      window.onerror = function(e) {
-        if (e === 'Syntax error') {
-          errorContainer.style.display = 'block';
-        }
-      };
-    </script>
   </body>
 </html>

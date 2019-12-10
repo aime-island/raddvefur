@@ -29,8 +29,8 @@ const CSP_HEADER = [
   `img-src blob: 'self' www.google-analytics.com www.gstatic.com https://optimize.google.com https://www.gstatic.com https://gravatar.com data:`,
   `media-src data: blob: https://*.amazonaws.com https://*.amazon.com`,
   // Note: we allow unsafe-eval locally for certain webpack functionality.
-  `script-src blob: 'self' 'unsafe-eval' 'unsafe-inline' 'sha256-CPdbR9S4PxK+qCPKelo76ESu1Wx1EED0imEj3KmYG8c=' https://www.google-analytics.com https://optimize.google.com https://sentry.io`,
-  `font-src blob: 'self' https://fonts.gstatic.com`,
+  `script-src blob: 'self' 'unsafe-eval' 'unsafe-inline' 'nonce-2726c7f26c' https://www.google-analytics.com https://optimize.google.com https://sentry.io`,
+  `font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com`,
   `connect-src blob: 'self' https://*.amazonaws.com https://*.amazon.com https://www.gstatic.com https://www.google-analytics.com https://sentry.io`,
   `frame-src blob: https://optimize.google.com`,
   `worker-src blob:`,
