@@ -21,7 +21,6 @@ export default Object.freeze({
   DATA: '/data', // old, here for redirect purposes
   DATASETS: '/gagnasafn',
 
-  FAQ: '/spurtogsvarad',
   PRIVACY: '/personuverndaryfirlysing',
   TERMS: '/skilmalar',
   COOKIES: '/vafrakokustefna',
@@ -29,4 +28,5 @@ export default Object.freeze({
   LANGUAGES: '/takk',
   THANKYOU: '/takk',
   ABOUT: '/um',
+  MAIL: 'mailto:samromur@ru.is',
 });

@@ -11,7 +11,7 @@ const CircleStat = ({
   value,
   icon,
   ...props
-}: { label: string; value: number; icon: React.ReactNode } & React.HTMLProps<
+}: { label: string; value: any; icon: React.ReactNode } & React.HTMLProps<
   HTMLDivElement
 >) => (
   <div className={'circle-stat ' + (className || '')} {...props}>
@@ -26,6 +26,32 @@ const CircleStat = ({
   </div>
 );
 
+const formatSeconds = (totalSeconds: number) => {
+  const seconds = totalSeconds % 60;
+  const minutes = Math.floor(totalSeconds / 60) % 60;
+  const hours = Math.floor(totalSeconds / 3600);
+
+  if (hours >= 2000) {
+    return (hours / 1000).toPrecision(2) + 'þúsund klst';
+  }
+
+  const timeParts = [];
+
+  if (hours > 0) {
+    timeParts.push(hours + ' klst');
+  }
+
+  if (hours < 10 && minutes > 0) {
+    timeParts.push(minutes + 'm');
+  }
+
+  if (hours == 0 && minutes < 10 && seconds > 0) {
+    timeParts.push(seconds + 's');
+  }
+
+  return timeParts.join(' ') || '0';
+};
+
 export default ({
   className,
   valid,
@@ -39,13 +65,13 @@ export default ({
     <CircleStat
       className="valid-hours"
       label="validated-hours"
-      value={valid}
+      value={formatSeconds(valid)}
       icon={<PlayOutlineIcon />}
     />
     <CircleStat
       className="total-hours"
       label="recorded-hours"
-      value={total}
+      value={formatSeconds(total)}
       icon={<MicIcon />}
     />
     <CircleStat

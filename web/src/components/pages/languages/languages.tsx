@@ -237,15 +237,6 @@ class LanguagesPage extends React.PureComponent<Props, State> {
       query,
     } = this.state;
 
-    const descriptionProps = {
-      localizationGlossaryLink: <StyledLink to={URLS.FAQ + '#localization'} />,
-      sentenceCollectionGlossaryLink: (
-        <StyledLink to={URLS.FAQ + '#sentence-collection'} />
-      ),
-      speakLink: <StyledLink to={URLS.SPEAK} />,
-      listenLink: <StyledLink to={URLS.LISTEN} />,
-    };
-
     const inProgressCountLabel = query ? (
       <span className="count">({filteredInProgress.length})</span>
     ) : (

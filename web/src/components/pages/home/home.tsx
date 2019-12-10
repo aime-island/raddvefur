@@ -63,7 +63,9 @@ export default function HomePage() {
                   key={type + locale}
                   type={type}
                   status={
-                    heroes.length == 1 || activeHero === type
+                    window.innerWidth < 992
+                      ? 'active'
+                      : heroes.length == 1 || activeHero === type
                       ? 'active'
                       : activeHero
                       ? 'compressed'
@@ -108,17 +110,35 @@ export default function HomePage() {
 
             <br />
 
-            <Localized id="wall-of-text-second">
-              <p />
+            {showWallOfText && (
+              <React.Fragment>
+                <Localized id="wall-of-text-second">
+                  <p />
+                </Localized>
+
+                <br />
+
+                <Localized id="wall-of-text-third">
+                  <p />
+                </Localized>
+
+                <br />
+              </React.Fragment>
+            )}
+
+            <Localized
+              id={showWallOfText ? 'languages-show-less' : 'show-wall-of-text'}>
+              <button
+                className="show-more"
+                type="button"
+                onClick={() => {
+                  if (showWallOfText) {
+                    trackHome('read-more', locale);
+                  }
+                  setShowWallOfText(!showWallOfText);
+                }}
+              />
             </Localized>
-
-            <br />
-
-            <Localized id="wall-of-text-third">
-              <p />
-            </Localized>
-
-            <br />
           </div>
         </div>
       </div>

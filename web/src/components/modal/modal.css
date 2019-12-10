@@ -50,6 +50,14 @@
         @media (--md-up) {
             min-height: auto;
         }
+
+        & a {
+            & :hover {
+                cursor: pointer;
+            }
+
+            color: var(--blue);
+        }
     }
 
     & .buttons {

@@ -11,8 +11,11 @@ export interface Clip {
   id: string;
   glob: string;
   text: string;
-  sound: string;
+  sound: any;
 }
+
+const createObjectURL =
+  (window.URL || window.webkitURL || {}).createObjectURL || function() {};
 
 interface FetchOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
@@ -92,15 +95,42 @@ export default class API {
     return this.fetch(`${this.getLocalePath()}/sentences?count=${count}`);
   }
 
-  fetchRandomClips(count: number = 1): Promise<Clip[]> {
-    return this.fetch(`${this.getClipPath()}?count=${count}`);
+  async fetchRandomClips(count: number = 1): Promise<Clip[]> {
+    return new Promise<Clip[]>((resolve, reject) => {
+      const getBlob = (url: any): Promise<any> => {
+        return fetch(url)
+          .then(r => r.blob())
+          .then(blob => createObjectURL(blob));
+      };
+      let newClips: Clip[] = [];
+      this.fetch(`${this.getClipPath()}?count=${count}`)
+        .then((clips: Clip[]) => {
+          let waitingClips = clips.map(async clip => {
+            let newSound = await getBlob(clip.sound);
+            let newClip = {
+              id: clip.id,
+              glob: clip.glob,
+              text: clip.text,
+              sound: newSound,
+            };
+            newClips.push(newClip);
+          });
+          Promise.all(waitingClips).then(() => {
+            resolve(newClips);
+          });
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   }
 
   uploadClip(
     blob: Blob,
     sentenceId: string,
     sentence: string,
-    info: DemoInfo
+    info: DemoInfo,
+    userAgent: string
   ): Promise<void> {
     return this.fetch(this.getClipPath(), {
       method: 'POST',
@@ -111,6 +141,7 @@ export default class API {
         sex: info.sex,
         age: info.age,
         native_language: info.native_language,
+        user_agent: userAgent,
       },
       body: blob,
     });
@@ -195,6 +226,12 @@ export default class API {
         (locale ? '/' + locale : '') +
         '/contribution_activity?from=' +
         from
+    );
+  }
+
+  fetchUserCount(from: 'you' | 'everyone', locale?: string): Promise<number> {
+    return this.fetch(
+      API_PATH + (locale ? '/' + locale : '') + '/user_count?from=' + from
     );
   }
 

@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { useRef } from 'react';
+import { FontIcon } from '../../ui/icons';
 
 import './facebook-landing.css';
+import imgSrc from './images/Eq.svg';
+import imgSrc2 from './images/_3.svg';
 
 export default function FacebookIOSMessage() {
-  const SHARE_URL = 'https://almannaromur.is/';
+  const SHARE_URL = 'https://samromur.is/';
   const shareURLInputRef = useRef(null);
 
   return (
@@ -19,8 +22,8 @@ export default function FacebookIOSMessage() {
           />
         </div>
         <p>
-          Hljóðnemi er ekki studdur hér. Vinsamlegast opnaðu með Safari eða
-          öðrum vafra.
+          Hljóðnemi er ekki studdur hér. Vinsamlegast opnaðu með Chrome, Safari
+          eða öðrum vafra.
         </p>
         <button
           id="link-copy"
@@ -37,6 +40,7 @@ export default function FacebookIOSMessage() {
           />
           <h2 className="copy-link-h2">Afrita hlekk</h2>
         </button>
+        <img className="waves" src={imgSrc} />
       </div>
     </div>
   );

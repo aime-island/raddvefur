@@ -36,7 +36,12 @@ import {
   LabeledSelect,
   LabeledCheckbox,
 } from '../../../ui/ui';
-import { isFirefoxFocus, isSafariIOS, isFacebook } from '../../../../utility';
+import {
+  isFirefoxFocus,
+  isSafariIOS,
+  isFacebook,
+  getUserAgent,
+} from '../../../../utility';
 import ContributionPage, {
   ContributionPillProps,
   SET_COUNT,
@@ -60,7 +65,7 @@ import {
 import './speak.css';
 
 const MIN_RECORDING_MS = 1000;
-const MAX_RECORDING_MS = 10000;
+const MAX_RECORDING_MS = 15000;
 const MIN_VOLUME = 1;
 
 const DEFAULT_LANGUAGE = 'islenska';
@@ -134,6 +139,7 @@ interface State {
   showDemographicModal: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
+  userAgent: string;
 }
 
 const initialState: State = {
@@ -147,12 +153,13 @@ const initialState: State = {
   showDiscardModal: false,
   showDemographicInfo: false,
   showDemographicModal: true,
-  showLanguageSelect: true,
+  showLanguageSelect: false,
   demographic: {
     sex: '',
     age: '',
     native_language: '',
   },
+  userAgent: '',
 };
 
 const Options = withLocalization(
@@ -210,7 +217,6 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    console.log('Is Safari IOS: ', isSafariIOS());
     this.audio = isSafariIOS() ? new AudioSafariIOS() : new AudioWeb();
     this.audio.setVolumeCallback(this.updateVolume.bind(this));
 
@@ -227,6 +233,9 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     this.userDemographicInfoToState();
+
+    const ua = getUserAgent();
+    this.setState({ userAgent: ua });
   }
 
   async componentWillUnmount() {
@@ -448,7 +457,7 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     const clips = this.state.clips.filter(clip => clip.recording);
-
+    const { userAgent } = this.state;
     removeSentences(clips.map(c => c.sentence.id));
 
     this.setState({ clips: [], isSubmitted: true });
@@ -462,7 +471,8 @@ class SpeakPage extends React.Component<Props, State> {
               recording.blob,
               sentence.id,
               sentence.text,
-              demographic
+              demographic,
+              userAgent
             );
             if (!user.account) {
               tallyRecording();
@@ -472,9 +482,10 @@ class SpeakPage extends React.Component<Props, State> {
             let msg;
             if (error.message === 'save_clip_error') {
               msg =
-                'Innsending raddsýnis mistekst sífellt á netþjóni, prófaðu að endurhlaða síðunni eða reyndu aftur eftir smá stund';
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
             } else {
-              msg = 'Innsending raddsýnis mistekst sífellt, reyna áfram?';
+              msg =
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
             }
             retries--;
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -516,7 +527,27 @@ class SpeakPage extends React.Component<Props, State> {
     }
   };
 
-  private submitDemographic = () => {
+  private checkNativeLanguage = () => {
+    return new Promise((resolve, reject) => {
+      if (
+        this.state.demographic.age &&
+        this.state.demographic.sex &&
+        !this.state.showLanguageSelect
+      ) {
+        this.setState({
+          demographic: {
+            ...this.state.demographic,
+            native_language: DEFAULT_LANGUAGE,
+          },
+        });
+        resolve();
+      } else {
+        resolve();
+      }
+    });
+  };
+  private submitDemographic = async () => {
+    await this.checkNativeLanguage();
     const demographicError = this.getDemographicError(this.state.demographic);
     if (demographicError) {
       return this.setState({
@@ -770,7 +801,10 @@ class SpeakPage extends React.Component<Props, State> {
 
                 <DownIcon />
               </button>
-              <Localized id="why-demographic-explanation">
+              <Localized
+                id="why-demographic-explanation"
+                termsLink={<LocaleLink to={URLS.TERMS} blank />}
+                privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
                 <div className="explanation" />
               </Localized>
             </div>

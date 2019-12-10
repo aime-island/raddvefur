@@ -192,9 +192,11 @@
         align-items: center;
         font-style: italic;
         color: var(--near-black);
+        flex-wrap: wrap;
 
         @media (--sm-down) {
             text-align: center;
+            margin-bottom: 1rem;
         }
 
         @media (--md-up) {
@@ -203,8 +205,7 @@
         }
 
         & svg {
-            display: none;
-            margin: 0 10px 0 16px;
+            margin: 0 0.3rem 0 0.6rem;
             width: 23px;
             height: 23px;
 
@@ -218,7 +219,6 @@
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
-
         @media (--md-up) {
             flex-direction: row;
         }
@@ -292,29 +292,27 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         @media (--sm-down) {
-            margin-top: 20px;
+            margin-top: 0px;
         }
 
         @media (--md-up) {
             flex: 1;
-            margin-top: 70px;
+            margin-top: 170px;
             position: absolute;
         }
 
-        & .inner {
+        & .demo-inner {
             width: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-direction: column;
 
             @media (--md-up) {
                 margin-top: 0;
                 margin-inline-start: auto;
                 width: fit-content;
-                flex-direction: column;
+                flex-direction: row;
                 justify-content: flex-start;
             }
         }
@@ -343,11 +341,14 @@
             flex-direction: column;
             margin-top: 20px;
             margin-bottom: 20px;
-
+            @media (--sm-down) {
+                margin-top: 10px;
+                margin-down: 10px;
+            }
             & .text {
                 margin-inline-start: 10px;
                 font-weight: normal;
-                @media (--sm-up) {
+                @media (--sm-down) {
                     font-size: var(--font-size);
                 }
                 @media (--md-up) {
@@ -372,7 +373,7 @@
 
     & .pills {
         @media (--sm-down) {
-            margin-top: 20px;
+            margin-top: 0px;
         }
 
         @media (--md-up) {
@@ -414,7 +415,7 @@
         align-items: center;
 
         @media (--md-up) {
-            margin-top: 12vh;
+            margin-top: 3rem;
         }
 
         & canvas {
@@ -435,7 +436,9 @@
 
         display: flex;
         justify-content: space-between;
-
+        @media (--sm-down) {
+            margin-top: 0px;
+        }
         @media (--md-up) {
             margin-top: 3.5vh;
         }

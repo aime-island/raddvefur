@@ -12,8 +12,8 @@ header {
     z-index: var(--top-z-index);
     transition: background-color var(--transition-duration) linear,
         box-shadow var(--transition-duration) linear;
-    padding: var(--page-margin);
     background: var(--white);
+    padding: 1.5rem 0;
 
     @media (--lg-up) {
         position: relative;
@@ -297,6 +297,7 @@ header {
     min-height: 20px;
     border: none;
     padding: 0;
+    margin-right: 1rem;
 
     @media (--lg-up) {
         display: none;

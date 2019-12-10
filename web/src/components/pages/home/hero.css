@@ -16,9 +16,9 @@
     }
 
     @media (--md-up) {
-        padding: 130px 100px 0;
+        padding: 7rem 3rem 0;
         width: 100%;
-        min-height: 450px;
+        height: 25rem;
         box-sizing: border-box;
         flex-direction: row;
     }
@@ -89,7 +89,11 @@
     & h3 {
         font-size: 20px;
         font-weight: normal;
-
+        &.front-page-subtitle {
+            @media (--sm-down) {
+                display: none;
+            }
+        }
         &.progress-title {
             white-space: nowrap;
 

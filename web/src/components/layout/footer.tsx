@@ -16,6 +16,7 @@ import SubscribeNewsletter from './subscribe-newsletter';
 import { DiscourseLink, GitHubLink } from '../shared/links';
 
 import './footer.css';
+import { Link, NavLink } from 'react-router-dom';
 
 export const LocalizedLocaleLink = ({ id, to }: { id: string; to: string }) => {
   const [locale] = useLocale();
@@ -31,6 +32,14 @@ const LocalizedNavLink = ({ id, to }: { id: string; to: string }) => {
   return (
     <Localized id={id}>
       <LocaleNavLink to={to} exact onClick={() => trackNav(id, locale)} />
+    </Localized>
+  );
+};
+
+const MailLink = ({ id, to }: { id: string; to: string }) => {
+  return (
+    <Localized id={id}>
+      <a href="mailto:samromur@ru.is" />
     </Localized>
   );
 };
@@ -64,7 +73,7 @@ export default React.memo(() => {
           </div>
           <div>
             <LocalizedLocaleLink id="cookies" to={URLS.COOKIES} />
-            <LocalizedLocaleLink id="faq" to={URLS.FAQ} />
+            <MailLink id="mail-to-samromur" to={URLS.MAIL} />
           </div>
         </div>
 

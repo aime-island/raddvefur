@@ -69,7 +69,6 @@
         }
 
         @media (--lg-up) {
-            margin-bottom: 70px;
             padding-top: 90px;
             padding-bottom: 135px;
             padding-inline-start: calc(
@@ -226,7 +225,6 @@
 
         & .button {
             border-color: transparent;
-            padding: 15px 30px;
             background: var(--blue);
             color: var(--white);
 
@@ -292,8 +290,8 @@
         }
 
         @media (--lg-up) {
-            margin-top: 50px;
-            margin-bottom: 110px;
+            margin-top: 70px;
+            margin-bottom: 80px;
             flex-direction: row;
             justify-content: center;
 
@@ -330,12 +328,12 @@
 
                 @media (--md-down) {
                     margin-bottom: 20px;
-                    font-size: 36px;
+                    font-size: 24px;
                 }
 
                 @media (--lg-up) {
                     margin-bottom: 30px;
-                    font-size: 48px;
+                    font-size: 36px;
                 }
             }
 

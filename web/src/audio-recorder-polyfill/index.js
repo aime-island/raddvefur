@@ -146,6 +146,7 @@ MediaRecorder.prototype = {
       this.requestData();
       this.state = 'inactive';
       clearInterval(this.slicing);
+      this.context.close();
     }
   },
 

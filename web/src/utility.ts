@@ -43,14 +43,36 @@ export function isFirefoxFocus(): boolean {
   return navigator.userAgent.indexOf('Focus') !== -1;
 }
 
+export function getUserAgent(): string {
+  return navigator.userAgent;
+}
+
 export function isFacebook(): boolean {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
-  return ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1;
+  return (
+    ua.indexOf('FBAN') > -1 ||
+    ua.indexOf('FBAV') > -1 ||
+    ua.indexOf('FB_IAB') > -1
+  );
 }
 
 export function isFacebookIOS(): boolean {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
   return ua.indexOf('FBIOS') > -1;
+}
+
+export function isInstagram(): boolean {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  return ua.indexOf('Instagram') > -1;
+}
+
+export function isTwitter(): boolean {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  return ua.indexOf('Twitter') > -1;
+}
+
+export function isSocial(): boolean {
+  return isFacebook() || isInstagram();
 }
 
 /**

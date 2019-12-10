@@ -68,8 +68,9 @@ export default class DB {
    * I hope you know what you're doing.
    */
   async drop(): Promise<void> {
-    if (!getConfig().PROD) {
-      await this.schema.dropDatabase();
+    if (false) {
+      console.log('database protection');
+      // await this.schema.dropDatabase();
     }
   }
 
@@ -235,6 +236,7 @@ export default class DB {
     sex,
     age,
     native_language,
+    user_agent,
   }: {
     client_id: string;
     locale: string;
@@ -245,6 +247,7 @@ export default class DB {
     sex: string;
     age: string;
     native_language: string;
+    user_agent: string;
   }): Promise<void> {
     try {
       sentenceId = sentenceId || hash(sentence);
@@ -252,8 +255,8 @@ export default class DB {
 
       await this.mysql.query(
         `
-          INSERT INTO clips (client_id, original_sentence_id, path, sentence, locale_id, sex, age, native_language)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+          INSERT INTO clips (client_id, original_sentence_id, path, sentence, locale_id, sex, age, native_language, user_agent)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
           ON DUPLICATE KEY UPDATE created_at = NOW()
         `,
         [
@@ -265,6 +268,7 @@ export default class DB {
           sex,
           age,
           native_language,
+          user_agent,
         ]
       );
       await this.mysql.query(
@@ -430,6 +434,21 @@ export default class DB {
     );
 
     return rows;
+  }
+
+  async getUserCount(
+    locale?: string,
+    client_id?: string
+  ): Promise<{ date: string; value: number }[]> {
+    const hours = Array.from({ length: 10 }).map((_, i) => i);
+    return (await this.mysql.query(
+      `
+        SELECT COUNT(DISTINCT client_id) AS count FROM clips`,
+      {
+        locale_id: locale ? await getLocaleId(locale) : null,
+        client_id,
+      }
+    ))[0][0].count;
   }
 
   async empty() {

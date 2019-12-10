@@ -87,7 +87,7 @@ export default class Clip {
     await this.model.db.saveVote(id, client_id, isValid);
     await Awards.checkProgress(client_id);
 
-    const glob = clip.path.replace('.mp3', '');
+    const glob = clip.path.replace('.wav', '');
     const voteFile = glob + '-by-' + client_id + '.vote';
 
     await this.s3
@@ -116,6 +116,7 @@ export default class Clip {
     const native_language = decodeURIComponent(
       headers.native_language as string
     );
+    const user_agent = decodeURIComponent(headers.user_agent as string);
 
     if (!validateDemographic({ sex, age, native_language })) {
       return;
@@ -128,7 +129,7 @@ export default class Clip {
     // Where is our audio clip going to be located?
     const folder = client_id + '/';
     const filePrefix = hash(sentence);
-    const clipFileName = folder + filePrefix + '.mp3';
+    const clipFileName = folder + filePrefix + '.wav';
     const sentenceFileName = folder + filePrefix + '.txt';
 
     // if the folder does not exist, we create it
@@ -166,9 +167,10 @@ export default class Clip {
             Bucket: getConfig().BUCKET_NAME,
             Key: clipFileName,
             Body: transcoder
-              .audioCodec('mp3')
-              .format('mp3')
+              .audioCodec('pcm_s16le')
+              .format('wav')
               .stream(),
+            ContentType: 'audio/mpeg',
           })
           .promise(),
         this.s3
@@ -192,6 +194,7 @@ export default class Clip {
         sex: headers.sex,
         age: headers.age,
         native_language: headers.native_language,
+        user_agent: user_agent,
       });
       await Awards.checkProgress(client_id);
 

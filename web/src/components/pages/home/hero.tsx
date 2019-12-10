@@ -39,8 +39,7 @@ class Hero extends React.Component<
   async componentDidMount() {
     window.addEventListener('resize', this.showToMeasure);
     this.measure();
-
-    const { api, type } = this.props;
+    const { api, type, onShow } = this.props;
     this.setState({
       count: await (type === 'speak'
         ? api.fetchDailyClipsCount()
@@ -87,7 +86,7 @@ class Hero extends React.Component<
   }
 
   render() {
-    const { locale, onHide, onShow, status, type } = this.props;
+    let { locale, onHide, onShow, status, type } = this.props;
     const { count } = this.state;
     const isSpeak = type == 'speak';
     const PrimaryLink = isSpeak ? RecordLink : PlayLink;
@@ -101,7 +100,7 @@ class Hero extends React.Component<
           <Localized id={type}>
             <h1 />
           </Localized>
-          <h3>
+          <h3 className="front-page-subtitle">
             <Localized id={type + '-subtitle'}>
               <span />
             </Localized>
@@ -110,16 +109,19 @@ class Hero extends React.Component<
             <Localized id={type + '-paragraph'}>
               <p className="description" />
             </Localized>
-            <Localized id="read-terms-q">
+            {
+              // Removed terms
+              /* <Localized id="read-terms-q">
               <LocaleLink to={URLS.TERMS} className="terms" />
-            </Localized>
+            </Localized> */
+            }
           </div>
         </div>
         <div className="column cta">
           <PrimaryLink onClick={() => trackHome(type, locale)} />
           <div {...this.getToggleableProps(1, 'line ' + type)} />
           <div {...this.getToggleableProps(2)}>
-            <Localized id="help-reach-goal" $goal={DAILY_GOAL[type]}>
+            <Localized id={type + '-click-here'}>
               <div className="cta-message" />
             </Localized>
           </div>

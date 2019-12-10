@@ -69,14 +69,14 @@ export namespace ClipsStats {
     const minutes = Math.floor(totalSeconds / 60) % 60;
     const hours = Math.floor(totalSeconds / 3600);
 
-    if (hours >= 1000) {
-      return (hours / 1000).toPrecision(2) + 'k';
+    if (hours >= 2000) {
+      return (hours / 1000).toPrecision(2) + 'þúsund klst';
     }
 
     const timeParts = [];
 
     if (hours > 0) {
-      timeParts.push(hours + 'h');
+      timeParts.push(hours + ' klst');
     }
 
     if (hours < 10 && minutes > 0) {

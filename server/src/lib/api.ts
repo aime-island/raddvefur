@@ -117,6 +117,9 @@ export default class API {
     router.get('/contribution_activity', this.getContributionActivity);
     router.get('/:locale/contribution_activity', this.getContributionActivity);
 
+    router.get('/user_count', this.getUserCount);
+    router.get('/:locale/user_count', this.getUserCount);
+
     router.get('/requested_languages', this.getRequestedLanguages);
     router.post('/requested_languages', this.createLanguageRequest);
 
@@ -200,27 +203,38 @@ export default class API {
   };
 
   subscribeToNewsletter = async (request: Request, response: Response) => {
-    const { BASKET_API_KEY, PROD } = getConfig();
-    if (!BASKET_API_KEY) {
+    const { email } = request.params;
+    const { SEND_IN_BLUE_KEY } = getConfig();
+    if (!SEND_IN_BLUE_KEY) {
       response.json({});
+      console.log('No SEND_IN_BLUE key');
       return;
     }
 
-    const { email } = request.params;
-    const basketResponse = await sendRequest({
-      uri: Basket.API_URL + '/news/subscribe/',
+    var defaultRequest = require('request');
+
+    const body = `{"email": "${email}", "updateEnabled":false}`;
+
+    var options = {
       method: 'POST',
-      form: {
-        'api-key': BASKET_API_KEY,
-        newsletters: 'common-voice',
-        format: 'H',
-        lang: 'en',
-        email,
-        source_url: request.header('Referer'),
-        sync: 'Y',
+      url: 'https://api.sendinblue.com/v3/contacts',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        'api-key': SEND_IN_BLUE_KEY,
       },
+      body: body,
+    };
+
+    defaultRequest(options, function(
+      error: string,
+      response: Response,
+      body: any
+    ) {
+      if (error) throw new Error(error);
+      console.log('E-mail added to send-in-blue:', body);
     });
-    await UserClient.updateBasketToken(email, JSON.parse(basketResponse).token);
+
     response.json({});
   };
 
@@ -278,7 +292,7 @@ export default class API {
     const { client_id, headers, user } = request;
 
     const folder = client_id;
-    const clipFileName = folder + '.mp3';
+    const clipFileName = folder + '.wav';
     try {
       // If upload was base64, make sure we decode it first.
       let transcoder;
@@ -308,8 +322,8 @@ export default class API {
             Bucket: getConfig().BUCKET_NAME,
             Key: clipFileName,
             Body: transcoder
-              .audioCodec('mp3')
-              .format('mp3')
+              .audioCodec('pcm_s16le')
+              .format('wav')
               .stream(),
           })
           .promise(),
@@ -343,6 +357,13 @@ export default class API {
         ? this.model.db.getContributionStats(locale, client_id)
         : this.model.getContributionStats(locale))
     );
+  };
+
+  getUserCount = async (
+    { client_id, params: { locale }, query }: Request,
+    response: Response
+  ) => {
+    response.json(await this.model.db.getUserCount(locale, client_id));
   };
 
   createCustomGoal = async (request: Request, response: Response) => {
