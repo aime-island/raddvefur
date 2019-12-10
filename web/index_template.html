@@ -38,7 +38,7 @@
       Note: this inline script is allowed through CSP using a hash. To change this, you must also modify the hash
     -->
     <script nonce="2726c7f26c">
-      if (window.location.origin !== 'https://samromur.is') {
+      if (window.location.origin == 'https://test.samromur.is') {
         console.log('disabling analytics on non production');
         window.ga = function() {};
       } else if (
