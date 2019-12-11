@@ -83,7 +83,6 @@ export default class AudioWeb {
 
   // Check all the browser prefixes for microhpone support.
   isMicrophoneSupported() {
-    navigator = window.navigator;
     return (
       (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) ||
       navigator.getUserMedia ||

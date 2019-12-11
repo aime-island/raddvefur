@@ -222,6 +222,9 @@ class SpeakPage extends React.Component<Props, State> {
 
     document.addEventListener('visibilitychange', this.releaseMicrophone);
     document.addEventListener('keyup', this.handleKeyUprerecording);
+    if (this.audio.isMicrophoneSupported()) {
+      console.log('microphone, yes!');
+    }
 
     if (
       !this.audio.isMicrophoneSupported() ||
