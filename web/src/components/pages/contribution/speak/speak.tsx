@@ -217,8 +217,6 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    console.log('hæ');
-    console.log(isSafariIOS());
     this.audio = isSafariIOS() ? new AudioSafariIOS() : new AudioWeb();
     this.audio.setVolumeCallback(this.updateVolume.bind(this));
 
@@ -230,8 +228,8 @@ class SpeakPage extends React.Component<Props, State> {
       !this.audio.isAudioRecordingSupported() ||
       isFirefoxFocus()
     ) {
-      console.log(this.audio.isMicrophoneSupported());
-      console.log(this.audio.isAudioRecordingSupported());
+      console.log('microphone', this.audio.isMicrophoneSupported());
+      console.log('audiorecording', this.audio.isAudioRecordingSupported());
       this.isUnsupportedPlatform = true;
       this.setState({ showDemographicModal: false });
     }
