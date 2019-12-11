@@ -222,8 +222,6 @@ class SpeakPage extends React.Component<Props, State> {
 
     document.addEventListener('visibilitychange', this.releaseMicrophone);
     document.addEventListener('keyup', this.handleKeyUprerecording);
-    console.log('microphone', this.audio.isMicrophoneSupported());
-    console.log('audiorecording', this.audio.isAudioRecordingSupported());
 
     if (
       !this.audio.isMicrophoneSupported() ||
@@ -640,7 +638,6 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   private setShowDemographicModal = () => {
-    console.log(this.state.showDemographicModal);
     this.setState({
       showDemographicModal: !this.state.showDemographicModal,
     });

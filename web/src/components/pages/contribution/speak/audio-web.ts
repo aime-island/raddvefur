@@ -7,6 +7,7 @@ var createObjectURL =
   (window.URL || window.webkitURL || {}).createObjectURL || function() {};
 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
+var navigator = window.navigator;
 
 interface BlobEvent extends Event {
   data: Blob;
@@ -82,6 +83,7 @@ export default class AudioWeb {
 
   // Check all the browser prefixes for microhpone support.
   isMicrophoneSupported() {
+    navigator = window.navigator;
     return (
       (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) ||
       navigator.getUserMedia ||
@@ -92,9 +94,6 @@ export default class AudioWeb {
 
   // Check if audio recording is supported
   isAudioRecordingSupported() {
-    console.log('mediaRecorder', typeof MediaRecorder !== 'undefined');
-    console.log('polyFill', this.isPolyfillRecording());
-    console.log(MediaRecorder);
     return typeof MediaRecorder !== 'undefined' || this.isPolyfillRecording();
   }
 
