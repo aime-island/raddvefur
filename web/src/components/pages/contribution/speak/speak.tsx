@@ -222,14 +222,14 @@ class SpeakPage extends React.Component<Props, State> {
 
     document.addEventListener('visibilitychange', this.releaseMicrophone);
     document.addEventListener('keyup', this.handleKeyUprerecording);
+    console.log('microphone', this.audio.isMicrophoneSupported());
+    console.log('audiorecording', this.audio.isAudioRecordingSupported());
 
     if (
       !this.audio.isMicrophoneSupported() ||
       !this.audio.isAudioRecordingSupported() ||
       isFirefoxFocus()
     ) {
-      console.log('microphone', this.audio.isMicrophoneSupported());
-      console.log('audiorecording', this.audio.isAudioRecordingSupported());
       this.isUnsupportedPlatform = true;
       this.setState({ showDemographicModal: false });
     }
