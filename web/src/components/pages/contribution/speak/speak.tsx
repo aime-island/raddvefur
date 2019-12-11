@@ -217,6 +217,8 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    console.log('hæ');
+    console.log(isSafariIOS());
     this.audio = isSafariIOS() ? new AudioSafariIOS() : new AudioWeb();
     this.audio.setVolumeCallback(this.updateVolume.bind(this));
 
