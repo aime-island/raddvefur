@@ -228,6 +228,8 @@ class SpeakPage extends React.Component<Props, State> {
       !this.audio.isAudioRecordingSupported() ||
       isFirefoxFocus()
     ) {
+      console.log(this.audio.isMicrophoneSupported());
+      console.log(this.audio.isAudioRecordingSupported());
       this.isUnsupportedPlatform = true;
       this.setState({ showDemographicModal: false });
     }
