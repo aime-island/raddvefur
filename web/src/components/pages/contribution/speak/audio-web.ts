@@ -92,6 +92,9 @@ export default class AudioWeb {
 
   // Check if audio recording is supported
   isAudioRecordingSupported() {
+    console.log('mediaRecorder', typeof MediaRecorder !== 'undefined');
+    console.log('polyFill', this.isPolyfillRecording());
+    console.log(MediaRecorder);
     return typeof MediaRecorder !== 'undefined' || this.isPolyfillRecording();
   }
 
