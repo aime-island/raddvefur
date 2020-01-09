@@ -29,7 +29,7 @@ import Wave from './wave';
 import './contribution.css';
 import { LANGUAGES, AGES, SEXES } from '../../../stores/demographics';
 
-export const SET_COUNT = 5;
+export const SET_COUNT = 10;
 
 export interface ContributionPillProps {
   isOpen: boolean;

@@ -63,6 +63,7 @@ import {
 } from '../../../../stores/demographics';
 
 import './speak.css';
+import { Clips } from '../../../../stores/clips';
 
 const MIN_RECORDING_MS = 1000;
 const MAX_RECORDING_MS = 15000;
@@ -128,6 +129,7 @@ interface Props
 
 interface State {
   clips: SentenceRecording[];
+  clipsBuffer: SentenceRecording[];
   isSubmitted: boolean;
   error?: RecordingError | AudioError;
   demographicError?: DemographicError;
@@ -144,6 +146,7 @@ interface State {
 
 const initialState: State = {
   clips: [],
+  clipsBuffer: [],
   isSubmitted: false,
   error: null,
   demographicError: null,
@@ -193,23 +196,57 @@ class SpeakPage extends React.Component<Props, State> {
       const sentenceIds = state.clips
         .map(({ sentence }) => (sentence ? sentence.id : null))
         .filter(Boolean);
+
+      const haveRecordings = state.clips
+        .map(clip => (clip.recording ? clip : null))
+        .filter(Boolean);
+
+      const haveNoRecordings = state.clips
+        .map(clip => (clip.recording ? null : clip))
+        .filter(Boolean);
+
+      //console.log('Used: ', haveRecordings.length);
+      //console.log('Unused: ', haveNoRecordings.length);
+
       const unusedSentences = props.sentences.filter(
         s => !sentenceIds.includes(s.id)
       );
+
+      let firstFive = state.clips.slice(0, 5).map(clip => {
+        return clip;
+      });
+
+      let firstFiveUsed = firstFive
+        .map(clip => (clip.recording ? clip : null))
+        .filter(Boolean);
+
+      let clipsBuffer = state.clipsBuffer.map(clip =>
+        clip.sentence
+          ? clip
+          : { recording: null, sentence: unusedSentences.pop() || null }
+      );
+
+      if (firstFiveUsed.length == 5) {
+        firstFive = firstFive.slice(Math.max(firstFive.length - 4, 0));
+        firstFive.push(clipsBuffer.pop());
+      }
+
       return {
-        clips: state.clips.map(clip =>
-          clip.sentence
-            ? clip
-            : { recording: null, sentence: unusedSentences.pop() || null }
-        ),
+        clips: firstFive,
+        clipsBuffer: clipsBuffer,
       };
     }
 
     if (props.sentences.length > 0) {
+      let clipsBuffer = props.sentences
+        .slice(5)
+        .map(sentence => ({ recording: null, sentence }));
+      let clips = props.sentences
+        .slice(0, 5)
+        .map(sentence => ({ recording: null, sentence }));
       return {
-        clips: props.sentences
-          .slice(0, SET_COUNT)
-          .map(sentence => ({ recording: null, sentence })),
+        clips: clips,
+        clipsBuffer: clipsBuffer,
       };
     }
 
@@ -546,6 +583,7 @@ class SpeakPage extends React.Component<Props, State> {
       }
     });
   };
+
   private submitDemographic = async () => {
     await this.checkNativeLanguage();
     const demographicError = this.getDemographicError(this.state.demographic);
@@ -648,6 +686,7 @@ class SpeakPage extends React.Component<Props, State> {
     const { getString, user } = this.props;
     const {
       clips,
+      clipsBuffer,
       isSubmitted,
       error,
       demographicError,
