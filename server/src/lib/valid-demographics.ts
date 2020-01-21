@@ -55,6 +55,7 @@ export const LANGUAGES: any = [
 export const AGES = [
   '',
   'barn',
+  'ungur_unglingur',
   'unglingur',
   'tvitugt',
   'thritugt',
