@@ -200,23 +200,22 @@ class SpeakPage extends React.Component<Props, State> {
       const haveRecordings = state.clips
         .map(clip => (clip.recording ? clip : null))
         .filter(Boolean);
+      const recorded = haveRecordings.length;
 
       const haveNoRecordings = state.clips
         .map(clip => (clip.recording ? null : clip))
         .filter(Boolean);
-
-      //console.log('Used: ', haveRecordings.length);
-      //console.log('Unused: ', haveNoRecordings.length);
+      const unrecorded = haveNoRecordings.length;
 
       const unusedSentences = props.sentences.filter(
         s => !sentenceIds.includes(s.id)
       );
 
-      let firstFive = state.clips.slice(0, 5).map(clip => {
+      /* let firstFive = state.clips.slice(0, 5).map(clip => {
         return clip;
-      });
+      }); */
 
-      let firstFiveUsed = firstFive
+      /* let firstFiveUsed = firstFive
         .map(clip => (clip.recording ? clip : null))
         .filter(Boolean);
 
@@ -226,27 +225,35 @@ class SpeakPage extends React.Component<Props, State> {
           : { recording: null, sentence: unusedSentences.pop() || null }
       );
 
+      console.log(firstFiveUsed.length);
       if (firstFiveUsed.length == 5) {
         firstFive = firstFive.slice(Math.max(firstFive.length - 4, 0));
         firstFive.push(clipsBuffer.pop());
       }
+      
+      firstFiveUsed = firstFive
+        .map(clip => (clip.recording ? clip : null))
+        .filter(Boolean); */
+
+      //console.log(firstFiveUsed.length);
+
+      let clips = state.clips.map(clip =>
+        clip.sentence
+          ? clip
+          : { recording: null, sentence: unusedSentences.pop() || null }
+      );
 
       return {
-        clips: firstFive,
-        clipsBuffer: clipsBuffer,
+        clips: clips,
       };
     }
 
     if (props.sentences.length > 0) {
-      let clipsBuffer = props.sentences
-        .slice(5)
-        .map(sentence => ({ recording: null, sentence }));
       let clips = props.sentences
-        .slice(0, 5)
+        .slice(0, SET_COUNT)
         .map(sentence => ({ recording: null, sentence }));
       return {
         clips: clips,
-        clipsBuffer: clipsBuffer,
       };
     }
 
@@ -313,9 +320,10 @@ class SpeakPage extends React.Component<Props, State> {
 
   private getRecordingIndex() {
     const { rerecordIndex } = this.state;
-    return rerecordIndex === null
-      ? this.state.clips.findIndex(({ recording }) => !recording)
-      : rerecordIndex;
+    const index = this.state.clips.findIndex(({ recording }) => !recording);
+    const buffer = this.state.clipsBuffer.length;
+    const realIndex = index + Math.abs(buffer - 5);
+    return rerecordIndex === null ? index : rerecordIndex;
   }
 
   private releaseMicrophone = () => {
@@ -676,7 +684,6 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   private setShowDemographicModal = () => {
-    console.log(this.state.showDemographicModal);
     this.setState({
       showDemographicModal: !this.state.showDemographicModal,
     });

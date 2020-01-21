@@ -320,6 +320,12 @@ class ContributionPage extends React.Component<Props, State> {
       setShowDemographicModal,
     } = this.props;
     const { selectedPill } = this.state;
+    const fivePills =
+      activeIndex > 4
+        ? pills.slice(activeIndex - 4, activeIndex + 1)
+        : activeIndex == -1
+        ? pills.slice(SET_COUNT - 5, SET_COUNT)
+        : pills.slice(0, 5);
 
     return isSubmitted ? (
       <Success onReset={onReset} type={type} />
@@ -382,11 +388,18 @@ class ContributionPage extends React.Component<Props, State> {
                       </Localized>
                     </div>
                   )}
-                  {pills.map((pill, i) =>
+                  {fivePills.map((pill, i) =>
                     pill({
                       isOpen: this.isDone || selectedPill === i,
                       key: i,
-                      num: i + 1,
+                      num:
+                        i +
+                        1 +
+                        (activeIndex > 4
+                          ? activeIndex - 4
+                          : activeIndex == -1
+                          ? SET_COUNT - 5
+                          : 0),
                       onClick: () => this.selectPill(i),
                       onShare: this.toggleShareModal,
                       style:
