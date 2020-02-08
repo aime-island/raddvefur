@@ -403,7 +403,7 @@ class ContributionPage extends React.Component<Props, State> {
                   )}
                 </div>
               </div>
-              {this.isDone && (
+              {/*               {this.isDone && (
                 <div className="review-demo">
                   <div className="inner">
                     <div className="review-demo-titles">
@@ -442,7 +442,7 @@ class ContributionPage extends React.Component<Props, State> {
                     </Localized>
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
 
             {instruction({
