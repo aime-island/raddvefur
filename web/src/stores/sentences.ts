@@ -2,7 +2,7 @@ import { Action as ReduxAction, Dispatch } from 'redux';
 const contributableLocales = require('../../../locales/contributable.json') as string[];
 import StateTree from './tree';
 
-const CACHE_SET_COUNT = 10;
+const CACHE_SET_COUNT = 50;
 
 export namespace Sentences {
   export interface Sentence {

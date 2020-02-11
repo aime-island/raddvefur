@@ -44,7 +44,7 @@ import {
 } from '../../../../utility';
 import ContributionPage, {
   ContributionPillProps,
-  SET_COUNT,
+  SPEAK_SET_COUNT,
 } from '../contribution';
 import {
   RecordButton,
@@ -129,6 +129,7 @@ interface Props
 
 interface State {
   clips: SentenceRecording[];
+  clipsArchive: SentenceRecording[];
   clipsBuffer: SentenceRecording[];
   isSubmitted: boolean;
   error?: RecordingError | AudioError;
@@ -141,11 +142,13 @@ interface State {
   showDemographicModal: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
+  uploaded: number[];
   userAgent: string;
 }
 
 const initialState: State = {
   clips: [],
+  clipsArchive: [],
   clipsBuffer: [],
   isSubmitted: false,
   error: null,
@@ -162,6 +165,7 @@ const initialState: State = {
     age: '',
     native_language: '',
   },
+  uploaded: [],
   userAgent: '',
 };
 
@@ -202,6 +206,8 @@ class SpeakPage extends React.Component<Props, State> {
         .filter(Boolean);
       const recorded = haveRecordings.length;
 
+      const clipsBuffer = state.clipsBuffer;
+
       const haveNoRecordings = state.clips
         .map(clip => (clip.recording ? null : clip))
         .filter(Boolean);
@@ -211,32 +217,6 @@ class SpeakPage extends React.Component<Props, State> {
         s => !sentenceIds.includes(s.id)
       );
 
-      /* let firstFive = state.clips.slice(0, 5).map(clip => {
-        return clip;
-      }); */
-
-      /* let firstFiveUsed = firstFive
-        .map(clip => (clip.recording ? clip : null))
-        .filter(Boolean);
-
-      let clipsBuffer = state.clipsBuffer.map(clip =>
-        clip.sentence
-          ? clip
-          : { recording: null, sentence: unusedSentences.pop() || null }
-      );
-
-      console.log(firstFiveUsed.length);
-      if (firstFiveUsed.length == 5) {
-        firstFive = firstFive.slice(Math.max(firstFive.length - 4, 0));
-        firstFive.push(clipsBuffer.pop());
-      }
-      
-      firstFiveUsed = firstFive
-        .map(clip => (clip.recording ? clip : null))
-        .filter(Boolean); */
-
-      //console.log(firstFiveUsed.length);
-
       let clips = state.clips.map(clip =>
         clip.sentence
           ? clip
@@ -244,13 +224,14 @@ class SpeakPage extends React.Component<Props, State> {
       );
 
       return {
+        clipsBuffer: haveRecordings,
         clips: clips,
       };
     }
 
     if (props.sentences.length > 0) {
       let clips = props.sentences
-        .slice(0, SET_COUNT)
+        .slice(0, SPEAK_SET_COUNT)
         .map(sentence => ({ recording: null, sentence }));
       return {
         clips: clips,
@@ -489,7 +470,6 @@ class SpeakPage extends React.Component<Props, State> {
       this.setState({ showPrivacyModal: true });
       return false;
     }
-
     const { demographic } = this.state;
 
     const demographicError = this.getDemographicError(demographic);
@@ -501,7 +481,12 @@ class SpeakPage extends React.Component<Props, State> {
       return false;
     }
 
-    const clips = this.state.clips.filter(clip => clip.recording);
+    let clips = this.state.clips.filter(clip => clip.recording);
+
+    const { uploaded } = this.state;
+    const uploadedIndex = Math.max(...uploaded);
+
+    clips = clips.slice(uploadedIndex + 1);
     const { userAgent } = this.state;
     removeSentences(clips.map(c => c.sentence.id));
 
@@ -540,6 +525,7 @@ class SpeakPage extends React.Component<Props, State> {
           }
         }
       }),
+
       async () => {
         trackRecording('submit', locale);
         refreshUser();
@@ -555,6 +541,81 @@ class SpeakPage extends React.Component<Props, State> {
     ]);
 
     return true;
+  };
+
+  private uploadSingle = async (index: number) => {
+    let uploaded = this.state.uploaded;
+    uploaded.push(index);
+    this.setState({ uploaded: uploaded });
+
+    const {
+      addNotification,
+      addUploads,
+      api,
+      locale,
+      removeSentences,
+      tallyRecording,
+      user,
+      refreshUser,
+    } = this.props;
+
+    const clip = this.state.clips[index];
+    const clips = this.state.clips.filter(
+      c => c.sentence.id == clip.sentence.id
+    );
+    removeSentences(clips.map(c => c.sentence.id));
+
+    // this.setState({ clips: [], isSubmitted: true });
+
+    const { demographic } = this.state;
+    const { userAgent } = this.state;
+    addUploads([
+      ...clips.map(({ sentence, recording }) => async () => {
+        let retries = 3;
+        while (retries) {
+          try {
+            await api.uploadClip(
+              recording.blob,
+              sentence.id,
+              sentence.text,
+              demographic,
+              userAgent
+            );
+            if (!user.account) {
+              tallyRecording();
+            }
+            retries = 0;
+          } catch (error) {
+            let msg;
+            if (error.message === 'save_clip_error') {
+              msg =
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
+            } else {
+              msg =
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
+            }
+            retries--;
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            if (retries == 0 && confirm(msg)) {
+              retries = 3;
+            }
+          }
+        }
+      }),
+
+      /* async () => {
+        trackRecording('submit', locale);
+        refreshUser();
+        addNotification(
+          <React.Fragment>
+            <CheckIcon />{' '}
+            <Localized id="clips-uploaded">
+              <span />
+            </Localized>
+          </React.Fragment>
+        );
+      }, */
+    ]);
   };
 
   private resetState = (callback?: any) => {
@@ -693,6 +754,7 @@ class SpeakPage extends React.Component<Props, State> {
     const { getString, user } = this.props;
     const {
       clips,
+      clipsArchive,
       clipsBuffer,
       isSubmitted,
       error,
@@ -705,8 +767,12 @@ class SpeakPage extends React.Component<Props, State> {
       showDemographicInfo,
       demographic,
       showLanguageSelect,
+      uploaded,
     } = this.state;
     const recordingIndex = this.getRecordingIndex();
+    if (recordingIndex >= 5 && !uploaded.includes(recordingIndex - 5)) {
+      this.uploadSingle(recordingIndex - 5);
+    }
     return (
       <React.Fragment>
         <NavigationPrompt
@@ -886,7 +952,7 @@ class SpeakPage extends React.Component<Props, State> {
                 id={
                   this.isRecording
                     ? 'record-stop-instruction'
-                    : recordingIndex === SET_COUNT - 1
+                    : recordingIndex === SPEAK_SET_COUNT - 1
                     ? 'record-last-instruction'
                     : ['record-instruction', 'record-again-instruction'][
                         recordingIndex

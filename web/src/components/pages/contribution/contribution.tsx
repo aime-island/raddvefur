@@ -29,7 +29,8 @@ import Wave from './wave';
 import './contribution.css';
 import { LANGUAGES, AGES, SEXES } from '../../../stores/demographics';
 
-export const SET_COUNT = 10;
+export const SPEAK_SET_COUNT = 15;
+export const LISTEN_SET_COUNT = 5;
 
 export interface ContributionPillProps {
   isOpen: boolean;
@@ -295,9 +296,13 @@ class ContributionPage extends React.Component<Props, State> {
 
   renderClipCount() {
     const { activeIndex, isSubmitted } = this.props;
-    return (
-      (isSubmitted ? SET_COUNT : activeIndex + 1 || SET_COUNT) + '/' + SET_COUNT
-    );
+    return this.props.type == 'speak'
+      ? (isSubmitted ? SPEAK_SET_COUNT : activeIndex + 1 || SPEAK_SET_COUNT) +
+          '/' +
+          SPEAK_SET_COUNT
+      : (isSubmitted ? LISTEN_SET_COUNT : activeIndex + 1 || LISTEN_SET_COUNT) +
+          '/' +
+          LISTEN_SET_COUNT;
   }
 
   renderContent() {
@@ -324,7 +329,9 @@ class ContributionPage extends React.Component<Props, State> {
       activeIndex > 4
         ? pills.slice(activeIndex - 4, activeIndex + 1)
         : activeIndex == -1
-        ? pills.slice(SET_COUNT - 5, SET_COUNT)
+        ? type == 'speak'
+          ? pills.slice(SPEAK_SET_COUNT - 5, SPEAK_SET_COUNT)
+          : pills.slice(LISTEN_SET_COUNT - 5, LISTEN_SET_COUNT)
         : pills.slice(0, 5);
 
     return isSubmitted ? (
@@ -339,7 +346,9 @@ class ContributionPage extends React.Component<Props, State> {
                 <div className="cards">
                   {sentences.map((sentence, i) => {
                     const activeSentenceIndex = this.isDone
-                      ? SET_COUNT - 1
+                      ? type == 'speak'
+                        ? SPEAK_SET_COUNT - 1
+                        : LISTEN_SET_COUNT - 1
                       : activeIndex;
                     const isActive = i === activeSentenceIndex;
                     return (
@@ -398,7 +407,9 @@ class ContributionPage extends React.Component<Props, State> {
                         (activeIndex > 4
                           ? activeIndex - 4
                           : activeIndex == -1
-                          ? SET_COUNT - 5
+                          ? type == 'speak'
+                            ? SPEAK_SET_COUNT - 5
+                            : LISTEN_SET_COUNT - 5
                           : 0),
                       onClick: () => this.selectPill(i),
                       onShare: this.toggleShareModal,

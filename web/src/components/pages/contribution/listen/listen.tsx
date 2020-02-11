@@ -18,7 +18,7 @@ import {
 import { LinkButton } from '../../../ui/ui';
 import ContributionPage, {
   ContributionPillProps,
-  SET_COUNT,
+  LISTEN_SET_COUNT,
 } from '../contribution';
 import { PlayButton } from '../../../primary-buttons/primary-buttons';
 import Pill from '../pill';
@@ -87,7 +87,7 @@ class ListenPage extends React.Component<Props, State> {
     if (props.clips.length > 0) {
       return {
         clips: props.clips
-          .slice(0, SET_COUNT)
+          .slice(0, LISTEN_SET_COUNT)
           .map(clip => ({ ...clip, isValid: null })),
       };
     }
@@ -142,7 +142,7 @@ class ListenPage extends React.Component<Props, State> {
       hasPlayed: false,
       hasPlayedSome: false,
       isPlaying: false,
-      isSubmitted: clipIndex === SET_COUNT - 1,
+      isSubmitted: clipIndex === LISTEN_SET_COUNT - 1,
       clips: clips.map((clip, i) =>
         i === clipIndex ? { ...clip, isValid } : clip
       ),
@@ -174,7 +174,7 @@ class ListenPage extends React.Component<Props, State> {
     this.setState({
       clips: clips.map((clip, i) =>
         this.getClipIndex() === i
-          ? { ...this.props.clips.slice(SET_COUNT)[0], isValid: null }
+          ? { ...this.props.clips.slice(LISTEN_SET_COUNT)[0], isValid: null }
           : clip
       ),
       hasPlayed: false,
@@ -231,7 +231,7 @@ class ListenPage extends React.Component<Props, State> {
                 id={
                   hasPlayed
                     ? 'listen-hasplayed-instruction'
-                    : clipIndex === SET_COUNT - 1
+                    : clipIndex === LISTEN_SET_COUNT - 1
                     ? 'listen-last-time-instruction'
                     : [
                         'listen-instruction',
