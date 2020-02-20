@@ -16,10 +16,7 @@ import {
   VolumeIcon,
 } from '../../../ui/icons';
 import { LinkButton } from '../../../ui/ui';
-import ContributionPage, {
-  ContributionPillProps,
-  LISTEN_SET_COUNT,
-} from '../contribution';
+import ContributionPage, { ContributionPillProps } from '../contribution';
 import { PlayButton } from '../../../primary-buttons/primary-buttons';
 import Pill from '../pill';
 
@@ -65,6 +62,7 @@ interface State {
   hasPlayedSome: boolean;
   isPlaying: boolean;
   isSubmitted: boolean;
+  listenSetCount: number;
 }
 
 const initialState: State = {
@@ -73,6 +71,7 @@ const initialState: State = {
   hasPlayedSome: false,
   isPlaying: false,
   isSubmitted: false,
+  listenSetCount: 5,
 };
 
 class ListenPage extends React.Component<Props, State> {
@@ -87,7 +86,7 @@ class ListenPage extends React.Component<Props, State> {
     if (props.clips.length > 0) {
       return {
         clips: props.clips
-          .slice(0, LISTEN_SET_COUNT)
+          .slice(0, state.listenSetCount)
           .map(clip => ({ ...clip, isValid: null })),
       };
     }
@@ -133,7 +132,7 @@ class ListenPage extends React.Component<Props, State> {
   };
 
   private vote = (isValid: boolean) => {
-    const { clips } = this.state;
+    const { clips, listenSetCount } = this.state;
     const clipIndex = this.getClipIndex();
 
     this.stop();
@@ -142,7 +141,7 @@ class ListenPage extends React.Component<Props, State> {
       hasPlayed: false,
       hasPlayedSome: false,
       isPlaying: false,
-      isSubmitted: clipIndex === LISTEN_SET_COUNT - 1,
+      isSubmitted: clipIndex === listenSetCount - 1,
       clips: clips.map((clip, i) =>
         i === clipIndex ? { ...clip, isValid } : clip
       ),
@@ -168,13 +167,13 @@ class ListenPage extends React.Component<Props, State> {
 
   private handleSkip = () => {
     const { removeClip } = this.props;
-    const { clips } = this.state;
+    const { clips, listenSetCount } = this.state;
     this.stop();
     removeClip(clips[this.getClipIndex()].id);
     this.setState({
       clips: clips.map((clip, i) =>
         this.getClipIndex() === i
-          ? { ...this.props.clips.slice(LISTEN_SET_COUNT)[0], isValid: null }
+          ? { ...this.props.clips.slice(listenSetCount)[0], isValid: null }
           : clip
       ),
       hasPlayed: false,
@@ -191,6 +190,7 @@ class ListenPage extends React.Component<Props, State> {
       hasPlayedSome,
       isPlaying,
       isSubmitted,
+      listenSetCount,
     } = this.state;
     const clipIndex = this.getClipIndex();
     const activeClip = clips[clipIndex];
@@ -204,6 +204,7 @@ class ListenPage extends React.Component<Props, State> {
         />
         <ContributionPage
           activeIndex={clipIndex}
+          listenSetCount={listenSetCount}
           errorContent={
             !this.props.isLoading &&
             (clips.length === 0 || !activeClip) && (
@@ -231,7 +232,7 @@ class ListenPage extends React.Component<Props, State> {
                 id={
                   hasPlayed
                     ? 'listen-hasplayed-instruction'
-                    : clipIndex === LISTEN_SET_COUNT - 1
+                    : clipIndex === listenSetCount - 1
                     ? 'listen-last-time-instruction'
                     : [
                         'listen-instruction',

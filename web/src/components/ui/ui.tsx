@@ -23,6 +23,8 @@ export const Button = ({
   className = '',
   outline = false,
   rounded = false,
+  count = false,
+  blue = false,
   ...props
 }) => (
   <button
@@ -31,6 +33,8 @@ export const Button = ({
       'button',
       outline ? 'outline' : '',
       rounded ? 'rounded' : '',
+      blue ? 'blue' : '',
+      count ? 'count' : '',
       className,
     ].join(' ')}
     {...props}
@@ -109,6 +113,7 @@ export const LinkButton = ({
   blank = false,
   outline = false,
   rounded = false,
+  blue = false,
   absolute = false,
   ...props
 }: any) => {
@@ -119,6 +124,7 @@ export const LinkButton = ({
         'button',
         outline ? 'outline' : '',
         rounded ? 'rounded' : '',
+        blue ? 'blue' : '',
         className,
       ].join(' ')}
       {...(blank ? { target: '_blank', rel: 'noopener noreferrer' } : {})}

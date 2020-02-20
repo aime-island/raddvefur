@@ -42,10 +42,7 @@ import {
   isFacebook,
   getUserAgent,
 } from '../../../../utility';
-import ContributionPage, {
-  ContributionPillProps,
-  SPEAK_SET_COUNT,
-} from '../contribution';
+import ContributionPage, { ContributionPillProps } from '../contribution';
 import {
   RecordButton,
   RecordingStatus,
@@ -140,10 +137,13 @@ interface State {
   showDiscardModal: boolean;
   showDemographicInfo: boolean;
   showDemographicModal: boolean;
+  showCountModal: boolean;
+  isCountSet: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
   uploaded: number[];
   userAgent: string;
+  speakSetCount: number;
 }
 
 const initialState: State = {
@@ -151,6 +151,7 @@ const initialState: State = {
   clipsArchive: [],
   clipsBuffer: [],
   isSubmitted: false,
+  isCountSet: false,
   error: null,
   demographicError: null,
   recordingStatus: null,
@@ -159,6 +160,7 @@ const initialState: State = {
   showDiscardModal: false,
   showDemographicInfo: false,
   showDemographicModal: true,
+  showCountModal: true,
   showLanguageSelect: false,
   demographic: {
     sex: '',
@@ -167,6 +169,7 @@ const initialState: State = {
   },
   uploaded: [],
   userAgent: '',
+  speakSetCount: 5,
 };
 
 const Options = withLocalization(
@@ -196,7 +199,7 @@ class SpeakPage extends React.Component<Props, State> {
   recordingStopTime = 0;
 
   static getDerivedStateFromProps(props: Props, state: State) {
-    if (state.clips.length > 0) {
+    if (state.clips.length > 0 && state.isCountSet) {
       const sentenceIds = state.clips
         .map(({ sentence }) => (sentence ? sentence.id : null))
         .filter(Boolean);
@@ -229,9 +232,9 @@ class SpeakPage extends React.Component<Props, State> {
       };
     }
 
-    if (props.sentences.length > 0) {
+    if (props.sentences.length > 0 && state.isCountSet) {
       let clips = props.sentences
-        .slice(0, SPEAK_SET_COUNT)
+        .slice(0, state.speakSetCount)
         .map(sentence => ({ recording: null, sentence }));
       return {
         clips: clips,
@@ -261,6 +264,13 @@ class SpeakPage extends React.Component<Props, State> {
 
     const ua = getUserAgent();
     this.setState({ userAgent: ua });
+    const hasAgreed = this.props.user.privacyAgreed;
+    if (!hasAgreed) {
+      this.setState({
+        isCountSet: true,
+        showCountModal: false,
+      });
+    }
   }
 
   async componentWillUnmount() {
@@ -744,6 +754,21 @@ class SpeakPage extends React.Component<Props, State> {
     });
   }
 
+  private setShowCountModal = () => {
+    this.setState({
+      showCountModal: !this.state.showCountModal,
+      isCountSet: true,
+    });
+  };
+
+  private setSpeakCount(count: number) {
+    this.setState({
+      isCountSet: true,
+      speakSetCount: count,
+      showCountModal: !this.state.showCountModal,
+    });
+  }
+
   private setShowDemographicModal = () => {
     this.setState({
       showDemographicModal: !this.state.showDemographicModal,
@@ -765,9 +790,11 @@ class SpeakPage extends React.Component<Props, State> {
       showDiscardModal,
       showDemographicModal,
       showDemographicInfo,
+      showCountModal,
       demographic,
       showLanguageSelect,
       uploaded,
+      speakSetCount,
     } = this.state;
     const recordingIndex = this.getRecordingIndex();
     if (recordingIndex >= 5 && !uploaded.includes(recordingIndex - 5)) {
@@ -820,6 +847,47 @@ class SpeakPage extends React.Component<Props, State> {
               }}
             />
           </Localized>
+        )}
+        {showCountModal && (
+          <Modal onRequestClose={this.setShowCountModal}>
+            <Localized id="countmodal-title" className="form-title">
+              <h1 className="title" />
+            </Localized>
+
+            <ModalButtons>
+              <Localized>
+                <Localized id="countmodal-five">
+                  <Button
+                    outline
+                    rounded
+                    count
+                    onClick={() => this.setSpeakCount(5)}
+                  />
+                </Localized>
+              </Localized>
+              <Localized>
+                <Localized id="countmodal-fifteen">
+                  <Button
+                    outline
+                    rounded
+                    blue
+                    count
+                    onClick={() => this.setSpeakCount(15)}
+                  />
+                </Localized>
+              </Localized>
+              <Localized>
+                <Localized id="countmodal-thirty">
+                  <Button
+                    outline
+                    rounded
+                    count
+                    onClick={() => this.setSpeakCount(30)}
+                  />
+                </Localized>
+              </Localized>
+            </ModalButtons>
+          </Modal>
         )}
         {showDemographicModal && (
           <Modal
@@ -924,6 +992,7 @@ class SpeakPage extends React.Component<Props, State> {
         )}
         <ContributionPage
           activeIndex={recordingIndex}
+          speakSetCount={speakSetCount}
           errorContent={this.isUnsupportedPlatform && <UnsupportedInfo />}
           extraButton={
             <Button rounded outline className="skip" onClick={this.handleSkip}>
@@ -952,7 +1021,7 @@ class SpeakPage extends React.Component<Props, State> {
                 id={
                   this.isRecording
                     ? 'record-stop-instruction'
-                    : recordingIndex === SPEAK_SET_COUNT - 1
+                    : recordingIndex === speakSetCount - 1
                     ? 'record-last-instruction'
                     : ['record-instruction', 'record-again-instruction'][
                         recordingIndex

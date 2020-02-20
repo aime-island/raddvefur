@@ -29,7 +29,7 @@ import Wave from './wave';
 import './contribution.css';
 import { LANGUAGES, AGES, SEXES } from '../../../stores/demographics';
 
-export const SPEAK_SET_COUNT = 15;
+export const SPEAK_SET_COUNT = 5;
 export const LISTEN_SET_COUNT = 5;
 
 export interface ContributionPillProps {
@@ -62,6 +62,8 @@ interface Props extends LocalizationProps, PropsFromState {
   onSubmit?: () => any;
   primaryButtons: React.ReactNode;
   pills: ((props: ContributionPillProps) => React.ReactNode)[];
+  speakSetCount?: number;
+  listenSetCount?: number;
   sentences: string[];
   shortcuts: {
     key: string;
@@ -76,6 +78,8 @@ interface State {
   selectedPill: number;
   showShareModal: boolean;
   showShortcutsModal: boolean;
+  speakSetCount: number;
+  listenSetCount: number;
 }
 
 class ContributionPage extends React.Component<Props, State> {
@@ -87,6 +91,8 @@ class ContributionPage extends React.Component<Props, State> {
     selectedPill: null,
     showShareModal: false,
     showShortcutsModal: false,
+    speakSetCount: 5,
+    listenSetCount: 5,
   };
 
   private canvasRef: { current: HTMLCanvasElement | null } = React.createRef();
@@ -295,14 +301,19 @@ class ContributionPage extends React.Component<Props, State> {
   }
 
   renderClipCount() {
-    const { activeIndex, isSubmitted } = this.props;
+    const {
+      activeIndex,
+      isSubmitted,
+      speakSetCount,
+      listenSetCount,
+    } = this.props;
     return this.props.type == 'speak'
-      ? (isSubmitted ? SPEAK_SET_COUNT : activeIndex + 1 || SPEAK_SET_COUNT) +
+      ? (isSubmitted ? speakSetCount : activeIndex + 1 || speakSetCount) +
           '/' +
-          SPEAK_SET_COUNT
-      : (isSubmitted ? LISTEN_SET_COUNT : activeIndex + 1 || LISTEN_SET_COUNT) +
+          speakSetCount
+      : (isSubmitted ? listenSetCount : activeIndex + 1 || listenSetCount) +
           '/' +
-          LISTEN_SET_COUNT;
+          listenSetCount;
   }
 
   renderContent() {
@@ -324,18 +335,23 @@ class ContributionPage extends React.Component<Props, State> {
       user,
       setShowDemographicModal,
     } = this.props;
-    const { selectedPill } = this.state;
+    const { selectedPill, speakSetCount, listenSetCount } = this.state;
     const fivePills =
       activeIndex > 4
         ? pills.slice(activeIndex - 4, activeIndex + 1)
         : activeIndex == -1
         ? type == 'speak'
-          ? pills.slice(SPEAK_SET_COUNT - 5, SPEAK_SET_COUNT)
-          : pills.slice(LISTEN_SET_COUNT - 5, LISTEN_SET_COUNT)
+          ? pills.slice(speakSetCount - 5, speakSetCount)
+          : pills.slice(listenSetCount - 5, listenSetCount)
         : pills.slice(0, 5);
 
     return isSubmitted ? (
-      <Success onReset={onReset} type={type} />
+      <Success
+        onReset={onReset}
+        type={type}
+        listenSetCount={listenSetCount}
+        speakSetCount={speakSetCount}
+      />
     ) : (
       errorContent ||
         (this.isLoaded && (
@@ -347,8 +363,8 @@ class ContributionPage extends React.Component<Props, State> {
                   {sentences.map((sentence, i) => {
                     const activeSentenceIndex = this.isDone
                       ? type == 'speak'
-                        ? SPEAK_SET_COUNT - 1
-                        : LISTEN_SET_COUNT - 1
+                        ? speakSetCount - 1
+                        : listenSetCount - 1
                       : activeIndex;
                     const isActive = i === activeSentenceIndex;
                     return (
@@ -408,8 +424,8 @@ class ContributionPage extends React.Component<Props, State> {
                           ? activeIndex - 4
                           : activeIndex == -1
                           ? type == 'speak'
-                            ? SPEAK_SET_COUNT - 5
-                            : LISTEN_SET_COUNT - 5
+                            ? speakSetCount - 5
+                            : listenSetCount - 5
                           : 0),
                       onClick: () => this.selectPill(i),
                       onShare: this.toggleShareModal,
@@ -515,7 +531,7 @@ class ContributionPage extends React.Component<Props, State> {
                     <Localized id="submit-form-action">
                       <PrimaryButton
                         className="submit"
-                        disabled={!this.isDone}
+                        disabled={activeIndex < 1}
                         onClick={onSubmit}
                         type="submit"
                       />

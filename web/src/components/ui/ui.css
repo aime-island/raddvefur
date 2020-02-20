@@ -49,6 +49,16 @@
         height: auto;
     }
 
+    &.count {
+        min-width: 10rem;
+    }
+
+    &.blue {
+        background: var(--blue);
+        color: var(--white);
+        border: none;
+    }
+
     &.outline {
         border-radius: 4px;
         border: solid 1px color-mod(var(--black) alpha(10%));
