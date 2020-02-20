@@ -531,7 +531,7 @@ class ContributionPage extends React.Component<Props, State> {
                     <Localized id="submit-form-action">
                       <PrimaryButton
                         className="submit"
-                        disabled={activeIndex < 1}
+                        disabled={!this.isDone && activeIndex < 1}
                         onClick={onSubmit}
                         type="submit"
                       />
