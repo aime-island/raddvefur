@@ -798,6 +798,7 @@ class SpeakPage extends React.Component<Props, State> {
     } = this.state;
     const recordingIndex = this.getRecordingIndex();
     if (recordingIndex >= 5 && !uploaded.includes(recordingIndex - 5)) {
+      console.log('Núna á að uploadast');
       this.uploadSingle(recordingIndex - 5);
     }
     return (
