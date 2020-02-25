@@ -68,7 +68,7 @@ export const LANGUAGES: any = {
 
 export const AGES: any = {
   '': '',
-  ungur_unglingur: '13 - 17',
+  //ungur_unglingur: '13 - 17',
   unglingur: '18 - 19',
   tvitugt: '20 - 29',
   thritugt: '30 - 39',

@@ -28,6 +28,7 @@ import Wave from './wave';
 
 import './contribution.css';
 import { LANGUAGES, AGES, SEXES } from '../../../stores/demographics';
+import pill from './pill';
 
 export const SPEAK_SET_COUNT = 5;
 export const LISTEN_SET_COUNT = 5;
@@ -127,7 +128,8 @@ class ContributionPage extends React.Component<Props, State> {
   }
 
   private get isDone() {
-    return this.isLoaded && this.props.activeIndex === -1;
+    //const count = this.props.type == 'speak' ? this.props.speakSetCount : this.props.listenSetCount;
+    return this.isLoaded && this.props.activeIndex == -1;
   }
 
   private get shortcuts() {
@@ -332,19 +334,24 @@ class ContributionPage extends React.Component<Props, State> {
       primaryButtons,
       sentences,
       type,
+      speakSetCount,
+      listenSetCount,
       user,
       setShowDemographicModal,
     } = this.props;
-    const { selectedPill, speakSetCount, listenSetCount } = this.state;
-    const fivePills =
-      activeIndex > 4
-        ? pills.slice(activeIndex - 4, activeIndex + 1)
-        : activeIndex == -1
-        ? type == 'speak'
+    const { selectedPill } = this.state;
+    let fivePills;
+    if (activeIndex > 4) {
+      fivePills = pills.slice(activeIndex - 4, activeIndex + 1);
+    } else if (activeIndex == -1) {
+      console.log('ÉG ER HÉR OG ÉG SKIL EKKI NEITT');
+      fivePills =
+        type == 'speak'
           ? pills.slice(speakSetCount - 5, speakSetCount)
-          : pills.slice(listenSetCount - 5, listenSetCount)
-        : pills.slice(0, 5);
-
+          : pills.slice(listenSetCount - 5, listenSetCount);
+    } else {
+      fivePills = pills.slice(0, 5);
+    }
     return isSubmitted ? (
       <Success
         onReset={onReset}

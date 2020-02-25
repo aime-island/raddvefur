@@ -186,6 +186,69 @@ export const Toggle = ({
   </div>
 );
 
+interface Option {
+  text: string;
+  value: number;
+}
+
+export class Radio extends React.Component<any, any> {
+  state: any = {
+    checked: 15,
+  };
+
+  constructor(props: any) {
+    super(props);
+  }
+
+  private setSelected = (selected: number) => {
+    this.setState({
+      checked: selected,
+    });
+  };
+
+  render() {
+    return (
+      <div className="radio-inputs">
+        {this.props.options.map((option: Option) => (
+          <div className="radio-input">
+            <label
+              className={[
+                'button outline rounded count',
+                this.state.checked == option.value ? 'blue' : '',
+              ].join(' ')}>
+              <input
+                type="radio"
+                name={name}
+                value={option.value}
+                {...this.props}
+                onClick={() => this.setSelected(option.value)}
+              />
+              {option.text}
+            </label>
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+export const Radioass = ({
+  options,
+  name,
+  ...props
+}: { options: Option[]; name: string } & HTMLProps<HTMLInputElement>) => (
+  <div className="radio-inputs">
+    {options.map((option: Option) => (
+      <div className="radio-input">
+        <label className="button rounded outline blue count">
+          <input type="radio" name={name} value={option.value} {...props} />
+          {option.text}
+        </label>
+      </div>
+    ))}
+  </div>
+);
+
 export const ToggleIs = ({
   offText,
   onText,

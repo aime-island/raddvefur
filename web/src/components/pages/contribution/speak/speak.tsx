@@ -22,6 +22,7 @@ import {
   LocalePropsFromState,
 } from '../../../locale-helpers';
 import Modal, { ModalButtons } from '../../../modal/modal';
+import CountModal from '../count-modal';
 import TermsModal from '../../../terms-modal';
 import {
   CheckIcon,
@@ -169,7 +170,7 @@ const initialState: State = {
   },
   uploaded: [],
   userAgent: '',
-  speakSetCount: 5,
+  speakSetCount: 15,
 };
 
 const Options = withLocalization(
@@ -312,8 +313,8 @@ class SpeakPage extends React.Component<Props, State> {
   private getRecordingIndex() {
     const { rerecordIndex } = this.state;
     const index = this.state.clips.findIndex(({ recording }) => !recording);
-    const buffer = this.state.clipsBuffer.length;
-    const realIndex = index + Math.abs(buffer - 5);
+    //const buffer = this.state.clipsBuffer.length;
+    //const realIndex = index + Math.abs(buffer - 5);
     return rerecordIndex === null ? index : rerecordIndex;
   }
 
@@ -612,19 +613,6 @@ class SpeakPage extends React.Component<Props, State> {
           }
         }
       }),
-
-      /* async () => {
-        trackRecording('submit', locale);
-        refreshUser();
-        addNotification(
-          <React.Fragment>
-            <CheckIcon />{' '}
-            <Localized id="clips-uploaded">
-              <span />
-            </Localized>
-          </React.Fragment>
-        );
-      }, */
     ]);
   };
 
@@ -756,16 +744,14 @@ class SpeakPage extends React.Component<Props, State> {
 
   private setShowCountModal = () => {
     this.setState({
-      showCountModal: !this.state.showCountModal,
       isCountSet: true,
+      showCountModal: !this.state.showCountModal,
     });
   };
 
   private setSpeakCount(count: number) {
     this.setState({
-      isCountSet: true,
       speakSetCount: count,
-      showCountModal: !this.state.showCountModal,
     });
   }
 
@@ -798,7 +784,6 @@ class SpeakPage extends React.Component<Props, State> {
     } = this.state;
     const recordingIndex = this.getRecordingIndex();
     if (recordingIndex >= 5 && !uploaded.includes(recordingIndex - 5)) {
-      console.log('Núna á að uploadast');
       this.uploadSingle(recordingIndex - 5);
     }
     return (
@@ -850,45 +835,10 @@ class SpeakPage extends React.Component<Props, State> {
           </Localized>
         )}
         {showCountModal && (
-          <Modal onRequestClose={this.setShowCountModal}>
-            <Localized id="countmodal-title" className="form-title">
-              <h1 className="title" />
-            </Localized>
-
-            <ModalButtons>
-              <Localized>
-                <Localized id="countmodal-five">
-                  <Button
-                    outline
-                    rounded
-                    count
-                    onClick={() => this.setSpeakCount(5)}
-                  />
-                </Localized>
-              </Localized>
-              <Localized>
-                <Localized id="countmodal-fifteen">
-                  <Button
-                    outline
-                    rounded
-                    blue
-                    count
-                    onClick={() => this.setSpeakCount(15)}
-                  />
-                </Localized>
-              </Localized>
-              <Localized>
-                <Localized id="countmodal-thirty">
-                  <Button
-                    outline
-                    rounded
-                    count
-                    onClick={() => this.setSpeakCount(30)}
-                  />
-                </Localized>
-              </Localized>
-            </ModalButtons>
-          </Modal>
+          <CountModal
+            setShowCountModal={this.setShowCountModal}
+            setSpeakCount={count => this.setSpeakCount(count)}
+          />
         )}
         {showDemographicModal && (
           <Modal

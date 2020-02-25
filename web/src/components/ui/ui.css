@@ -1,5 +1,4 @@
 @import url('../vars.css');
-
 :root {
     --toggle-padding: 10px;
 }
@@ -11,13 +10,11 @@
     height: 44px;
     overflow: hidden;
     background: #f89096;
-
     & > img {
         object-fit: cover;
         height: 100%;
         width: 100%;
     }
-
     & .mars-avatar {
         object-fit: contain;
     }
@@ -43,43 +40,35 @@
     background: var(--near-black);
     color: var(--white);
     width: 100%;
-
     @media (--md-up) {
         width: auto;
         height: auto;
     }
-
     &.count {
         min-width: 10rem;
     }
-
-    &.blue {
-        background: var(--blue);
-        color: var(--white);
-        border: none;
-    }
-
     &.outline {
         border-radius: 4px;
         border: solid 1px color-mod(var(--black) alpha(10%));
         background-color: var(--white);
         color: var(--black);
     }
-
     &.rounded {
         border-radius: 50px;
     }
-
     & path {
         transition: all var(--transition-duration) linear;
     }
+    &.blue {
+        background: var(--blue);
+        color: var(--white);
+    }
 }
 
-body:not(.mobile-safari) .button:hover,
-.button:focus.focus-visible {
+/* body:not(.mobile-safari) .button:hover, .button:focus.focus-visible {
     background-color: var(--white);
     color: var(--black);
-}
+} */
 
 body:not(.mobile-safari) .button.outline:hover,
 .button.outline:focus.focus-visible {
@@ -147,7 +136,6 @@ button.card-action:focus.focus-visible path {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-
     & .checkbox-container {
         flex-shrink: 0;
         margin-top: 5px;
@@ -159,7 +147,6 @@ button.card-action:focus.focus-visible path {
         height: 15px;
         box-sizing: border-box;
     }
-
     & input {
         position: absolute;
         top: 0;
@@ -169,18 +156,15 @@ button.card-action:focus.focus-visible path {
         appearance: none;
         visibility: hidden;
     }
-
     & .checkmark {
         width: 100%;
         display: none;
         position: absolute;
         top: -6px;
-
         & path {
             fill: var(--near-black);
         }
     }
-
     & input:checked ~ .checkmark {
         display: block;
     }
@@ -191,12 +175,10 @@ button.card-action:focus.focus-visible path {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-
     & :required,
     & :valid {
         box-shadow: none;
     }
-
     & .label {
         margin-inline-start: 9px;
         padding: 0 5px;
@@ -207,7 +189,6 @@ button.card-action:focus.focus-visible path {
         font-size: var(--font-size-xs);
         color: var(--warm-grey);
     }
-
     & input,
     & select,
     & textarea {
@@ -219,20 +200,16 @@ button.card-action:focus.focus-visible path {
         font-family: var(--base-font-family);
         color: var(--black);
         background-color: var(--white);
-
         &:focus {
             border-color: var(--black);
         }
-
         &:disabled {
             color: var(--warm-grey);
         }
     }
-
     &.for-select {
         & .wrapper {
             position: relative;
-
             & select {
                 cursor: pointer;
                 padding-inline-end: 33px;
@@ -245,16 +222,13 @@ button.card-action:focus.focus-visible path {
 
 .menu-icon {
     transform: scale(2);
-
     & rect {
         transition: transform var(--transition-duration) var(--easing);
     }
-
     &.active {
         & .left {
             transform: translateX(-4px);
         }
-
         & .right {
             transform: translateX(4px);
         }
@@ -272,7 +246,6 @@ button.card-action:focus.focus-visible path {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-
     & span {
         border-radius: 50%;
         display: inline-block;
@@ -297,22 +270,35 @@ button.card-action:focus.focus-visible path {
     font-family: var(--base-font-family);
 }
 
+.radio-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.radio-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    & input {
+        display: none;
+    }
+}
+
 .toggle-input {
     box-sizing: border-box;
     border-radius: 25px;
     padding: 0 var(--toggle-padding);
     width: fit-content;
     height: 36px;
-
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
     color: var(--white);
     background: #9b9b9b;
-
     & input {
         margin: 0;
         width: 100%;
@@ -320,7 +306,6 @@ button.card-action:focus.focus-visible path {
         position: absolute;
         appearance: none;
         cursor: pointer;
-
         &::before {
             content: '';
             border-radius: 25px;
@@ -332,12 +317,10 @@ button.card-action:focus.focus-visible path {
             transform: translateX(0%);
             transition: transform var(--easing) var(--transition-duration);
         }
-
         &:checked::before {
             transform: translateX(calc(100% - 2 * var(--toggle-padding)));
         }
     }
-
     & div {
         z-index: var(--middle-z-index);
         pointer-events: none;
