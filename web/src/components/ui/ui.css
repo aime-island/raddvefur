@@ -270,15 +270,8 @@ button.card-action:focus.focus-visible path {
     font-family: var(--base-font-family);
 }
 
-.radio-inputs {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .radio-input {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     & input {

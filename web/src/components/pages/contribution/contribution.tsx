@@ -344,7 +344,6 @@ class ContributionPage extends React.Component<Props, State> {
     if (activeIndex > 4) {
       fivePills = pills.slice(activeIndex - 4, activeIndex + 1);
     } else if (activeIndex == -1) {
-      console.log('ÉG ER HÉR OG ÉG SKIL EKKI NEITT');
       fivePills =
         type == 'speak'
           ? pills.slice(speakSetCount - 5, speakSetCount)

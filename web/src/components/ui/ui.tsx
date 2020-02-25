@@ -208,7 +208,7 @@ export class Radio extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="radio-inputs">
+      <div className="buttons">
         {this.props.options.map((option: Option) => (
           <div className="radio-input">
             <label
