@@ -28,6 +28,10 @@ export default class CountModal extends React.Component<Props, State> {
     count: 15,
   };
 
+  componentDidMount = () => {
+    this.props.setSpeakCount(15);
+  };
+
   render() {
     return (
       <Modal onRequestClose={this.props.setShowCountModal}>

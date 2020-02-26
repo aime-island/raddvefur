@@ -161,7 +161,7 @@ const initialState: State = {
   showDiscardModal: false,
   showDemographicInfo: false,
   showDemographicModal: true,
-  showCountModal: true,
+  showCountModal: false,
   showLanguageSelect: false,
   demographic: {
     sex: '',
@@ -170,7 +170,7 @@ const initialState: State = {
   },
   uploaded: [],
   userAgent: '',
-  speakSetCount: 15,
+  speakSetCount: 5,
 };
 
 const Options = withLocalization(
@@ -270,6 +270,10 @@ class SpeakPage extends React.Component<Props, State> {
       this.setState({
         isCountSet: true,
         showCountModal: false,
+      });
+    } else {
+      this.setState({
+        showCountModal: true,
       });
     }
   }
