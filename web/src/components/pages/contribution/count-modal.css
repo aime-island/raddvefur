@@ -1,0 +1,6 @@
+.count-text {
+    font-size: 14px;
+    & span {
+        font-weight: 700;
+    }
+}

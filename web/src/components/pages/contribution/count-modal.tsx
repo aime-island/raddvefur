@@ -2,7 +2,9 @@ import * as React from 'react';
 import { Localized } from 'fluent-react/compat';
 import { Button, Radio } from '../../ui/ui';
 import Modal, { ModalButtons } from '../../modal/modal';
-import { InfoIcon, CogIcon } from '../../ui/icons';
+import { InfoIcon, CautionIcon } from '../../ui/icons';
+
+import './count-modal.css';
 
 interface State {
   count: number;
@@ -49,8 +51,9 @@ export default class CountModal extends React.Component<Props, State> {
           <div className="toggle-with-info">
             <div className="info">
               <InfoIcon />
-              <div className="cookie-text">
-                Þú getur alltaf yfirfarið og endurupptekið síðustu 5 upptökur.
+              <div className="count-text">
+                <span>Ath.</span> Þú getur alltaf yfirfarið og endurupptekið{' '}
+                <span>síðustu 5 upptökur.</span>
               </div>
             </div>
           </div>
