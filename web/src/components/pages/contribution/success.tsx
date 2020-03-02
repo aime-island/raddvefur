@@ -68,7 +68,9 @@ export default function Success({
       ? api.fetchDailyClipsCount()
       : api.fetchDailyVotesCount()
     ).then(value => {
-      setContributionCount(value + speakSetCount);
+      type === 'speak'
+        ? setContributionCount(value + speakSetCount)
+        : setContributionCount(value + listenSetCount);
     });
     return () => {
       killAnimation.current = true;
@@ -169,7 +171,7 @@ export default function Success({
             <LocaleLink to={URLS.LISTEN} />
           </Localized>
         ) : (
-          <Localized id="contribute-more" $count={listenSetCount}>
+          <Localized id="contribute-more-listen" $count={listenSetCount}>
             <span />
           </Localized>
         )}

@@ -30,8 +30,6 @@ import './contribution.css';
 import { LANGUAGES, AGES, SEXES } from '../../../stores/demographics';
 import pill from './pill';
 
-export const LISTEN_SET_COUNT = 5;
-
 export interface ContributionPillProps {
   isOpen: boolean;
   key: any;
