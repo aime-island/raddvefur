@@ -22,6 +22,7 @@ import {
   LocalePropsFromState,
 } from '../../../locale-helpers';
 import Modal, { ModalButtons } from '../../../modal/modal';
+import CountModal from '../count-modal';
 import TermsModal from '../../../terms-modal';
 import {
   CheckIcon,
@@ -42,10 +43,7 @@ import {
   isFacebook,
   getUserAgent,
 } from '../../../../utility';
-import ContributionPage, {
-  ContributionPillProps,
-  SET_COUNT,
-} from '../contribution';
+import ContributionPage, { ContributionPillProps } from '../contribution';
 import {
   RecordButton,
   RecordingStatus,
@@ -63,6 +61,7 @@ import {
 } from '../../../../stores/demographics';
 
 import './speak.css';
+import { Clips } from '../../../../stores/clips';
 
 const MIN_RECORDING_MS = 1000;
 const MAX_RECORDING_MS = 15000;
@@ -128,6 +127,8 @@ interface Props
 
 interface State {
   clips: SentenceRecording[];
+  clipsArchive: SentenceRecording[];
+  clipsBuffer: SentenceRecording[];
   isSubmitted: boolean;
   error?: RecordingError | AudioError;
   demographicError?: DemographicError;
@@ -137,14 +138,21 @@ interface State {
   showDiscardModal: boolean;
   showDemographicInfo: boolean;
   showDemographicModal: boolean;
+  showCountModal: boolean;
+  isCountSet: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
+  uploaded: number[];
   userAgent: string;
+  speakSetCount: number;
 }
 
 const initialState: State = {
   clips: [],
+  clipsArchive: [],
+  clipsBuffer: [],
   isSubmitted: false,
+  isCountSet: false,
   error: null,
   demographicError: null,
   recordingStatus: null,
@@ -153,13 +161,16 @@ const initialState: State = {
   showDiscardModal: false,
   showDemographicInfo: false,
   showDemographicModal: true,
+  showCountModal: false,
   showLanguageSelect: false,
   demographic: {
     sex: '',
     age: '',
     native_language: '',
   },
+  uploaded: [],
   userAgent: '',
+  speakSetCount: 5,
 };
 
 const Options = withLocalization(
@@ -189,27 +200,45 @@ class SpeakPage extends React.Component<Props, State> {
   recordingStopTime = 0;
 
   static getDerivedStateFromProps(props: Props, state: State) {
-    if (state.clips.length > 0) {
+    if (state.clips.length > 0 && state.isCountSet) {
       const sentenceIds = state.clips
         .map(({ sentence }) => (sentence ? sentence.id : null))
         .filter(Boolean);
+
+      const haveRecordings = state.clips
+        .map(clip => (clip.recording ? clip : null))
+        .filter(Boolean);
+      const recorded = haveRecordings.length;
+
+      const clipsBuffer = state.clipsBuffer;
+
+      const haveNoRecordings = state.clips
+        .map(clip => (clip.recording ? null : clip))
+        .filter(Boolean);
+      const unrecorded = haveNoRecordings.length;
+
       const unusedSentences = props.sentences.filter(
         s => !sentenceIds.includes(s.id)
       );
+
+      let clips = state.clips.map(clip =>
+        clip.sentence
+          ? clip
+          : { recording: null, sentence: unusedSentences.pop() || null }
+      );
+
       return {
-        clips: state.clips.map(clip =>
-          clip.sentence
-            ? clip
-            : { recording: null, sentence: unusedSentences.pop() || null }
-        ),
+        clipsBuffer: haveRecordings,
+        clips: clips,
       };
     }
 
-    if (props.sentences.length > 0) {
+    if (props.sentences.length > 0 && state.isCountSet) {
+      let clips = props.sentences
+        .slice(0, state.speakSetCount)
+        .map(sentence => ({ recording: null, sentence }));
       return {
-        clips: props.sentences
-          .slice(0, SET_COUNT)
-          .map(sentence => ({ recording: null, sentence })),
+        clips: clips,
       };
     }
 
@@ -236,6 +265,17 @@ class SpeakPage extends React.Component<Props, State> {
 
     const ua = getUserAgent();
     this.setState({ userAgent: ua });
+    const hasAgreed = this.props.user.privacyAgreed;
+    if (!hasAgreed) {
+      this.setState({
+        isCountSet: true,
+        showCountModal: false,
+      });
+    } else {
+      this.setState({
+        showCountModal: true,
+      });
+    }
   }
 
   async componentWillUnmount() {
@@ -276,9 +316,10 @@ class SpeakPage extends React.Component<Props, State> {
 
   private getRecordingIndex() {
     const { rerecordIndex } = this.state;
-    return rerecordIndex === null
-      ? this.state.clips.findIndex(({ recording }) => !recording)
-      : rerecordIndex;
+    const index = this.state.clips.findIndex(({ recording }) => !recording);
+    //const buffer = this.state.clipsBuffer.length;
+    //const realIndex = index + Math.abs(buffer - 5);
+    return rerecordIndex === null ? index : rerecordIndex;
   }
 
   private releaseMicrophone = () => {
@@ -444,7 +485,6 @@ class SpeakPage extends React.Component<Props, State> {
       this.setState({ showPrivacyModal: true });
       return false;
     }
-
     const { demographic } = this.state;
 
     const demographicError = this.getDemographicError(demographic);
@@ -456,7 +496,12 @@ class SpeakPage extends React.Component<Props, State> {
       return false;
     }
 
-    const clips = this.state.clips.filter(clip => clip.recording);
+    let clips = this.state.clips.filter(clip => clip.recording);
+
+    const { uploaded } = this.state;
+    const uploadedIndex = Math.max(...uploaded);
+
+    clips = clips.slice(uploadedIndex + 1);
     const { userAgent } = this.state;
     removeSentences(clips.map(c => c.sentence.id));
 
@@ -495,6 +540,7 @@ class SpeakPage extends React.Component<Props, State> {
           }
         }
       }),
+
       async () => {
         trackRecording('submit', locale);
         refreshUser();
@@ -510,6 +556,68 @@ class SpeakPage extends React.Component<Props, State> {
     ]);
 
     return true;
+  };
+
+  private uploadSingle = async (index: number) => {
+    let uploaded = this.state.uploaded;
+    uploaded.push(index);
+    this.setState({ uploaded: uploaded });
+
+    const {
+      addNotification,
+      addUploads,
+      api,
+      locale,
+      removeSentences,
+      tallyRecording,
+      user,
+      refreshUser,
+    } = this.props;
+
+    const clip = this.state.clips[index];
+    const clips = this.state.clips.filter(
+      c => c.sentence.id == clip.sentence.id
+    );
+    removeSentences(clips.map(c => c.sentence.id));
+
+    // this.setState({ clips: [], isSubmitted: true });
+
+    const { demographic } = this.state;
+    const { userAgent } = this.state;
+    addUploads([
+      ...clips.map(({ sentence, recording }) => async () => {
+        let retries = 3;
+        while (retries) {
+          try {
+            await api.uploadClip(
+              recording.blob,
+              sentence.id,
+              sentence.text,
+              demographic,
+              userAgent
+            );
+            if (!user.account) {
+              tallyRecording();
+            }
+            retries = 0;
+          } catch (error) {
+            let msg;
+            if (error.message === 'save_clip_error') {
+              msg =
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
+            } else {
+              msg =
+                'Innsending raddsýnis mistókst, reyndu aftur eftir smá stund';
+            }
+            retries--;
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            if (retries == 0 && confirm(msg)) {
+              retries = 3;
+            }
+          }
+        }
+      }),
+    ]);
   };
 
   private resetState = (callback?: any) => {
@@ -546,6 +654,7 @@ class SpeakPage extends React.Component<Props, State> {
       }
     });
   };
+
   private submitDemographic = async () => {
     await this.checkNativeLanguage();
     const demographicError = this.getDemographicError(this.state.demographic);
@@ -637,8 +746,20 @@ class SpeakPage extends React.Component<Props, State> {
     });
   }
 
+  private setShowCountModal = () => {
+    this.setState({
+      isCountSet: true,
+      showCountModal: !this.state.showCountModal,
+    });
+  };
+
+  private setSpeakCount(count: number) {
+    this.setState({
+      speakSetCount: count,
+    });
+  }
+
   private setShowDemographicModal = () => {
-    console.log(this.state.showDemographicModal);
     this.setState({
       showDemographicModal: !this.state.showDemographicModal,
     });
@@ -648,6 +769,8 @@ class SpeakPage extends React.Component<Props, State> {
     const { getString, user } = this.props;
     const {
       clips,
+      clipsArchive,
+      clipsBuffer,
       isSubmitted,
       error,
       demographicError,
@@ -657,10 +780,16 @@ class SpeakPage extends React.Component<Props, State> {
       showDiscardModal,
       showDemographicModal,
       showDemographicInfo,
+      showCountModal,
       demographic,
       showLanguageSelect,
+      uploaded,
+      speakSetCount,
     } = this.state;
     const recordingIndex = this.getRecordingIndex();
+    if (recordingIndex >= 5 && !uploaded.includes(recordingIndex - 5)) {
+      this.uploadSingle(recordingIndex - 5);
+    }
     return (
       <React.Fragment>
         <NavigationPrompt
@@ -708,6 +837,12 @@ class SpeakPage extends React.Component<Props, State> {
               }}
             />
           </Localized>
+        )}
+        {showCountModal && (
+          <CountModal
+            setShowCountModal={this.setShowCountModal}
+            setSpeakCount={count => this.setSpeakCount(count)}
+          />
         )}
         {showDemographicModal && (
           <Modal
@@ -812,6 +947,7 @@ class SpeakPage extends React.Component<Props, State> {
         )}
         <ContributionPage
           activeIndex={recordingIndex}
+          speakSetCount={speakSetCount}
           errorContent={this.isUnsupportedPlatform && <UnsupportedInfo />}
           extraButton={
             <Button rounded outline className="skip" onClick={this.handleSkip}>
@@ -840,7 +976,7 @@ class SpeakPage extends React.Component<Props, State> {
                 id={
                   this.isRecording
                     ? 'record-stop-instruction'
-                    : recordingIndex === SET_COUNT - 1
+                    : recordingIndex === speakSetCount - 1
                     ? 'record-last-instruction'
                     : ['record-instruction', 'record-again-instruction'][
                         recordingIndex

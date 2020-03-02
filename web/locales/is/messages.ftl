@@ -119,6 +119,13 @@ male                        = Karlkyns
 female                      = Kvenkyns
 other                       = Annað
 
+## Count Modal
+countmodal-title            = Hversu margar setningar viltu lesa inn?
+countmodal-subtitle         = Því fleiri, því betra en þú getur alltaf hætt í miðjum klíðum.
+countmodal-five             = 5
+countmodal-fifteen          = 15
+countmodal-thirty           = 30
+
 ## Speak & Listen Shortcuts
 
 # Must be one letter that appears in the translated { skip } string.
@@ -243,11 +250,8 @@ shortcuts               = Flýtileiðir
 clips-with-count        = <bold>{ $count }</bold> upptökur
 goal-help-recording     = Þú hefur hjálpað Samrómi að ná <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
 goal-help-validation    = Þú hefur hjálpað Samrómi að staðfesta <goalPercentage></goalPercentage> af daglegu { $goalValue } upptöku markmiði!
-contribute-more         = {
-     $count ->
-     [one] Til í að gera { $count } í viðbót?
-     *[other] Til í að gera { $count } í viðbót?
-    }
+contribute-more         = Viltu lesa inn fleiri setningar?
+contribute-more-listen  = Viltu hlusta á fleiri setningar?
 record-cta              = Hefja upptöku
 record-platform-not-supported = Því miður er ekki stuðningur við þennan vafra að svo stöddu.
 record-platform-not-supported-desktop = Hægt er að nota vefinn á: 

@@ -8,7 +8,6 @@ import CustomGoalLock from '../../custom-goal-lock';
 import { LocaleLink } from '../../locale-helpers';
 import { CheckIcon, MicIcon, PlayOutlineIcon } from '../../ui/icons';
 import { Button, LinkButton, TextButton } from '../../ui/ui';
-import { SET_COUNT } from './contribution';
 
 import './success.css';
 
@@ -30,8 +29,12 @@ const GoalPercentage = ({
 export default function Success({
   onReset,
   type,
+  listenSetCount,
+  speakSetCount,
 }: {
   type: 'speak' | 'listen';
+  listenSetCount: number;
+  speakSetCount: number;
   onReset: () => any;
 }) {
   const api = useAPI();
@@ -65,7 +68,9 @@ export default function Success({
       ? api.fetchDailyClipsCount()
       : api.fetchDailyVotesCount()
     ).then(value => {
-      setContributionCount(value + SET_COUNT);
+      type === 'speak'
+        ? setContributionCount(value + speakSetCount)
+        : setContributionCount(value + listenSetCount);
     });
     return () => {
       killAnimation.current = true;
@@ -114,7 +119,11 @@ export default function Success({
         <Localized
           id="clips-with-count"
           bold={<b />}
-          $count={SET_COUNT + '/' + SET_COUNT}>
+          $count={
+            type === 'speak'
+              ? speakSetCount + '/' + speakSetCount
+              : listenSetCount + '/' + listenSetCount
+          }>
           <span className="text" />
         </Localized>
       </div>
@@ -141,7 +150,7 @@ export default function Success({
             <p />
           </Localized>
           <Localized id="speak-subtitle">
-            <LinkButton rounded href="/tala" />
+            <LinkButton rounded blue href="/tala" />
           </Localized>
         </div>
       ) : (
@@ -149,8 +158,8 @@ export default function Success({
           <Localized id="speak-paragraph">
             <p />
           </Localized>
-          <Localized id="contribute-more" $count={SET_COUNT}>
-            <LinkButton rounded href="/tala" />
+          <Localized id="contribute-more" $count={speakSetCount}>
+            <LinkButton rounded blue href="/tala" />
           </Localized>
         </div>
       )}
@@ -162,7 +171,7 @@ export default function Success({
             <LocaleLink to={URLS.LISTEN} />
           </Localized>
         ) : (
-          <Localized id="contribute-more" $count={SET_COUNT}>
+          <Localized id="contribute-more-listen" $count={listenSetCount}>
             <span />
           </Localized>
         )}
