@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "husky": "^2.4.0",
-    "pretty-quick": "^1.11.0"
+    "pretty-quick": "^1.11.0",
+    "serialize-javascript": ">=2.1.1"
   },
   "workspaces": [
     "common",

@@ -845,6 +845,7 @@ class SpeakPage extends React.Component<Props, State> {
           />
         )}
         {showDemographicModal && (
+          //Modal með lýðfræði upplýsingum
           <Modal
             innerClassName="demographic-modal"
             onRequestClose={this.setShowDemographicModal}>
