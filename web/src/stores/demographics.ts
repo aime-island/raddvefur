@@ -68,7 +68,7 @@ export const LANGUAGES: any = {
 
 export const AGES: any = {
   '': '',
-  barn: '< 18',
+  barn: 'undir 18',
   unglingur: '18 - 19',
   tvitugt: '20 - 29',
   thritugt: '30 - 39',
@@ -77,7 +77,7 @@ export const AGES: any = {
   sextugt: '60 - 69',
   sjotugt: '70 - 79',
   attraett: '80 - 89',
-  niraett: '> 89',
+  niraett: 'yfir 89',
 };
 
 export const SEXES: any = {

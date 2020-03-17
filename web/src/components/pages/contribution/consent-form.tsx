@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Localized } from 'fluent-react/compat';
-import { Button, LabeledInput } from '../../ui/ui';
+import { Button, LabeledInput, StyledLink } from '../../ui/ui';
 import { ModalButtons } from '../../modal/modal';
 import API from '../../../services/api';
 import './consent-form.css';
@@ -205,7 +205,9 @@ export default class CountModal extends React.Component<Props, State> {
           {consentNeeded && !emailSent && (
             <div>
               <div className="info">
-                Vinsamlegast sláðu inn netfang forsjáraðila.
+                <Localized id="consent-provide-email">
+                  <span />
+                </Localized>
               </div>
               <div className="form-fields">
                 <Localized id="consent-form-email" attrs={{ label: true }}>
@@ -240,7 +242,13 @@ export default class CountModal extends React.Component<Props, State> {
             <DownIcon />
           </button>
           <Localized
-            id="why-demographic-explanation"
+            id="why-consent-explanation"
+            privacyRightsLink={
+              <StyledLink
+                href="https://www.stjornartidindi.is/Advert.aspx?RecordID=55860204-b174-41c8-bf50-7f36e88eb051"
+                blank
+              />
+            }
             termsLink={<LocaleLink to={URLS.TERMS} blank />}
             privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
             <div className="explanation" />

@@ -111,21 +111,30 @@ demographic-form-age        =
     .label = Aldur
 demographic-form-native-language =
     .label = Móðurmál
+why-demographic             = Hvers vegna skiptir þetta máli? 
+why-demographic-explanation = Ofantaldar upplýsingar eru notaðar til að meta hversu lýðfræðilega dreift gagnasafnið Samrómur er. Því dreifðara og fjölbreyttara sem það er, því betra. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
+demographic-form-other-native-language = Móðurmál mitt er íslenska
+demographic-form-submit     = Áfram
+male                        = Karlkyns
+female                      = Kvenkyns
+other                       = Annað
+
+
+## Consent form
 consent-form-email          =
     .label = Tölvupóstfang
 consent-form-kennitala      =
     .label = Kennitala
 consent-form-check          = Athuga kennitölu
 consent-form-submit         = Senda póst
-consent-email-sent          = Tölvupóstur hefur verið sendur á netfangið <bold>{ $email }</bold> fyrir kennitöluna <bold>{ $kennitala }</bold>. Sláðu inn kennitöluna aftur þegar samþykki hefur verið veitt. Þú getur hinkrað hér á meðan þess að forsjáraðili veitir samþykki eða <listenLink>yfirfarið upptökur</listenLink>
-why-demographic             = Hvers vegna skiptir þetta máli? 
-why-demographic-explanation = Ofantaldar upplýsingar eru notaðar til að meta hversu lýðfræðilega dreift gagnasafnið Samrómur er. Því dreifðara og fjölbreyttara sem það er, því betra. Sjá <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
+consent-provide-email       = Vinsamlegast sláðu inn netfang forsjáraðila. Hann mun í kjölfarið fá tölvupóst þar sem hann getur veitt leyfi. 
+consent-email-sent          = Tölvupóstur hefur verið sendur á netfangið <bold>{ $email }</bold> fyrir kennitöluna <bold>{ $kennitala }</bold>. Vinsamlegast athugið hvort pósturinn hafni í ruslpósthólfinu. Sláðu inn kennitöluna aftur þegar samþykki hefur verið veitt. Þú getur hinkrað hér á meðan þess að forsjáraðili veitir samþykki eða <listenLink>yfirfarið upptökur</listenLink>
+consent-success             = Takk fyrir að veita leyfi fyrir þátttöku í Samróm. Tilvera íslenskrar tungu stendur og fellur með því að börn og unglingar noti tungumálið. Það gerum við með því að tryggja að tæknin skilji raddir barna og unglinga, sem nú þegar tala við flest sín tæki á ensku. Raddir barna og unglinga eru afar frábrugðnar röddum fullorðinna. Til að tryggja að tækin skilji alla er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
+consent-success-title       = Samþykki veitt
+consent-failure             = Eitthvað fór úrskeiðis við staðfestingu samþykkis. Vinsamlegast reyndu aftur eða hafðu samband við okkur á <a>samromur@ru.is</a>.
+consent-failure-title       = Ekki tókst að samþykkja
 why-consent                 = Hvers vegna þarf samþykki?
-demographic-form-other-native-language = Móðurmál mitt er íslenska
-demographic-form-submit     = Áfram
-male                        = Karlkyns
-female                      = Kvenkyns
-other                       = Annað
+why-consent-explanation     = Til þess að uppfylla lög um <privacyRightsLink>persónuvernd og vinnslu persónuupplýsinga</privacyRightsLink> (90/2018). Við biðjum því börn og unglinga að fá leyfi frá forsjáraðila fyrir þátttöku í Samróm. Unnið verður með þessar upplýsingar í samræmi við <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
 
 ## Count Modal
 countmodal-title            = Hversu margar setningar viltu lesa inn?

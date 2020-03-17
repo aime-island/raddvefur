@@ -643,7 +643,7 @@ class SpeakPage extends React.Component<Props, State> {
         });
       }
       this.setState({
-        showDemographicModal: false,
+        showDemographicModal: true,
         demographic: user.demographicInfo,
       });
     }
