@@ -17,7 +17,8 @@
     "@types/node": "^12.0.7",
     "@types/passport": "^0.4.3",
     "@types/redlock": "^3.0.3",
-    "@types/request-promise-native": "^1.0.16",
+    "@types/request-promise-native": "^1.0.17",
+    "@types/uuid": "^7.0.0",
     "aws-sdk": "^2.472.0",
     "body-parser": "^1.19.0",
     "common": "*",
@@ -50,10 +51,11 @@
     "proxy-agent": "^3.1.0",
     "redlock": "^3.1.2",
     "request": "^2.85.0",
-    "request-promise-native": "^1.0.7",
+    "request-promise-native": "^1.0.8",
     "source-map-support": "^0.5.12",
     "stream-transcoder": "0.0.5",
-    "typescript": "3.5.1"
+    "typescript": "3.5.1",
+    "uuid": "^7.0.2"
   },
   "devDependencies": {
     "jest-matcher-utils": "^24.8.0",

@@ -14,6 +14,8 @@ const ProfileLayoutPage = React.lazy(() => import('../pages/profile/layout'));
 //const FAQPage = React.lazy(() => import('../pages/faq/faq'));
 const AboutPage = React.lazy(() => import('../pages/about/about'));
 const LandingPage = React.lazy(() => import('../pages/landing/landing'));
+const ConsentSuccess = React.lazy(() => import('../pages/consent/success'));
+const ConsentFailure = React.lazy(() => import('../pages/consent/failure'));
 
 export default function Content() {
   const [locale, toLocaleRoute] = useLocale();
@@ -27,6 +29,8 @@ export default function Content() {
             path={toLocaleRoute('/new')}
             render={() => <Redirect to={toLocaleRoute(URLS.ROOT)} />}
           />
+          <Route exact path="/samthykki" component={ConsentSuccess} />
+          <Route exact path="/samthykki/villa" component={ConsentFailure} />
           <Route
             exact
             path={toLocaleRoute(URLS.RECORD)}

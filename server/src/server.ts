@@ -161,6 +161,17 @@ export default class Server {
         response.send(await fetchLegalDocument('Cookies', locale));
       }
     );
+    this.app.get(
+      '/c/:uuid',
+      async ({ params: { uuid } }: Request, response: Response) => {
+        const success = await this.api.addPermission(uuid);
+        if (success) {
+          response.redirect('/samthykki');
+        } else {
+          response.redirect('/samthykki/villa');
+        }
+      }
+    );
   }
 
   /**

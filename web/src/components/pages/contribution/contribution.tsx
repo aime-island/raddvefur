@@ -69,6 +69,7 @@ interface Props extends LocalizationProps, PropsFromState {
     action: () => any;
   }[];
   type: 'speak' | 'listen';
+  showDemographicModal?: boolean;
   setShowDemographicModal?: () => any;
 }
 
@@ -174,6 +175,9 @@ class ContributionPage extends React.Component<Props, State> {
   };
 
   private handleKeyDown = (event: any) => {
+    if (this.props.showDemographicModal) {
+      return;
+    }
     const {
       getString,
       isSubmitted,

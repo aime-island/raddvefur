@@ -4,6 +4,7 @@ import Mysql, { getMySQLInstance } from './db/mysql';
 import Schema from './db/schema';
 import ClipTable, { DBClipWithVoters } from './db/tables/clip-table';
 import VoteTable from './db/tables/vote-table';
+import { v4 as uuidv4 } from 'uuid';
 
 // When getting new sentences/clips we need to fetch a larger pool and shuffle it to make it less
 // likely that different users requesting at the same time get the same data
@@ -72,6 +73,39 @@ export default class DB {
       console.log('database protection');
       // await this.schema.dropDatabase();
     }
+  }
+
+  async createConsent(email: String, kennitala: number): Promise<any> {
+    const uuid = uuidv4();
+    await this.mysql.query(
+      `
+      INSERT INTO consents (kennitala, email, uuid) VALUES (?, ?, ?)
+    `,
+      [kennitala, email, uuid]
+    );
+    return uuid;
+  }
+
+  async addPermission(uuid: String): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+      UPDATE consents
+          SET permission = (?)
+          WHERE uuid = (?)
+    `,
+      [true, uuid]
+    );
+    return rows.affectedRows == 1;
+  }
+
+  async getConsent(kennitala: number): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+      SELECT permission from consents WHERE kennitala = (?) AND permission = TRUE
+    `,
+      [kennitala]
+    );
+    return rows;
   }
 
   async getSentenceCountByLocale(locales: string[]): Promise<any> {

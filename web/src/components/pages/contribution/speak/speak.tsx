@@ -23,6 +23,7 @@ import {
 } from '../../../locale-helpers';
 import Modal, { ModalButtons } from '../../../modal/modal';
 import CountModal from '../count-modal';
+import ConsentForm from '../consent-form';
 import TermsModal from '../../../terms-modal';
 import {
   CheckIcon,
@@ -36,6 +37,7 @@ import {
   TextButton,
   LabeledSelect,
   LabeledCheckbox,
+  LabeledInput,
 } from '../../../ui/ui';
 import {
   isFirefoxFocus,
@@ -142,6 +144,8 @@ interface State {
   isCountSet: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
+  isChild: boolean;
+  consentGranted: boolean;
   uploaded: number[];
   userAgent: string;
   speakSetCount: number;
@@ -168,6 +172,8 @@ const initialState: State = {
     age: '',
     native_language: '',
   },
+  isChild: false,
+  consentGranted: false,
   uploaded: [],
   userAgent: '',
   speakSetCount: 5,
@@ -291,6 +297,9 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   private handleKeyUprerecording = async (event: any) => {
+    if (this.state.showDemographicModal) {
+      return;
+    }
     let index = null;
     //for both sets of number keys on a keyboard with shift key
     if (event.code === 'Digit1' || event.code === 'Numpad1') {
@@ -628,8 +637,13 @@ class SpeakPage extends React.Component<Props, State> {
   private userDemographicInfoToState = () => {
     const { user } = this.props;
     if (!this.getDemographicError(user.demographicInfo) && user.hasInfo) {
+      if (user.demographicInfo.age == 'barn') {
+        this.setState({
+          isChild: true,
+        });
+      }
       this.setState({
-        showDemographicModal: false,
+        showDemographicModal: true,
         demographic: user.demographicInfo,
       });
     }
@@ -712,6 +726,18 @@ class SpeakPage extends React.Component<Props, State> {
   };
 
   private handleChangeFor = (e: any) => {
+    if (e.target.name == 'age') {
+      if (e.target.value == 'barn') {
+        this.setState({
+          isChild: true,
+        });
+      } else {
+        this.setState({
+          isChild: false,
+        });
+      }
+    }
+
     this.setState({
       demographic: {
         ...this.state.demographic,
@@ -753,6 +779,12 @@ class SpeakPage extends React.Component<Props, State> {
     });
   };
 
+  private setConsentGranted = () => {
+    this.setState({
+      consentGranted: true,
+    });
+  };
+
   private setSpeakCount(count: number) {
     this.setState({
       speakSetCount: count,
@@ -785,6 +817,8 @@ class SpeakPage extends React.Component<Props, State> {
       showLanguageSelect,
       uploaded,
       speakSetCount,
+      isChild,
+      consentGranted,
     } = this.state;
     const recordingIndex = this.getRecordingIndex();
     if (recordingIndex >= 5 && !uploaded.includes(recordingIndex - 5)) {
@@ -885,64 +919,76 @@ class SpeakPage extends React.Component<Props, State> {
                   <Options>{SEXES}</Options>
                 </LabeledSelect>
               </Localized>
-
-              <LabeledCheckbox
-                checked={!showLanguageSelect}
-                label={
-                  <Localized id="demographic-form-other-native-language">
+            </div>
+            {isChild && !consentGranted && (
+              <ConsentForm
+                setConsentGranted={this.setConsentGranted}
+                api={this.props.api}
+              />
+            )}
+            {(!isChild || consentGranted) && (
+              <div className="form-fields">
+                <LabeledCheckbox
+                  checked={!showLanguageSelect}
+                  label={
+                    <Localized id="demographic-form-other-native-language">
+                      <span />
+                    </Localized>
+                  }
+                  onChange={(e: any) => this.toggleNativeIcelandic()}
+                />
+                {showLanguageSelect && (
+                  <Localized
+                    id="demographic-form-native-language"
+                    attrs={{ label: true }}>
+                    <LabeledSelect
+                      name="native_language"
+                      value={demographic.native_language}
+                      onChange={(e: any) => this.handleChangeFor(e)}>
+                      <Options>{LANGUAGES}</Options>
+                    </LabeledSelect>
+                  </Localized>
+                )}
+              </div>
+            )}
+            {(!isChild || consentGranted) && (
+              <ModalButtons>
+                <Localized>
+                  <Localized id="demographic-form-submit">
+                    <Button
+                      outline
+                      rounded
+                      onClick={() => this.submitDemographic()}
+                    />
+                  </Localized>
+                </Localized>
+              </ModalButtons>
+            )}
+            {(!isChild || consentGranted) && (
+              <div
+                className={`demographic-info ${
+                  showDemographicInfo ? 'expanded' : ''
+                }`}>
+                <button
+                  type="button"
+                  onClick={() => this.setShowDemographicInfo()}>
+                  <Localized
+                    id="why-demographic"
+                    termsLink={<LocaleLink to={URLS.TERMS} blank />}
+                    privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
                     <span />
                   </Localized>
-                }
-                onChange={(e: any) => this.toggleNativeIcelandic()}
-              />
-              {showLanguageSelect && (
-                <Localized
-                  id="demographic-form-native-language"
-                  attrs={{ label: true }}>
-                  <LabeledSelect
-                    name="native_language"
-                    value={demographic.native_language}
-                    onChange={(e: any) => this.handleChangeFor(e)}>
-                    <Options>{LANGUAGES}</Options>
-                  </LabeledSelect>
-                </Localized>
-              )}
-            </div>
-            <ModalButtons>
-              <Localized>
-                <Localized id="demographic-form-submit">
-                  <Button
-                    outline
-                    rounded
-                    onClick={() => this.submitDemographic()}
-                  />
-                </Localized>
-              </Localized>
-            </ModalButtons>
 
-            <div
-              className={`demographic-info ${
-                showDemographicInfo ? 'expanded' : ''
-              }`}>
-              <button
-                type="button"
-                onClick={() => this.setShowDemographicInfo()}>
+                  <DownIcon />
+                </button>
                 <Localized
-                  id="why-demographic"
+                  id="why-demographic-explanation"
                   termsLink={<LocaleLink to={URLS.TERMS} blank />}
                   privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
-                  <span />
+                  <div className="explanation" />
                 </Localized>
-
-                <DownIcon />
-              </button>
-              <Localized
-                id="why-demographic-explanation"
-                termsLink={<LocaleLink to={URLS.TERMS} blank />}
-                privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
-                <div className="explanation" />
-              </Localized>
-            </div>
+              </div>
+            )}
           </Modal>
         )}
         <ContributionPage
@@ -994,6 +1040,7 @@ class SpeakPage extends React.Component<Props, State> {
           onReset={() => this.resetState()}
           onSkip={this.handleSkip}
           onSubmit={() => this.upload()}
+          showDemographicModal={showDemographicModal}
           setShowDemographicModal={() => this.setShowDemographicModal()}
           primaryButtons={
             <RecordButton

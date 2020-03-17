@@ -18,6 +18,7 @@ import { S3 } from 'aws-sdk';
 import { AWS } from './aws';
 import Bucket from './bucket';
 const Transcoder = require('stream-transcoder');
+const requestPromise = require('request-promise-native');
 
 const PromiseRouter = require('express-promise-router');
 
@@ -120,6 +121,9 @@ export default class API {
     router.get('/user_count', this.getUserCount);
     router.get('/:locale/user_count', this.getUserCount);
 
+    router.get('/consents/:kennitala', this.getConsent);
+    router.post('/consents/:kennitala/:email/', this.createConsent);
+
     router.get('/requested_languages', this.getRequestedLanguages);
     router.post('/requested_languages', this.createLanguageRequest);
 
@@ -135,6 +139,68 @@ export default class API {
 
     return router;
   }
+
+  getConsent = async (
+    { params: { kennitala } }: Request,
+    response: Response
+  ) => {
+    const consent = await this.model.getConsent(parseInt(kennitala));
+    const permission = consent.length > 0;
+    response.json(permission);
+  };
+
+  addPermission = async (uuid: String) => {
+    return this.model.addPermission(uuid);
+  };
+
+  createConsent = async (request: Request, response: Response) => {
+    const {
+      params: { kennitala, email },
+    } = request;
+    const consentUrl = request.query.consentUrl;
+    const id = await this.model.createConsent(email, parseInt(kennitala));
+    const url = `${consentUrl}/c/${id}`;
+    const success = await this.sendConsentEmail(
+      email,
+      parseInt(kennitala),
+      url
+    );
+    response.json(success);
+  };
+
+  sendConsentEmail = async (email: String, kennitala: number, url: String) => {
+    const { SEND_IN_BLUE_KEY } = getConfig();
+    if (!SEND_IN_BLUE_KEY) {
+      console.log('No SEND_IN_BLUE key');
+      return;
+    }
+
+    const body = `{
+      "to":[{"email":"${email}"}],
+      "templateId":6,
+      "params":{"KENNITALA":"${kennitala}", "URL":"${url}"}
+    }`;
+
+    var options = {
+      method: 'POST',
+      url: 'https://api.sendinblue.com/v3/smtp/email',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        'api-key': SEND_IN_BLUE_KEY,
+      },
+      body: body,
+    };
+
+    return requestPromise(options)
+      .then((response: Response) => {
+        console.log(response);
+        return true;
+      })
+      .catch((error: any) => {
+        return false;
+      });
+  };
 
   getRandomSentences = async (request: Request, response: Response) => {
     const { client_id, params } = request;
