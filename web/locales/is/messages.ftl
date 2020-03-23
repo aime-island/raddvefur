@@ -122,7 +122,7 @@ other                       = Annað
 
 ## Consent form
 consent-form-email          =
-    .label = Tölvupóstfang
+    .label = Netfang foreldris/forsjáraðila
 consent-form-kennitala      =
     .label = Kennitala ungmennis
 consent-form-check          = Áfram

@@ -167,9 +167,9 @@ export default class CountModal extends React.Component<Props, State> {
         {!emailSent ? (
           <div className="info-consent">
             <div className="info">
-              Börn og unglingar verða að fá samþykki forsjáraðila til þess að
-              taka þátt í verkefninu Samrómur. Vinsamlegast sláðu inn kennitölu
-              og netfang forsjáraðila hér að neðan.
+              Börn og ungmenni verða að fá samþykki foreldris/forsjáraðila til
+              þess að taka þátt í verkefninu Samrómur. Vinsamlegast sláðu inn
+              kennitölu og netfang foreldris/forsjáraðila hér að neðan.
             </div>
           </div>
         ) : (
