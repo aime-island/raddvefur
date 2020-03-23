@@ -95,11 +95,11 @@ export default class API {
     return this.fetch(`${this.getLocalePath()}/sentences?count=${count}`);
   }
 
-  async checkKennitala(kennitala: number) {
+  async checkKennitala(kennitala: string) {
     return this.fetch(`${API_PATH}/consents/${kennitala}`);
   }
 
-  async sendConsentEmail(kennitala: number, email: string) {
+  async sendConsentEmail(kennitala: string, email: string) {
     const urlOrigin = window.location.origin;
     return this.fetch(
       `${API_PATH}/consents/${kennitala}/${email}?consentUrl=${urlOrigin}`,

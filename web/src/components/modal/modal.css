@@ -4,7 +4,7 @@
     height: 100%;
     animation: fade-in var(--transition-duration);
     background: rgba(67, 101, 148, 0.9) !important;
-
+    overflow-y: auto;
     @media (--md-up) {
         display: table;
     }
@@ -17,6 +17,7 @@
     vertical-align: middle;
     pointer-events: none;
     border: none !important;
+    width: 100%;
 
     @media (--sm-down) {
         position: absolute !important;
@@ -25,6 +26,7 @@
         right: 0 !important;
         bottom: 0 !important;
         border-radius: 0 !important;
+        display: inline-block;
     }
 
     & .close {
@@ -39,9 +41,9 @@
         margin: 0 auto;
         box-sizing: border-box;
         padding: 2rem;
-        width: 100%;
         max-width: 40rem;
         min-height: 99vh;
+        width: 100%;
         text-align: center;
         background: var(--white);
         pointer-events: all;

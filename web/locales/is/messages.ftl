@@ -124,8 +124,8 @@ other                       = Annað
 consent-form-email          =
     .label = Tölvupóstfang
 consent-form-kennitala      =
-    .label = Kennitala
-consent-form-check          = Athuga kennitölu
+    .label = Kennitala ungmennis
+consent-form-check          = Áfram
 consent-form-submit         = Senda póst
 consent-provide-email       = Vinsamlegast sláðu inn netfang forsjáraðila. Hann mun í kjölfarið fá tölvupóst þar sem hann getur veitt leyfi. 
 consent-email-sent          = Tölvupóstur hefur verið sendur á netfangið <bold>{ $email }</bold> fyrir kennitöluna <bold>{ $kennitala }</bold>. Vinsamlegast athugið hvort pósturinn hafni í ruslpósthólfinu. Sláðu inn kennitöluna aftur þegar samþykki hefur verið veitt. Þú getur hinkrað hér á meðan þess að forsjáraðili veitir samþykki eða <listenLink>yfirfarið upptökur</listenLink>
@@ -142,6 +142,9 @@ countmodal-subtitle         = Því fleiri, því betra en þú getur alltaf hæ
 countmodal-five             = 5
 countmodal-fifteen          = 15
 countmodal-thirty           = 30
+
+## Demographic review
+demographic-review-title    = Þín rödd
 
 ## Speak & Listen Shortcuts
 

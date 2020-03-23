@@ -70,12 +70,12 @@ export default class Model {
 
   async createConsent(
     email: String,
-    kennitala: number
+    kennitala: string
   ): Promise<DBClipWithVoters[]> {
     return this.db.createConsent(email, kennitala);
   }
 
-  async getConsent(kennitala: number): Promise<DBClipWithVoters[]> {
+  async getConsent(kennitala: string): Promise<DBClipWithVoters[]> {
     return this.db.getConsent(kennitala);
   }
 

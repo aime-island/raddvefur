@@ -1,0 +1,12 @@
+.demographic-review {
+    display: flex;
+    flex-direction: column;
+}
+
+.demo-item {
+    font-weight: 700;
+    font-size: 17px;
+    & span {
+        font-weight: 400;
+    }
+}

@@ -1,5 +1,4 @@
 @import url('../../../vars.css');
-
 .contribution.speak .error .instruction {
     color: var(--red);
 }
@@ -20,51 +19,51 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-
     & button {
         display: flex;
         align-self: flex-start;
     }
-
+    & .gender-child {
+        @media (--sm-down) {
+            display: none;
+        }
+    }
     & > * {
         box-sizing: border-box;
         margin-bottom: 30px;
-
         @media (--sm-down) {
             width: 100%;
         }
-
         @media (--md-up) {
             width: calc(50% - (var(--profile-column-margin) / 2));
-
             &:nth-child(2n + 1) {
                 margin-inline-end: var(--profile-column-margin);
             }
         }
     }
-
     & .labeled-checkbox {
         padding: 13px 5px;
         margin-top: 1rem;
         min-width: 12rem;
-
         & .checkmark {
             & path {
                 fill: var(--orange);
             }
         }
-
         & .checkbox-container {
             margin-bottom: 0.3rem;
         }
     }
 }
 
+.error-message {
+    margin-bottom: 20px;
+}
+
 .demographic-info {
     border-inline-start: 2px solid var(--blue);
     margin: 30px 0;
     padding-inline-start: 12px;
-
     & button {
         outline: none;
         border: none;
@@ -74,17 +73,14 @@
         font-weight: 600;
         color: var(--blue);
         background: none;
-
         & svg {
             margin-inline-start: 10px;
             transition: transform var(--easing) var(--transition-duration);
-
             & polygon {
                 fill: var(--blue);
             }
         }
     }
-
     & .explanation {
         margin-top: 10px;
         display: none;
@@ -97,7 +93,6 @@
             transform: rotate(180deg);
         }
     }
-
     & .explanation {
         display: block;
     }
@@ -110,25 +105,20 @@
         font-size: var(--font-size-xxl);
         font-weight: normal;
     }
-
     & .text {
         margin-bottom: 35px;
         font-size: 20px;
     }
-
     & .buttons {
         margin-bottom: 40px;
     }
-
     & .button {
         height: 57px;
     }
-
     & .text-button {
         font-size: var(--font-size-xs);
         font-weight: 600;
         text-decoration: underline;
-
         &:hover {
             color: var(--blue);
             text-decoration-color: var(--blue);

@@ -75,7 +75,7 @@ export default class DB {
     }
   }
 
-  async createConsent(email: String, kennitala: number): Promise<any> {
+  async createConsent(email: String, kennitala: string): Promise<any> {
     const uuid = uuidv4();
     await this.mysql.query(
       `
@@ -98,7 +98,7 @@ export default class DB {
     return rows.affectedRows == 1;
   }
 
-  async getConsent(kennitala: number): Promise<any> {
+  async getConsent(kennitala: string): Promise<any> {
     const [rows] = await this.mysql.query(
       `
       SELECT permission from consents WHERE kennitala = (?) AND permission = TRUE

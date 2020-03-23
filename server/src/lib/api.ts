@@ -144,7 +144,7 @@ export default class API {
     { params: { kennitala } }: Request,
     response: Response
   ) => {
-    const consent = await this.model.getConsent(parseInt(kennitala));
+    const consent = await this.model.getConsent(kennitala);
     const permission = consent.length > 0;
     response.json(permission);
   };
@@ -158,17 +158,13 @@ export default class API {
       params: { kennitala, email },
     } = request;
     const consentUrl = request.query.consentUrl;
-    const id = await this.model.createConsent(email, parseInt(kennitala));
+    const id = await this.model.createConsent(email, kennitala);
     const url = `${consentUrl}/c/${id}`;
-    const success = await this.sendConsentEmail(
-      email,
-      parseInt(kennitala),
-      url
-    );
+    const success = await this.sendConsentEmail(email, kennitala, url);
     response.json(success);
   };
 
-  sendConsentEmail = async (email: String, kennitala: number, url: String) => {
+  sendConsentEmail = async (email: String, kennitala: string, url: String) => {
     const { SEND_IN_BLUE_KEY } = getConfig();
     if (!SEND_IN_BLUE_KEY) {
       console.log('No SEND_IN_BLUE key');

@@ -10,7 +10,7 @@ import { DownIcon } from '../../ui/icons';
 
 interface ConsentInfo {
   email: string;
-  kennitala: number;
+  kennitala: string;
 }
 
 interface State {
@@ -20,8 +20,6 @@ interface State {
   showWhyInfo: boolean;
   emailMessage: string;
   emailSent: boolean;
-  kennitala: string;
-  email: string;
 }
 
 interface Props {
@@ -37,15 +35,13 @@ export default class CountModal extends React.Component<Props, State> {
   state: State = {
     consent: {
       email: '',
-      kennitala: null,
+      kennitala: '',
     },
-    consentNeeded: false,
+    consentNeeded: true,
     message: '',
     showWhyInfo: false,
     emailMessage: '',
     emailSent: false,
-    kennitala: '',
-    email: '',
   };
 
   private handleConsentFormChange = (e: any) => {
@@ -76,41 +72,34 @@ export default class CountModal extends React.Component<Props, State> {
     });
   };
 
-  private checkKennitala = async () => {
-    const { api } = this.props;
+  private validateKennitala = async () => {
     const { kennitala } = this.state.consent;
     if (kennitala == null) {
-      return;
+      return false;
     }
-    if (kennitala.toString().length != 10) {
+    if (kennitala.length != 10) {
       this.setState({
         message: 'Ógild kennitala.',
       });
-      return;
+      return false;
     }
-    this.setState({
-      message: 'Athuga kennitölu...',
-    });
+    return true;
+  };
+
+  private checkKennitala = async () => {
+    const { api } = this.props;
     const allowed = await api.checkKennitala(this.state.consent.kennitala);
     if (allowed) {
       this.setState({
-        message: 'Kennitala samþykkt.',
-        kennitala: kennitala.toString(),
+        message: 'Kennitalan hefur verið samþykkt.',
       });
       setTimeout(this.props.setConsentGranted, 1000);
+      return;
     } else {
       this.setState({
-        consentNeeded: true,
-        message: 'Kennitala ósamþykkt.',
-        kennitala: kennitala.toString(),
+        message: 'Kennitalan hefur ekki verið samþykkt.',
       });
-      if (this.state.emailSent) {
-        setTimeout(() => {
-          this.setState({
-            message: '',
-          });
-        }, 1500);
-      }
+      return;
     }
   };
 
@@ -122,19 +111,18 @@ export default class CountModal extends React.Component<Props, State> {
   private sendEmail = async () => {
     if (!this.validateEmail()) {
       this.setState({
-        emailMessage: 'Ógilt tölvupóstfang.',
+        message: 'Ógilt tölvupóstfang.',
       });
       return;
     }
     const { kennitala, email } = this.state.consent;
     this.setState({
-      emailMessage: 'Sendi tölvupóst...',
+      message: 'Sendi tölvupóst...',
     });
     const sent = await this.props.api.sendConsentEmail(kennitala, email);
     if (sent) {
       this.setState({
-        emailMessage: 'Tölvupóstur sendur.',
-        email: email,
+        message: 'Tölvupóstur sendur.',
       });
       setTimeout(() => {
         this.setState({
@@ -144,8 +132,24 @@ export default class CountModal extends React.Component<Props, State> {
       }, 1000);
     } else {
       this.setState({
-        emailMessage: 'Villa í sendingu tölvupósts.',
+        message: 'Villa í sendingu tölvupósts.',
       });
+    }
+  };
+
+  private submit = async () => {
+    const valid = await this.validateKennitala();
+    if (valid) {
+      const { api } = this.props;
+      const allowed = await api.checkKennitala(this.state.consent.kennitala);
+      if (allowed) {
+        this.setState({
+          message: 'Þessi kennitala hefur verið samþykkt.',
+        });
+        setTimeout(this.props.setConsentGranted, 500);
+        return;
+      }
+      this.sendEmail();
     }
   };
 
@@ -155,30 +159,31 @@ export default class CountModal extends React.Component<Props, State> {
       consentNeeded,
       message,
       showWhyInfo,
-      emailMessage,
       emailSent,
-      kennitala,
-      email,
     } = this.state;
 
     return (
       <div>
         {!emailSent ? (
-          <div className="info">
-            Börn og unglingar verða að fá samþykki forsjáraðila til þess að taka
-            þátt í verkefninu Samrómur. Vinsamlegast sláðu inn kennitölu hér að
-            neðan.
+          <div className="info-consent">
+            <div className="info">
+              Börn og unglingar verða að fá samþykki forsjáraðila til þess að
+              taka þátt í verkefninu Samrómur. Vinsamlegast sláðu inn kennitölu
+              og netfang forsjáraðila hér að neðan.
+            </div>
           </div>
         ) : (
-          <div className="info">
-            <Localized
-              id="consent-email-sent"
-              bold={<b />}
-              $email={email}
-              $kennitala={kennitala}
-              listenLink={<LocaleLink to={URLS.LISTEN} blank />}>
-              <span />
-            </Localized>
+          <div className="info-consent">
+            <div className="info">
+              <Localized
+                id="consent-email-sent"
+                bold={<b />}
+                $email={consent.email}
+                $kennitala={consent.kennitala}
+                listenLink={<LocaleLink to={URLS.LISTEN} blank />}>
+                <span />
+              </Localized>
+            </div>
           </div>
         )}
         <div className="form-fields">
@@ -191,8 +196,17 @@ export default class CountModal extends React.Component<Props, State> {
                 this.handleConsentFormChange(e)
               }></LabeledInput>
           </Localized>
-          {message ? (
-            <div>{message}</div>
+          {!emailSent ? (
+            <Localized id="consent-form-email" attrs={{ label: true }}>
+              <LabeledInput
+                name="email"
+                value={consent.email}
+                type="email"
+                pattern=".+@.+\..+"
+                onChange={(e: any) =>
+                  this.handleConsentFormChange(e)
+                }></LabeledInput>
+            </Localized>
           ) : (
             <Localized>
               <Localized id="consent-form-check">
@@ -201,38 +215,17 @@ export default class CountModal extends React.Component<Props, State> {
             </Localized>
           )}
         </div>
-        <div>
-          {consentNeeded && !emailSent && (
-            <div>
-              <div className="info">
-                <Localized id="consent-provide-email">
-                  <span />
-                </Localized>
-              </div>
-              <div className="form-fields">
-                <Localized id="consent-form-email" attrs={{ label: true }}>
-                  <LabeledInput
-                    name="email"
-                    value={consent.email}
-                    type="email"
-                    pattern=".+@.+\..+"
-                    onChange={(e: any) =>
-                      this.handleConsentFormChange(e)
-                    }></LabeledInput>
-                </Localized>
-                {emailMessage ? (
-                  <div>{emailMessage}</div>
-                ) : (
-                  <Localized>
-                    <Localized id="consent-form-submit">
-                      <Button outline onClick={() => this.sendEmail()} />
-                    </Localized>
-                  </Localized>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
+
+        {message && <div className="error-message">{message}</div>}
+        {consentNeeded && !emailSent && (
+          <ModalButtons>
+            <Localized>
+              <Localized id="consent-form-submit">
+                <Button outline rounded onClick={() => this.submit()} />
+              </Localized>
+            </Localized>
+          </ModalButtons>
+        )}
         <div className={`demographic-info ${showWhyInfo ? 'expanded' : ''}`}>
           <button type="button" onClick={() => this.setShowWhyInfo()}>
             <Localized id="why-consent">

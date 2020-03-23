@@ -3,7 +3,7 @@ export const up = async function(db: any): Promise<any> {
     `
       CREATE TABLE consents (
         id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        kennitala INT(10) DEFAULT NULL,
+        kennitala VARCHAR(10) DEFAULT NULL,
         email VARCHAR(255) DEFAULT NULL,
         permission BOOLEAN NOT NULL DEFAULT FALSE,
         uuid VARCHAR(255) DEFAULT NULL,
