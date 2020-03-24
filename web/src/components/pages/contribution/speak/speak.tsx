@@ -41,6 +41,11 @@ import {
   SEXES,
   DemoInfo,
 } from '../../../../stores/demographics';
+import {
+  CompetitionInfo,
+  Institutions,
+  Institution,
+} from '../../../../stores/competition';
 import './speak.css';
 
 const MIN_RECORDING_MS = 1000;
@@ -123,6 +128,8 @@ interface State {
   isCountSet: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
+  institutions: Institution[];
+  competition: CompetitionInfo;
   isChild: boolean;
   consentGranted: boolean;
   uploaded: number[];
@@ -152,29 +159,17 @@ const initialState: State = {
     age: '',
     native_language: '',
   },
+  institutions: [],
+  competition: {
+    institution: '',
+    division: '',
+  },
   isChild: false,
   consentGranted: false,
   uploaded: [],
   userAgent: '',
   speakSetCount: 5,
 };
-
-const Options = withLocalization(
-  ({
-    children,
-    getString,
-  }: {
-    children: { [key: string]: string };
-  } & LocalizationProps) => (
-    <React.Fragment>
-      {Object.entries(children).map(([key, value]) => (
-        <option key={key} value={key}>
-          {getString(key, null, value)}
-        </option>
-      ))}
-    </React.Fragment>
-  )
-);
 
 class SpeakPage extends React.Component<Props, State> {
   state: State = initialState;
@@ -248,6 +243,8 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     this.userDemographicInfoToState();
+    this.userCompetitionInfoToState();
+    this.institutionsToState();
 
     const ua = getUserAgent();
     this.setState({ userAgent: ua });
@@ -474,7 +471,7 @@ class SpeakPage extends React.Component<Props, State> {
       this.setState({ showPrivacyModal: true });
       return false;
     }
-    const { demographic } = this.state;
+    const { demographic, uploaded, userAgent } = this.state;
 
     const demographicError = this.getDemographicError(demographic);
     if (demographicError) {
@@ -486,16 +483,13 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     let clips = this.state.clips.filter(clip => clip.recording);
-
-    const { uploaded } = this.state;
     const uploadedIndex = Math.max(...uploaded);
-
     clips = clips.slice(uploadedIndex + 1);
-    const { userAgent } = this.state;
+
     removeSentences(clips.map(c => c.sentence.id));
 
     this.setState({ clips: [], isSubmitted: true });
-
+    const { competitionInfo } = user;
     addUploads([
       ...clips.map(({ sentence, recording }) => async () => {
         let retries = 3;
@@ -506,7 +500,8 @@ class SpeakPage extends React.Component<Props, State> {
               sentence.id,
               sentence.text,
               demographic,
-              userAgent
+              userAgent,
+              competitionInfo
             );
             if (!user.account) {
               tallyRecording();
@@ -573,6 +568,7 @@ class SpeakPage extends React.Component<Props, State> {
 
     const { demographic } = this.state;
     const { userAgent } = this.state;
+    const { competitionInfo } = user;
     addUploads([
       ...clips.map(({ sentence, recording }) => async () => {
         let retries = 3;
@@ -583,7 +579,8 @@ class SpeakPage extends React.Component<Props, State> {
               sentence.id,
               sentence.text,
               demographic,
-              userAgent
+              userAgent,
+              competitionInfo
             );
             if (!user.account) {
               tallyRecording();
@@ -612,6 +609,23 @@ class SpeakPage extends React.Component<Props, State> {
   private resetState = (callback?: any) => {
     this.setState(initialState, callback);
     this.userDemographicInfoToState();
+    this.userCompetitionInfoToState();
+  };
+
+  private institutionsToState = async () => {
+    const institutions: Institutions = await this.props.api.fetchInstitutions();
+    this.setState({
+      institutions: institutions.institutions,
+    });
+  };
+
+  private userCompetitionInfoToState = () => {
+    const { user } = this.props;
+    if (user.hasInfo) {
+      this.setState({
+        competition: user.competitionInfo,
+      });
+    }
   };
 
   private userDemographicInfoToState = () => {
@@ -643,7 +657,10 @@ class SpeakPage extends React.Component<Props, State> {
     });
   };
 
-  private submitDemographic = async (demographic: DemoInfo) => {
+  private submitDemographic = async (
+    demographic: DemoInfo,
+    competition: CompetitionInfo
+  ) => {
     demographic = await this.checkNativeLanguage(demographic);
     this.setState({
       demographic,
@@ -657,6 +674,7 @@ class SpeakPage extends React.Component<Props, State> {
       this.props.updateUser({
         hasInfo: true,
         demographicInfo: this.state.demographic,
+        competitionInfo: competition,
       });
       this.setState({
         demographicError,
@@ -735,6 +753,8 @@ class SpeakPage extends React.Component<Props, State> {
       clipsBuffer,
       isSubmitted,
       error,
+      competition,
+      institutions,
       demographic,
       demographicError,
       recordingStatus,
@@ -815,15 +835,19 @@ class SpeakPage extends React.Component<Props, State> {
         {showDemographicModal && (
           <DemographicModal
             demographic={demographic}
+            competition={competition}
+            institutions={institutions}
             api={this.props.api}
-            submitDemographic={demographic =>
-              this.submitDemographic(demographic)
+            submitDemographic={(demographic, competition) =>
+              this.submitDemographic(demographic, competition)
             }
             setShowDemographicModal={this.setShowDemographicModal}
           />
         )}
         {showDemographicReview && (
           <DemographicReview
+            competition={competition}
+            institutions={institutions}
             demographic={demographic}
             setShowDemographicModal={this.setShowDemographicModal}
             setShowDemoReviewModal={this.setShowDemoReviewModal}
@@ -839,6 +863,7 @@ class SpeakPage extends React.Component<Props, State> {
         <ContributionPage
           activeIndex={recordingIndex}
           speakSetCount={speakSetCount}
+          institutions={institutions}
           errorContent={this.isUnsupportedPlatform && <UnsupportedInfo />}
           extraButton={
             <Button rounded outline className="skip" onClick={this.handleSkip}>

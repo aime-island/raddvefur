@@ -28,6 +28,7 @@ import Wave from './wave';
 
 import './contribution.css';
 import { LANGUAGES, AGES, SEXES } from '../../../stores/demographics';
+import { Institution } from '../../../stores/competition';
 import pill from './pill';
 
 export interface ContributionPillProps {
@@ -48,6 +49,7 @@ interface Props extends LocalizationProps, PropsFromState {
   activeIndex: number;
   errorContent?: any;
   extraButton?: React.ReactNode;
+  institutions?: Institution[];
   instruction: (props: {
     $actionType: string;
     children: any;
@@ -325,6 +327,7 @@ class ContributionPage extends React.Component<Props, State> {
       errorContent,
       extraButton,
       getString,
+      institutions,
       instruction,
       isFirstSubmit,
       isSubmitted,
@@ -351,6 +354,17 @@ class ContributionPage extends React.Component<Props, State> {
           : pills.slice(listenSetCount - 5, listenSetCount);
     } else {
       fivePills = pills.slice(0, 5);
+    }
+    let institution, division;
+    if (institutions) {
+      institution = institutions.find(
+        item => item.code == user.competitionInfo.institution
+      );
+      if (institution) {
+        division = institution.divisions.find(
+          item => item.code == user.competitionInfo.division
+        );
+      }
     }
     return isSubmitted ? (
       <Success
@@ -477,6 +491,18 @@ class ContributionPage extends React.Component<Props, State> {
                         $native_language={
                           LANGUAGES[user.demographicInfo.native_language] || ''
                         }>
+                        <span className="text" />
+                      </Localized>
+                      <Localized
+                        id="review-institution"
+                        bold={<b />}
+                        $institution={institution.name || ''}>
+                        <span className="text" />
+                      </Localized>
+                      <Localized
+                        id="review-division"
+                        bold={<b />}
+                        $division={division.name || ''}>
                         <span className="text" />
                       </Localized>
                     </div>

@@ -18,6 +18,7 @@ import { importSentences } from './lib/model/db/import-sentences';
 import { getConfig } from './config-helper';
 import authRouter from './auth-router';
 import fetchLegalDocument from './fetch-legal-document';
+import fetchInstitutions from './fetch-competition-documents';
 
 const consul = require('consul')({ promisify: true });
 
@@ -172,6 +173,9 @@ export default class Server {
         }
       }
     );
+    this.app.get('/competition/institutions', async (_, response) => {
+      response.send(await fetchInstitutions());
+    });
   }
 
   /**

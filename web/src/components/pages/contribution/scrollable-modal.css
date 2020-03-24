@@ -1,0 +1,9 @@
+@import url('../../vars.css');
+.scrollable-modal {
+    max-height: 100%;
+    @media (--sm-down) {
+        height: 100%;
+        flex-direction: column;
+        overflow-y: scroll !important;
+    }
+}

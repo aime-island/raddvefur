@@ -6,6 +6,7 @@ import { User } from '../stores/user';
 import { USER_KEY } from '../stores/root';
 import { Sentences } from '../stores/sentences';
 import { DemoInfo } from '../stores/demographics';
+import { CompetitionInfo } from '../stores/competition';
 
 export interface Clip {
   id: string;
@@ -109,6 +110,10 @@ export default class API {
     );
   }
 
+  async fetchInstitutions(): Promise<any> {
+    return this.fetch(`/competition/institutions`);
+  }
+
   async fetchRandomClips(count: number = 1): Promise<Clip[]> {
     return new Promise<Clip[]>((resolve, reject) => {
       const getBlob = (url: any): Promise<any> => {
@@ -144,7 +149,8 @@ export default class API {
     sentenceId: string,
     sentence: string,
     info: DemoInfo,
-    userAgent: string
+    userAgent: string,
+    competitionInfo: CompetitionInfo
   ): Promise<void> {
     return this.fetch(this.getClipPath(), {
       method: 'POST',
@@ -156,6 +162,8 @@ export default class API {
         age: info.age,
         native_language: info.native_language,
         user_agent: userAgent,
+        institution: competitionInfo.institution,
+        division: competitionInfo.division,
       },
       body: blob,
     });

@@ -5,6 +5,7 @@ import Modal, { ModalButtons } from '../../modal/modal';
 import { InfoIcon, CautionIcon } from '../../ui/icons';
 
 import './count-modal.css';
+import './scrollable-modal.css';
 
 interface State {
   count: number;
@@ -42,7 +43,7 @@ export default class CountModal extends React.Component<Props, State> {
 
   render() {
     return (
-      <Modal onRequestClose={this.close}>
+      <Modal innerClassName="scrollable-modal" onRequestClose={this.close}>
         <Localized id="countmodal-title" className="form-title">
           <h1 className="title" />
         </Localized>

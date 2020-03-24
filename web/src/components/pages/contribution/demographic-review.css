@@ -1,3 +1,5 @@
+@import url('../../vars.css');
+
 .demographic-review {
     display: flex;
     flex-direction: column;
@@ -8,5 +10,27 @@
     font-size: 17px;
     & span {
         font-weight: 400;
+    }
+}
+
+.review-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    @media (--sm-down) {
+        flex-direction: column;
+    }
+}
+
+.review-info {
+    font-size: var(--font-size-xs);
+    color: var(--near-black);
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin-bottom: 10px;
+    @media (--sm-up) {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0;
     }
 }

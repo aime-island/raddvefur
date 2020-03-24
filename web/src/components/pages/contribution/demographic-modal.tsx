@@ -5,15 +5,18 @@ import {
   withLocalization,
 } from 'fluent-react/compat';
 import ConsentForm from './consent-form';
+import CompetitionForm from './competition-form';
 import { Button, LabeledSelect, LabeledCheckbox } from '../../ui/ui';
 import { LocaleLink } from '../../locale-helpers';
 import URLS from '../../../urls';
 import { LANGUAGES, AGES, SEXES, DemoInfo } from '../../../stores/demographics';
+import { CompetitionInfo, Institution } from '../../../stores/competition';
 import Modal, { ModalButtons } from '../../modal/modal';
 import { DownIcon } from '../../ui/icons';
 
 import './count-modal.css';
 import './speak/speak.css';
+import './scrollable-modal.css';
 
 const DEFAULT_LANGUAGE = 'islenska';
 
@@ -45,13 +48,20 @@ interface State {
 interface Props {
   api: any;
   demographic: DemoInfo;
-  submitDemographic: (demographic: DemoInfo) => void;
+  competition: CompetitionInfo;
+  institutions: Institution[];
+  submitDemographic: (
+    demographic: DemoInfo,
+    competition: CompetitionInfo
+  ) => void;
   setShowDemographicModal: () => void;
 }
 
 export default class DemographicModal extends React.Component<Props, State> {
+  private competitionRef: any;
   constructor(props: Props) {
     super(props);
+    this.competitionRef = React.createRef();
   }
 
   state: State = {
@@ -125,6 +135,16 @@ export default class DemographicModal extends React.Component<Props, State> {
     }
   };
 
+  private submit = () => {
+    const { demographic } = this.state;
+    const competitionState = this.competitionRef.current.state;
+    const competition = {
+      institution: competitionState.selectedInstitution,
+      division: competitionState.selectedDivision,
+    };
+    this.props.submitDemographic(demographic, competition);
+  };
+
   render() {
     const {
       demographic,
@@ -133,10 +153,9 @@ export default class DemographicModal extends React.Component<Props, State> {
       showLanguageSelect,
       showDemographicInfo,
     } = this.state;
-
     return (
       <Modal
-        innerClassName="demographic-modal"
+        innerClassName="scrollable-modal"
         onRequestClose={this.props.setShowDemographicModal}>
         <Localized id="demographic-form-title" className="form-title">
           <h1 className="title" />
@@ -198,21 +217,6 @@ export default class DemographicModal extends React.Component<Props, State> {
           </div>
         )}
         {(!isChild || consentGranted) && (
-          <ModalButtons>
-            <Localized>
-              <Localized id="demographic-form-submit">
-                <Button
-                  outline
-                  rounded
-                  onClick={() =>
-                    this.props.submitDemographic(this.state.demographic)
-                  }
-                />
-              </Localized>
-            </Localized>
-          </ModalButtons>
-        )}
-        {(!isChild || consentGranted) && (
           <div
             className={`demographic-info ${
               showDemographicInfo ? 'expanded' : ''
@@ -224,7 +228,6 @@ export default class DemographicModal extends React.Component<Props, State> {
                 privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
                 <span />
               </Localized>
-
               <DownIcon />
             </button>
             <Localized
@@ -233,6 +236,25 @@ export default class DemographicModal extends React.Component<Props, State> {
               privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
               <div className="explanation" />
             </Localized>
+          </div>
+        )}
+        {(!isChild || consentGranted) && (
+          <div>
+            {this.props.institutions && (
+              <CompetitionForm
+                ref={this.competitionRef}
+                api={this.props.api}
+                competition={this.props.competition}
+                institutions={this.props.institutions}
+              />
+            )}
+            <ModalButtons>
+              <Localized>
+                <Localized id="demographic-form-submit">
+                  <Button outline rounded onClick={this.submit} />
+                </Localized>
+              </Localized>
+            </ModalButtons>
           </div>
         )}
       </Modal>

@@ -4,11 +4,15 @@ import { Button, Radio } from '../../ui/ui';
 import Modal, { ModalButtons } from '../../modal/modal';
 import { InfoIcon } from '../../ui/icons';
 import { LANGUAGES, AGES, SEXES, DemoInfo } from '../../../stores/demographics';
+import { CompetitionInfo, Institution } from '../../../stores/competition';
 
 import './count-modal.css';
 import './demographic-review.css';
+import './scrollable-modal.css';
 
 interface Props {
+  competition: CompetitionInfo;
+  institutions: Institution[];
   demographic: DemoInfo;
   setShowDemographicModal: () => void;
   setShowDemoReviewModal: () => void;
@@ -25,26 +29,50 @@ export default class DemographicReview extends React.Component<Props> {
   };
 
   render() {
-    const { demographic } = this.props;
+    const { demographic, competition, institutions } = this.props;
+    const institution = institutions.find(
+      item => item.code == competition.institution
+    );
+    const division = institution.divisions.find(
+      item => item.code == competition.division
+    );
     return (
-      <Modal onRequestClose={this.props.setShowDemoReviewModal}>
+      <Modal
+        innerClassName="scrollable-modal"
+        onRequestClose={this.props.setShowDemoReviewModal}>
         <Localized id="demographic-review-title" className="form-title">
           <h1 className="title" />
         </Localized>
+
         <div className="cookie-modal">
-          <div className="toggle-with-info">
-            <div className="info">
-              <InfoIcon />
-              <div className="demographic-review">
-                <div className="demo-item">
-                  Aldur: <span>{AGES[demographic.age]}</span>
+          <div className="review-flex">
+            <div className="toggle-with-info">
+              <div className="review-info">
+                <InfoIcon />
+                <div className="demographic-review">
+                  <div className="demo-item">
+                    Aldur: <span>{AGES[demographic.age]}</span>
+                  </div>
+                  <div className="demo-item">
+                    Kyn: <span>{SEXES[demographic.sex]}</span>
+                  </div>
+                  <div className="demo-item">
+                    Móðurmál:{' '}
+                    <span>{LANGUAGES[demographic.native_language]}</span>
+                  </div>
                 </div>
-                <div className="demo-item">
-                  Kyn: <span>{SEXES[demographic.sex]}</span>
-                </div>
-                <div className="demo-item">
-                  Móðurmál:{' '}
-                  <span>{LANGUAGES[demographic.native_language]}</span>
+              </div>
+            </div>
+
+            <div className="toggle-with-info">
+              <div className="review-info">
+                <div className="demographic-review">
+                  <div className="demo-item">
+                    Stofnun: <span>{institution.name}</span>
+                  </div>
+                  <div className="demo-item">
+                    Deild: <span>{division.name}</span>
+                  </div>
                 </div>
               </div>
             </div>

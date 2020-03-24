@@ -3,6 +3,7 @@ import { UserClient } from 'common/user-clients';
 import { generateGUID } from '../utility';
 import StateTree from './tree';
 import { DemoInfo } from './demographics';
+import { CompetitionInfo } from './competition';
 
 export namespace User {
   export interface State {
@@ -15,7 +16,7 @@ export namespace User {
     validateTally: number;
     hasInfo: boolean;
     demographicInfo: DemoInfo;
-
+    competitionInfo: CompetitionInfo;
     userClients: UserClient[];
     isFetchingAccount: boolean;
     account: UserClient;
@@ -32,6 +33,7 @@ export namespace User {
       validateTally: 0,
       hasInfo: false,
       demographicInfo: { sex: '', age: '', native_language: '' },
+      competitionInfo: { institution: '', division: '' },
       userClients: [],
       isFetchingAccount: true,
       account: null,
