@@ -355,15 +355,17 @@ class ContributionPage extends React.Component<Props, State> {
     } else {
       fivePills = pills.slice(0, 5);
     }
-    let institution, division;
+    let institutionName, divisionName;
     if (institutions && user.competitionInfo) {
-      institution = institutions.find(
+      const institution = institutions.find(
         item => item.code == user.competitionInfo.institution
       );
       if (institution) {
-        division = institution.divisions.find(
+        const division = institution.divisions.find(
           item => item.code == user.competitionInfo.division
         );
+        institutionName = institution.name;
+        divisionName = division.name;
       }
     }
     return isSubmitted ? (
@@ -496,13 +498,13 @@ class ContributionPage extends React.Component<Props, State> {
                       <Localized
                         id="review-institution"
                         bold={<b />}
-                        $institution={institution.name || ''}>
+                        $institution={institutionName || ''}>
                         <span className="text" />
                       </Localized>
                       <Localized
                         id="review-division"
                         bold={<b />}
-                        $division={division.name || ''}>
+                        $division={divisionName || ''}>
                         <span className="text" />
                       </Localized>
                     </div>
