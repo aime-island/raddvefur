@@ -35,9 +35,11 @@ export default class DemographicReview extends React.Component<Props> {
       institution = institutions.find(
         item => item.code == competition.institution
       );
-      division = institution.divisions.find(
-        item => item.code == competition.division
-      );
+      if (institution) {
+        division = institution.divisions.find(
+          item => item.code == competition.division
+        );
+      }
     }
 
     return (
