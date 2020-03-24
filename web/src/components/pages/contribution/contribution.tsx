@@ -356,7 +356,7 @@ class ContributionPage extends React.Component<Props, State> {
       fivePills = pills.slice(0, 5);
     }
     let institution, division;
-    if (institutions) {
+    if (institutions && user.competitionInfo) {
       institution = institutions.find(
         item => item.code == user.competitionInfo.institution
       );
