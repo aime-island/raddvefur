@@ -30,12 +30,16 @@ export default class DemographicReview extends React.Component<Props> {
 
   render() {
     const { demographic, competition, institutions } = this.props;
-    const institution = institutions.find(
-      item => item.code == competition.institution
-    );
-    const division = institution.divisions.find(
-      item => item.code == competition.division
-    );
+    let institution, division;
+    if (competition) {
+      institution = institutions.find(
+        item => item.code == competition.institution
+      );
+      division = institution.divisions.find(
+        item => item.code == competition.division
+      );
+    }
+
     return (
       <Modal
         innerClassName="scrollable-modal"
@@ -68,10 +72,10 @@ export default class DemographicReview extends React.Component<Props> {
               <div className="review-info">
                 <div className="demographic-review">
                   <div className="demo-item">
-                    Stofnun: <span>{institution.name}</span>
+                    Stofnun: <span>{institution.name || ''}</span>
                   </div>
                   <div className="demo-item">
-                    Deild: <span>{division.name}</span>
+                    Deild: <span>{division.name || ''}</span>
                   </div>
                 </div>
               </div>
