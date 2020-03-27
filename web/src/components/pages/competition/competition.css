@@ -1,0 +1,15 @@
+@import url('../../vars.css');
+
+.competition-container {
+    display: flex;
+    position: relative;
+    @media (--md-down) {
+        flex-direction: column;
+    }
+    @media (--lg-up) {
+        flex-direction: row;
+        & > * {
+            width: 50%;
+        }
+    }
+}

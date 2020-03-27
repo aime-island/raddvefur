@@ -121,6 +121,7 @@ export default class API {
     router.get('/user_count', this.getUserCount);
     router.get('/:locale/user_count', this.getUserCount);
 
+    router.get('/leaderboard', this.getLeaderboard);
     router.get('/consents/:kennitala', this.getConsent);
     router.post('/consents/:kennitala/:email/', this.createConsent);
 
@@ -139,6 +140,11 @@ export default class API {
 
     return router;
   }
+
+  getLeaderboard = async (request: Request, response: Response) => {
+    const leaderboard = await this.model.getLeaderboard();
+    response.json(leaderboard);
+  };
 
   getConsent = async (
     { params: { kennitala } }: Request,

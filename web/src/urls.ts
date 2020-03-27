@@ -21,6 +21,8 @@ export default Object.freeze({
   DATA: '/data', // old, here for redirect purposes
   DATASETS: '/gagnasafn',
 
+  COMPETITION: '/keppni',
+
   PRIVACY: '/personuverndaryfirlysing',
   TERMS: '/skilmalar',
   COOKIES: '/vafrakokustefna',

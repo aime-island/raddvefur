@@ -6,6 +6,7 @@ datasets                    = Gagnasöfn
 dataset                     = Gagnasafn
 languages                   = Þakkir
 about                       = Um verkefnið
+competition                 = Keppni
 profile                     = Prófíll
 help                        = Hjálp
 contact                     = Hafa samband
@@ -118,6 +119,9 @@ demographic-form-submit     = Áfram
 male                        = Karlkyns
 female                      = Kvenkyns
 other                       = Annað
+
+## Competition
+
 
 ## Competition form
 competition-form-title      = Lestrarkeppni

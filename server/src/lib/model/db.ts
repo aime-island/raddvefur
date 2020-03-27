@@ -75,6 +75,20 @@ export default class DB {
     }
   }
 
+  async getLeaderboard(): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+      SELECT COUNT(*) as cnt, institution, division
+      FROM clips
+      WHERE institution IS NOT NULL
+      AND institution != ''
+      GROUP BY institution, division
+      ORDER BY institution, cnt
+    `
+    );
+    return rows;
+  }
+
   async createConsent(email: String, kennitala: string): Promise<any> {
     const uuid = uuidv4();
     await this.mysql.query(

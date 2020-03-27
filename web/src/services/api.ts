@@ -96,6 +96,10 @@ export default class API {
     return this.fetch(`${this.getLocalePath()}/sentences?count=${count}`);
   }
 
+  async getLeaderboard() {
+    return this.fetch(`${API_PATH}/leaderboard`);
+  }
+
   async checkKennitala(kennitala: string) {
     return this.fetch(`${API_PATH}/consents/${kennitala}`);
   }

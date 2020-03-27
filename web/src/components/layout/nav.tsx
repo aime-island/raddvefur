@@ -23,6 +23,7 @@ export default ({ children, ...props }: { [key: string]: any }) => (
   <nav {...props} className="nav-list">
     <div className="nav-links">
       <LocalizedNavLink id="home" to="" />
+      <LocalizedNavLink id="competition" to={URLS.COMPETITION} />
       <LocalizedNavLink id="dataset" to={URLS.DATASETS} />
       <LocalizedNavLink id="languages" to={URLS.LANGUAGES} />
       <LocalizedNavLink id="about" to={URLS.ABOUT} />

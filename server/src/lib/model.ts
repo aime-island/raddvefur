@@ -68,6 +68,10 @@ export default class Model {
     );
   }
 
+  async getLeaderboard(): Promise<any> {
+    return this.db.getLeaderboard();
+  }
+
   async createConsent(
     email: String,
     kennitala: string
