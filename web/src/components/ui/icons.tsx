@@ -657,6 +657,8 @@ export const SkipIcon = uniqueIcon(id => (
   </svg>
 ));
 
+export const SortIcon = Icon(require('./icons/sort.svg'));
+
 export const StopIcon = uniqueIcon(id => (
   <svg width="28" height="28" viewBox="0 0 28 28">
     <defs>

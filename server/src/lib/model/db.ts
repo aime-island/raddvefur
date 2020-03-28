@@ -78,12 +78,16 @@ export default class DB {
   async getLeaderboard(): Promise<any> {
     const [rows] = await this.mysql.query(
       `
-      SELECT COUNT(*) as cnt, institution, division
-      FROM clips
+      SELECT
+        institution,
+          COUNT(*) as count,
+          COUNT(DISTINCT client_id) as users,
+          @curRank := @curRank + 1 AS rank
+      FROM clips, (SELECT @curRank := 0) r
       WHERE institution IS NOT NULL
       AND institution != ''
-      GROUP BY institution, division
-      ORDER BY institution, cnt
+      GROUP BY institution
+      ORDER BY count DESC
     `
     );
     return rows;

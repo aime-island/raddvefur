@@ -1,44 +1,116 @@
-import {
-  LocalizationProps,
-  Localized,
-  withLocalization,
-} from 'fluent-react/compat';
 import * as React from 'react';
-import { connect } from 'react-redux';
-import API from '../../../services/api';
-import StateTree from '../../../stores/tree';
-import { localeConnector, LocalePropsFromState } from '../../locale-helpers';
+import { Localized } from 'fluent-react/compat';
+import { Institution, InstitutionStat } from '../../../stores/competition';
+import { SortIcon } from '../../ui/icons';
 
-interface PropsFromState {
-  api: API;
+import './leaderboard.css';
+
+interface Props {
+  institutions: Institution[];
+  stats: InstitutionStat[];
 }
 
-type Props = LocalePropsFromState & LocalizationProps & PropsFromState;
+interface State {
+  stats: InstitutionStat[];
+  sortByIdentifier: string;
+  sortBySequence: boolean;
+}
 
-type State = {};
-
-class Leaderboard extends React.Component<Props, State> {
+export default class Leaderboard extends React.Component<Props, State> {
   constructor(props: Props, context: any) {
     super(props, context);
-    this.state = {};
+    this.state = {
+      stats: [],
+      sortByIdentifier: 'count',
+      sortBySequence: true,
+    };
   }
 
-  componentDidMount = async () => {
-    console.log('22');
-    const something = await this.props.api.getLeaderboard();
-    console.log(something);
-    console.log('what');
+  componentWillReceiveProps = () => {
+    const { stats } = this.props;
+    this.setState({
+      stats: stats,
+    });
+  };
+
+  getInstitutionName = (code: string): string => {
+    const { institutions } = this.props;
+    const institution = institutions.find(
+      (item: Institution) => item.code == code
+    );
+    if (institution) {
+      return institution.name;
+    } else {
+      return 'Stofnun';
+    }
+  };
+
+  sort = (identifier: string, sequence: boolean) => {
+    const { stats } = this.state;
+    let newStats;
+    if (identifier == 'count' || identifier == 'users') {
+      if (sequence) {
+        newStats = stats.sort((a, b) => b[identifier] - a[identifier]);
+      } else {
+        newStats = stats.sort((a, b) => a[identifier] - b[identifier]);
+      }
+    }
+
+    this.setState({
+      stats: newStats,
+    });
+  };
+
+  setSortBy = (id: string) => {
+    const { sortByIdentifier, sortBySequence } = this.state;
+    let sequence;
+    if (sortByIdentifier == id) {
+      this.setState({
+        sortBySequence: !this.state.sortBySequence,
+      });
+      sequence = !sortBySequence;
+    } else {
+      this.setState({
+        sortByIdentifier: id,
+        sortBySequence: true,
+      });
+      sequence = true;
+    }
+    this.sort(id, sequence);
   };
 
   render() {
-    return <div className="dataset-info">Some nice leaderboard</div>;
+    const { stats, sortByIdentifier } = this.state;
+
+    return (
+      <div className="leaderboard-container">
+        <div className="leaderboard-header leaderboard-item">
+          <span>#</span>
+          <span>Nafn</span>
+          <div
+            className="stat"
+            id="users"
+            onClick={(e: any) => this.setSortBy(e.target.id)}>
+            Þáttakendur {sortByIdentifier == 'users' && <SortIcon />}
+          </div>
+          <div
+            className="stat"
+            id="count"
+            onClick={(e: any) => this.setSortBy(e.target.id)}>
+            Setningar {sortByIdentifier == 'count' && <SortIcon />}
+          </div>
+        </div>
+        {stats.map((stat: InstitutionStat) => {
+          return (
+            <div key={stat.institution} className="leaderboard-item">
+              <span>{stat.rank}</span>
+              <span>{this.getInstitutionName(stat.institution)}</span>
+              <span className="stat">{stat.users}</span>
+              <span className="stat stat-main">{stat.count}</span>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
-
-const mapStateToProps = ({ api }: StateTree) => ({
-  api,
-});
-
-export default localeConnector(
-  withLocalization(connect<PropsFromState>(mapStateToProps)(Leaderboard))
-);

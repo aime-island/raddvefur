@@ -1,0 +1,47 @@
+@import url('../../vars.css');
+.leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size);
+    @media (--sm-down) {
+        font-size: var(--font-size-xs);
+    }
+    @media (--lg-up) {
+        font-size: var(--font-size);
+    }
+}
+
+.leaderboard-header {
+    font-family: var(--strong-font-family);
+    font-weight: 600;
+    max-height: 20px;
+    border-bottom: 2px solid black;
+
+    & img {
+        max-height: 20px;
+        max-width: 20px;
+    }
+
+    & .stat {
+        cursor: pointer;
+    }
+
+    @media (--md-up) {
+        font-size: var(--font-size-lg);
+    }
+}
+
+.leaderboard-item {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 7fr 3fr 3fr;
+    border-bottom: 1px solid black;
+
+    & .stat {
+        text-align: right;
+    }
+
+    & .stat-main {
+        font-weight: 700;
+    }
+}

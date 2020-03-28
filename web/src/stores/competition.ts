@@ -6,6 +6,7 @@ export interface Division {
 export interface Institution {
   name: string;
   code: string;
+  enrollment: number;
   divisions: Division[];
 }
 
@@ -16,4 +17,11 @@ export interface Institutions {
 export interface CompetitionInfo {
   institution: string;
   division: string;
+}
+
+export interface InstitutionStat {
+  institution: string;
+  count: number;
+  users: number;
+  rank: number;
 }
