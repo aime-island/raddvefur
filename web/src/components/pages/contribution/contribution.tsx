@@ -361,11 +361,13 @@ class ContributionPage extends React.Component<Props, State> {
         item => item.code == user.competitionInfo.institution
       );
       if (institution) {
+        institutionName = institution.name;
         const division = institution.divisions.find(
           item => item.code == user.competitionInfo.division
         );
-        institutionName = institution.name;
-        divisionName = division.name;
+        if (division) {
+          divisionName = division.name;
+        }
       }
     }
     return isSubmitted ? (
