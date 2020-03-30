@@ -61,7 +61,7 @@ export default class DemographicModal extends React.Component<Props, State> {
   private competitionRef: any;
   constructor(props: Props) {
     super(props);
-    this.competitionRef = React.createRef();
+    //this.competitionRef = React.createRef();
   }
 
   state: State = {
@@ -137,10 +137,14 @@ export default class DemographicModal extends React.Component<Props, State> {
 
   private submit = () => {
     const { demographic } = this.state;
-    const competitionState = this.competitionRef.current.state;
+    /* const competitionState = this.competitionRef.current.state;
     const competition = {
       institution: competitionState.selectedInstitution,
       division: competitionState.selectedDivision,
+    }; */
+    const competition = {
+      institution: '',
+      division: '',
     };
     this.props.submitDemographic(demographic, competition);
   };
@@ -240,7 +244,7 @@ export default class DemographicModal extends React.Component<Props, State> {
         )}
         {(!isChild || consentGranted) && (
           <div>
-            {this.props.institutions && (
+            {this.props.institutions && false && (
               <CompetitionForm
                 ref={this.competitionRef}
                 api={this.props.api}

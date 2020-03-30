@@ -37,6 +37,16 @@
             color: var(--warm-grey);
         }
     }
+
+    & input[type='number'] {
+        width: 100%;
+        -moz-appearance: textfield;
+    }
+
+    & input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
     & .labeled-checkbox {
         padding: 13px 5px;
         margin-top: 1rem;

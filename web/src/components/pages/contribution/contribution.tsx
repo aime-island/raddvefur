@@ -355,7 +355,7 @@ class ContributionPage extends React.Component<Props, State> {
     } else {
       fivePills = pills.slice(0, 5);
     }
-    let institution, division;
+    /*     let institution, division;
     if (institutions) {
       institution = institutions.find(
         item => item.code == user.competitionInfo.institution
@@ -365,7 +365,7 @@ class ContributionPage extends React.Component<Props, State> {
           item => item.code == user.competitionInfo.division
         );
       }
-    }
+    } */
     return isSubmitted ? (
       <Success
         onReset={onReset}
@@ -493,7 +493,7 @@ class ContributionPage extends React.Component<Props, State> {
                         }>
                         <span className="text" />
                       </Localized>
-                      <Localized
+                      {/*                       <Localized
                         id="review-institution"
                         bold={<b />}
                         $institution={institution.name || ''}>
@@ -504,7 +504,7 @@ class ContributionPage extends React.Component<Props, State> {
                         bold={<b />}
                         $division={division.name || ''}>
                         <span className="text" />
-                      </Localized>
+                      </Localized> */}
                     </div>
                     <Localized id="change-demo">
                       <Button

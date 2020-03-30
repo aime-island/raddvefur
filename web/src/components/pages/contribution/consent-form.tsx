@@ -15,6 +15,7 @@ interface ConsentInfo {
 
 interface State {
   consent: ConsentInfo;
+  submittedConsent: ConsentInfo;
   consentNeeded: boolean;
   message: string;
   showWhyInfo: boolean;
@@ -34,6 +35,10 @@ export default class CountModal extends React.Component<Props, State> {
 
   state: State = {
     consent: {
+      email: '',
+      kennitala: '',
+    },
+    submittedConsent: {
       email: '',
       kennitala: '',
     },
@@ -128,6 +133,10 @@ export default class CountModal extends React.Component<Props, State> {
         this.setState({
           emailSent: true,
           message: '',
+          submittedConsent: {
+            email: email,
+            kennitala: kennitala,
+          },
         });
       }, 1000);
     } else {
@@ -156,6 +165,7 @@ export default class CountModal extends React.Component<Props, State> {
   render() {
     const {
       consent,
+      submittedConsent,
       consentNeeded,
       message,
       showWhyInfo,
@@ -178,8 +188,8 @@ export default class CountModal extends React.Component<Props, State> {
               <Localized
                 id="consent-email-sent"
                 bold={<b />}
-                $email={consent.email}
-                $kennitala={consent.kennitala}
+                $email={submittedConsent.email}
+                $kennitala={submittedConsent.kennitala}
                 listenLink={<LocaleLink to={URLS.LISTEN} blank />}>
                 <span />
               </Localized>
@@ -190,6 +200,7 @@ export default class CountModal extends React.Component<Props, State> {
           <Localized id="consent-form-kennitala" attrs={{ label: true }}>
             <LabeledInput
               name="kennitala"
+              className="kennitala"
               value={consent.kennitala}
               type="number"
               onChange={(e: any) =>
