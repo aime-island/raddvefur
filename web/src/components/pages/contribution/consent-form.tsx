@@ -7,6 +7,7 @@ import './consent-form.css';
 import URLS from '../../../urls';
 import { LocaleLink } from '../../locale-helpers';
 import { DownIcon } from '../../ui/icons';
+import { Kennitala, KennitalaType } from './kennitala-validator';
 
 interface ConsentInfo {
   email: string;
@@ -25,10 +26,11 @@ interface State {
 
 interface Props {
   api: API;
+  setAge: (age: string) => void;
   setConsentGranted: () => void;
 }
 
-export default class CountModal extends React.Component<Props, State> {
+export default class ConsentForm extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
@@ -79,16 +81,31 @@ export default class CountModal extends React.Component<Props, State> {
 
   private validateKennitala = async () => {
     const { kennitala } = this.state.consent;
+
     if (kennitala == null) {
       return false;
     }
-    if (kennitala.length != 10) {
+
+    const valid: KennitalaType = Kennitala.Validate(kennitala);
+    if (valid != KennitalaType.Individual) {
+      console.log('Invalid kennitala');
       this.setState({
         message: 'Ógild kennitala.',
       });
       return false;
     }
     return true;
+  };
+
+  private getAge = (kennitala: string): number => {
+    const day = parseInt(kennitala[0] + kennitala[1]);
+    const month = parseInt(kennitala[2] + kennitala[3]);
+    const year = parseInt('20' + kennitala[4] + kennitala[5]);
+    const birthday = new Date(year, month - 1, day, 0, 0, 0, 0);
+    const diffMs = Date.now() - birthday.getTime();
+    const ageDate = new Date(diffMs);
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+    return age;
   };
 
   private checkKennitala = async () => {
@@ -98,6 +115,7 @@ export default class CountModal extends React.Component<Props, State> {
       this.setState({
         message: 'Kennitalan hefur verið samþykkt.',
       });
+      this.submitChildAge();
       setTimeout(this.props.setConsentGranted, 1000);
       return;
     } else {
@@ -146,6 +164,18 @@ export default class CountModal extends React.Component<Props, State> {
     }
   };
 
+  private submitChildAge = () => {
+    const { consent, submittedConsent } = this.state;
+    let childAge: string;
+    if (submittedConsent.kennitala) {
+      childAge = this.getAge(submittedConsent.kennitala).toString();
+    } else {
+      childAge = this.getAge(consent.kennitala).toString();
+    }
+    console.log(childAge);
+    this.props.setAge(childAge);
+  };
+
   private submit = async () => {
     const valid = await this.validateKennitala();
     if (valid) {
@@ -155,6 +185,7 @@ export default class CountModal extends React.Component<Props, State> {
         this.setState({
           message: 'Þessi kennitala hefur verið samþykkt.',
         });
+        this.submitChildAge();
         setTimeout(this.props.setConsentGranted, 500);
         return;
       }
