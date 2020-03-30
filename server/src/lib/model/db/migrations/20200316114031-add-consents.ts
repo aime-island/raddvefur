@@ -1,7 +1,7 @@
 export const up = async function(db: any): Promise<any> {
   return db.runSql(
     `
-      CREATE TABLE consents (
+      CREATE TABLE IF NOT EXISTS consents (
         id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
         kennitala VARCHAR(10) DEFAULT NULL,
         email VARCHAR(255) DEFAULT NULL,
