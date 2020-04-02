@@ -14,6 +14,7 @@ import {
   Institution,
   InstitutionStat,
 } from '../../../stores/competition';
+import { Spinner } from '../../ui/ui';
 
 import './competition.css';
 
@@ -53,7 +54,11 @@ class Competition extends React.Component<Props, State> {
     const { institutions, stats } = this.state;
     return (
       <div className="competition-container">
-        <Leaderboard institutions={institutions} stats={stats} />
+        {stats.length != 0 && institutions.length != 0 ? (
+          <Leaderboard institutions={institutions} stats={stats} />
+        ) : (
+          <Spinner />
+        )}
       </div>
     );
   }

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Localized } from 'fluent-react/compat';
 import { Institution, InstitutionStat } from '../../../stores/competition';
 import { SortIcon } from '../../ui/icons';
+import { Spinner } from '../../ui/ui';
 
 import './leaderboard.css';
 
@@ -29,20 +30,8 @@ export default class Leaderboard extends React.Component<Props, State> {
   componentWillReceiveProps = () => {
     const { stats } = this.props;
     this.setState({
-      stats: stats,
+      stats: [].concat(stats),
     });
-  };
-
-  getInstitutionName = (code: string): string => {
-    const { institutions } = this.props;
-    const institution = institutions.find(
-      (item: Institution) => item.code == code
-    );
-    if (institution) {
-      return institution.name;
-    } else {
-      return 'Stofnun';
-    }
   };
 
   sort = (identifier: string, sequence: boolean) => {
@@ -55,7 +44,6 @@ export default class Leaderboard extends React.Component<Props, State> {
         newStats = stats.sort((a, b) => a[identifier] - b[identifier]);
       }
     }
-
     this.setState({
       stats: newStats,
     });
@@ -81,7 +69,7 @@ export default class Leaderboard extends React.Component<Props, State> {
 
   render() {
     const { stats, sortByIdentifier } = this.state;
-
+    const { institutions } = this.props;
     return (
       <div className="leaderboard-container">
         <div className="leaderboard-header leaderboard-item">
@@ -100,17 +88,32 @@ export default class Leaderboard extends React.Component<Props, State> {
             Setningar {sortByIdentifier == 'count' && <SortIcon />}
           </div>
         </div>
-        {stats.map((stat: InstitutionStat) => {
-          return (
-            <div key={stat.institution} className="leaderboard-item">
-              <span>{stat.rank}</span>
-              <span>{this.getInstitutionName(stat.institution)}</span>
-              <span className="stat">{stat.users}</span>
-              <span className="stat stat-main">{stat.count}</span>
-            </div>
-          );
-        })}
+        {stats ? renderStats(stats, institutions) : <Spinner />}
       </div>
     );
   }
 }
+
+const renderStats = (stats: InstitutionStat[], institutions: Institution[]) => {
+  const getInstitutionName = (code: string): string => {
+    const institution = institutions.find(
+      (item: Institution) => item.code == code
+    );
+    if (institution) {
+      return institution.name;
+    } else {
+      return 'Stofnun';
+    }
+  };
+
+  return stats.map((stat: InstitutionStat) => {
+    return (
+      <div key={stat.institution} className="leaderboard-item">
+        <span>{stat.rank}</span>
+        <span>{getInstitutionName(stat.institution)}</span>
+        <span className="stat">{stat.users}</span>
+        <span className="stat stat-main">{stat.count}</span>
+      </div>
+    );
+  });
+};
