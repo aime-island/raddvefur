@@ -1,0 +1,7 @@
+.text {
+    margin: 0 auto;
+    margin-top: 10px;
+    align-self: center;
+    text-align: justify;
+    max-width: 600px;
+}

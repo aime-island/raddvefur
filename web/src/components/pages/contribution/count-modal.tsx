@@ -5,6 +5,7 @@ import Modal, { ModalButtons } from '../../modal/modal';
 import { InfoIcon, CautionIcon } from '../../ui/icons';
 
 import './count-modal.css';
+import './scrollable-modal.css';
 
 interface State {
   count: number;
@@ -12,6 +13,7 @@ interface State {
 
 interface Props {
   setShowCountModal: () => void;
+  setShowDemoReviewModal: () => void;
   setSpeakCount: (count: number) => void;
 }
 
@@ -34,9 +36,14 @@ export default class CountModal extends React.Component<Props, State> {
     this.props.setSpeakCount(15);
   };
 
+  private close = () => {
+    this.props.setShowDemoReviewModal();
+    setTimeout(this.props.setShowCountModal, 300);
+  };
+
   render() {
     return (
-      <Modal onRequestClose={this.props.setShowCountModal}>
+      <Modal innerClassName="scrollable-modal" onRequestClose={this.close}>
         <Localized id="countmodal-title" className="form-title">
           <h1 className="title" />
         </Localized>
@@ -58,11 +65,7 @@ export default class CountModal extends React.Component<Props, State> {
             </div>
           </div>
 
-          <Button
-            rounded
-            outline
-            className="btn-grn"
-            onClick={this.props.setShowCountModal}>
+          <Button rounded outline className="btn-grn" onClick={this.close}>
             Áfram
           </Button>
         </div>

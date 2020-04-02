@@ -68,7 +68,25 @@ export const LANGUAGES: any = {
 
 export const AGES: any = {
   '': '',
-  //ungur_unglingur: '13 - 17',
+  0: 'undir 18',
+  1: 'undir 18',
+  2: 'undir 18',
+  3: 'undir 18',
+  4: 'undir 18',
+  5: 'undir 18',
+  6: 'undir 18',
+  7: 'undir 18',
+  8: 'undir 18',
+  9: 'undir 18',
+  10: 'undir 18',
+  11: 'undir 18',
+  12: 'undir 18',
+  13: 'undir 18',
+  14: 'undir 18',
+  15: 'undir 18',
+  16: 'undir 18',
+  17: 'undir 18',
+  barn: 'undir 18',
   unglingur: '18 - 19',
   tvitugt: '20 - 29',
   thritugt: '30 - 39',
@@ -77,7 +95,7 @@ export const AGES: any = {
   sextugt: '60 - 69',
   sjotugt: '70 - 79',
   attraett: '80 - 89',
-  niraett: '> 89',
+  niraett: 'yfir 89',
 };
 
 export const SEXES: any = {

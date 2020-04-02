@@ -68,6 +68,21 @@ export default class Model {
     );
   }
 
+  async createConsent(
+    email: String,
+    kennitala: string
+  ): Promise<DBClipWithVoters[]> {
+    return this.db.createConsent(email, kennitala);
+  }
+
+  async getConsent(kennitala: string): Promise<DBClipWithVoters[]> {
+    return this.db.getConsent(kennitala);
+  }
+
+  async addPermission(uuid: String): Promise<DBClipWithVoters[]> {
+    return this.db.addPermission(uuid);
+  }
+
   async findEligibleSentences(
     client_id: string,
     locale: string,

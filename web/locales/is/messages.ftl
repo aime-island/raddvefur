@@ -119,12 +119,40 @@ male                        = Karlkyns
 female                      = Kvenkyns
 other                       = Annað
 
+## Competition form
+competition-form-title      = Lestrarkeppni
+competition-form-institution=
+    .label = Stofnun
+competition-form-division   =
+    .label = Deild
+why-competition             = Meira um lestrarkeppnina
+why-competition-explanation = Þetta er meira um lestrarkeppnina. Þetta er svona Lorem Impsum texti sem Ólafur Helgi bjó til á eitt hundrað og tuttugu orðum á mínútu.
+
+## Consent form
+consent-form-email          =
+    .label = Netfang foreldris/forsjáraðila
+consent-form-kennitala      =
+    .label = Kennitala ungmennis
+consent-form-check          = Áfram
+consent-form-submit         = Áfram
+consent-provide-email       = Vinsamlegast sláðu inn netfang forsjáraðila. Hann mun í kjölfarið fá tölvupóst þar sem hann getur veitt leyfi. 
+consent-email-sent          = Tölvupóstur hefur verið sendur á netfangið <bold>{ $email }</bold> fyrir kennitöluna <bold>{ $kennitala }</bold>. Vinsamlegast athugið hvort pósturinn hafni í ruslpósthólfinu. Sláðu inn kennitöluna aftur þegar samþykki hefur verið veitt. Þú getur hinkrað hér á meðan þess að forsjáraðili veitir samþykki eða <listenLink>yfirfarið upptökur</listenLink>
+consent-success             = Takk fyrir að veita leyfi fyrir þátttöku í Samróm. Tilvera íslenskrar tungu stendur og fellur með því að börn og unglingar noti tungumálið. Það gerum við með því að tryggja að tæknin skilji raddir barna og unglinga, sem nú þegar tala við flest sín tæki á ensku. Raddir barna og unglinga eru afar frábrugðnar röddum fullorðinna. Til að tryggja að tækin skilji alla er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
+consent-success-title       = Samþykki veitt
+consent-failure             = Eitthvað fór úrskeiðis við staðfestingu samþykkis. Vinsamlegast reyndu aftur og, ef það tekst ekki ítrekað, hafðu samband í gegnum <a>samromur@ru.is</a>.
+consent-failure-title       = Ekki tókst að samþykkja
+why-consent                 = Hvers vegna þarf samþykki?
+why-consent-explanation     = Til þess að uppfylla lög um <privacyRightsLink>persónuvernd og vinnslu persónuupplýsinga</privacyRightsLink> (90/2018). Við biðjum því börn og unglinga að fá leyfi frá forsjáraðila fyrir þátttöku í Samróm. Unnið verður með þessar upplýsingar í samræmi við <termsLink>skilmála</termsLink> og <privacyLink>persónuverndaryfirlýsingu</privacyLink> verkefnisins.
+
 ## Count Modal
 countmodal-title            = Hversu margar setningar viltu lesa inn?
 countmodal-subtitle         = Því fleiri, því betra en þú getur alltaf hætt í miðjum klíðum.
 countmodal-five             = 5
 countmodal-fifteen          = 15
 countmodal-thirty           = 30
+
+## Demographic review
+demographic-review-title    = Þín rödd
 
 ## Speak & Listen Shortcuts
 
@@ -171,6 +199,8 @@ english                     = Enska
 review-age                  = Aldur: <bold>{ $age }</bold>
 review-gender               = Kyn: <bold>{ $sex }</bold>
 review-native-language      = Móðurmál: <bold>{ $native_language }</bold>
+review-institution          = Stofnun: <bold>{ $institution }</bold>
+review-division             = Deild: <bold>{ $division }</bold>
 
 ##Um verkefnið
 
@@ -649,110 +679,6 @@ read-more-about = Lestu meira á um síðuna okkar
 
 ## Languages
 
-ab = Abkhasíska
-ace = Aseníska
-ady = Adygeyska
-af = Afríkanska
-am = Amharíska
-an = Aragónska
-ar = Arabíska
-as = Assamíska
-ast = Astúríska
-az = Aserska
-ba = Baskírska
-bg = Búlgarska
-bn = Bengalska
-br = Bretónska
-bxr = Búrjatíska
-ca = Katalónska
-cak = Kaqchikel
-cnh = Hakatjínska
-cs = Tékkneska
-cv = Tjúvasíska
-cy = Velska
-da = Danska
-de = Þýska
-dsb = Lágsorbíska
-dv = Dívehí
-el = Gríska
-en = Enska
-eo = Esperanto
-es = Spænska
-et = Eistneska
-eu = Baskneska
-fa = Persneska
-ff = Fúlanska
-fi = Finnska
-fo = Færeyska
-fr = Franska
-fy-NL = Frísneska
-ga-IE = Írska
-gl = Galisíska
-ha = Hása
-he = Hebreska
-hi-IN = Hindí
-hr = Króatíska
-hsb = Hásorbíska
-hu = Ungverska
-ia = Interlingua
-id = Indónesíska
 is = Íslenska
-it = Ítalska
-izh = Ingríska
-ja = Japanska
-ka = Georgíska
-kab = Kabýlska
-kk = Kasakska
-ko = Kóreska
-kpv = Kómíska
-ku = Kúrdíska
-kw = Kornbreska
-ky = Kyrgíska
-lij = Liguríska
-lt = Litháenska
-lv = Lettneska
-mdf = Mokseska
-mhr = Austur-mari
-mk = Makedónska
-ml = Malayalam
-mn = Mongólska
-mrj = Vestur-mari
-myv = Erzýska
-nb-NO = Norska (bokmål)
-ne-NP = Nepalska
-nl = Hollenska
-nn-NO = Norska (nynorsk)
-oc = Oksítanska
-or = Oríja
-pl = Pólska
-pt-BR = Portúgalska (brasilísk)
-rm-sursilv = Surilsvanrómanska
-ro = Rúmverska
-ru = Rússneska
-rw = Rúandíska
-sah = Jakútíska
-sc = Sardiníska
-si = Singalíska
-sk = Slóvaska
-sl = Slóvenska
-sq = Albanska
-sr = Serbneska
-sv-SE = Sænska
-ta = Tamílska
-te = Telúgú
-tg = Tadsíkíska
-th = Taílenska
-tr = Tyrkneska
-tt = Tatarska
-uby = Ubykh
-udm = Údmurtíska
-uk = Úkraínska
-ur = Úrdú
-uz = Úsbeska
-vi = Víetnamska
-vot = Votíska
-zh-CN = Kínverska (Kína)
-zh-HK = Kínverska (Hong Kong)
-zh-TW = Kínverska (Taívan)
 
 # [/]

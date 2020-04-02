@@ -18,6 +18,7 @@ import { importSentences } from './lib/model/db/import-sentences';
 import { getConfig } from './config-helper';
 import authRouter from './auth-router';
 import fetchLegalDocument from './fetch-legal-document';
+import fetchInstitutions from './fetch-competition-documents';
 
 const consul = require('consul')({ promisify: true });
 
@@ -161,6 +162,20 @@ export default class Server {
         response.send(await fetchLegalDocument('Cookies', locale));
       }
     );
+    this.app.get(
+      '/c/:uuid',
+      async ({ params: { uuid } }: Request, response: Response) => {
+        const success = await this.api.addPermission(uuid);
+        if (success) {
+          response.redirect('/samthykki');
+        } else {
+          response.redirect('/samthykki/villa');
+        }
+      }
+    );
+    this.app.get('/competition/institutions', async (_, response) => {
+      response.send(await fetchInstitutions());
+    });
   }
 
   /**

@@ -1,18 +1,3 @@
-@import url('../../../vars.css');
-.contribution.speak .error .instruction {
-    color: var(--red);
-}
-
-.title {
-    border-bottom: 0.5rem solid var(--lighter-grey);
-    margin: 2rem;
-}
-
-.modal-error {
-    color: var(--red);
-    margin-bottom: 2rem;
-}
-
 .form-fields {
     color: var(--near-black);
     display: flex;
@@ -22,11 +7,6 @@
     & button {
         display: flex;
         align-self: flex-start;
-    }
-    & .gender-child {
-        @media (--sm-down) {
-            display: none;
-        }
     }
     & > * {
         box-sizing: border-box;
@@ -41,6 +21,32 @@
             }
         }
     }
+    & button {
+        box-sizing: border-box;
+        border: 1.6px solid #e6e4e1;
+        border-radius: 2px;
+        padding: 13px;
+        font-size: var(--font-size);
+        font-family: var(--base-font-family);
+        color: var(--black);
+        background-color: var(--white);
+        &:focus {
+            border-color: var(--black);
+        }
+        &:disabled {
+            color: var(--warm-grey);
+        }
+    }
+
+    & input[type='number'] {
+        width: 100%;
+        -moz-appearance: textfield;
+    }
+
+    & input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
     & .labeled-checkbox {
         padding: 13px 5px;
         margin-top: 1rem;
@@ -56,8 +62,23 @@
     }
 }
 
-.error-message {
-    margin-bottom: 20px;
+.info-consent {
+    margin: 0px 0px 30px 0px;
+}
+
+.info {
+    margin: 0px;
+    padding-inline-start: 12px;
+    & button {
+        outline: none;
+        border: none;
+        padding: 0;
+        font-family: var(--base-font-family);
+        font-size: var(--font-size);
+        font-weight: 600;
+        color: var(--blue);
+        background: none;
+    }
 }
 
 .demographic-info {
@@ -95,33 +116,5 @@
     }
     & .explanation {
         display: block;
-    }
-}
-
-.record-abort {
-    & .title {
-        margin-top: 58px;
-        margin-bottom: 10px;
-        font-size: var(--font-size-xxl);
-        font-weight: normal;
-    }
-    & .text {
-        margin-bottom: 35px;
-        font-size: 20px;
-    }
-    & .buttons {
-        margin-bottom: 40px;
-    }
-    & .button {
-        height: 57px;
-    }
-    & .text-button {
-        font-size: var(--font-size-xs);
-        font-weight: 600;
-        text-decoration: underline;
-        &:hover {
-            color: var(--blue);
-            text-decoration-color: var(--blue);
-        }
     }
 }

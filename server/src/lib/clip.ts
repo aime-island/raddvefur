@@ -113,6 +113,8 @@ export default class Clip {
     const sentence = decodeURIComponent(headers.sentence as string);
     const age = decodeURIComponent(headers.age as string);
     const sex = decodeURIComponent(headers.sex as string);
+    const institution = decodeURIComponent(headers.institution as string);
+    const division = decodeURIComponent(headers.division as string);
     const native_language = decodeURIComponent(
       headers.native_language as string
     );
@@ -195,6 +197,8 @@ export default class Clip {
         age: headers.age,
         native_language: headers.native_language,
         user_agent: user_agent,
+        institution: headers.institution,
+        division: headers.division,
       });
       await Awards.checkProgress(client_id);
 

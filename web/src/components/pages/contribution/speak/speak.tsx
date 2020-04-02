@@ -16,33 +16,15 @@ import { User } from '../../../../stores/user';
 import API from '../../../../services/api';
 import { trackRecording } from '../../../../services/tracker';
 import URLS from '../../../../urls';
-import {
-  localeConnector,
-  LocaleLink,
-  LocalePropsFromState,
-} from '../../../locale-helpers';
+import { localeConnector, LocalePropsFromState } from '../../../locale-helpers';
 import Modal, { ModalButtons } from '../../../modal/modal';
 import CountModal from '../count-modal';
+import DemographicModal from '../demographic-modal';
+import DemographicReview from '../demographic-review';
 import TermsModal from '../../../terms-modal';
-import {
-  CheckIcon,
-  FontIcon,
-  MicIcon,
-  StopIcon,
-  DownIcon,
-} from '../../../ui/icons';
-import {
-  Button,
-  TextButton,
-  LabeledSelect,
-  LabeledCheckbox,
-} from '../../../ui/ui';
-import {
-  isFirefoxFocus,
-  isSafariIOS,
-  isFacebook,
-  getUserAgent,
-} from '../../../../utility';
+import { CheckIcon, FontIcon, MicIcon, StopIcon } from '../../../ui/icons';
+import { Button, TextButton } from '../../../ui/ui';
+import { isFirefoxFocus, isSafariIOS, getUserAgent } from '../../../../utility';
 import ContributionPage, { ContributionPillProps } from '../contribution';
 import {
   RecordButton,
@@ -59,9 +41,12 @@ import {
   SEXES,
   DemoInfo,
 } from '../../../../stores/demographics';
-
+import {
+  CompetitionInfo,
+  Institutions,
+  Institution,
+} from '../../../../stores/competition';
 import './speak.css';
-import { Clips } from '../../../../stores/clips';
 
 const MIN_RECORDING_MS = 1000;
 const MAX_RECORDING_MS = 15000;
@@ -138,10 +123,15 @@ interface State {
   showDiscardModal: boolean;
   showDemographicInfo: boolean;
   showDemographicModal: boolean;
+  showDemographicReview: boolean;
   showCountModal: boolean;
   isCountSet: boolean;
   showLanguageSelect: boolean;
   demographic: DemoInfo;
+  institutions: Institution[];
+  competition: CompetitionInfo;
+  isChild: boolean;
+  consentGranted: boolean;
   uploaded: number[];
   userAgent: string;
   speakSetCount: number;
@@ -161,6 +151,7 @@ const initialState: State = {
   showDiscardModal: false,
   showDemographicInfo: false,
   showDemographicModal: true,
+  showDemographicReview: false,
   showCountModal: false,
   showLanguageSelect: false,
   demographic: {
@@ -168,27 +159,17 @@ const initialState: State = {
     age: '',
     native_language: '',
   },
+  institutions: [],
+  competition: {
+    institution: '',
+    division: '',
+  },
+  isChild: false,
+  consentGranted: false,
   uploaded: [],
   userAgent: '',
   speakSetCount: 5,
 };
-
-const Options = withLocalization(
-  ({
-    children,
-    getString,
-  }: {
-    children: { [key: string]: string };
-  } & LocalizationProps) => (
-    <React.Fragment>
-      {Object.entries(children).map(([key, value]) => (
-        <option key={key} value={key}>
-          {getString(key, null, value)}
-        </option>
-      ))}
-    </React.Fragment>
-  )
-);
 
 class SpeakPage extends React.Component<Props, State> {
   state: State = initialState;
@@ -262,6 +243,8 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     this.userDemographicInfoToState();
+    this.userCompetitionInfoToState();
+    this.institutionsToState();
 
     const ua = getUserAgent();
     this.setState({ userAgent: ua });
@@ -291,6 +274,9 @@ class SpeakPage extends React.Component<Props, State> {
   }
 
   private handleKeyUprerecording = async (event: any) => {
+    if (this.state.showDemographicModal) {
+      return;
+    }
     let index = null;
     //for both sets of number keys on a keyboard with shift key
     if (event.code === 'Digit1' || event.code === 'Numpad1') {
@@ -485,7 +471,7 @@ class SpeakPage extends React.Component<Props, State> {
       this.setState({ showPrivacyModal: true });
       return false;
     }
-    const { demographic } = this.state;
+    const { demographic, uploaded, userAgent } = this.state;
 
     const demographicError = this.getDemographicError(demographic);
     if (demographicError) {
@@ -497,16 +483,13 @@ class SpeakPage extends React.Component<Props, State> {
     }
 
     let clips = this.state.clips.filter(clip => clip.recording);
-
-    const { uploaded } = this.state;
     const uploadedIndex = Math.max(...uploaded);
-
     clips = clips.slice(uploadedIndex + 1);
-    const { userAgent } = this.state;
+
     removeSentences(clips.map(c => c.sentence.id));
 
     this.setState({ clips: [], isSubmitted: true });
-
+    const { competitionInfo } = user;
     addUploads([
       ...clips.map(({ sentence, recording }) => async () => {
         let retries = 3;
@@ -517,7 +500,8 @@ class SpeakPage extends React.Component<Props, State> {
               sentence.id,
               sentence.text,
               demographic,
-              userAgent
+              userAgent,
+              competitionInfo
             );
             if (!user.account) {
               tallyRecording();
@@ -584,6 +568,7 @@ class SpeakPage extends React.Component<Props, State> {
 
     const { demographic } = this.state;
     const { userAgent } = this.state;
+    const { competitionInfo } = user;
     addUploads([
       ...clips.map(({ sentence, recording }) => async () => {
         let retries = 3;
@@ -594,7 +579,8 @@ class SpeakPage extends React.Component<Props, State> {
               sentence.id,
               sentence.text,
               demographic,
-              userAgent
+              userAgent,
+              competitionInfo
             );
             if (!user.account) {
               tallyRecording();
@@ -623,11 +609,33 @@ class SpeakPage extends React.Component<Props, State> {
   private resetState = (callback?: any) => {
     this.setState(initialState, callback);
     this.userDemographicInfoToState();
+    this.userCompetitionInfoToState();
+  };
+
+  private institutionsToState = async () => {
+    const institutions: Institutions = await this.props.api.fetchInstitutions();
+    this.setState({
+      institutions: institutions.institutions,
+    });
+  };
+
+  private userCompetitionInfoToState = () => {
+    const { user } = this.props;
+    if (user.hasInfo) {
+      this.setState({
+        competition: user.competitionInfo,
+      });
+    }
   };
 
   private userDemographicInfoToState = () => {
     const { user } = this.props;
     if (!this.getDemographicError(user.demographicInfo) && user.hasInfo) {
+      if (user.demographicInfo.age == 'barn') {
+        this.setState({
+          isChild: true,
+        });
+      }
       this.setState({
         showDemographicModal: false,
         demographic: user.demographicInfo,
@@ -635,29 +643,29 @@ class SpeakPage extends React.Component<Props, State> {
     }
   };
 
-  private checkNativeLanguage = () => {
+  private checkNativeLanguage = (demographic: DemoInfo): Promise<DemoInfo> => {
     return new Promise((resolve, reject) => {
-      if (
-        this.state.demographic.age &&
-        this.state.demographic.sex &&
-        !this.state.showLanguageSelect
-      ) {
-        this.setState({
-          demographic: {
-            ...this.state.demographic,
-            native_language: DEFAULT_LANGUAGE,
-          },
+      if (demographic.age && demographic.sex && !demographic.native_language) {
+        resolve({
+          age: demographic.age,
+          sex: demographic.sex,
+          native_language: DEFAULT_LANGUAGE,
         });
-        resolve();
       } else {
-        resolve();
+        resolve(demographic);
       }
     });
   };
 
-  private submitDemographic = async () => {
-    await this.checkNativeLanguage();
-    const demographicError = this.getDemographicError(this.state.demographic);
+  private submitDemographic = async (
+    demographic: DemoInfo,
+    competition: CompetitionInfo
+  ) => {
+    demographic = await this.checkNativeLanguage(demographic);
+    this.setState({
+      demographic,
+    });
+    const demographicError = this.getDemographicError(demographic);
     if (demographicError) {
       return this.setState({
         demographicError,
@@ -666,6 +674,7 @@ class SpeakPage extends React.Component<Props, State> {
       this.props.updateUser({
         hasInfo: true,
         demographicInfo: this.state.demographic,
+        competitionInfo: competition,
       });
       this.setState({
         demographicError,
@@ -711,41 +720,6 @@ class SpeakPage extends React.Component<Props, State> {
     });
   };
 
-  private handleChangeFor = (e: any) => {
-    this.setState({
-      demographic: {
-        ...this.state.demographic,
-        [e.target.name]: e.target.value,
-      },
-    });
-  };
-
-  private toggleNativeIcelandic = () => {
-    if (this.state.showLanguageSelect) {
-      this.setState({
-        demographic: {
-          ...this.state.demographic,
-          native_language: DEFAULT_LANGUAGE,
-        },
-        showLanguageSelect: false,
-      });
-    } else {
-      this.setState({
-        demographic: {
-          ...this.state.demographic,
-          native_language: '',
-        },
-        showLanguageSelect: true,
-      });
-    }
-  };
-
-  private setShowDemographicInfo() {
-    this.setState({
-      showDemographicInfo: !this.state.showDemographicInfo,
-    });
-  }
-
   private setShowCountModal = () => {
     this.setState({
       isCountSet: true,
@@ -765,6 +739,12 @@ class SpeakPage extends React.Component<Props, State> {
     });
   };
 
+  private setShowDemoReviewModal = () => {
+    this.setState({
+      showDemographicReview: !this.state.showDemographicReview,
+    });
+  };
+
   render() {
     const { getString, user } = this.props;
     const {
@@ -773,16 +753,17 @@ class SpeakPage extends React.Component<Props, State> {
       clipsBuffer,
       isSubmitted,
       error,
+      competition,
+      institutions,
+      demographic,
       demographicError,
       recordingStatus,
       rerecordIndex,
       showPrivacyModal,
       showDiscardModal,
       showDemographicModal,
-      showDemographicInfo,
+      showDemographicReview,
       showCountModal,
-      demographic,
-      showLanguageSelect,
       uploaded,
       speakSetCount,
     } = this.state;
@@ -838,116 +819,51 @@ class SpeakPage extends React.Component<Props, State> {
             />
           </Localized>
         )}
+        {demographicError && (
+          <div className="modal-error">
+            <Localized
+              id={
+                {
+                  [DemographicError.NO_AGE]: 'no-age',
+                  [DemographicError.NO_NATIVE_LANGUAGE]: 'no-native-language',
+                  [DemographicError.NO_SEX]: 'no-sex',
+                }[demographicError]
+              }
+            />
+          </div>
+        )}
+        {showDemographicModal && (
+          <DemographicModal
+            demographic={demographic}
+            competition={competition}
+            institutions={institutions}
+            api={this.props.api}
+            submitDemographic={(demographic, competition) =>
+              this.submitDemographic(demographic, competition)
+            }
+            setShowDemographicModal={this.setShowDemographicModal}
+          />
+        )}
+        {showDemographicReview && (
+          <DemographicReview
+            competition={competition}
+            institutions={institutions}
+            demographic={demographic}
+            setShowDemographicModal={this.setShowDemographicModal}
+            setShowDemoReviewModal={this.setShowDemoReviewModal}
+          />
+        )}
         {showCountModal && (
           <CountModal
             setShowCountModal={this.setShowCountModal}
+            setShowDemoReviewModal={this.setShowDemoReviewModal}
             setSpeakCount={count => this.setSpeakCount(count)}
           />
-        )}
-        {showDemographicModal && (
-          <Modal
-            innerClassName="demographic-modal"
-            onRequestClose={this.setShowDemographicModal}>
-            <Localized id="demographic-form-title" className="form-title">
-              <h1 className="title" />
-            </Localized>
-
-            {demographicError && (
-              <div className="modal-error">
-                <Localized
-                  id={
-                    {
-                      [DemographicError.NO_AGE]: 'no-age',
-                      [DemographicError.NO_NATIVE_LANGUAGE]:
-                        'no-native-language',
-                      [DemographicError.NO_SEX]: 'no-sex',
-                    }[demographicError]
-                  }
-                />
-              </div>
-            )}
-
-            <div className="form-fields">
-              <Localized id="demographic-form-age" attrs={{ label: true }}>
-                <LabeledSelect
-                  name="age"
-                  value={demographic.age}
-                  onChange={(e: any) => this.handleChangeFor(e)}>
-                  <Options>{AGES}</Options>
-                </LabeledSelect>
-              </Localized>
-
-              <Localized id="demographic-form-gender" attrs={{ label: true }}>
-                <LabeledSelect
-                  name="sex"
-                  value={demographic.sex}
-                  onChange={(e: any) => this.handleChangeFor(e)}>
-                  <Options>{SEXES}</Options>
-                </LabeledSelect>
-              </Localized>
-
-              <LabeledCheckbox
-                checked={!showLanguageSelect}
-                label={
-                  <Localized id="demographic-form-other-native-language">
-                    <span />
-                  </Localized>
-                }
-                onChange={(e: any) => this.toggleNativeIcelandic()}
-              />
-              {showLanguageSelect && (
-                <Localized
-                  id="demographic-form-native-language"
-                  attrs={{ label: true }}>
-                  <LabeledSelect
-                    name="native_language"
-                    value={demographic.native_language}
-                    onChange={(e: any) => this.handleChangeFor(e)}>
-                    <Options>{LANGUAGES}</Options>
-                  </LabeledSelect>
-                </Localized>
-              )}
-            </div>
-            <ModalButtons>
-              <Localized>
-                <Localized id="demographic-form-submit">
-                  <Button
-                    outline
-                    rounded
-                    onClick={() => this.submitDemographic()}
-                  />
-                </Localized>
-              </Localized>
-            </ModalButtons>
-
-            <div
-              className={`demographic-info ${
-                showDemographicInfo ? 'expanded' : ''
-              }`}>
-              <button
-                type="button"
-                onClick={() => this.setShowDemographicInfo()}>
-                <Localized
-                  id="why-demographic"
-                  termsLink={<LocaleLink to={URLS.TERMS} blank />}
-                  privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
-                  <span />
-                </Localized>
-
-                <DownIcon />
-              </button>
-              <Localized
-                id="why-demographic-explanation"
-                termsLink={<LocaleLink to={URLS.TERMS} blank />}
-                privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
-                <div className="explanation" />
-              </Localized>
-            </div>
-          </Modal>
         )}
         <ContributionPage
           activeIndex={recordingIndex}
           speakSetCount={speakSetCount}
+          institutions={institutions}
           errorContent={this.isUnsupportedPlatform && <UnsupportedInfo />}
           extraButton={
             <Button rounded outline className="skip" onClick={this.handleSkip}>
@@ -994,6 +910,7 @@ class SpeakPage extends React.Component<Props, State> {
           onReset={() => this.resetState()}
           onSkip={this.handleSkip}
           onSubmit={() => this.upload()}
+          showDemographicModal={showDemographicModal}
           setShowDemographicModal={() => this.setShowDemographicModal()}
           primaryButtons={
             <RecordButton
