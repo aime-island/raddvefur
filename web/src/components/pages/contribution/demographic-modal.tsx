@@ -19,7 +19,26 @@ import './speak/speak.css';
 import './scrollable-modal.css';
 
 const DEFAULT_LANGUAGE = 'islenska';
-
+const childAges = [
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+];
 const Options = withLocalization(
   ({
     children,
@@ -28,17 +47,20 @@ const Options = withLocalization(
     children: { [key: string]: string };
   } & LocalizationProps) => (
     <React.Fragment>
-      {Object.entries(children).map(([key, value]) => (
-        <option key={key} value={key}>
-          {getString(key, null, value)}
-        </option>
-      ))}
+      {Object.entries(children)
+        .filter(value => !(value[0] in childAges))
+        .map(([key, value]) => (
+          <option key={key} value={key}>
+            {getString(key, null, value)}
+          </option>
+        ))}
     </React.Fragment>
   )
 );
 
 interface State {
   demographic: DemoInfo;
+  childAge: string;
   isChild: boolean;
   consentGranted: boolean;
   showLanguageSelect: boolean;
@@ -61,7 +83,7 @@ export default class DemographicModal extends React.Component<Props, State> {
   private competitionRef: any;
   constructor(props: Props) {
     super(props);
-    this.competitionRef = React.createRef();
+    //this.competitionRef = React.createRef();
   }
 
   state: State = {
@@ -70,6 +92,7 @@ export default class DemographicModal extends React.Component<Props, State> {
       age: '',
       native_language: '',
     },
+    childAge: '',
     isChild: false,
     consentGranted: false,
     showLanguageSelect: false,
@@ -77,6 +100,7 @@ export default class DemographicModal extends React.Component<Props, State> {
   };
 
   componentDidMount = () => {
+    // Maybe put undir 18 when client swaps users
     this.setState({
       demographic: this.props.demographic,
     });
@@ -136,13 +160,32 @@ export default class DemographicModal extends React.Component<Props, State> {
   };
 
   private submit = () => {
-    const { demographic } = this.state;
-    const competitionState = this.competitionRef.current.state;
+    const { demographic, isChild, childAge } = this.state;
+    /* const competitionState = this.competitionRef.current.state;
     const competition = {
       institution: competitionState.selectedInstitution,
       division: competitionState.selectedDivision,
+    }; */
+    const competition = {
+      institution: '',
+      division: '',
     };
-    this.props.submitDemographic(demographic, competition);
+
+    if (isChild && childAge) {
+      const newDemographic = {
+        ...demographic,
+        age: childAge,
+      };
+      this.props.submitDemographic(newDemographic, competition);
+    } else {
+      this.props.submitDemographic(demographic, competition);
+    }
+  };
+
+  private setAge = (age: string) => {
+    this.setState({
+      childAge: age,
+    });
   };
 
   render() {
@@ -188,6 +231,7 @@ export default class DemographicModal extends React.Component<Props, State> {
         {isChild && !consentGranted && (
           <ConsentForm
             setConsentGranted={this.setConsentGranted}
+            setAge={(age: string) => this.setAge(age)}
             api={this.props.api}
           />
         )}
@@ -240,7 +284,7 @@ export default class DemographicModal extends React.Component<Props, State> {
         )}
         {(!isChild || consentGranted) && (
           <div>
-            {this.props.institutions && (
+            {this.props.institutions && false && (
               <CompetitionForm
                 ref={this.competitionRef}
                 api={this.props.api}
