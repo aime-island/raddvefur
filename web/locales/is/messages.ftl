@@ -546,6 +546,7 @@ download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
 whats-inside = Gagnasafnið Samrómur
+competition-heading = Söfnunarkeppni Samróms 
 
 dataset-description-hours =
     Samrómur er opið og aðgengilegt gagnasafn radda sem öllum er frjálst að nýta við þróun hugbúnaðar á íslensku. 
@@ -553,7 +554,16 @@ dataset-description-hours =
     Gagnasafnið samanstendur af setningum og hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. Hver færsla í gagnasafninu inniheldur WAV-hljóðbrot og samsvarandi textaskrá.
 
     Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
-    
+
+competition-info = Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Sagittis aliquam malesuada bibendum arcu. Urna nunc id cursus metus aliquam eleifend mi. In dictum non consectetur a erat nam at lectus. 
+    Eros in cursus turpis massa tincidunt dui ut. Aliquam eleifend mi in nulla posuere sollicitudin aliquam. 
+    Gravida in fermentum et sollicitudin ac orci phasellus. Et egestas quis ipsum suspendisse. 
+    Malesuada proin libero nunc consequat interdum varius. Habitant morbi tristique senectus et netus et malesuada. 
+    Arcu dictum varius duis at consectetur lorem. Non blandit massa enim nec dui nunc mattis.
+
+participate-here = Þú getur tekið þátt hér
+
 want-dataset-update = Langar þig að heyra meira um starf Samróms? Skráðu þig þá á póstlistann.
 subscribe = Gerast áskrifandi
 
