@@ -24,7 +24,6 @@
         @media (--lg-up) {
             margin-top: 50px;
             width: 40%;
-            padding-right: 3rem;
             margin-bottom: 30px;
         }
 
@@ -58,13 +57,14 @@
         }
 
         @media (--lg-up) {
+            padding-right: 3rem;
             margin-top: 50px;
             margin-bottom: 30px;
         }
     }
 
     @media (--md-up) {
-        flex-direction: row;
+        flex-direction: row-reverse;
         & > * {
             width: 100%;
         }
