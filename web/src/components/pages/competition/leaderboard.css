@@ -38,7 +38,7 @@
         font-size: var(--font-size-lg);
     }
 
-    @media (--sm-down) {
+    @media (--xxs-down) {
         font-size: var(--font-size-xxs);
     }
 }
