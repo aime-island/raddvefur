@@ -1,15 +1,8 @@
 @import url('../../vars.css');
 
-.competition-container #content {
-    padding: 0;
-
-    & > div {
-        max-width: none;
-
-        @media (--lg-down) {
-            padding: 0;
-        }
-    }
+#content {
+    margin-bottom: -2rem;
+    background: url('images/light-waves.svg') repeat-x center bottom;
 }
 
 .competition-container {
