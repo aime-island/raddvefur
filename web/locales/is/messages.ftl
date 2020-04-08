@@ -126,7 +126,7 @@ other                       = Annað
 ## Competition form
 competition-form-title      = Lestrarkeppni
 competition-form-institution=
-    .label = Stofnun
+    .label = Skóli
 competition-form-division   =
     .label = Deild
 why-competition             = Meira um lestrarkeppnina

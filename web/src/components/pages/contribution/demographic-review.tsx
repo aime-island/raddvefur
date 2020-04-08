@@ -70,11 +70,11 @@ export default class DemographicReview extends React.Component<Props> {
               </div>
             </div>
 
-            {/* <div className="toggle-with-info">
+            <div className="toggle-with-info">
               <div className="review-info">
                 <div className="demographic-review">
                   <div className="demo-item">
-                    Stofnun:{' '}
+                    Skóli:{' '}
                     <span>{institution ? institution.name || '' : ''}</span>
                   </div>
                   <div className="demo-item">
@@ -82,7 +82,7 @@ export default class DemographicReview extends React.Component<Props> {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
           <ModalButtons>
             <Button

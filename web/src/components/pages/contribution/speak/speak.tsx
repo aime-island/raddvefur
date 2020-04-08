@@ -632,6 +632,7 @@ class SpeakPage extends React.Component<Props, State> {
 
   private userCompetitionInfoToState = () => {
     const { user } = this.props;
+    console.log(user.competitionInfo);
     if (user.hasInfo) {
       this.setState({
         competition: user.competitionInfo,

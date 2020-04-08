@@ -29,6 +29,9 @@ export default class Leaderboard extends React.Component<Props, State> {
 
   componentWillReceiveProps = () => {
     const { stats } = this.props;
+  };
+
+  componentDidMount = () => {
     this.setState({
       stats: [
         {
@@ -1124,7 +1127,7 @@ const renderStats = (stats: InstitutionStat[], institutions: Institution[]) => {
     if (institution) {
       return institution.name;
     } else {
-      return 'Stofnun';
+      return 'Skóli';
     }
   };
 

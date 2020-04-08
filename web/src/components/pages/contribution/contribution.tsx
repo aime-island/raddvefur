@@ -497,7 +497,7 @@ class ContributionPage extends React.Component<Props, State> {
                         }>
                         <span className="text" />
                       </Localized>
-                      {/*                       <Localized
+                      <Localized
                         id="review-institution"
                         bold={<b />}
                         $institution={institutionName || ''}>
@@ -508,7 +508,7 @@ class ContributionPage extends React.Component<Props, State> {
                         bold={<b />}
                         $division={divisionName || ''}>
                         <span className="text" />
-                      </Localized> */}
+                      </Localized>
                     </div>
                     <Localized id="change-demo">
                       <Button
