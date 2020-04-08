@@ -48,6 +48,10 @@ export const MalaetlunLink = ({ dispatch, ...props }: SharedLinkProps) => {
   );
 };
 
+export const SpeakForSamromur = ({ dispatch, ...props }: SharedLinkProps) => {
+  return <a target="blank" href="https://samromur.is/tala" {...props} />;
+};
+
 export const SlackLink = ({ dispatch, ...props }: SharedLinkProps) => {
   return <a target="blank" href="https://www.ru.is" {...props} />;
 };

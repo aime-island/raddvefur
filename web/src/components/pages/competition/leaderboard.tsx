@@ -87,6 +87,7 @@ export default class Leaderboard extends React.Component<Props, State> {
             onClick={(e: any) => this.setSortBy(e.target.id)}>
             Setningar {sortByIdentifier == 'count' && <SortIcon />}
           </div>
+          <span className="proportion">Hlutfall</span>
         </div>
         {stats ? renderStats(stats, institutions) : <Spinner />}
       </div>
@@ -113,7 +114,8 @@ const renderStats = (stats: InstitutionStat[], institutions: Institution[]) => {
         <span>{getInstitutionName(stat.institution)}</span>
         <span className="stat">{stat.users}</span>
         <span className="stat stat-main">{stat.count}</span>
+        <span className="stat stat-prop">{stat.count}</span>
       </div>
     );
-  });
+  }); //Ekki rétt gögn í neðsta spam-inu
 };

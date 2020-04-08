@@ -19,6 +19,8 @@ import { Spinner } from '../../ui/ui';
 import { LocaleLink, useLocale, LocaleNavLink } from '../../locale-helpers';
 import { PlayOutlineIcon, MicIcon } from '../../ui/icons';
 
+import { SpeakForSamromur } from '../../shared/links';
+
 import './competition.css';
 
 interface PropsFromState {
@@ -62,9 +64,19 @@ class Competition extends React.Component<Props, State> {
           <Localized id="competition-heading">
             <h1 />
           </Localized>
-          <Localized id="competition-info">
-            <p />
-          </Localized>
+          <div id="competition-info">
+            <Localized id="competition-text-one">
+              <p />
+            </Localized>
+            <Localized
+              id="competition-text-two"
+              speakLink={<SpeakForSamromur />}>
+              <p />
+            </Localized>
+            <Localized id="competition-text-three">
+              <p />
+            </Localized>
+          </div>
           <div className="line" />
           <div className="participate-container">
             <Localized id="participate-here">

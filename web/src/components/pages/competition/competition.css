@@ -46,6 +46,15 @@
                 margin-right: 0.5rem;
             }
         }
+
+        & p {
+            text-align: justify;
+            margin-bottom: 1em;
+
+            & a {
+                color: var(--blue);
+            }
+        }
     }
 
     & .leaderboard {
