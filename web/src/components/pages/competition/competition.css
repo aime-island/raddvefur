@@ -1,13 +1,21 @@
 @import url('../../vars.css');
 
-#content {
-    margin-bottom: -2rem;
-    background: url('images/light-waves.svg') repeat-x center bottom;
+.competition-container #content {
+    padding: 0;
+
+    & > div {
+        max-width: none;
+
+        @media (--lg-down) {
+            padding: 0;
+        }
+    }
 }
 
 .competition-container {
     display: flex;
-
+    max-width: 100%;
+    overflow: hidden;
     & .text {
         @media (--md-down) {
             margin-bottom: 20px;
@@ -76,96 +84,3 @@
         flex-direction: column;
     }
 }
-
-/*
-.mars-validate {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media (--md-down) {
-        min-height: 300px;
-        background: url('images/waves-md.svg');
-        background-size: cover;
-    }
-
-    @media (--lg-up) {
-        min-height: 520px;
-        background: url('images/waves.png');
-        background-size: cover;
-
-        & > * {
-            display: flex;
-            flex-direction: row;
-            width: 50%;
-
-            &:first-child {
-                justify-content: flex-end;
-            }
-        }
-    }
-
-    & img {
-        @media (--md-down) {
-            max-height: 300px;
-        }
-
-        @media (--lg-up) {
-            max-height: 420px;
-        }
-    }
-
-    & .cta-container {
-        max-width: 400px;
-        display: flex;
-
-        @media (--md-down) {
-            flex-direction: column;
-        }
-
-        @media (--lg-up) {
-            align-items: center;
-        }
-    }
-
-    & a {
-        flex-shrink: 0;
-        border-radius: 50%;
-        width: 90px;
-        height: 90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: var(--white);
-
-        @media (--md-down) {
-            margin-bottom: 20px;
-        }
-
-        @media (--lg-up) {
-            margin-inline-end: 20px;
-        }
-
-        & svg {
-            transform: scale(1.2);
-        }
-
-        & path {
-            fill: var(--valid-green);
-        }
-    }
-
-    & h3 {
-        color: var(--white);
-
-        @media (--md-down) {
-            font-size: var(--font-size-lg);
-            font-weight: 600;
-        }
-
-        @media (--lg-up) {
-            font-size: var(--font-size-xl);
-            font-weight: normal;
-        }
-    }
-}*/
