@@ -503,12 +503,12 @@ class ContributionPage extends React.Component<Props, State> {
                         $institution={institutionName || ''}>
                         <span className="text" />
                       </Localized>
-                      <Localized
+                      {/*                       <Localized
                         id="review-division"
                         bold={<b />}
                         $division={divisionName || ''}>
                         <span className="text" />
-                      </Localized>
+                      </Localized> */}
                     </div>
                     <Localized id="change-demo">
                       <Button

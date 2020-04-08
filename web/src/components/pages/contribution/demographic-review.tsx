@@ -77,9 +77,9 @@ export default class DemographicReview extends React.Component<Props> {
                     Skóli:{' '}
                     <span>{institution ? institution.name || '' : ''}</span>
                   </div>
-                  <div className="demo-item">
+                  {/*                   <div className="demo-item">
                     Deild: <span>{division ? division.name || '' : ''}</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

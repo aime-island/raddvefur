@@ -147,14 +147,14 @@ export default class CompetitionForm extends React.Component<Props, State> {
               <Options>{institutions}</Options>
             </LabeledSelect>
           </Localized>
-          <Localized id="competition-form-division" attrs={{ label: true }}>
+          {/* <Localized id="competition-form-division" attrs={{ label: true }}>
             <LabeledSelect
               name="division"
               value={selectedDivision}
               onChange={(e: any) => this.handleChangeFor(e)}>
               <Options>{divisions}</Options>
             </LabeledSelect>
-          </Localized>
+          </Localized> */}
         </div>
         <div
           className={`demographic-info ${
