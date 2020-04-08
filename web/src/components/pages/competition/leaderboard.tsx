@@ -1137,10 +1137,8 @@ const renderStats = (stats: InstitutionStat[], institutions: Institution[]) => {
         <span>{stat.rank}</span>
         <span>{getInstitutionName(stat.institution)}</span>
         <span className="stat">{stat.users}</span>
-        <span className="stat stat-main">
-          {(stat.count / stat.users).toFixed(1)}
-        </span>
-        <span className="stat stat-prop">{stat.count}</span>
+        <span className="stat">{(stat.count / stat.users).toFixed(1)}</span>
+        <span className="stat stat-prop stat-main">{stat.count}</span>
       </div>
     );
   }); //Ekki rétt gögn í neðsta spam-inu
