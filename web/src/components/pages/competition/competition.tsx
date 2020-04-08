@@ -88,7 +88,8 @@ class Competition extends React.Component<Props, State> {
           </div>
         </div>
         <div className="leaderboard">
-          {stats.length != 0 && institutions.length != 0 ? (
+          {/* stats.length != 0 &&  */}
+          {institutions.length != 0 ? (
             <Leaderboard institutions={institutions} stats={stats} />
           ) : (
             <Spinner />
