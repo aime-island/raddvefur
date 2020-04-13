@@ -100,6 +100,10 @@ export default class API {
     return this.fetch(`${API_PATH}/leaderboard`);
   }
 
+  async getInstitutionGender(institution: string) {
+    return this.fetch(`${API_PATH}/institution_gender/${institution}`);
+  }
+
   async checkKennitala(kennitala: string) {
     return this.fetch(`${API_PATH}/consents/${kennitala}`);
   }

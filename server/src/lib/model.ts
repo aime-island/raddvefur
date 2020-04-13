@@ -72,6 +72,10 @@ export default class Model {
     return this.db.getLeaderboard();
   }
 
+  async getInstitutionGender(institution: string): Promise<any> {
+    return this.db.getInstitutionGender(institution);
+  }
+
   async createConsent(
     email: String,
     kennitala: string

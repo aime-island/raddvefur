@@ -122,6 +122,7 @@ export default class API {
     router.get('/:locale/user_count', this.getUserCount);
 
     router.get('/leaderboard', this.getLeaderboard);
+    router.get('/institution_gender/:institution', this.getInstitutionGender);
     router.get('/consents/:kennitala', this.getConsent);
     router.post('/consents/:kennitala/:email/', this.createConsent);
 
@@ -144,6 +145,16 @@ export default class API {
   getLeaderboard = async (request: Request, response: Response) => {
     const leaderboard = await this.model.getLeaderboard();
     response.json(leaderboard);
+  };
+
+  getInstitutionGender = async (
+    { params: { institution } }: Request,
+    response: Response
+  ) => {
+    const genderDistribution = await this.model.getInstitutionGender(
+      institution
+    );
+    response.json(genderDistribution);
   };
 
   getConsent = async (

@@ -24,4 +24,10 @@ export interface InstitutionStat {
   count: number;
   users: number;
   rank: number;
+  ratio?: number;
+}
+
+export interface GenderStat {
+  clips__sex: string;
+  clips__count: number;
 }

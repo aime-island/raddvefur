@@ -57,6 +57,7 @@ class Competition extends React.Component<Props, State> {
 
   render() {
     const { institutions, stats } = this.state;
+    const { api } = this.props;
     return (
       <div className="competition-container">
         <div className="top">
@@ -103,7 +104,11 @@ class Competition extends React.Component<Props, State> {
           <div className="leaderboard">
             {/* stats.length != 0 &&  */}
             {institutions.length != 0 ? (
-              <Leaderboard institutions={institutions} stats={stats} />
+              <Leaderboard
+                institutions={institutions}
+                stats={stats}
+                api={api}
+              />
             ) : (
               <Spinner />
             )}
