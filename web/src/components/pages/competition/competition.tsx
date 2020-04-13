@@ -45,6 +45,7 @@ class Competition extends React.Component<Props, State> {
 
   componentDidMount = async () => {
     const institutions: Institutions = await this.props.api.fetchInstitutions();
+    console.log(institutions);
     this.setState({
       institutions: institutions.institutions,
     });
@@ -52,7 +53,6 @@ class Competition extends React.Component<Props, State> {
     this.setState({
       stats: stats,
     });
-    console.log(stats);
   };
 
   render() {
@@ -60,10 +60,10 @@ class Competition extends React.Component<Props, State> {
     return (
       <div className="competition-container">
         <div className="text">
-          <div className="line" />
           <Localized id="competition-heading">
             <h1 />
           </Localized>
+          <div className="line" />
           <div id="competition-info">
             <Localized id="competition-text-one">
               <p />
@@ -88,7 +88,8 @@ class Competition extends React.Component<Props, State> {
           </div>
         </div>
         <div className="leaderboard">
-          {stats.length != 0 && institutions.length != 0 ? (
+          {/* stats.length != 0 &&  */}
+          {institutions.length != 0 ? (
             <Leaderboard institutions={institutions} stats={stats} />
           ) : (
             <Spinner />

@@ -6,7 +6,7 @@ datasets                    = Gagnasöfn
 dataset                     = Gagnasafn
 languages                   = Þakkir
 about                       = Um verkefnið
-competition                 = Stigatafla
+competition                 = Grunnskólakeppni
 profile                     = Prófíll
 help                        = Hjálp
 contact                     = Hafa samband
@@ -126,11 +126,11 @@ other                       = Annað
 ## Competition form
 competition-form-title      = Lestrarkeppni
 competition-form-institution=
-    .label = Stofnun
+    .label = Skóli
 competition-form-division   =
     .label = Deild
 why-competition             = Meira um lestrarkeppnina
-why-competition-explanation = Þetta er meira um lestrarkeppnina. Þetta er svona Lorem Impsum texti sem Ólafur Helgi bjó til á eitt hundrað og tuttugu orðum á mínútu.
+why-competition-explanation = Nú er í gangi keppni á milli grunnskóla landsins. Nemendur og fjölskyldur þeirra, geta lesið inn á Samróm og telst hver lesin setning vera stig fyrir þeirra skóla.
 
 ## Consent form
 consent-form-email          =
@@ -555,7 +555,7 @@ dataset-description-hours =
 
     Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
 
-competition-text-one = Nú er í gangi keppni á milli grunnskóla landsins. Nemendur, og fjölskyldur þeirra, geta lesið inn á Samróm og telst hver lesin setning vera stig fyrir þeirra skóla. 
+competition-text-one = Nú er í gangi keppni á milli grunnskóla landsins. Nemendur og fjölskyldur þeirra, geta lesið inn á Samróm og telst hver lesin setning vera stig fyrir þeirra skóla. 
     Tilvera íslenskrar tungu stendur og fellur með því að börn og unglingar noti tungumálið. Það gerum við með því að tryggja að tæknin skilji raddir barna og unglinga, sem nú þegar tala við flest sín tæki á ensku. 
     Raddir barna og unglinga eru afar frábrugðnar röddum fullorðinna. Til að tryggja að tækin skilji alla, konur, börn og karla á öllum aldri, er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
 
