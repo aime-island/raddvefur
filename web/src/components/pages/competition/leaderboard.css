@@ -17,8 +17,8 @@
     max-height: 20px;
     border-bottom: 2px solid black;
     & img {
-        max-height: 20px;
-        max-width: 20px;
+        display: none;
+        max-width: 10px;
         @media (--lg-down) {
             display: none;
         }
@@ -74,8 +74,7 @@
 
 .leaderboard-item {
     display: grid;
-    padding: 1em;
-    padding-right: 0;
+    padding: 1em 0 1em 0;
     grid-template-columns: 1fr 4fr 2fr 2fr 1fr;
     border-bottom: 1px solid black;
     & .stat {

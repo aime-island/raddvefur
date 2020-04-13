@@ -59,41 +59,55 @@ class Competition extends React.Component<Props, State> {
     const { institutions, stats } = this.state;
     return (
       <div className="competition-container">
-        <div className="text">
-          <Localized id="competition-heading">
-            <h1 />
-          </Localized>
-          <div className="line" />
-          <div id="competition-info">
-            <Localized id="competition-text-one">
-              <p />
-            </Localized>
-            <Localized
-              id="competition-text-two"
-              speakLink={<SpeakForSamromur />}>
-              <p />
-            </Localized>
-            <Localized id="competition-text-three">
-              <p />
-            </Localized>
+        <div className="top">
+          <div className="waves">
+            <img src={require('./images/_1.svg')} />
+            <img src={require('./images/_2.svg')} />
+            <img src={require('./images/_3.svg')} className="red" />
+
+            <img src={require('./images/fading.svg')} style={{ right: -5 }} />
+            <img src={require('./images/Eq.svg')} className="eq" />
           </div>
-          <div className="line" />
-          <div className="participate-container">
-            <Localized id="participate-here">
-              <h2 />
+          <div className="heading">
+            <Localized id="competition-heading">
+              <h1 />
             </Localized>
-            <LocaleLink to={URLS.SPEAK}>
-              <MicIcon />
-            </LocaleLink>
           </div>
         </div>
-        <div className="leaderboard">
-          {/* stats.length != 0 &&  */}
-          {institutions.length != 0 ? (
-            <Leaderboard institutions={institutions} stats={stats} />
-          ) : (
-            <Spinner />
-          )}
+        <div className="main-content">
+          <div className="text">
+            <div id="competition-info">
+              <div className="line" />
+              <Localized id="competition-text-one">
+                <p />
+              </Localized>
+              <Localized
+                id="competition-text-two"
+                speakLink={<SpeakForSamromur />}>
+                <p />
+              </Localized>
+              <Localized id="competition-text-three">
+                <p />
+              </Localized>
+            </div>
+            <div className="line" />
+            <div className="participate-container">
+              <Localized id="participate-here">
+                <h2 />
+              </Localized>
+              <LocaleLink to={URLS.SPEAK}>
+                <MicIcon />
+              </LocaleLink>
+            </div>
+          </div>
+          <div className="leaderboard">
+            {/* stats.length != 0 &&  */}
+            {institutions.length != 0 ? (
+              <Leaderboard institutions={institutions} stats={stats} />
+            ) : (
+              <Spinner />
+            )}
+          </div>
         </div>
       </div>
     );

@@ -1225,5 +1225,5 @@ const renderStats = (stats: InstitutionStat[], institutions: Institution[]) => {
         <span className="stat stat-prop stat-main">{stat.count}</span>
       </div>
     );
-  }); //Ekki rétt gögn í neðsta spam-inu
+  });
 };
