@@ -12,6 +12,12 @@ interface Props {
 }
 
 interface State {
+  showInfo: {
+    name: boolean;
+    users: boolean;
+    ratio: boolean;
+    count: boolean;
+  };
   stats: InstitutionStat[];
   sortByIdentifier: string;
   sortBySequence: boolean;
@@ -21,6 +27,12 @@ export default class Leaderboard extends React.Component<Props, State> {
   constructor(props: Props, context: any) {
     super(props, context);
     this.state = {
+      showInfo: {
+        name: false,
+        users: false,
+        ratio: false,
+        count: false,
+      },
       stats: [],
       sortByIdentifier: 'count',
       sortBySequence: true,
@@ -1091,26 +1103,98 @@ export default class Leaderboard extends React.Component<Props, State> {
     this.sort(id, sequence);
   };
 
+  showInfo = (e: any) => {
+    const name = e.target.id;
+    this.setState({
+      showInfo: {
+        name: false,
+        users: false,
+        ratio: false,
+        count: false,
+        [name]: true,
+      },
+    });
+  };
+
+  hideInfo = () => {
+    this.setState({
+      showInfo: {
+        name: false,
+        users: false,
+        ratio: false,
+        count: false,
+      },
+    });
+  };
+
+  renderInfo = (info: String, left: boolean) => (
+    <div className="info-menu">
+      <ul>
+        <li>{info}</li>
+      </ul>
+      <div style={{ height: 10 }}>
+        <div className={left ? 'triangle-left' : 'triangle'} />
+      </div>
+    </div>
+  );
+
   render() {
-    const { stats, sortByIdentifier } = this.state;
+    const { stats, sortByIdentifier, showInfo } = this.state;
     const { institutions } = this.props;
     return (
       <div className="leaderboard-container">
         <div className="leaderboard-header leaderboard-item">
           <span>#</span>
-          <span>Nafn</span>
           <div
+            onMouseEnter={e => this.showInfo(e)}
+            onMouseLeave={this.hideInfo}
+            id="name">
+            Skóli
+            <div className="stat">
+              {showInfo.name &&
+                this.renderInfo(
+                  'Fjöldi keppenda sem hafa lesið inn fyrir skóla.',
+                  true
+                )}
+            </div>
+          </div>
+          <div
+            onMouseEnter={e => this.showInfo(e)}
+            onMouseLeave={this.hideInfo}
             className="stat"
             id="users"
             onClick={(e: any) => this.setSortBy(e.target.id)}>
-            Þáttakendur
+            Keppendur
+            {showInfo.users &&
+              this.renderInfo(
+                'Fjöldi keppenda sem hafa lesið inn fyrir skóla.',
+                false
+              )}
           </div>
-          <span className="stat">Hlutfall</span>
           <div
+            onMouseEnter={e => this.showInfo(e)}
+            onMouseLeave={this.hideInfo}
+            id="ratio"
+            className="stat">
+            Hlutfall
+            {showInfo.ratio &&
+              this.renderInfo(
+                'Fjöldi setninga sem hlutfall af fjölda nemenda í skóla',
+                false
+              )}
+          </div>
+          <div
+            onMouseEnter={e => this.showInfo(e)}
+            onMouseLeave={this.hideInfo}
             className="stat"
             id="count"
             onClick={(e: any) => this.setSortBy(e.target.id)}>
             Setningar
+            {showInfo.count &&
+              this.renderInfo(
+                'Fjöldi setninga sem keppendur í skóla hafa lesið inn',
+                false
+              )}
           </div>
         </div>
         {stats ? renderStats(stats, institutions) : <Spinner />}
