@@ -85,9 +85,12 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   addStatsToState = (stats: InstitutionStat[]) => {
+    let i = 0;
     const newstats = stats.map((stat: InstitutionStat) => {
+      i += 1;
       return {
         ...stat,
+        rank: i,
         ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
       };
     });
@@ -96,7 +99,7 @@ export default class Leaderboard extends React.Component<Props, State> {
     });
   };
 
-  componentWillReceiveProps = () => {
+  componentDidMount = () => {
     const { stats } = this.props;
     if (stats.length != 0) {
       this.addStatsToState(stats);
