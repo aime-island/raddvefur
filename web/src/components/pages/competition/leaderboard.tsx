@@ -7,6 +7,7 @@ import { Spinner } from '../../ui/ui';
 import './leaderboard.css';
 import InstitutionModal from './institution-modal';
 import API from '../../../services/api';
+import arrow from './images/arrow.png';
 
 interface Props {
   institutions: Institution[];
@@ -235,7 +236,10 @@ export default class Leaderboard extends React.Component<Props, State> {
               onMouseEnter={e => this.showInfo(e)}
               onMouseLeave={this.hideInfo}
               id="name">
-              Skóli
+              <p>Skóli</p>
+              <div className="mobile-hint">
+                <img src={arrow} />
+              </div>
               <div className="stat">
                 {showInfo.name &&
                   this.renderInfo(

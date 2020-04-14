@@ -16,11 +16,20 @@
     font-weight: 600;
     max-height: 20px;
     border-bottom: 2px solid black;
-    & img {
-        display: none;
-        max-width: 10px;
-        @media (--lg-down) {
-            display: none;
+    & #name {
+        display: flex;
+        flex-direction: row;
+
+        & p {
+            margin-right: 0.1rem;
+        }
+
+        & img {
+            max-width: 0.7rem;
+
+            @media (--lg-up) {
+                display: none;
+            }
         }
     }
     & .stat {
