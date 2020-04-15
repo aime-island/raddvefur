@@ -237,9 +237,9 @@ export default class Leaderboard extends React.Component<Props, State> {
               onMouseLeave={this.hideInfo}
               id="name">
               <p>Skóli</p>
-              <div className="mobile-hint">
+              {/* <div className="mobile-hint">
                 <img src={arrow} />
-              </div>
+              </div> */}
               <div className="stat">
                 {showInfo.name &&
                   this.renderInfo(
