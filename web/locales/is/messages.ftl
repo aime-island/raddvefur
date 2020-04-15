@@ -6,7 +6,7 @@ datasets                    = Gagnasöfn
 dataset                     = Gagnasafn
 languages                   = Þakkir
 about                       = Um verkefnið
-competition                 = Grunnskólakeppni
+competition                 = Hvaða grunnskóli sigrar?
 profile                     = Prófíll
 help                        = Hjálp
 contact                     = Hafa samband
@@ -546,7 +546,7 @@ download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
 whats-inside = Gagnasafnið Samrómur
-competition-heading = Keppni grunnskóla í innlestri
+competition-heading = Hvaða grunnskóli sigrar?
 
 dataset-description-hours =
     Samrómur er opið og aðgengilegt gagnasafn radda sem öllum er frjálst að nýta við þróun hugbúnaðar á íslensku. 
@@ -555,13 +555,14 @@ dataset-description-hours =
 
     Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
 
-competition-text-one = Nú er í gangi keppni á milli grunnskóla landsins. Nemendur og fjölskyldur þeirra, geta lesið inn á Samróm og telst hver lesin setning vera stig fyrir þeirra skóla. 
-    Tilvera íslenskrar tungu stendur og fellur með því að börn og unglingar noti tungumálið. Það gerum við með því að tryggja að tæknin skilji raddir barna og unglinga, sem nú þegar tala við flest sín tæki á ensku. 
-    Raddir barna og unglinga eru afar frábrugðnar röddum fullorðinna. Til að tryggja að tækin skilji alla, konur, börn og karla á öllum aldri, er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
+competition-text-one =
+    Raddir barna og unglinga eru ekki eins og fullorðinna. Til að tækin sem við tölum við skilji börn og unglinga þurfum við að fá raddsýni sem flestra inn í gagnagrunninn samrómur.is. Gögnin eru notuð til að búa til máltæknilausnir fyrir íslensku.
+
+competition-text-one-two = Í lestrarkeppni grunnskólanna er keppt um setningafjölda sem nemendur lesa inn á samrómur.is. Staða keppninnar er birt jafnóðum á stigatöflunni.
 
 competition-text-two = Til þess að taka þátt þá smellir þú <speakLink>hér</speakLink>, biður um leyfi foreldris/forsjáraðila, velur þinn skóla og lest svo inn.
 
-competition-text-three = Það er stundum sagt að tíminn sé það dýrmætasta sem við eigum. Við skulum nota þennan aukatíma, sem við fáum nú með fjölskyldunni heima, til að æfa lesturinn og leggja um leið íslenskri tungu lið. Framtíð hennar er í okkar höndum.
+competition-text-three = Til að tryggja að tækin skilji alla, konur, börn og karla á öllum aldri, er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
 
 
 participate-here = Þú getur tekið þátt hér

@@ -81,6 +81,9 @@ class Competition extends React.Component<Props, State> {
               <Localized id="competition-text-one">
                 <p />
               </Localized>
+              <Localized id="competition-text-one-two">
+                <p />
+              </Localized>
               <Localized
                 id="competition-text-two"
                 speakLink={<SpeakForSamromur />}>
