@@ -222,6 +222,47 @@ header {
                 color: var(--red);
             }
         }
+
+        & .competition-nav {
+            cursor: pointer;
+        }
+
+        & .dropdown-competitions {
+            position: relative;
+            display: inline-block;
+        }
+
+        & .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        & .dropdown-content a {
+            color: black;
+            padding: 1em 1.2em;
+            text-decoration: none;
+            display: block;
+
+            &.active {
+                color: var(--red);
+            }
+        }
+
+        & .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        & .dropdown-competitions:hover .dropdown-content {
+            display: block;
+        }
+
+        & .dropdown-competitions:hover .dropbtn {
+            background-color: #3e8e41;
+        }
     }
 }
 
