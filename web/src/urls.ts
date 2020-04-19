@@ -21,8 +21,8 @@ export default Object.freeze({
   DATA: '/data', // old, here for redirect purposes
   DATASETS: '/gagnasafn',
 
-  COMPETITION_A: '/keppni/flokkur-A',
-  COMPETITION_B: '/keppni/flokkur-B',
+  COMPETITION_A: '/keppni/StaerriSkolar',
+  COMPETITION_B: '/keppni/MinniSkolar',
 
   PRIVACY: '/personuverndaryfirlysing',
   TERMS: '/skilmalar',

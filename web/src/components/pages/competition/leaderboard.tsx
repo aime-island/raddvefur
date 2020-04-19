@@ -8,6 +8,7 @@ import './leaderboard.css';
 import InstitutionModal from './institution-modal';
 import API from '../../../services/api';
 import arrow from './images/arrow.png';
+import URLS from '../../../urls';
 
 interface Props {
   institutions: Institution[];
@@ -86,8 +87,25 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   addStatsToState = (stats: InstitutionStat[]) => {
+    let currentUrl = window.location.pathname;
+    let filteredStats = [];
+
+    for (const items in stats) {
+      if (
+        currentUrl === URLS.COMPETITION_A &&
+        this.getInstitutionEnrollment(stats[items].institution) >= 500
+      ) {
+        filteredStats.push(stats[0]);
+      } else if (
+        currentUrl === URLS.COMPETITION_B &&
+        this.getInstitutionEnrollment(stats[items].institution) < 500
+      ) {
+        filteredStats.push(stats[0]);
+      }
+    }
+
     let i = 0;
-    const newstats = stats.map((stat: InstitutionStat) => {
+    const newstats = filteredStats.map((stat: InstitutionStat) => {
       i += 1;
       return {
         ...stat,
@@ -95,6 +113,7 @@ export default class Leaderboard extends React.Component<Props, State> {
         ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
       };
     });
+
     this.setState({
       stats: newstats,
     });

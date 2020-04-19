@@ -62,7 +62,12 @@ export default function Content() {
           />
           <Route
             exact
-            path={toLocaleRoute(URLS.COMPETITION)}
+            path={toLocaleRoute(URLS.COMPETITION_A)}
+            component={CompetitionPage}
+          />
+          <Route
+            exact
+            path={toLocaleRoute(URLS.COMPETITION_B)}
             component={CompetitionPage}
           />
           {/* <Route
