@@ -89,15 +89,7 @@ export default class Leaderboard extends React.Component<Props, State> {
     const location = window.location.href;
     const id = location[location.length - 1];
     let i = 0;
-    let newstats = stats.map((stat: InstitutionStat) => {
-      i += 1;
-      return {
-        ...stat,
-        rank: i,
-        ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
-      };
-    });
-    newstats = newstats.filter((stat: InstitutionStat) => {
+    let newstats = stats.filter((stat: InstitutionStat) => {
       const enrollment = this.getInstitutionEnrollment(stat.institution);
       if (id == 'a') {
         return enrollment >= 450;
@@ -105,6 +97,15 @@ export default class Leaderboard extends React.Component<Props, State> {
         return enrollment < 450;
       }
     });
+    newstats = newstats.map((stat: InstitutionStat) => {
+      i += 1;
+      return {
+        ...stat,
+        rank: i,
+        ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
+      };
+    });
+
     this.setState({
       stats: newstats,
     });
