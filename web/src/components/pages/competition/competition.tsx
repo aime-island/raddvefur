@@ -4,6 +4,7 @@ import {
   withLocalization,
 } from 'fluent-react/compat';
 import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import URLS from '../../../urls';
 import API from '../../../services/api';
@@ -32,6 +33,8 @@ type Props = LocalePropsFromState & LocalizationProps & PropsFromState;
 type State = {
   stats: InstitutionStat[];
   institutions: Institution[];
+  expandedText: boolean;
+  isBigScreen: boolean;
 };
 
 class Competition extends React.Component<Props, State> {
@@ -40,7 +43,10 @@ class Competition extends React.Component<Props, State> {
     this.state = {
       stats: [],
       institutions: [],
+      expandedText: null,
+      isBigScreen: false,
     };
+    this.handleExpand = this.handleExpand.bind(this);
   }
 
   componentDidMount = async () => {
@@ -52,11 +58,43 @@ class Competition extends React.Component<Props, State> {
     this.setState({
       stats: stats,
     });
+    window.addEventListener('resize', this.handleResize.bind(this));
+    this.setState({
+      expandedText: false,
+      isBigScreen: window.screen.width >= 768,
+    });
   };
+
+  handleResize() {
+    this.setState({
+      isBigScreen: window.screen.width >= 768,
+    });
+  }
+
+  handleExpand() {
+    this.setState({ expandedText: !this.state.expandedText });
+  }
 
   render() {
     const { institutions, stats } = this.state;
     const { api } = this.props;
+
+    let textMode = null;
+    if (this.state.isBigScreen) {
+      textMode = 'big-screen';
+    } else {
+      if (this.state.expandedText) {
+        textMode = 'small-screen-expanded';
+      } else {
+        textMode = 'small-screen-compact';
+      }
+    }
+
+    let button = (
+      <button className="show-more-text" onClick={this.handleExpand}>
+        {this.state.expandedText ? 'Sjá minna' : 'Sjá meira'}
+      </button>
+    );
     return (
       <div className="competition-container">
         <div className="top">
@@ -84,14 +122,17 @@ class Competition extends React.Component<Props, State> {
               <Localized id="competition-text-one-two">
                 <p />
               </Localized>
-              <Localized
-                id="competition-text-two"
-                speakLink={<SpeakForSamromur />}>
-                <p />
-              </Localized>
-              <Localized id="competition-text-three">
-                <p />
-              </Localized>
+              <div className={textMode}>
+                <Localized
+                  id="competition-text-two"
+                  speakLink={<SpeakForSamromur />}>
+                  <p />
+                </Localized>
+                <Localized id="competition-text-three">
+                  <p />
+                </Localized>
+              </div>
+              {button}
             </div>
             <div className="line" />
             <div className="participate-container">
@@ -123,6 +164,8 @@ class Competition extends React.Component<Props, State> {
 const mapStateToProps = ({ api }: StateTree) => ({
   api,
 });
+
+//const [showWallOfText, setShowWallOfText] = useState(false);
 
 export default localeConnector(
   withLocalization(connect<PropsFromState>(mapStateToProps)(Competition))
