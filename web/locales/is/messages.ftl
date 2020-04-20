@@ -564,8 +564,8 @@ competition-text-two = Til þess að taka þátt þá smellir þú <speakLink>h�
 
 competition-text-three = Til að tryggja að tækin skilji alla, konur, börn og karla á öllum aldri, er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
 
-competition-leage-A= Stærri Skólar
-competition-leage-B= Minni Skólar
+competition-league-A = Nemendafjöldi yfir 450
+competition-league-B = Nemendafjöldi undir 450
 
 participate-here = Þú getur tekið þátt hér
 

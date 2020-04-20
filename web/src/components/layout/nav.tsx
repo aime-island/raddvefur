@@ -28,8 +28,8 @@ export default ({ children, ...props }: { [key: string]: any }) => (
           <a />
         </Localized>
         <div className="dropdown-content">
-          <LocalizedNavLink id="competition-leage-A" to={URLS.COMPETITION_A} />
-          <LocalizedNavLink id="competition-leage-B" to={URLS.COMPETITION_B} />
+          <LocalizedNavLink id="competition-league-A" to={URLS.COMPETITION_A} />
+          <LocalizedNavLink id="competition-league-B" to={URLS.COMPETITION_B} />
         </div>
       </div>
       <LocalizedNavLink id="dataset" to={URLS.DATASETS} />

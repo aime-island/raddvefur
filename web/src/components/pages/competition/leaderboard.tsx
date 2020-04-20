@@ -17,6 +17,8 @@ interface Props {
 }
 
 interface State {
+  isDivisional: boolean;
+  isA: boolean;
   showInfo: {
     name: boolean;
     users: boolean;
@@ -35,6 +37,8 @@ export default class Leaderboard extends React.Component<Props, State> {
   constructor(props: Props, context: any) {
     super(props, context);
     this.state = {
+      isDivisional: false,
+      isA: false,
       showInfo: {
         name: false,
         users: false,
@@ -87,36 +91,32 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   addStatsToState = (stats: InstitutionStat[]) => {
-    let currentUrl = window.location.pathname;
-    let filteredStats = [];
-
-    for (const items in stats) {
-      if (
-        currentUrl === URLS.COMPETITION_A &&
-        this.getInstitutionEnrollment(stats[items].institution) >= 500
-      ) {
-        filteredStats.push(stats[0]);
-      } else if (
-        currentUrl === URLS.COMPETITION_B &&
-        this.getInstitutionEnrollment(stats[items].institution) < 500
-      ) {
-        filteredStats.push(stats[0]);
-      }
-    }
-
+    const location = window.location.href;
+    const id = location[location.length - 1];
     let i = 0;
-    const newstats = filteredStats.map((stat: InstitutionStat) => {
-      i += 1;
-      return {
-        ...stat,
-        rank: i,
-        ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
-      };
+    let newstats = stats.filter((stat: InstitutionStat) => {
+      const enrollment = this.getInstitutionEnrollment(stat.institution);
+      if (id == 'a') {
+        return enrollment >= 450;
+      } else {
+        return enrollment < 450;
+      }
     });
-
-    this.setState({
-      stats: newstats,
-    });
+    if (id == 'a' || id == 'b') {
+      newstats = newstats.map((stat: InstitutionStat) => {
+        i += 1;
+        return {
+          ...stat,
+          rank: i,
+          ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
+        };
+      });
+      this.setState({
+        isDivisional: true,
+        isA: id == 'a',
+        stats: newstats,
+      });
+    }
   };
 
   componentDidMount = () => {
@@ -230,6 +230,8 @@ export default class Leaderboard extends React.Component<Props, State> {
 
   render() {
     const {
+      isDivisional,
+      isA,
       selectedInstitution,
       selectedInstitutionStats,
       stats,
@@ -238,6 +240,12 @@ export default class Leaderboard extends React.Component<Props, State> {
     } = this.state;
 
     const { api } = this.props;
+    console.log(isDivisional);
+    const heading = isDivisional
+      ? isA
+        ? 'Skólar með yfir 450 nemendur'
+        : 'Skólar með undir 450 nemendur'
+      : 'Heildarstigatafla allra skóla';
     return (
       <>
         {showInstitutionModal && (
@@ -249,6 +257,7 @@ export default class Leaderboard extends React.Component<Props, State> {
           />
         )}
         <div className="leaderboard-container">
+          <h2>{heading}</h2>
           <div className="leaderboard-header leaderboard-item">
             <span>#</span>
             <div
