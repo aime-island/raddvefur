@@ -16,7 +16,7 @@ import {
   Institution,
   InstitutionStat,
 } from '../../../stores/competition';
-import { Spinner } from '../../ui/ui';
+import { Spinner, StyledLink } from '../../ui/ui';
 import { LocaleLink, useLocale, LocaleNavLink } from '../../locale-helpers';
 import { PlayOutlineIcon, MicIcon } from '../../ui/icons';
 
@@ -129,6 +129,19 @@ class Competition extends React.Component<Props, State> {
                   <p />
                 </Localized>
                 <Localized id="competition-text-three">
+                  <p />
+                </Localized>
+                <Localized id="competition-text-four">
+                  <p />
+                </Localized>
+                <Localized
+                  id="competition-text-five"
+                  videoLink={
+                    <a
+                      target="blank"
+                      href="https://www.facebook.com/watch/?v=880096549174309"
+                    />
+                  }>
                   <p />
                 </Localized>
               </div>

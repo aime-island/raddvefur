@@ -10,6 +10,9 @@ import API from '../../../services/api';
 import arrow from './images/arrow.png';
 import URLS from '../../../urls';
 
+const divisionA = 'yqnt';
+const divisionB = 'n5uo';
+
 interface Props {
   institutions: Institution[];
   stats: InstitutionStat[];
@@ -92,28 +95,34 @@ export default class Leaderboard extends React.Component<Props, State> {
 
   addStatsToState = (stats: InstitutionStat[]) => {
     const location = window.location.href;
-    const id = location[location.length - 1];
+    const id = location.slice(-4);
     let i = 0;
     let newstats = stats.filter((stat: InstitutionStat) => {
       const enrollment = this.getInstitutionEnrollment(stat.institution);
-      if (id == 'a') {
+      if (id == divisionA) {
         return enrollment >= 450;
-      } else {
+      } else if (id == divisionB) {
         return enrollment < 450;
+      } else {
+        return true;
       }
     });
-    if (id == 'a' || id == 'b') {
-      newstats = newstats.map((stat: InstitutionStat) => {
-        i += 1;
-        return {
-          ...stat,
-          rank: i,
-          ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
-        };
-      });
+    newstats = newstats.map((stat: InstitutionStat) => {
+      i += 1;
+      return {
+        ...stat,
+        rank: i,
+        ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
+      };
+    });
+    if (id == divisionA || id == divisionB) {
       this.setState({
         isDivisional: true,
-        isA: id == 'a',
+        isA: id == divisionA,
+        stats: newstats,
+      });
+    } else {
+      this.setState({
         stats: newstats,
       });
     }
@@ -240,7 +249,6 @@ export default class Leaderboard extends React.Component<Props, State> {
     } = this.state;
 
     const { api } = this.props;
-    console.log(isDivisional);
     const heading = isDivisional
       ? isA
         ? 'Skólar með yfir 450 nemendur'
@@ -257,7 +265,7 @@ export default class Leaderboard extends React.Component<Props, State> {
           />
         )}
         <div className="leaderboard-container">
-          <h2>{heading}</h2>
+          <h2 className="heading">{heading}</h2>
           <div className="leaderboard-header leaderboard-item">
             <span>#</span>
             <div

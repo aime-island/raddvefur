@@ -5,6 +5,10 @@
     font-size: var(--font-size);
     @media (--sm-down) {
         font-size: var(--font-size-xs);
+
+        & h2 {
+            font-size: 16px;
+        }
     }
     @media (--lg-up) {
         font-size: var(--font-size);

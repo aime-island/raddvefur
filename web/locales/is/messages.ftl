@@ -564,6 +564,13 @@ competition-text-two = Til þess að taka þátt þá smellir þú <speakLink>h�
 
 competition-text-three = Til að tryggja að tækin skilji alla, konur, börn og karla á öllum aldri, er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
 
+
+competition-text-four = Keppt verður annars vegar á milli skóla sem eru með fleiri en 450 nemendur og hins vegar á milli skóla sem eru með færri en 450 nemendur. Keppnin stendur til 10 maí.
+
+
+competition-text-five = Guðni Th. Jóhannesson forseti er verndari Samróms, hann kemur til með að veita skólunum sem sigra verðlaun. <videoLink>Hér</videoLink> fjallar hann um keppnina og hvetur ungmenni til að taka þátt.
+
+competition-total = Heildarstigatafla
 competition-league-A = Nemendafjöldi yfir 450
 competition-league-B = Nemendafjöldi undir 450
 
