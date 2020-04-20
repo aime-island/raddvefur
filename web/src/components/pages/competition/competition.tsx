@@ -58,10 +58,10 @@ class Competition extends React.Component<Props, State> {
     this.setState({
       stats: stats,
     });
-    window.addEventListener('resize', this.handleResize.bind(this));
+    //window.addEventListener('resize', this.handleResize.bind(this));
     this.setState({
       expandedText: false,
-      isBigScreen: window.screen.width >= 768,
+      isBigScreen: true,
     });
   };
 

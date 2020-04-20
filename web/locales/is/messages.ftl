@@ -570,7 +570,7 @@ competition-text-four = Keppt verður annars vegar á milli skóla sem eru með 
 
 competition-text-five = Guðni Th. Jóhannesson forseti er verndari Samróms, hann kemur til með að veita skólunum sem sigra verðlaun. <videoLink>Hér</videoLink> fjallar hann um keppnina og hvetur ungmenni til að taka þátt.
 
-competition-total = Heildarstigatafla
+competition-total = Allir skólar
 competition-league-A = Nemendafjöldi yfir 450
 competition-league-B = Nemendafjöldi undir 450
 
