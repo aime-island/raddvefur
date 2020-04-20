@@ -86,14 +86,24 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   addStatsToState = (stats: InstitutionStat[]) => {
+    const location = window.location.href;
+    const id = location[location.length - 1];
     let i = 0;
-    const newstats = stats.map((stat: InstitutionStat) => {
+    let newstats = stats.map((stat: InstitutionStat) => {
       i += 1;
       return {
         ...stat,
         rank: i,
         ratio: stat.count / this.getInstitutionEnrollment(stat.institution),
       };
+    });
+    newstats = newstats.filter((stat: InstitutionStat) => {
+      const enrollment = this.getInstitutionEnrollment(stat.institution);
+      if (id == 'a') {
+        return enrollment >= 450;
+      } else {
+        return enrollment < 450;
+      }
     });
     this.setState({
       stats: newstats,
