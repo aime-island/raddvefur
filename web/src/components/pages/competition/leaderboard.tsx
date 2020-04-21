@@ -20,6 +20,7 @@ interface Props {
 }
 
 interface State {
+  id: string;
   isDivisional: boolean;
   isA: boolean;
   showInfo: {
@@ -40,6 +41,7 @@ export default class Leaderboard extends React.Component<Props, State> {
   constructor(props: Props, context: any) {
     super(props, context);
     this.state = {
+      id: '',
       isDivisional: false,
       isA: false,
       showInfo: {
@@ -129,9 +131,28 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   componentDidMount = () => {
+    const location = window.location.href;
+    const id = location.slice(-4);
+    this.setState({
+      id: id,
+    });
     const { stats } = this.props;
     if (stats.length != 0) {
       this.addStatsToState(stats);
+    }
+  };
+
+  componentDidUpdate = () => {
+    const location = window.location.href;
+    const id = location.slice(-4);
+    if (id != this.state.id) {
+      this.setState({
+        id: id,
+      });
+      const { stats } = this.props;
+      if (stats.length != 0) {
+        this.addStatsToState(stats);
+      }
     }
   };
 

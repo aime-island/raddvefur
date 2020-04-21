@@ -49,19 +49,21 @@ class Competition extends React.Component<Props, State> {
     this.handleExpand = this.handleExpand.bind(this);
   }
 
-  componentDidMount = async () => {
-    const institutions: Institutions = await this.props.api.fetchInstitutions();
-    this.setState({
-      institutions: institutions.institutions,
-    });
-    const stats: InstitutionStat[] = await this.props.api.getLeaderboard();
-    this.setState({
-      stats: stats,
-    });
-    //window.addEventListener('resize', this.handleResize.bind(this));
+  componentDidMount = () => {
+    window.addEventListener('resize', this.handleResize.bind(this));
     this.setState({
       expandedText: false,
-      isBigScreen: true,
+      isBigScreen: window.screen.width >= 768,
+    });
+    this.statsToState();
+  };
+
+  private statsToState = async () => {
+    const institutions: Institutions = await this.props.api.fetchInstitutions();
+    const stats: InstitutionStat[] = await this.props.api.getLeaderboard();
+    this.setState({
+      institutions: institutions.institutions,
+      stats: stats,
     });
   };
 
