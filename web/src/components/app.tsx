@@ -556,7 +556,6 @@ class App extends React.Component {
   componentDidUpdate() {
     if (this.state.error) {
       this.unlisten = history.listen((location, action) => {
-        console.log('hæ');
         this.setState({
           error: null,
         });
