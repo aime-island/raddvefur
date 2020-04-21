@@ -125,6 +125,7 @@ export default class Leaderboard extends React.Component<Props, State> {
       });
     } else {
       this.setState({
+        isDivisional: false,
         stats: newstats,
       });
     }
