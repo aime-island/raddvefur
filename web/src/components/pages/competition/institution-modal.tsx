@@ -51,6 +51,7 @@ export default class InstitutionModal extends React.Component<Props, State> {
   render() {
     const { genderDistribution } = this.state;
     const { institution, stats } = this.props;
+    console.log(stats);
     const hours = (stats.count * SECONDS) / 3600;
     return (
       <Modal innerClassName="scrollable-modal" onRequestClose={this.close}>
