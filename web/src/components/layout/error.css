@@ -8,8 +8,11 @@
 }
 
 .error {
-    padding-left: 5rem;
-    width: var(--desktop-width);
+    padding: 0 10px;
+    @media (--md-up) {
+        width: var(--desktop-width);
+        padding-left: 5rem;
+    }
 }
 
 .reload-button {
