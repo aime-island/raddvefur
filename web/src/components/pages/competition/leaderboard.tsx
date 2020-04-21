@@ -269,11 +269,12 @@ export default class Leaderboard extends React.Component<Props, State> {
       showInfo,
       showInstitutionModal,
     } = this.state;
-
     const { api } = this.props;
-    const heading = isA
-      ? 'Taflan sýnir skóla sem hafa tekið þátt og eru með yfir 450 nemendur.'
-      : 'Taflan sýnir skóla sem hafa tekið þátt og eru með undir 450 nemendur.';
+    const heading = isDivisional
+      ? isA
+        ? 'Taflan sýnir skóla sem hafa tekið þátt og eru með yfir 450 nemendur.'
+        : 'Taflan sýnir skóla sem hafa tekið þátt og eru með undir 450 nemendur.'
+      : 'Taflan sýnir alla skóla sem hafa tekið þátt.';
     return (
       <>
         {showInstitutionModal && (
@@ -285,7 +286,7 @@ export default class Leaderboard extends React.Component<Props, State> {
           />
         )}
         <div className="leaderboard-container">
-          {isDivisional && <h3 className="heading">{heading}</h3>}
+          <h3 className="heading">{heading}</h3>
           <div className="leaderboard-header leaderboard-item">
             <span>#</span>
             <div
