@@ -81,6 +81,7 @@ interface LocalizedPagesProps
     LocalePropsFromState,
     RouteComponentProps<any> {
   userLocales: string[];
+  error: Error;
 }
 
 interface LocalizedPagesState {
@@ -467,9 +468,9 @@ let LocalizedPage: any = class extends React.Component<
                   />
                 ))}
                 {window.innerWidth > 991 ? (
-                  <Layout />
+                  <Layout error={this.props.error} />
                 ) : (
-                  !showCookiesModal && <Layout />
+                  !showCookiesModal && <Layout error={this.props.error} />
                 )}
               </Switch>
             </div>
@@ -511,7 +512,7 @@ class App extends React.Component {
   userLocales: string[];
 
   state: { error: Error; Sentry: any } = { error: null, Sentry: null };
-
+  unlisten: any;
   /**
    * App will handle routing to page controllers.
    */
@@ -552,6 +553,18 @@ class App extends React.Component {
     this.setState({ Sentry });
   }
 
+  componentDidUpdate() {
+    if (this.state.error) {
+      this.unlisten = history.listen((location, action) => {
+        console.log('hæ');
+        this.setState({
+          error: null,
+        });
+        this.unlisten();
+      });
+    }
+  }
+
   /**
    * Perform any native iOS specific operations.
    */
@@ -561,15 +574,15 @@ class App extends React.Component {
 
   render() {
     const { error, Sentry } = this.state;
-    if (error) {
-      return (
-        <div>
-          Vefþjónninn er undir álagi. Vinsamlegast reyndu að endurhlaða síðuna.
-          <br />
-          <button onClick={() => location.reload()}>Endurhlaða</button>
-        </div>
-      );
-    }
+    /*     if (error) {
+          return (
+            <div>
+              Vefþjónninn er undir álagi. Vinsamlegast reyndu að endurhlaða síðuna.
+              <br />
+              <button onClick={() => location.reload()}>Endurhlaða</button>
+            </div>
+          );
+        } */
 
     return (
       <Suspense fallback={<Spinner />}>
@@ -586,7 +599,10 @@ class App extends React.Component {
                     params: { locale },
                   },
                 }) => (
-                  <LocalizedPage userLocales={['is', ...this.userLocales]} />
+                  <LocalizedPage
+                    userLocales={['is', ...this.userLocales]}
+                    error={error}
+                  />
                 )}
               />
             </Switch>
