@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@sendgrid/client": "^7.0.1",
+    "@sendgrid/mail": "^7.0.1",
     "@types/commonmark": "^0.27.3",
     "@types/crypto-js": "^3.1.43",
     "@types/event-stream": "^3.3.34",
@@ -18,6 +20,7 @@
     "@types/passport": "^0.4.3",
     "@types/redlock": "^3.0.3",
     "@types/request-promise-native": "^1.0.17",
+    "@types/sendgrid": "^4.3.0",
     "@types/uuid": "^7.0.0",
     "aws-sdk": "^2.472.0",
     "body-parser": "^1.19.0",

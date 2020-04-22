@@ -211,9 +211,9 @@ export default class ConsentForm extends React.Component<Props, State> {
               þess að taka þátt í verkefninu Samrómur. Vinsamlegast sláðu inn
               kennitölu og netfang foreldris/forsjáraðila hér að neðan.
             </div>
-            <div className="error-info">
+            {/*             <div className="error-info">
               <p>Tímabundin villa í póstkerfi, unnið er að viðgerð.</p>
-            </div>
+            </div> */}
           </div>
         ) : (
           <div className="info-consent">
