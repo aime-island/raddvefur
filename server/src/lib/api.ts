@@ -19,6 +19,9 @@ import { AWS } from './aws';
 import Bucket from './bucket';
 const Transcoder = require('stream-transcoder');
 const requestPromise = require('request-promise-native');
+const sgMail = require('@sendgrid/mail');
+const sgClient = require('@sendgrid/client');
+import { ResponseError } from '@sendgrid/helpers/classes';
 
 const PromiseRouter = require('express-promise-router');
 
@@ -28,6 +31,7 @@ export default class API {
   metrics: Prometheus;
   private s3: S3;
   private bucket: Bucket;
+  private emailReady: boolean;
 
   constructor(model: Model) {
     this.model = model;
@@ -35,7 +39,20 @@ export default class API {
     this.metrics = new Prometheus();
     this.s3 = AWS.getS3();
     this.bucket = new Bucket(this.model, this.s3);
+    this.emailReady = this.setSendGrid();
   }
+
+  setSendGrid = (): boolean => {
+    const { SENDGRID_KEY } = getConfig();
+    if (!SENDGRID_KEY) {
+      console.log('No sendgrid api key');
+      return false;
+    } else {
+      sgMail.setApiKey(SENDGRID_KEY);
+      sgClient.setApiKey(SENDGRID_KEY);
+      return true;
+    }
+  };
 
   getRouter(): Router {
     const router = PromiseRouter();
@@ -121,6 +138,8 @@ export default class API {
     router.get('/user_count', this.getUserCount);
     router.get('/:locale/user_count', this.getUserCount);
 
+    router.get('/leaderboard', this.getLeaderboard);
+    router.get('/institution_gender/:institution', this.getInstitutionGender);
     router.get('/consents/:kennitala', this.getConsent);
     router.post('/consents/:kennitala/:email/', this.createConsent);
 
@@ -139,6 +158,21 @@ export default class API {
 
     return router;
   }
+
+  getLeaderboard = async (request: Request, response: Response) => {
+    const leaderboard = await this.model.getLeaderboard();
+    response.json(leaderboard);
+  };
+
+  getInstitutionGender = async (
+    { params: { institution } }: Request,
+    response: Response
+  ) => {
+    const genderDistribution = await this.model.getInstitutionGender(
+      institution
+    );
+    response.json(genderDistribution);
+  };
 
   getConsent = async (
     { params: { kennitala } }: Request,
@@ -162,40 +196,6 @@ export default class API {
     const url = `${consentUrl}/c/${id}`;
     const success = await this.sendConsentEmail(email, kennitala, url);
     response.json(success);
-  };
-
-  sendConsentEmail = async (email: String, kennitala: string, url: String) => {
-    const { SEND_IN_BLUE_KEY } = getConfig();
-    if (!SEND_IN_BLUE_KEY) {
-      console.log('No SEND_IN_BLUE key');
-      return;
-    }
-
-    const body = `{
-      "to":[{"email":"${email}"}],
-      "templateId":6,
-      "params":{"KENNITALA":"${kennitala}", "URL":"${url}"}
-    }`;
-
-    var options = {
-      method: 'POST',
-      url: 'https://api.sendinblue.com/v3/smtp/email',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-        'api-key': SEND_IN_BLUE_KEY,
-      },
-      body: body,
-    };
-
-    return requestPromise(options)
-      .then((response: Response) => {
-        console.log(response);
-        return true;
-      })
-      .catch((error: any) => {
-        return false;
-      });
   };
 
   getRandomSentences = async (request: Request, response: Response) => {
@@ -266,38 +266,58 @@ export default class API {
 
   subscribeToNewsletter = async (request: Request, response: Response) => {
     const { email } = request.params;
-    const { SEND_IN_BLUE_KEY } = getConfig();
-    if (!SEND_IN_BLUE_KEY) {
-      response.json({});
-      console.log('No SEND_IN_BLUE key');
-      return;
-    }
-
-    var defaultRequest = require('request');
-
-    const body = `{"email": "${email}", "updateEnabled":false}`;
-
-    var options = {
-      method: 'POST',
-      url: 'https://api.sendinblue.com/v3/contacts',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-        'api-key': SEND_IN_BLUE_KEY,
+    const req = {
+      method: 'PUT',
+      url: '/v3/marketing/contacts',
+      body: {
+        contacts: [
+          {
+            email: email,
+          },
+        ],
       },
-      body: body,
     };
-
-    defaultRequest(options, function(
-      error: string,
-      response: Response,
-      body: any
-    ) {
-      if (error) throw new Error(error);
-      console.log('E-mail added to send-in-blue:', body);
-    });
-
+    sgClient
+      .request(req)
+      .then(([res, body]: any) => {
+        console.log('Subscribed to newsletter: ', email);
+      })
+      .catch((error: ResponseError) => {
+        console.log('Error subscribing to newsletter');
+        console.log(error.response.body);
+      });
     response.json({});
+  };
+
+  sendConsentEmail = async (email: string, kennitala: string, url: string) => {
+    const msg = {
+      personalizations: [
+        {
+          to: [
+            {
+              email: email,
+            },
+          ],
+        },
+      ],
+      from: 'samromur@ru.is',
+      template_id: 'd-518c7aa7f57e4c7983453c89970af872',
+      dynamic_template_data: {
+        KENNITALA: kennitala,
+        URL: url,
+      },
+    };
+    return sgMail
+      .send(msg)
+      .then((results: any) => {
+        console.log('Success');
+        return true;
+      })
+      .catch((error: any) => {
+        console.log('error');
+        console.log(error);
+        return false;
+      });
   };
 
   saveAvatar = async (

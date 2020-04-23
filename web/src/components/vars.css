@@ -25,6 +25,7 @@
     --base-font-family: 'Open Sans', sans-serif;
     --strong-font-family: 'Zilla Slab', Georgia, Utopia, Charter, serif;
     --font-size: 16px;
+    --font-size-xxs: 10px;
     --font-size-xs: 12px;
     --font-size-lg: 24px;
     --font-size-xl: 32px;
@@ -65,6 +66,7 @@
 @custom-media --lg-up (width >= 992px);
 @custom-media --xl-up (width >= 1200px);
 
+@custom-media --xxs-down (width <= 365px);
 @custom-media --xs-down (width <= 576px);
 @custom-media --sm-down (width <= 768px);
 @custom-media --md-down (width <= 992px);

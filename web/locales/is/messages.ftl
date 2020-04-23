@@ -6,6 +6,7 @@ datasets                    = Gagnasöfn
 dataset                     = Gagnasafn
 languages                   = Þakkir
 about                       = Um verkefnið
+competition                 = Hvaða grunnskóli sigrar?
 profile                     = Prófíll
 help                        = Hjálp
 contact                     = Hafa samband
@@ -119,14 +120,17 @@ male                        = Karlkyns
 female                      = Kvenkyns
 other                       = Annað
 
+## Competition
+
+
 ## Competition form
 competition-form-title      = Lestrarkeppni
 competition-form-institution=
-    .label = Stofnun
+    .label = Skóli
 competition-form-division   =
     .label = Deild
 why-competition             = Meira um lestrarkeppnina
-why-competition-explanation = Þetta er meira um lestrarkeppnina. Þetta er svona Lorem Impsum texti sem Ólafur Helgi bjó til á eitt hundrað og tuttugu orðum á mínútu.
+why-competition-explanation = Nú er í gangi keppni á milli grunnskóla landsins. Nemendur og fjölskyldur þeirra, geta lesið inn á Samróm og telst hver lesin setning vera stig fyrir þeirra skóla.
 
 ## Consent form
 consent-form-email          =
@@ -542,6 +546,7 @@ download-language = Sækja málheild
 validated-hours = Staðfestar klukkustundir
 recorded-hours = Uppteknar klukkustundir
 whats-inside = Gagnasafnið Samrómur
+competition-heading = Hvaða grunnskóli sigrar?
 
 dataset-description-hours =
     Samrómur er opið og aðgengilegt gagnasafn radda sem öllum er frjálst að nýta við þróun hugbúnaðar á íslensku. 
@@ -549,7 +554,28 @@ dataset-description-hours =
     Gagnasafnið samanstendur af setningum og hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. Hver færsla í gagnasafninu inniheldur WAV-hljóðbrot og samsvarandi textaskrá.
 
     Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
-    
+
+competition-text-one =
+    Raddir barna og unglinga eru ekki eins og fullorðinna. Til að tækin sem við tölum við skilji börn og unglinga þurfum við að fá raddsýni sem flestra inn í gagnagrunninn samrómur.is. Gögnin eru notuð til að búa til máltæknilausnir fyrir íslensku.
+
+competition-text-one-two = Í lestrarkeppni grunnskólanna er keppt um setningafjölda sem nemendur lesa inn á samrómur.is. Staða keppninnar er birt jafnóðum á stigatöflunni.
+
+competition-text-two = Til þess að taka þátt þá smellir þú <speakLink>hér</speakLink>, biður um leyfi foreldris/forsjáraðila, velur þinn skóla og lest svo inn.
+
+competition-text-three = Til að tryggja að tækin skilji alla, konur, börn og karla á öllum aldri, er brýnt að raddir allra Íslendinga verði til í gagnasafni Samróms.
+
+
+competition-text-four = Keppt verður annars vegar á milli skóla sem eru með fleiri en 450 nemendur og hins vegar á milli skóla sem eru með færri en 450 nemendur. Keppnin stendur til 10 maí.
+
+
+competition-text-five = Guðni Th. Jóhannesson forseti kemur til með að veita skólunum sem sigra viðurkenningu. <videoLink>Hér</videoLink> fjallar hann um keppnina og hvetur ungmenni til að taka þátt.
+
+competition-total = Allir skólar
+competition-league-A = Nemendafjöldi yfir 450
+competition-league-B = Nemendafjöldi undir 450
+
+participate-here = Þú getur tekið þátt hér
+
 want-dataset-update = Langar þig að heyra meira um starf Samróms? Skráðu þig þá á póstlistann.
 subscribe = Gerast áskrifandi
 

@@ -1,0 +1,62 @@
+@import url('../vars.css');
+
+.error-container {
+    min-height: 70vh;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.error {
+    padding: 0 10px;
+    @media (--md-up) {
+        width: var(--desktop-width);
+        padding-left: 5rem;
+    }
+}
+
+.reload-button {
+    margin-top: 40px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    min-width: 14rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--base-font-family);
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--near-black);
+    outline: none;
+    transition: all var(--transition-duration) linear;
+    background: var(--near-black);
+    color: var(--white);
+    width: 100%;
+    @media (--md-up) {
+        width: auto;
+        height: auto;
+    }
+    &.count {
+        min-width: 10rem;
+    }
+    &.outline {
+        border-radius: 4px;
+        border: solid 1px color-mod(var(--black) alpha(10%));
+        background-color: var(--white);
+        color: var(--black);
+    }
+    &.rounded {
+        border-radius: 50px;
+    }
+    & path {
+        transition: all var(--transition-duration) linear;
+    }
+    &.blue {
+        background: var(--blue);
+        color: var(--white);
+    }
+}

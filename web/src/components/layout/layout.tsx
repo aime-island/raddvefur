@@ -32,6 +32,7 @@ import Nav from './nav';
 import UserMenu from './user-menu';
 import * as cx from 'classnames';
 import { isStaging } from '../../utility';
+import ErrorComponent from './error';
 
 import './layout.css';
 
@@ -52,7 +53,9 @@ interface PropsFromDispatch {
 interface LayoutProps
   extends PropsFromState,
     PropsFromDispatch,
-    RouteComponentProps<any> {}
+    RouteComponentProps<any> {
+  error?: Error;
+}
 
 interface LayoutState {
   isMenuVisible: boolean;
@@ -161,7 +164,7 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
   };
 
   render() {
-    const { locale, location, user } = this.props;
+    const { locale, location, user, error } = this.props;
     const {
       hasScrolled,
       hasScrolledDown,
@@ -213,7 +216,7 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
             this.scroller = div as HTMLElement;
           }}>
           <div id="scrollee">
-            <Content />
+            {error ? <ErrorComponent error={error} /> : <Content />}
             <Footer />
           </div>
         </div>

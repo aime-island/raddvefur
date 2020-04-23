@@ -614,13 +614,25 @@ class SpeakPage extends React.Component<Props, State> {
 
   private institutionsToState = async () => {
     const institutions: Institutions = await this.props.api.fetchInstitutions();
+    const list = institutions.institutions;
+    /*     const list = institutions.institutions.sort(
+      (a, b) => {
+        const x = a.name.toLowerCase();
+        const y = b.name.toLowerCase();
+        if (x < y) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }); */
     this.setState({
-      institutions: institutions.institutions,
+      institutions: list,
     });
   };
 
   private userCompetitionInfoToState = () => {
     const { user } = this.props;
+    console.log(user.competitionInfo);
     if (user.hasInfo) {
       this.setState({
         competition: user.competitionInfo,

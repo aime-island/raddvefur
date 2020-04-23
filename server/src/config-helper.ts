@@ -25,7 +25,7 @@ export type CommonVoiceConfig = {
     CLIENT_SECRET: string;
   };
   BASKET_API_KEY?: string;
-  SEND_IN_BLUE_KEY: string;
+  SENDGRID_KEY: string;
   IMPORT_SENTENCES: boolean;
   REDIS_URL: string;
   SENTENCE_VERSION: number;
@@ -56,7 +56,7 @@ const DEFAULTS: CommonVoiceConfig = {
   },
   IMPORT_SENTENCES: true,
   REDIS_URL: null,
-  SEND_IN_BLUE_KEY: null,
+  SENDGRID_KEY: null,
   SENTENCE_VERSION: 1,
 };
 

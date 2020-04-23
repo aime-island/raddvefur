@@ -17,6 +17,7 @@ interface Institutions {
     [index: number]: {
       name: string;
       code: string;
+      enrollment: number;
       divisions: {
         [index: number]: {
           name: string;

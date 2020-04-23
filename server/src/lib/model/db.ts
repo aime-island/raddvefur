@@ -75,6 +75,49 @@ export default class DB {
     }
   }
 
+  async getLeaderboard(): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+      SELECT
+        institution,
+          COUNT(*) as count,
+          COUNT(DISTINCT client_id) as users,
+          @curRank := @curRank + 1 AS rank
+      FROM clips, (SELECT @curRank := 0) r
+      WHERE institution IS NOT NULL
+      AND institution != ''
+      GROUP BY institution
+      ORDER BY count DESC
+    `
+    );
+    return rows;
+  }
+
+  async getInstitutionGender(institution: string): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+      SELECT
+        CASE
+          WHEN clips.sex = 'karl' THEN 'Karl'
+          WHEN clips.sex = 'kona' THEN 'Kona'
+          WHEN clips.sex = 'annad' THEN 'Annað'
+          ELSE 'Undefined'
+        END clips__sex,
+        count(clips.id) clips__count
+      FROM
+        (SELECT * FROM clips WHERE institution = ?) AS clips
+      GROUP BY
+        1
+      ORDER BY
+        2 DESC
+      LIMIT
+        10000
+      `,
+      [institution]
+    );
+    return rows;
+  }
+
   async createConsent(email: String, kennitala: string): Promise<any> {
     const uuid = uuidv4();
     await this.mysql.query(

@@ -172,13 +172,12 @@ export default class ConsentForm extends React.Component<Props, State> {
     } else {
       childAge = this.getAge(consent.kennitala).toString();
     }
-    console.log(childAge);
     this.props.setAge(childAge);
   };
 
   private submit = async () => {
     const valid = await this.validateKennitala();
-    if (valid) {
+    if (true) {
       const { api } = this.props;
       const allowed = await api.checkKennitala(this.state.consent.kennitala);
       if (allowed) {
@@ -212,6 +211,9 @@ export default class ConsentForm extends React.Component<Props, State> {
               þess að taka þátt í verkefninu Samrómur. Vinsamlegast sláðu inn
               kennitölu og netfang foreldris/forsjáraðila hér að neðan.
             </div>
+            {/*             <div className="error-info">
+              <p>Tímabundin villa í póstkerfi, unnið er að viðgerð.</p>
+            </div> */}
           </div>
         ) : (
           <div className="info-consent">

@@ -68,6 +68,14 @@ export default class Model {
     );
   }
 
+  async getLeaderboard(): Promise<any> {
+    return this.db.getLeaderboard();
+  }
+
+  async getInstitutionGender(institution: string): Promise<any> {
+    return this.db.getInstitutionGender(institution);
+  }
+
   async createConsent(
     email: String,
     kennitala: string
