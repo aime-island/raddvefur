@@ -39,6 +39,7 @@ export default ({ children, ...props }: { [key: string]: any }) => (
       <LocalizedNavLink id="dataset" to={URLS.DATASETS} />
       <LocalizedNavLink id="languages" to={URLS.LANGUAGES} />
       <LocalizedNavLink id="about" to={URLS.ABOUT} />
+      <LocalizedNavLink id="admin" to={URLS.ADMIN} />
     </div>
     {children}
   </nav>

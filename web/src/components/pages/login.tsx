@@ -22,7 +22,7 @@ export const LoginFailure = connect<void, NotificationProps>(
     > {
       componentDidMount() {
         const { addNotification, history } = this.props;
-        addNotification('Login failed!');
+        addNotification('Innskráning mistókst!');
         history.replace(URLS.ROOT);
       }
 

@@ -29,6 +29,7 @@ export type CommonVoiceConfig = {
   IMPORT_SENTENCES: boolean;
   REDIS_URL: string;
   SENTENCE_VERSION: number;
+  ADMIN_PASS: string;
 };
 
 const DEFAULTS: CommonVoiceConfig = {
@@ -58,6 +59,7 @@ const DEFAULTS: CommonVoiceConfig = {
   REDIS_URL: null,
   SENDGRID_KEY: null,
   SENTENCE_VERSION: 1,
+  ADMIN_PASS: null,
 };
 
 let injectedConfig: CommonVoiceConfig;

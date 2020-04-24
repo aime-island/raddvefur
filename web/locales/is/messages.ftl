@@ -4,6 +4,7 @@
 speak-now                   = Talaðu núna
 datasets                    = Gagnasöfn
 dataset                     = Gagnasafn
+admin                       = Admin
 languages                   = Þakkir
 about                       = Um verkefnið
 competition                 = Hvaða grunnskóli sigrar?

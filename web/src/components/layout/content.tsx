@@ -12,7 +12,7 @@ const CompetitionPage = React.lazy(() =>
 );
 const LanguagesPages = React.lazy(() => import('../pages/languages/languages'));
 const ThankYouPages = React.lazy(() => import('../pages/thankyou/thankyou'));
-const DashboardPage = React.lazy(() => import('../pages/dashboard/dashboard'));
+const AdminPage = React.lazy(() => import('../pages/admin/admin'));
 const ProfileLayoutPage = React.lazy(() => import('../pages/profile/layout'));
 //const FAQPage = React.lazy(() => import('../pages/faq/faq'));
 const AboutPage = React.lazy(() => import('../pages/about/about'));
@@ -75,6 +75,7 @@ export default function Content() {
             path={toLocaleRoute(URLS.COMPETITION_TOTAL + ':/slug')}
             component={CompetitionPage}
           />
+          <Route exact path={toLocaleRoute(URLS.ADMIN)} component={AdminPage} />
           {/* <Route
             exact
             path={toLocaleRoute(URLS.PROFILE)}
@@ -87,8 +88,8 @@ export default function Content() {
           {/* <Route
             path={[URLS.STATS, URLS.GOALS, URLS.AWARDS].map(toLocaleRoute)}
             component={DashboardPage}
-          /> */}
-          {/* <Route
+          />
+          <Route
             exact
             path={toLocaleRoute(URLS.DASHBOARD)}
             render={() => <Redirect to={toLocaleRoute(URLS.STATS)} />}

@@ -25,6 +25,7 @@ export default Object.freeze({
   COMPETITION_A: '/keppni/yqnt',
   COMPETITION_B: '/keppni/n5uo',
 
+  ADMIN: '/admin',
   PRIVACY: '/personuverndaryfirlysing',
   TERMS: '/skilmalar',
   COOKIES: '/vafrakokustefna',

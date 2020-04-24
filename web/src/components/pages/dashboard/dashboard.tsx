@@ -23,6 +23,8 @@ const TITLE_BAR_LOCALE_COUNT = 3;
 
 const TopBar = ({ history }: RouteComponentProps) => {
   const account = useAccount();
+  console.log('HÆÆ');
+  console.log(account);
   const api = useAPI();
   const [, toLocaleRoute] = useLocale();
 
