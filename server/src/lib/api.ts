@@ -64,6 +64,8 @@ export default class API {
         this.metrics.countRequest(request);
 
         const client_id = request.headers.client_id as string;
+        const userAge = request.headers.user_age as string;
+        request.userAge = userAge;
         if (request.user) {
           const accountClientId = await UserClient.findClientId(
             request.user.emails[0].value
@@ -199,11 +201,12 @@ export default class API {
   };
 
   getRandomSentences = async (request: Request, response: Response) => {
-    const { client_id, params } = request;
+    const { userAge, client_id, params } = request;
     const sentences = await this.model.findEligibleSentences(
       client_id,
       params.locale,
-      parseInt(request.query.count, 10) || 1
+      parseInt(request.query.count, 10) || 1,
+      userAge
     );
 
     response.json(sentences);
