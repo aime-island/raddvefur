@@ -679,22 +679,16 @@ class SpeakPage extends React.Component<Props, State> {
       demographic,
     });
     const demographicError = this.getDemographicError(demographic);
-    if (demographicError) {
-      return this.setState({
-        demographicError,
-      });
-    } else {
-      this.props.updateUser({
-        hasInfo: true,
-        demographicInfo: this.state.demographic,
-        competitionInfo: competition,
-      });
-      this.props.refillSentences();
-      this.setState({
-        demographicError,
-        showDemographicModal: false,
-      });
-    }
+    this.props.updateUser({
+      hasInfo: true,
+      demographicInfo: this.state.demographic,
+      competitionInfo: competition,
+    });
+    this.props.refillSentences();
+    this.setState({
+      demographicError,
+      showDemographicModal: false,
+    });
   };
 
   private getDemographicError = (demographic: DemoInfo): DemographicError => {

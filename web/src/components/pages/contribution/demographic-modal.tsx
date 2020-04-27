@@ -193,9 +193,7 @@ export default class DemographicModal extends React.Component<Props, State> {
       showDemographicInfo,
     } = this.state;
     return (
-      <Modal
-        innerClassName="scrollable-modal"
-        onRequestClose={this.props.setShowDemographicModal}>
+      <Modal innerClassName="scrollable-modal" onRequestClose={this.submit}>
         <Localized id="demographic-form-title" className="form-title">
           <h1 className="title" />
         </Localized>
