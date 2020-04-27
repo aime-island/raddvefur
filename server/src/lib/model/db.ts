@@ -257,36 +257,6 @@ export default class DB {
     return clips as DBClipWithVoters[];
   }
 
-  /**
-   * Creates user_client if it doesn't exist and checks whether the given
-   * auth_token matches it
-   */
-  async createOrVerifyUserClient(
-    id: string,
-    auth_token?: string
-  ): Promise<boolean> {
-    await this.mysql.query(
-      `
-        INSERT INTO user_clients (client_id, auth_token)
-        VALUES (?, ?)
-        ON DUPLICATE KEY UPDATE
-          auth_token = IF(auth_token IS NULL, VALUES(auth_token), auth_token)
-      `,
-      [id, auth_token || null]
-    );
-
-    return Boolean(
-      (await this.mysql.query(
-        `
-          SELECT 1
-          FROM user_clients
-          WHERE client_id = ? AND (auth_token = ? OR auth_token IS NULL)
-        `,
-        [id, auth_token || null]
-      ))[0][0]
-    );
-  }
-
   async saveUserClient(id: string) {
     await this.mysql.query(
       'INSERT INTO user_clients (client_id) VALUES (?) ON DUPLICATE KEY UPDATE client_id = client_id',

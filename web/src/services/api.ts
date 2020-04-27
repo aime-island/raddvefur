@@ -280,6 +280,13 @@ export default class API {
     });
   }
 
+  saveNewAccount(data: UserClient): Promise<UserClient> {
+    return this.fetch(API_PATH + '/user_client/new', {
+      method: 'PATCH',
+      body: data,
+    });
+  }
+
   subscribeToNewsletter(email: string): Promise<void> {
     return this.fetch(API_PATH + '/newsletter/' + email, {
       method: 'POST',

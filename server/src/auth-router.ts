@@ -111,7 +111,6 @@ router.get(
       }
       response.redirect('/profile/settings?success=' + success.toString());
     } else {
-      console.log('HÆ');
       response.redirect('/login-success');
     }
   }

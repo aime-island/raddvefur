@@ -193,29 +193,31 @@ const UserClient = {
     return UserClient.findAccount(email);
   },
 
-  async save({ client_id, email, age, gender }: any): Promise<boolean> {
+  async save(client_id: string, email: string): Promise<UserClient> {
     const [[row]] = await db.query(
       'SELECT has_login FROM user_clients WHERE client_id = ?',
       [client_id]
     );
 
-    if (row && row.has_login) return false;
+    if (row && row.has_login) return UserClient.findAccount(email);
 
     if (row) {
       await db.query(
         `
-        UPDATE user_clients SET email  = ?, age  = ?, gender = ? WHERE client_id = ?
+        UPDATE user_clients SET email = ?, has_login = ? WHERE client_id = ?
       `,
-        [email, age, gender, client_id]
+        [email, true, client_id]
       );
     } else {
       await db.query(
         `
-        INSERT INTO user_clients (client_id, email, age, gender) VALUES (?, ?, ?, ?)
+        INSERT INTO user_clients (client_id, email, has_login) VALUES (?, ?, ?)
       `,
-        [client_id, email, age, gender]
+        [client_id, email, true]
       );
     }
+
+    return UserClient.findAccount(email);
   },
 
   async updateBasketToken(email: string, basketToken: string) {

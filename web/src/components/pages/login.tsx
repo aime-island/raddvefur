@@ -37,16 +37,34 @@ interface PropsFromState {
   user: User.State;
 }
 
-type Props = PropsFromState & RouteComponentProps<any>;
+interface PropsFromDispatch {
+  saveNewAccount: typeof User.actions.saveNewAccount;
+  refreshUser: typeof User.actions.refresh;
+}
 
-export const LoginSuccess = connect<PropsFromState>(({ user }: StateTree) => ({
-  user,
-}))(
-  withRouter(
+interface Props
+  extends PropsFromDispatch,
+    PropsFromState,
+    RouteComponentProps<any> {}
+
+export const LoginSuccess = withRouter(
+  connect<PropsFromState, any>(
+    ({ user }: StateTree) => ({ user }),
+    {
+      saveNewAccount: User.actions.saveNewAccount,
+      refreshUser: typeof User.actions.refresh,
+    }
+  )(
     class extends React.Component<Props> {
-      componentDidMount() {
-        this.redirect(this.props);
+      constructor(props: Props) {
+        super(props);
       }
+      componentDidMount = async () => {
+        const { saveNewAccount, refreshUser, user } = this.props;
+        await saveNewAccount(user.userClients[0]);
+        refreshUser();
+        this.redirect(this.props);
+      };
 
       componentWillReceiveProps(props: Props) {
         this.redirect(props);
@@ -55,7 +73,7 @@ export const LoginSuccess = connect<PropsFromState>(({ user }: StateTree) => ({
       redirect({ history, user }: Props) {
         const { account, isFetchingAccount } = user;
         if (isFetchingAccount) return;
-        history.replace(URLS.ROOT);
+        history.replace(URLS.ADMIN);
       }
 
       render(): React.ReactNode {

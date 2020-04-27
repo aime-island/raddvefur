@@ -700,6 +700,8 @@ login-company = Innskráning / nýskráning með netfangi hjá { $company }
 profile-not-required = Prófíls er ekki krafist til að taka þátt!
 read-more-about = Lestu meira á um síðuna okkar
 
+## Admin
+admin-login     = Innskráning
 
 # [Languages]
 

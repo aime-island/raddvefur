@@ -117,6 +117,25 @@ export namespace User {
       await actions.claimLocalUser(dispatch, getState);
     },
 
+    saveNewAccount: (data: UserClient) => async (
+      dispatch: Dispatch<UpdateAction>,
+      getState: () => StateTree
+    ) => {
+      const { api, user } = getState();
+      dispatch({
+        type: ActionType.UPDATE,
+        state: { isFetchingAccount: true },
+      });
+      dispatch({
+        type: ActionType.UPDATE,
+        state: {
+          account: await api.saveNewAccount(data),
+          isFetchingAccount: false,
+        },
+      });
+      await actions.claimLocalUser(dispatch, getState);
+    },
+
     claimLocalUser: async (
       dispatch: Dispatch<UpdateAction>,
       getState: () => StateTree

@@ -108,6 +108,7 @@ export default class API {
     router.post('/user_clients/:client_id/claim', this.claimUserClient);
     router.get('/user_client', this.getAccount);
     router.patch('/user_client', this.saveAccount);
+    router.patch('/user_client/new', this.saveNewAccount);
     router.post(
       '/user_client/avatar/:type',
       bodyParser.raw({ type: 'image/*' }),
@@ -256,6 +257,14 @@ export default class API {
       throw new ClientParameterError();
     }
     response.json(await UserClient.saveAccount(user.emails[0].value, body));
+  };
+
+  saveNewAccount = async ({ user, client_id }: Request, response: Response) => {
+    if (!user) {
+      throw new ClientParameterError();
+    }
+    const account = await UserClient.save(client_id, user.emails[0].value);
+    response.json(account);
   };
 
   getAccount = async ({ user }: Request, response: Response) => {
