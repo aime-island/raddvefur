@@ -18,6 +18,7 @@ const ProfileLayoutPage = React.lazy(() => import('../pages/profile/layout'));
 const AboutPage = React.lazy(() => import('../pages/about/about'));
 const LandingPage = React.lazy(() => import('../pages/landing/landing'));
 const ConsentSuccess = React.lazy(() => import('../pages/consent/success'));
+const StatsPage = React.lazy(() => import('../pages/stats/stats'));
 const ConsentFailure = React.lazy(() => import('../pages/consent/failure'));
 
 export default function Content() {
@@ -60,6 +61,7 @@ export default function Content() {
             path={toLocaleRoute(URLS.DATASETS)}
             component={DatasetsPage}
           />
+          <Route exact path={toLocaleRoute(URLS.STATS)} component={StatsPage} />
           <Route
             exact
             path={toLocaleRoute(URLS.COMPETITION_TOTAL)}
