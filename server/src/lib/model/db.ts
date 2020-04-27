@@ -221,6 +221,7 @@ export default class DB {
         return 'kids';
       }
     }
+    return 'adults';
   };
 
   async findSentencesWithFewClips(
@@ -229,7 +230,7 @@ export default class DB {
     count: number,
     userAge: string
   ): Promise<Sentence[]> {
-    const age = this.userAgeToGroup(userAge);
+    const age = this.userAgeToGroup(userAge) || 'adults';
     const [rows] = await this.mysql.query(
       `
         SELECT *
