@@ -51,9 +51,11 @@ export default class API {
         : {},
       headers
     );
-
     if (path.startsWith(location.origin) && !this.user.account) {
       finalHeaders.client_id = this.user.userId;
+    }
+    if (this.user.demographicInfo.age != null) {
+      finalHeaders.user_age = this.user.demographicInfo.age;
     }
 
     const response = await fetch(path, {

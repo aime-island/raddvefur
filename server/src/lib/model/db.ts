@@ -6,6 +6,19 @@ import ClipTable, { DBClipWithVoters } from './db/tables/clip-table';
 import VoteTable from './db/tables/vote-table';
 import { v4 as uuidv4 } from 'uuid';
 
+const ADULTS = [
+  'barn',
+  'unglingur',
+  'tvitugt',
+  'thritugt',
+  'fertugt',
+  'fimmtugt',
+  'sextugt',
+  'sjotugt',
+  'attraett',
+  'niraett',
+];
+
 // When getting new sentences/clips we need to fetch a larger pool and shuffle it to make it less
 // likely that different users requesting at the same time get the same data
 const SHUFFLE_SIZE = 500;
@@ -197,18 +210,34 @@ export default class DB {
     this.mysql.endConnection();
   }
 
+  userAgeToGroup = (userAge: string): string => {
+    if (ADULTS.includes(userAge)) {
+      return 'adults';
+    } else {
+      const age = parseInt(userAge);
+      if (age > 10) {
+        return 'teens';
+      } else {
+        return 'kids';
+      }
+    }
+    return 'adults';
+  };
+
   async findSentencesWithFewClips(
     client_id: string,
     locale: string,
-    count: number
+    count: number,
+    userAge: string
   ): Promise<Sentence[]> {
+    const age = this.userAgeToGroup(userAge) || 'adults';
     const [rows] = await this.mysql.query(
       `
         SELECT *
         FROM (
           SELECT id, text
           FROM sentences
-          WHERE is_used AND locale_id = ? AND NOT EXISTS (
+          WHERE is_used AND age = ? AND locale_id = ? AND NOT EXISTS (
             SELECT *
             FROM clips
             WHERE clips.original_sentence_id = sentences.id AND
@@ -220,7 +249,7 @@ export default class DB {
         ORDER BY RAND()
         LIMIT ?
       `,
-      [await getLocaleId(locale), client_id, SHUFFLE_SIZE, count]
+      [age, await getLocaleId(locale), client_id, SHUFFLE_SIZE, count]
     );
     return (rows || []).map(({ id, text }: any) => ({ id, text }));
   }

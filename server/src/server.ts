@@ -14,7 +14,7 @@ import {
 import API from './lib/api';
 import Logger from './lib/logger';
 import { getElapsedSeconds, ClientError, APIError } from './lib/utility';
-import { importSentences } from './lib/model/db/import-sentences';
+import { importSentences } from './lib/model/db/import-sentence-groups';
 import { getConfig } from './config-helper';
 import authRouter from './auth-router';
 import fetchLegalDocument from './fetch-legal-document';
