@@ -22,6 +22,8 @@ import { PlayOutlineIcon, MicIcon } from '../../ui/icons';
 
 import { SpeakForSamromur } from '../../shared/links';
 
+import { Countdown } from './countdown';
+
 import './competition.css';
 
 interface PropsFromState {
@@ -117,6 +119,7 @@ class Competition extends React.Component<Props, State> {
         <div className="main-content">
           <div className="text">
             <div id="competition-info">
+              <Countdown />
               <div className="line" />
               <Localized id="competition-text-one">
                 <p />
