@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './countdown.css';
+
 const countdownTo = 'May 10 2020, 23:59:59 GMT+0000';
 
 type myState = {
@@ -27,7 +29,6 @@ export class Countdown extends React.Component<{}, myState> {
    */
   lowerTimer() {
     let timeDifference = new Date(countdownTo).getTime() - new Date().getTime();
-    console.log(timeDifference);
 
     const segmentedTime = {
       days: 0,
@@ -64,9 +65,10 @@ export class Countdown extends React.Component<{}, myState> {
     const { days, hours, mins, secs } = this.state;
 
     return (
-      <div>
-        <p>
-          Keppni lýkur eftir: {days}daga {hours}klst. {mins}m og {secs}s
+      <div className="countdown-clock">
+        <p className="countdown-text">
+          Keppni lýkur eftir: <span>{hours}</span> klst. <span>{mins}</span> m
+          og <span>{secs}</span> s
         </p>
       </div>
     );

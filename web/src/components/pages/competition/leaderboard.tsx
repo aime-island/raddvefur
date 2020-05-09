@@ -9,6 +9,7 @@ import InstitutionModal from './institution-modal';
 import API from '../../../services/api';
 import arrow from './images/arrow.png';
 import URLS from '../../../urls';
+import { Countdown } from './countdown';
 
 const divisionA = 'yqnt';
 const divisionB = 'n5uo';
@@ -279,6 +280,7 @@ export default class Leaderboard extends React.Component<Props, State> {
 
   render() {
     const {
+      hiddenLeaderboard,
       isDivisional,
       isA,
       selectedInstitution,
@@ -363,18 +365,18 @@ export default class Leaderboard extends React.Component<Props, State> {
                 )}
             </div>
           </div>
-          <div className="countdown-container">
-            <div className="countdown">
-              <h2>Stigatafla hulin</h2>
-              <p>
-                Hægt er að taka þátt út sunnudaginn <b>10. maí</b>.
-              </p>
-              <p>
-                Stigataflan verður hulin þar til úrslit verða tilkynnt í næstu
-                viku.
-              </p>
+          {hiddenLeaderboard && (
+            <div className="countdown-container">
+              <div className="countdown">
+                <h2>Stigatafla hulin</h2>
+                <Countdown />
+                <p>
+                  Stigataflan verður hulin þar til úrslit verða tilkynnt í næstu
+                  viku.
+                </p>
+              </div>
             </div>
-          </div>
+          )}
           {stats ? this.renderStats(stats) : <Spinner />}
         </div>
       </>
