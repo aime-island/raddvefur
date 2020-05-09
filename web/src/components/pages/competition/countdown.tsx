@@ -66,8 +66,7 @@ export class Countdown extends React.Component<{}, myState> {
     return (
       <div>
         <p>
-          Það er {days} dagar, {hours} klukkutímar, {mins} mínútur og {secs}{' '}
-          sekúndur eftir af keppninni!
+          Keppni lýkur eftir: {days}daga {hours}klst. {mins}m og {secs}s
         </p>
       </div>
     );
