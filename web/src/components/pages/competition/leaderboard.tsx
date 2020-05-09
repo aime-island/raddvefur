@@ -20,6 +20,7 @@ interface Props {
 }
 
 interface State {
+  hiddenLeaderboard: boolean;
   id: string;
   isDivisional: boolean;
   isA: boolean;
@@ -41,6 +42,7 @@ export default class Leaderboard extends React.Component<Props, State> {
   constructor(props: Props, context: any) {
     super(props, context);
     this.state = {
+      hiddenLeaderboard: true,
       id: '',
       isDivisional: false,
       isA: false,
@@ -177,6 +179,10 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   setSortBy = (id: string) => {
+    const { hiddenLeaderboard } = this.state;
+    if (hiddenLeaderboard) {
+      return;
+    }
     const { sortByIdentifier, sortBySequence } = this.state;
     let sequence;
     if (sortByIdentifier == id) {
@@ -195,6 +201,10 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   showInfo = (e: any) => {
+    const { hiddenLeaderboard } = this.state;
+    if (hiddenLeaderboard) {
+      return;
+    }
     const name = e.target.id;
     this.setState({
       showInfo: {
@@ -208,6 +218,10 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   hideInfo = () => {
+    const { hiddenLeaderboard } = this.state;
+    if (hiddenLeaderboard) {
+      return;
+    }
     this.setState({
       showInfo: {
         name: false,
@@ -234,6 +248,10 @@ export default class Leaderboard extends React.Component<Props, State> {
   };
 
   showInstitutionModal = (institution: Institution, stats: InstitutionStat) => {
+    const { hiddenLeaderboard } = this.state;
+    if (hiddenLeaderboard) {
+      return;
+    }
     this.setState({
       selectedInstitution: institution,
       selectedInstitutionStats: stats,
@@ -343,6 +361,18 @@ export default class Leaderboard extends React.Component<Props, State> {
                   'Fjöldi setninga sem keppendur í skóla hafa lesið inn',
                   false
                 )}
+            </div>
+          </div>
+          <div className="countdown-container">
+            <div className="countdown">
+              <h2>Stigatafla hulin</h2>
+              <p>
+                Hægt er að taka þátt út sunnudaginn <b>10. maí</b>.
+              </p>
+              <p>
+                Stigataflan verður hulin þar til úrslit verða tilkynnt í næstu
+                viku.
+              </p>
             </div>
           </div>
           {stats ? this.renderStats(stats) : <Spinner />}
