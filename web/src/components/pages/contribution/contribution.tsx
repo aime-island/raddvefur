@@ -497,12 +497,12 @@ class ContributionPage extends React.Component<Props, State> {
                         }>
                         <span className="text" />
                       </Localized>
-                      <Localized
+                      {/* <Localized
                         id="review-institution"
                         bold={<b />}
                         $institution={institutionName || ''}>
                         <span className="text" />
-                      </Localized>
+                      </Localized> */}
                       {/*                       <Localized
                         id="review-division"
                         bold={<b />}

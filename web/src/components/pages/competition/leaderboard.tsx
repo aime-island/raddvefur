@@ -10,6 +10,7 @@ import API from '../../../services/api';
 import arrow from './images/arrow.png';
 import URLS from '../../../urls';
 import { Countdown } from './countdown';
+import { LocaleLink, useLocale, LocaleNavLink } from '../../locale-helpers';
 
 const divisionA = 'yqnt';
 const divisionB = 'n5uo';
@@ -369,7 +370,13 @@ export default class Leaderboard extends React.Component<Props, State> {
             <div className="countdown-container">
               <div className="countdown">
                 <h2>Stigatafla hulin</h2>
-                <Countdown />
+                <p>Grunnskólakeppninni er lokið. </p>
+                <p>
+                  Það er alltaf hægt að lesa inn í Samróm með því að smella{' '}
+                  <LocaleLink to={URLS.SPEAK}>
+                    <b>hér.</b>
+                  </LocaleLink>
+                </p>
                 <p>
                   Stigataflan verður hulin þar til úrslit verða tilkynnt í næstu
                   viku.
