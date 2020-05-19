@@ -98,6 +98,7 @@ interface PropsFromDispatch {
   addUploads: typeof Uploads.actions.add;
   addNotification: typeof Notifications.actions.addPill;
   removeSentences: typeof Sentences.actions.remove;
+  refillSentences: typeof Sentences.actions.refill;
   tallyRecording: typeof User.actions.tallyRecording;
   refreshUser: typeof User.actions.refresh;
   updateUser: typeof User.actions.update;
@@ -678,21 +679,16 @@ class SpeakPage extends React.Component<Props, State> {
       demographic,
     });
     const demographicError = this.getDemographicError(demographic);
-    if (demographicError) {
-      return this.setState({
-        demographicError,
-      });
-    } else {
-      this.props.updateUser({
-        hasInfo: true,
-        demographicInfo: this.state.demographic,
-        competitionInfo: competition,
-      });
-      this.setState({
-        demographicError,
-        showDemographicModal: false,
-      });
-    }
+    this.props.updateUser({
+      hasInfo: true,
+      demographicInfo: this.state.demographic,
+      competitionInfo: competition,
+    });
+    this.props.refillSentences();
+    this.setState({
+      demographicError,
+      showDemographicModal: false,
+    });
   };
 
   private getDemographicError = (demographic: DemoInfo): DemographicError => {
@@ -982,6 +978,7 @@ const mapDispatchToProps = {
   addNotification: Notifications.actions.addPill,
   addUploads: Uploads.actions.add,
   removeSentences: Sentences.actions.remove,
+  refillSentences: Sentences.actions.refill,
   tallyRecording: User.actions.tallyRecording,
   refreshUser: User.actions.refresh,
   updateUser: User.actions.update,

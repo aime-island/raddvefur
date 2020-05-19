@@ -94,6 +94,15 @@ export default class ConsentForm extends React.Component<Props, State> {
       });
       return false;
     }
+
+    const child = this.getAge(kennitala);
+    if (child > 17) {
+      console.log('Too old');
+      this.setState({
+        message: 'Kennitala lögráða einstaklings',
+      });
+      return false;
+    }
     return true;
   };
 
@@ -177,7 +186,7 @@ export default class ConsentForm extends React.Component<Props, State> {
 
   private submit = async () => {
     const valid = await this.validateKennitala();
-    if (true) {
+    if (valid) {
       const { api } = this.props;
       const allowed = await api.checkKennitala(this.state.consent.kennitala);
       if (allowed) {

@@ -94,12 +94,14 @@ export default class Model {
   async findEligibleSentences(
     client_id: string,
     locale: string,
-    count: number
+    count: number,
+    userAge: string
   ): Promise<Sentence[]> {
     return this.db.findSentencesWithFewClips(
       client_id,
       locale,
-      Math.min(count, 50)
+      Math.min(count, 50),
+      userAge
     );
   }
 
