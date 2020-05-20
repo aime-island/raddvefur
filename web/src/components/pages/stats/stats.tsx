@@ -9,6 +9,8 @@ import API from '../../../services/api';
 import StateTree from '../../../stores/tree';
 import { localeConnector, LocalePropsFromState } from '../../locale-helpers';
 
+import SexChart from './charts/gender-chart';
+
 import './stats.css';
 
 interface PropsFromState {
@@ -25,12 +27,18 @@ class StatsPage extends React.Component<Props, State> {
     this.state = {};
   }
 
-  componentDidMount = () => {};
+  componentDidMount = async () => {
+    this.statsToState();
+  };
 
-  private statsToState = async () => {};
+  private statsToState = async () => {
+    const { api } = this.props;
+    const something = await api.getCompetitionTimeline();
+    console.log(something);
+  };
 
   render() {
-    return <div className="stats-container">Halló</div>;
+    return <div className="stats-container">{/* <SexChart /> */}</div>;
   }
 }
 

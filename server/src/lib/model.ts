@@ -76,6 +76,10 @@ export default class Model {
     return this.db.getInstitutionGender(institution);
   }
 
+  async getCompetitionTimeline(): Promise<any> {
+    return this.db.getCompetitionTimeline();
+  }
+
   async createConsent(
     email: String,
     kennitala: string

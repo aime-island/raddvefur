@@ -8,7 +8,7 @@ import {
   Legend,
 } from 'recharts';
 
-import { GenderStat } from '../../../stores/competition';
+import { GenderStat } from '../../../../stores/competition';
 
 const colors = ['#629ff4', '#ff4f5e', '#59cbb7'];
 
@@ -29,7 +29,7 @@ export default class SexChart extends React.Component<Props> {
           <Pie
             isAnimationActive={false}
             data={genderDistribution}
-            nameKey="clips__sex"
+            nameKey={'clips__sex'}
             dataKey={'clips__count'}
             fill="#8884d8">
             {genderDistribution.map((_, index) => (

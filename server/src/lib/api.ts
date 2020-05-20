@@ -142,6 +142,10 @@ export default class API {
 
     router.get('/leaderboard', this.getLeaderboard);
     router.get('/institution_gender/:institution', this.getInstitutionGender);
+
+    // Competition stats
+    router.get('/competition/timeline', this.getCompetitionTimeline);
+
     router.get('/consents/:kennitala', this.getConsent);
     router.post('/consents/:kennitala/:email/', this.createConsent);
 
@@ -174,6 +178,11 @@ export default class API {
       institution
     );
     response.json(genderDistribution);
+  };
+
+  getCompetitionTimeline = async (request: Request, response: Response) => {
+    const competitionTimeline = await this.model.getCompetitionTimeline();
+    response.json(competitionTimeline);
   };
 
   getConsent = async (

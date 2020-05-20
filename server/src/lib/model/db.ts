@@ -131,6 +131,28 @@ export default class DB {
     return rows;
   }
 
+  async getCompetitionTimeline(): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+        SELECT 
+          cast(created_at as date),
+          count(client_id)
+        FROM 
+          clips
+        WHERE 
+          created_at > '2020-04-14'
+        AND 
+          created_at < '2020-05-11'
+        AND 
+          institution<>''
+        GROUP BY
+          cast(created_at as date)
+      `,
+      []
+    );
+    return rows;
+  }
+
   async createConsent(email: String, kennitala: string): Promise<any> {
     const uuid = uuidv4();
     await this.mysql.query(
