@@ -104,15 +104,17 @@ class StatsPage extends React.Component<Props, State> {
           <p>
             Skólarnir sem lásu mest í hvorum flokki voru Hraunvallaskóla og
             Smáraskóli en nemendur Hraunvallaskóla lásu upp <span>49.910</span>{' '}
-            setningar og nemendur Smáraskóla <span>37.655</span> setningar.
+            setningar og nemendur Smáraskóla <span>37.655</span> setningar. Þar
+            af lásu þrír nemendur yfir <span>5.000</span> setningar hver en sá
+            sem lét mest í sér heyra las upp <span>14.419</span> setningar.
           </p>
         </div>
         <div className="chart">
           <h3>Fjöldi innlesinna setninga eftir degi upplestrar</h3>
           <p>
             Keppnin hófst rólega og lengi vel voru það nokkrir vaskir nemendur
-            sem komu sínum skóla í forystu en um miðbik keppninnar fór að færast
-            hiti í leikana og nokkrir skólar mörkuðu sér afgerandi stöðu.
+            sem komu sínum skólum í forystu en um miðbik keppninnar fór að
+            færast hiti í leikana og nokkrir skólar mörkuðu sér afgerandi stöðu.
           </p>
           <TimelineChart />
         </div>
@@ -121,14 +123,17 @@ class StatsPage extends React.Component<Props, State> {
           <h3>Fjöldi innlesinna setninga eftir aldri upplesara</h3>
           <p>
             Eins og sjá má þá lásu nemendurnir sjálfir upp flestar upptökur en
-            foreldrar og kennarar hafa stutt þá.
+            foreldrar og kennarar studdu þá vel.
           </p>
           <AgeChart />
         </div>
 
         <div className="chart">
           <h3>Fjöldi innlesinna setninga eftir kyni upplesara</h3>
-          <p>Ef við skoðum heildartölur þá voru stelpur duglegastar að lesa.</p>
+          <p>
+            Ef við skoðum heildartölur þá voru stelpurnar lang duglegastar að
+            lesa.
+          </p>
           <div className="gender-chart">
             <SexChart genderDistribution={genderStat} />
           </div>
