@@ -83,9 +83,7 @@ class StatsPage extends React.Component<Props, State> {
 
     return (
       <div className="stats-container">
-        <h2 className="title">
-          Uppgjör lestrarkeppni grunnskólanna vorið 2020
-        </h2>
+        <h2 className="title">Uppgjör lestrarkeppni grunnskóla vorið 2020</h2>
         <p>
           Lestrarkeppni grunnskólana í Samróm stóð yfir frá 16.apríl til 10. maí
           2020. Þar kepptust nemendur, starfsmenn og foreldrar í fjölda lesinna
