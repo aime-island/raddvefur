@@ -106,8 +106,16 @@ export default class API {
     return this.fetch(`${API_PATH}/institution_gender/${institution}`);
   }
 
+  async getCompetitionGender() {
+    return this.fetch(`${API_PATH}/competition/gender`);
+  }
+
+  async getCompetitionAge() {
+    return this.fetch(`${API_PATH}/competition/age`);
+  }
+
   async getCompetitionTimeline() {
-    return this.fetch(`${API_PATH}/institution_gender/timeline`);
+    return this.fetch(`${API_PATH}/competition/timeline`);
   }
 
   async checkKennitala(kennitala: string) {

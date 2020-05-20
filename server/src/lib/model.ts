@@ -76,6 +76,14 @@ export default class Model {
     return this.db.getInstitutionGender(institution);
   }
 
+  async getCompetitionAge(): Promise<any> {
+    return this.db.getCompetitionAge();
+  }
+
+  async getCompetitionGender(): Promise<any> {
+    return this.db.getCompetitionGender();
+  }
+
   async getCompetitionTimeline(): Promise<any> {
     return this.db.getCompetitionTimeline();
   }

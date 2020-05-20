@@ -31,3 +31,13 @@ export interface GenderStat {
   clips__sex: string;
   clips__count: number;
 }
+
+export interface TimelineStat {
+  date: string;
+  cnt: number;
+}
+
+export interface AgeStat {
+  age: string;
+  cnt: number;
+}

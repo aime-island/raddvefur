@@ -10,11 +10,30 @@ import {
 
 import { GenderStat } from '../../../../stores/competition';
 
-const colors = ['#629ff4', '#ff4f5e', '#59cbb7'];
+const colors = ['#629ff4', '#ff4f5e', '#59cbb7', '#2b376c'];
 
 interface Props {
   genderDistribution: GenderStat[];
 }
+
+const staticGenderDistribution: GenderStat[] = [
+  {
+    clips__count: 106796,
+    clips__sex: 'Konur',
+  },
+  {
+    clips__count: 32973,
+    clips__sex: 'Karlar',
+  },
+  {
+    clips__count: 2217,
+    clips__sex: 'Annað',
+  },
+  {
+    clips__count: 1755,
+    clips__sex: 'Óuppgefið',
+  },
+];
 
 export default class SexChart extends React.Component<Props> {
   constructor(props: Props) {
@@ -24,16 +43,16 @@ export default class SexChart extends React.Component<Props> {
   render() {
     const { genderDistribution } = this.props;
     return (
-      <ResponsiveContainer>
+      <ResponsiveContainer width={350} height={350}>
         <PieChart>
           <Pie
             isAnimationActive={false}
-            data={genderDistribution}
+            data={staticGenderDistribution}
             nameKey={'clips__sex'}
             dataKey={'clips__count'}
             fill="#8884d8">
-            {genderDistribution.map((_, index) => (
-              <Cell key={index} fill={colors[index % colors.length]} />
+            {staticGenderDistribution.map((_, index) => (
+              <Cell key={index} fill={colors[index]} />
             ))}
           </Pie>
           <Legend />

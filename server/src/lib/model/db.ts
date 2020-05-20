@@ -131,22 +131,87 @@ export default class DB {
     return rows;
   }
 
+  async getCompetitionGender(): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+      SELECT
+        CASE
+          WHEN clips.sex = 'karl' THEN 'Karl'
+          WHEN clips.sex = 'kona' THEN 'Kona'
+          WHEN clips.sex = 'annad' THEN 'Annað'
+          ELSE 'Óuppgefið'
+        END clips__sex,
+        count(clips.id) clips__count
+      FROM
+        clips
+      WHERE
+        institution <> ''
+      AND
+        created_at > '2020-04-14' 
+      AND 
+        created_at < '2020-05-11' 
+      GROUP BY
+        1
+      ORDER BY
+        2 DESC
+      LIMIT
+        10000
+      `
+    );
+    return rows;
+  }
+
+  async getCompetitionAge(): Promise<any> {
+    const [rows] = await this.mysql.query(
+      `
+      SELECT 
+        CASE
+          WHEN clips.age IN (6, 7, 8, 9) THEN '6-9 ára'
+          WHEN clips.age IN (10, 11, 12) THEN '10 - 12 ára'
+          WHEN clips.age = 'ungur_unglingur' THEN '13-17 ára'
+          WHEN clips.age IN (13, 14, 15, 16, 17) THEN '13-17 ára'
+          WHEN clips.age = 'unglingur' THEN '18-29 ára'
+          WHEN clips.age = 'tvitugt' THEN '18-29 ára'
+          WHEN clips.age = 'thritugt' THEN '30-39 ára'
+          WHEN clips.age = 'fertugt' THEN '40-49 ára'
+          WHEN clips.age = 'fimmtugt' THEN '50-59 ára'
+          WHEN clips.age = 'sextugt' THEN '60-69 ára'
+          WHEN clips.age = 'sjotugt' THEN '70-79 ára'
+          WHEN clips.age = 'attraett' THEN '80-89 ára'
+          WHEN clips.age = 'niraett' THEN '90+ ára'
+          ELSE 'Óuppgefið'
+          END age,
+          count(clips.id) cnt
+      FROM
+          clips
+      WHERE
+        clips.created_at > '2020-04-14'
+      AND
+        clips.created_at < '2020-05-11'
+      AND
+        institution <> ''
+      GROUP BY 1
+      `
+    );
+    return rows;
+  }
+
   async getCompetitionTimeline(): Promise<any> {
     const [rows] = await this.mysql.query(
       `
-        SELECT 
-          cast(created_at as date),
-          count(client_id)
-        FROM 
-          clips
-        WHERE 
-          created_at > '2020-04-14'
-        AND 
-          created_at < '2020-05-11'
-        AND 
-          institution<>''
-        GROUP BY
-          cast(created_at as date)
+      SELECT
+        cast(created_at as date) as date,
+        count(client_id) as cnt
+      FROM 
+        clips
+      WHERE 
+        created_at > '2020-04-14'
+      AND 
+        created_at < '2020-05-11'
+      AND 
+        institution <> ''
+      GROUP BY
+        date
       `,
       []
     );

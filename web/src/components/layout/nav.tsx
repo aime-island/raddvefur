@@ -23,7 +23,8 @@ export default ({ children, ...props }: { [key: string]: any }) => (
   <nav {...props} className="nav-list">
     <div className="nav-links">
       <LocalizedNavLink id="home" to="" />
-      <div className="dropdown-competitions">
+      <LocalizedNavLink id="competition" to={URLS.COMPETITION_TOTAL} />
+      {/* <div className="dropdown-competitions">
         <Localized id="competition" className="competition-nav">
           <a />
         </Localized>
@@ -35,7 +36,7 @@ export default ({ children, ...props }: { [key: string]: any }) => (
           <LocalizedNavLink id="competition-league-A" to={URLS.COMPETITION_A} />
           <LocalizedNavLink id="competition-league-B" to={URLS.COMPETITION_B} />
         </div>
-      </div>
+      </div> */}
       <LocalizedNavLink id="dataset" to={URLS.DATASETS} />
       <LocalizedNavLink id="languages" to={URLS.LANGUAGES} />
       <LocalizedNavLink id="about" to={URLS.ABOUT} />

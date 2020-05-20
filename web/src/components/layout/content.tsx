@@ -65,9 +65,9 @@ export default function Content() {
           <Route
             exact
             path={toLocaleRoute(URLS.COMPETITION_TOTAL)}
-            component={CompetitionPage}
+            component={StatsPage}
           />
-          <Route
+          {/* <Route
             exact
             path={toLocaleRoute(URLS.COMPETITION_TOTAL + '/:slug')}
             component={CompetitionPage}
@@ -76,7 +76,7 @@ export default function Content() {
             exact
             path={toLocaleRoute(URLS.COMPETITION_TOTAL + ':/slug')}
             component={CompetitionPage}
-          />
+          /> */}
           {/* <Route
             exact
             path={toLocaleRoute(URLS.PROFILE)}
