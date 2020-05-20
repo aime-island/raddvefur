@@ -85,17 +85,17 @@ class StatsPage extends React.Component<Props, State> {
       <div className="stats-container">
         <h2 className="title">Uppgjör lestrarkeppni grunnskóla vorið 2020</h2>
         <p>
-          Lestrarkeppni grunnskólana í Samróm stóð yfir frá 16.apríl til 10. maí
-          2020. Þar kepptust nemendur, starfsmenn og foreldrar í fjölda lesinna
-          setninga í Samróm. Keppt var í tveim deildum annars vegar milli skóla
-          sem voru með fleiri en 450 nemendur og hins vegar milli skóla sem voru
-          með færri en 450 nemendur.
+          Lestrarkeppni grunnskóla í Samróm stóð yfir frá 16. apríl til 10. maí
+          2020. Þar kepptu nemendur, starfsmenn og foreldrar í fjölda lesinna
+          setninga í Samróm. Keppt var í tveimur deildum en í annarri voru
+          skólar með fleiri en 450 nemendur og í hinni skólar með færri en 450
+          nemendur.
         </p>
         <p>
-          Í heildina tóku <span>1430</span> þátt frá <span>130</span> skólum
-          þátt og lásu þau í heildina um <span>144 þúsund setningar.</span> Það
-          er vægast sagt frábær árangur og fara miklar þakkir til allra sem tók
-          þátt.
+          Í heildina tóku <span>1430</span> manns þátt fyrir hönd{' '}
+          <span>130</span> skóla og lásu þau í kringum{' '}
+          <span>144 þúsund setningar í heildina.</span> Það er vægast sagt
+          frábær árangur og fara miklar þakkir til allra sem tók þátt.
         </p>
         <div className="winners-chart">
           <h3>Sigurvegarar</h3>
