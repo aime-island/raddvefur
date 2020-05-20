@@ -92,7 +92,7 @@ class StatsPage extends React.Component<Props, State> {
           nemendur.
         </p>
         <p>
-          Í heildina tóku <span>1430</span> manns þátt fyrir hönd{' '}
+          Í heildina tóku <span>1430</span> manns þátt fyrir hendur{' '}
           <span>130</span> skóla og lásu þau í kringum{' '}
           <span>144 þúsund setningar í heildina.</span> Það er vægast sagt
           frábær árangur og fara miklar þakkir til allra sem tók þátt.
