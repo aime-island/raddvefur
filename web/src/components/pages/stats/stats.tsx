@@ -9,12 +9,19 @@ import API from '../../../services/api';
 import StateTree from '../../../stores/tree';
 import { localeConnector, LocalePropsFromState } from '../../locale-helpers';
 
-import { AgeStat, GenderStat, TimelineStat } from '../../../stores/competition';
+import {
+  Institution,
+  Institutions,
+  InstitutionStat,
+  AgeStat,
+  GenderStat,
+  TimelineStat,
+} from '../../../stores/competition';
 
 import AgeChart from './charts/age-chart';
 import SexChart from './charts/gender-chart';
 import TimelineChart from './charts/timeline-chart';
-import Leaderboard from '../competition/leaderboard';
+import Leaderboard from './leaderboard';
 import './stats.css';
 
 interface PropsFromState {
@@ -26,6 +33,8 @@ type Props = LocalePropsFromState & LocalizationProps & PropsFromState;
 interface State {
   ageStat: AgeStat[];
   genderStat: GenderStat[];
+  institutions: Institution[];
+  institutionStats: InstitutionStat[];
   timelineStat: TimelineStat[];
 }
 
@@ -35,6 +44,8 @@ class StatsPage extends React.Component<Props, State> {
     this.state = {
       ageStat: [],
       genderStat: [],
+      institutions: [],
+      institutionStats: [],
       timelineStat: [],
     };
   }
@@ -45,23 +56,36 @@ class StatsPage extends React.Component<Props, State> {
 
   private statsToState = async () => {
     const { api } = this.props;
-    const ageStat = await api.getCompetitionAge();
+    //const institutions: Institutions = await api.fetchInstitutions();
+    //const institutionStats: InstitutionStat[] = await api.getLeaderboard();
+    //console.log(institutionStats);
+    //const ageStat = await api.getCompetitionAge();
     const genderStat = await api.getCompetitionGender();
-    const timelineStat = await api.getCompetitionTimeline();
+    //const timelineStat = await api.getCompetitionTimeline();
 
     this.setState({
-      ageStat,
+      //ageStat,
       genderStat,
-      timelineStat,
+      //institutions: institutions.institutions,
+      //institutionStats,
+      //timelineStat,
     });
   };
 
   render() {
-    const { ageStat, genderStat, timelineStat } = this.state;
+    const {
+      ageStat,
+      genderStat,
+      institutions,
+      institutionStats,
+      timelineStat,
+    } = this.state;
 
     return (
       <div className="stats-container">
-        <h2 className="title">Lestrarkeppni Grunnskólanna vorið 2020</h2>
+        <h2 className="title">
+          Uppgjör lestrarkeppni grunnskólanna vorið 2020
+        </h2>
         <p>
           Lestrarkeppni grunnskólana í Samróm stóð yfir frá 16.apríl til 10. maí
           2020. Þar kepptust nemendur, starfsmenn og foreldrar í fjölda lesinna
@@ -75,31 +99,39 @@ class StatsPage extends React.Component<Props, State> {
           er vægast sagt frábær árangur og fara miklar þakkir til allra sem tók
           þátt.
         </p>
-        <p>
-          Keppnin hófst rólega og lengi vel voru það nokkrir vaskir nemendur sem
-          komu sínum skóla í forystu en um miðbik keppninnar fór að færast hiti
-          í leikana og nokkrir skólar mörkuðu sér afgerandi stöðu.
-        </p>
+        <div className="winners-chart">
+          <h3>Sigurvegarar</h3>
+          <p>
+            Skólarnir sem lásu mest í hvorum flokki voru Hraunvallaskóla og
+            Smáraskóli en nemendur Hraunvallaskóla lásu upp <span>49.910</span>{' '}
+            setningar og nemendur Smáraskóla <span>37.655</span> setningar.
+          </p>
+        </div>
         <div className="chart">
           <h3>Fjöldi innlesinna setninga eftir degi upplestrar</h3>
+          <p>
+            Keppnin hófst rólega og lengi vel voru það nokkrir vaskir nemendur
+            sem komu sínum skóla í forystu en um miðbik keppninnar fór að færast
+            hiti í leikana og nokkrir skólar mörkuðu sér afgerandi stöðu.
+          </p>
           <TimelineChart />
         </div>
-        <p>
-          Skólarnir sem lásu mest í hvorum flokki voru Hraunvallaskóla og
-          Smáraskóli.
-        </p>
-        <div className="gap">
-          <h3>LEADERBOARDS</h3>
-        </div>
-        <p>Hérna segjum við eitthvað um aldur þáttakenda.</p>
+
         <div className="chart">
           <h3>Fjöldi innlesinna setninga eftir aldri upplesara</h3>
+          <p>
+            Eins og sjá má þá lásu nemendurnir sjálfir upp flestar upptökur en
+            foreldrar og kennarar hafa stutt þá.
+          </p>
           <AgeChart />
         </div>
-        <p>Ef við skoðum heildartölur þá voru stelpur duglegastar að lesa.</p>
+
         <div className="chart">
           <h3>Fjöldi innlesinna setninga eftir kyni upplesara</h3>
-          <SexChart genderDistribution={genderStat} />
+          <p>Ef við skoðum heildartölur þá voru stelpur duglegastar að lesa.</p>
+          <div className="gender-chart">
+            <SexChart genderDistribution={genderStat} />
+          </div>
         </div>
       </div>
     );

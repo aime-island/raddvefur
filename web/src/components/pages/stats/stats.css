@@ -27,11 +27,19 @@ p {
     }
 }
 
-.chart {
-    margin: 1rem 0;
+.winners-chart {
+    margin: 2rem 0 0 0;
 
-    & h3 {
-        margin: 0 0 1rem 1rem;
+    & p {
+        margin: 1rem 0 1rem 1rem;
+    }
+}
+
+.chart {
+    margin: 2rem 0;
+
+    & p {
+        margin: 1rem 0 1rem 1rem;
     }
 }
 

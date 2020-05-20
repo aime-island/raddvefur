@@ -43,7 +43,7 @@ export default class SexChart extends React.Component<Props> {
   render() {
     const { genderDistribution } = this.props;
     return (
-      <ResponsiveContainer width={350} height={350}>
+      <ResponsiveContainer width={'100%'} height={350}>
         <PieChart>
           <Pie
             isAnimationActive={false}
