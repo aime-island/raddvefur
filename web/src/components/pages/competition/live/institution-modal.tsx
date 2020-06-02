@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Localized } from 'fluent-react/compat';
-import { Button, Radio } from '../../ui/ui';
-import Modal, { ModalButtons } from '../../modal/modal';
-import { InfoIcon, CautionIcon } from '../../ui/icons';
+import { Button, Radio } from '../../../ui/ui';
+import Modal, { ModalButtons } from '../../../modal/modal';
+import { InfoIcon, CautionIcon } from '../../../ui/icons';
 import {
   Institution,
   GenderStat,
   InstitutionStat,
-} from '../../../stores/competition';
-import API from '../../../services/api';
+} from '../../../../stores/competition';
+import API from '../../../../services/api';
 
 import './institution-modal.css';
 import './scrollable-modal.css';

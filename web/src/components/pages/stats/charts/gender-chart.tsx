@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import {
   PieChart,
   Pie,
@@ -8,50 +9,51 @@ import {
   Legend,
 } from 'recharts';
 
+import API from '../../../../services/api';
+import StateTree from '../../../../stores/tree';
 import { GenderStat } from '../../../../stores/competition';
 
 const colors = ['#629ff4', '#ff4f5e', '#59cbb7', '#2b376c'];
 
-interface Props {
-  genderDistribution: GenderStat[];
+interface PropsFromState {
+  api: API;
 }
 
-const staticGenderDistribution: GenderStat[] = [
-  {
-    clips__count: 106796,
-    clips__sex: 'Konur',
-  },
-  {
-    clips__count: 32973,
-    clips__sex: 'Karlar',
-  },
-  {
-    clips__count: 2217,
-    clips__sex: 'Annað',
-  },
-  {
-    clips__count: 1755,
-    clips__sex: 'Óuppgefið',
-  },
-];
+interface ChartProps {}
 
-export default class SexChart extends React.Component<Props> {
+type Props = PropsFromState & ChartProps;
+
+interface State {
+  stats: GenderStat[];
+}
+
+class GenderChart extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+
+    this.state = {
+      stats: [],
+    };
   }
 
+  componentDidMount = async () => {
+    const { api } = this.props;
+    const stats = await api.getGender();
+    this.setState({ stats });
+  };
+
   render() {
-    const { genderDistribution } = this.props;
+    const { stats } = this.state;
     return (
       <ResponsiveContainer width={'100%'} height={350}>
         <PieChart>
           <Pie
             isAnimationActive={false}
-            data={staticGenderDistribution}
-            nameKey={'clips__sex'}
-            dataKey={'clips__count'}
+            data={stats}
+            nameKey={'sex'}
+            dataKey={'count'}
             fill="#8884d8">
-            {staticGenderDistribution.map((_, index) => (
+            {stats.map((_, index) => (
               <Cell key={index} fill={colors[index]} />
             ))}
           </Pie>
@@ -62,3 +64,9 @@ export default class SexChart extends React.Component<Props> {
     );
   }
 }
+
+const mapStateToProps = ({ api }: StateTree) => ({
+  api,
+});
+
+export default connect<PropsFromState>(mapStateToProps)(GenderChart);

@@ -1,67 +1,18 @@
-import { AgeStat } from '../../../../stores/competition';
-
-const stats: AgeStat[] = [
-  {
-    age: '6-9 ára',
-    cnt: 5953,
-  },
-  {
-    age: '10 - 12 ára',
-    cnt: 64960,
-  },
-  {
-    age: '13-17 ára',
-    cnt: 25239,
-  },
-  {
-    age: '18-29 ára',
-    cnt: 13571,
-  },
-  {
-    age: '30-39 ára',
-    cnt: 8728,
-  },
-  {
-    age: '40-49 ára',
-    cnt: 20453,
-  },
-  {
-    age: '50-59 ára',
-    cnt: 4333,
-  },
-
-  {
-    age: '60-69 ára',
-    cnt: 419,
-  },
-  {
-    age: '80-89 ára',
-    cnt: 60,
-  },
-  {
-    age: '90+ ára',
-    cnt: 26,
-  },
-];
-
 import * as React from 'react';
+import { connect } from 'react-redux';
+
 import {
   CartesianGrid,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
-  AreaChart,
-  Area,
   XAxis,
   YAxis,
-  Tooltip,
   ResponsiveContainer,
-  LineChart,
-  Legend,
-  Line,
+  AreaChart,
+  Area,
 } from 'recharts';
+
+import API from '../../../../services/api';
+import StateTree from '../../../../stores/tree';
+import { AgeStat } from '../../../../stores/competition';
 
 const colors = [
   '#629ff4',
@@ -75,30 +26,62 @@ const colors = [
   '#59cbb7',
 ];
 
-interface Props {
+interface PropsFromState {
+  api: API;
+}
+
+interface ChartProps {
   //genderDistribution: GenderStat[];
 }
 
+type Props = PropsFromState & ChartProps;
+
+import * as moment from 'moment';
+moment.locale('is');
+const ageFormatter = (item: string) => {
+  if (item[0] == '0' && item[1] == '1') {
+    return item.slice(2);
+  } else if (item[0] == '0') {
+    return item.slice(1);
+  } else {
+    return item;
+  }
+};
+
 const CartesianChart = ({ resultSet, children, ChartComponent }: any) => (
-  <ResponsiveContainer width={'100%'} height={350}>
+  <ResponsiveContainer width="100%" height={350}>
     <ChartComponent data={resultSet}>
-      <XAxis dataKey={'age'} />
+      <XAxis tickFormatter={val => ageFormatter(val)} dataKey={'age'} />
       <YAxis />
       <CartesianGrid />
       {children}
       {/* <Legend /> */}
-      {/* <Tooltip label={"fjöldi"} formatter={val => val}/> */}
+      {/* <Tooltip /> */}
     </ChartComponent>
   </ResponsiveContainer>
 );
 
-export default class AgeCart extends React.Component<Props> {
+interface State {
+  stats: AgeStat[];
+}
+
+class AgeChart extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+
+    this.state = {
+      stats: [],
+    };
   }
 
+  componentDidMount = async () => {
+    const { api } = this.props;
+    const stats = await api.getGender();
+    this.setState({ stats });
+  };
+
   render() {
-    //const { genderDistribution } = this.props;
+    const { stats } = this.state;
     return (
       <ResponsiveContainer>
         <CartesianChart resultSet={stats} ChartComponent={AreaChart}>
@@ -110,3 +93,9 @@ export default class AgeCart extends React.Component<Props> {
     );
   }
 }
+
+const mapStateToProps = ({ api }: StateTree) => ({
+  api,
+});
+
+export default connect<PropsFromState>(mapStateToProps)(AgeChart);

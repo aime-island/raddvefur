@@ -106,16 +106,36 @@ export default class API {
     return this.fetch(`${API_PATH}/institution_gender/${institution}`);
   }
 
-  async getCompetitionGender() {
-    return this.fetch(`${API_PATH}/competition/gender`);
+  async getGender() {
+    return this.fetch(`${API_PATH}/stats/gender`);
   }
 
-  async getCompetitionAge() {
-    return this.fetch(`${API_PATH}/competition/age`);
+  async getAge() {
+    return this.fetch(`${API_PATH}/stats/age`);
+  }
+
+  async getAgeGender() {
+    return this.fetch(`${API_PATH}/stats/age-gender`);
+  }
+
+  async getConfirmedAge(gender: string) {
+    return this.fetch(`${API_PATH}/stats/confirmed-age`, {
+      headers: {
+        gender: encodeURIComponent(gender),
+      },
+    });
+  }
+
+  async getMilestoneGroups() {
+    return this.fetch(`${API_PATH}/stats/milestone-groups`);
   }
 
   async getCompetitionTimeline() {
     return this.fetch(`${API_PATH}/competition/timeline`);
+  }
+
+  async getTimeline() {
+    return this.fetch(`${API_PATH}/stats/timeline`);
   }
 
   async checkKennitala(kennitala: string) {

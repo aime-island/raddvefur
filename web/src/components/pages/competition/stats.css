@@ -1,9 +1,7 @@
 @import url('../../vars.css');
 
 .stats-container {
-    margin: 0 auto;
     width: 65rem;
-    margin-bottom: 2rem;
 
     @media (--md-down) {
         width: 100%;
@@ -13,10 +11,8 @@
     flex-direction: column;
 }
 
-.stats-title {
-    @media (--sm-down) {
-        margin-left: 1rem;
-    }
+.title {
+    margin: 2rem 0;
 }
 
 .gap {

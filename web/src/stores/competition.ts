@@ -28,8 +28,8 @@ export interface InstitutionStat {
 }
 
 export interface GenderStat {
-  clips__sex: string;
-  clips__count: number;
+  sex: string;
+  count: number;
 }
 
 export interface TimelineStat {
@@ -40,4 +40,32 @@ export interface TimelineStat {
 export interface AgeStat {
   age: string;
   cnt: number;
+}
+
+export interface AgeGenderStat {
+  age: string;
+  karl: number;
+  karl_valid: number;
+  kona: number;
+  kona_valid: number;
+  total: number;
+  total_valid: number;
+}
+
+export interface MilestoneStat {
+  hopur: string;
+  karl: number;
+  karl_valid: number;
+  kona: number;
+  kona_valid: number;
+  total: number;
+  total_valid: number;
+}
+
+export interface ConfirmedAgeStat {
+  age: string;
+  stadfest: number;
+  ostadfest: number;
+  ogilt: number;
+  total: number;
 }

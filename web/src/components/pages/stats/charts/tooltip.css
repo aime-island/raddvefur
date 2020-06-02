@@ -1,0 +1,16 @@
+.tooltip-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.tooltip-title {
+    font-size: 16px;
+}
+
+.chart-label {
+    background-color: green;
+}

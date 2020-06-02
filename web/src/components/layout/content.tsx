@@ -7,9 +7,7 @@ import NotFoundPage from '../pages/not-found';
 import { Spinner } from '../ui/ui';
 const HomePage = React.lazy(() => import('../pages/home/home'));
 const DatasetsPage = React.lazy(() => import('../pages/datasets/datasets'));
-const CompetitionPage = React.lazy(() =>
-  import('../pages/competition/competition')
-);
+const CompetitionPage = React.lazy(() => import('../pages/competition/stats'));
 const LanguagesPages = React.lazy(() => import('../pages/languages/languages'));
 const ThankYouPages = React.lazy(() => import('../pages/thankyou/thankyou'));
 const DashboardPage = React.lazy(() => import('../pages/dashboard/dashboard'));
@@ -65,7 +63,7 @@ export default function Content() {
           <Route
             exact
             path={toLocaleRoute(URLS.COMPETITION_TOTAL)}
-            component={StatsPage}
+            component={CompetitionPage}
           />
           {/* <Route
             exact

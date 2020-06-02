@@ -1,6 +1,7 @@
 import * as request from 'request-promise-native';
 import { LanguageStats } from 'common/language-stats';
 import DB, { Sentence } from './model/db';
+import StatsDB from './model/stats-db';
 import { DBClipWithVoters } from './model/db/tables/clip-table';
 import lazyCache from './lazy-cache';
 
@@ -52,6 +53,7 @@ const DAY = MINUTE * 60 * 24;
  */
 export default class Model {
   db = new DB();
+  stats = new StatsDB();
 
   /**
    * Fetch a random clip but make sure it's not the user's.
@@ -76,16 +78,32 @@ export default class Model {
     return this.db.getInstitutionGender(institution);
   }
 
-  async getCompetitionAge(): Promise<any> {
-    return this.db.getCompetitionAge();
+  async getAge(): Promise<any> {
+    return this.stats.getAge();
   }
 
-  async getCompetitionGender(): Promise<any> {
-    return this.db.getCompetitionGender();
+  async getGender(): Promise<any> {
+    return this.stats.getGender();
+  }
+
+  async getConfirmedAge(gender: string): Promise<any> {
+    return this.stats.getConfirmedAge(gender);
+  }
+
+  async getMilestoneGroups(): Promise<any> {
+    return this.stats.getMilestoneGroups();
   }
 
   async getCompetitionTimeline(): Promise<any> {
-    return this.db.getCompetitionTimeline();
+    return this.stats.getCompetitionTimeline();
+  }
+
+  async getTimeline(): Promise<any> {
+    return this.stats.getTimeline();
+  }
+
+  async getAgeGender(): Promise<any> {
+    return this.stats.getAgeGender();
   }
 
   async createConsent(

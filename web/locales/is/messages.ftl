@@ -553,7 +553,9 @@ dataset-description-hours =
     
     Gagnasafnið samanstendur af setningum og hljóðbrotum af upplestri þeirra setninga ásamt lýsigögnum. Hver færsla í gagnasafninu inniheldur WAV-hljóðbrot og samsvarandi textaskrá.
 
-    Hér verður opnað fyrir niðurhal á Samróm innan nokkurra vikna. Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
+    Opnað verður fyrir niðurhal á Samróm innan fljótlega Skráðu þig á póstlistann hér fyrir neðan til þess að fá tilkynningu þegar gagnasafnið verður gert aðgengilegt.
+
+    Hér að neðan má finna alls konar tölfræði um gagnasafnið.
 
 competition-text-one =
     Raddir barna og unglinga eru ekki eins og fullorðinna. Til að tækin sem við tölum við skilji börn og unglinga þurfum við að fá raddsýni sem flestra inn í gagnagrunninn samrómur.is. Gögnin eru notuð til að búa til máltæknilausnir fyrir íslensku.

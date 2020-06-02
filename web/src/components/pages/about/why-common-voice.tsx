@@ -44,7 +44,7 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
           </div>
         </div>
       </div>
-      <div className="deloitte-project">
+      {/* <div className="deloitte-project">
         <div className="deloitte-project-about">
           <div className="deloitte-project-text">
             <Localized id="deloitte-project-title">
@@ -88,7 +88,7 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

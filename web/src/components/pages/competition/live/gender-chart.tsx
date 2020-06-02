@@ -8,7 +8,7 @@ import {
   Legend,
 } from 'recharts';
 
-import { GenderStat } from '../../../stores/competition';
+import { GenderStat } from '../../../../stores/competition';
 
 const colors = ['#629ff4', '#ff4f5e', '#59cbb7'];
 

@@ -1,6 +1,7 @@
 import { getConfig } from '../../config-helper';
 import { hash } from '../utility';
 import Mysql, { getMySQLInstance } from './db/mysql';
+import StatsSql, { getStatsInstance } from './db/stats';
 import Schema from './db/schema';
 import ClipTable, { DBClipWithVoters } from './db/tables/clip-table';
 import VoteTable from './db/tables/vote-table';
@@ -49,12 +50,13 @@ export interface Sentence {
 export default class DB {
   clip: ClipTable;
   mysql: Mysql;
+  statsSql: StatsSql;
   schema: Schema;
   vote: VoteTable;
 
   constructor() {
     this.mysql = getMySQLInstance();
-
+    this.statsSql = getStatsInstance();
     this.clip = new ClipTable(this.mysql);
     this.vote = new VoteTable(this.mysql);
 
@@ -132,7 +134,7 @@ export default class DB {
   }
 
   async getCompetitionGender(): Promise<any> {
-    const [rows] = await this.mysql.query(
+    const [rows] = await this.statsSql.query(
       `
       SELECT
         CASE
@@ -162,7 +164,7 @@ export default class DB {
   }
 
   async getCompetitionAge(): Promise<any> {
-    const [rows] = await this.mysql.query(
+    const [rows] = await this.statsSql.query(
       `
       SELECT 
         CASE
@@ -197,7 +199,7 @@ export default class DB {
   }
 
   async getCompetitionTimeline(): Promise<any> {
-    const [rows] = await this.mysql.query(
+    const [rows] = await this.statsSql.query(
       `
       SELECT
         cast(created_at as date) as date,

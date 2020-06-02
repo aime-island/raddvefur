@@ -11,6 +11,7 @@ export type CommonVoiceConfig = {
   MYSQLPASS: string;
   MYSQLDBNAME: string;
   MYSQLHOST: string;
+  STATSSQLHOST: string;
   MYSQLPORT: number;
   BUCKET_NAME: string;
   BUCKET_LOCATION: string;
@@ -42,6 +43,7 @@ const DEFAULTS: CommonVoiceConfig = {
   MYSQLPASS: null, // Hidden
   MYSQLDBNAME: null, // Hidden
   MYSQLHOST: null, // Hidden
+  STATSSQLHOST: null,
   MYSQLPORT: null, // Hidden
   BUCKET_NAME: null, // Hidden
   BUCKET_LOCATION: '',

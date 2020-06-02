@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Localized } from 'fluent-react/compat';
-import { Institution, InstitutionStat } from '../../../stores/competition';
-import { SortIcon } from '../../ui/icons';
-import { Spinner } from '../../ui/ui';
+import { Institution, InstitutionStat } from '../../../../stores/competition';
+import { SortIcon } from '../../../ui/icons';
+import { Spinner } from '../../../ui/ui';
 
 import './leaderboard.css';
 import InstitutionModal from './institution-modal';
-import API from '../../../services/api';
+import API from '../../../../services/api';
 import arrow from './images/arrow.png';
-import URLS from '../../../urls';
+import URLS from '../../../../urls';
 
 const divisionA = 'yqnt';
 const divisionB = 'n5uo';
@@ -151,7 +151,6 @@ export default class Leaderboard extends React.Component<Props, State> {
         id: id,
       });
       const { stats } = this.props;
-      console.log(stats);
       if (stats.length != 0) {
         this.addStatsToState(stats);
       }
@@ -266,10 +265,10 @@ export default class Leaderboard extends React.Component<Props, State> {
       isA,
       selectedInstitution,
       selectedInstitutionStats,
+      stats,
       showInfo,
       showInstitutionModal,
     } = this.state;
-    const { stats } = this.props;
     const { api } = this.props;
     const heading = isDivisional
       ? isA
@@ -295,6 +294,9 @@ export default class Leaderboard extends React.Component<Props, State> {
               onMouseLeave={this.hideInfo}
               id="name">
               <p>Skóli</p>
+              {/* <div className="mobile-hint">
+                <img src={arrow} />
+              </div> */}
               <div className="stat">
                 {showInfo.name &&
                   this.renderInfo(
@@ -343,7 +345,7 @@ export default class Leaderboard extends React.Component<Props, State> {
                 )}
             </div>
           </div>
-          {!!stats ? this.renderStats(stats) : <Spinner />}
+          {stats ? this.renderStats(stats) : <Spinner />}
         </div>
       </>
     );
