@@ -39,7 +39,7 @@ class StatsPage extends React.Component<Props, State> {
         <ChartContainer title="Upptökur eftir aldri og kyni">
           <AgeGenderChart />
         </ChartContainer>
-        <ChartContainer title="Áfangar í fjölda upptakna m.v. Máltækniáætlun">
+        <ChartContainer title="Upptökur eftir aldri og móðurmáli">
           <MilestoneChart />
         </ChartContainer>
       </div>

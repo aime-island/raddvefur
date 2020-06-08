@@ -49,7 +49,7 @@ const formatPayload = (payload: readonly TooltipPayload[]) => {
 const tickFormatter = (item: string | number) => {
   let strengur: string = typeof item == 'number' ? item.toString() : item;
   if (strengur == 'child') {
-    return 'Börn';
+    return 'Börn og unglingar';
   } else if (strengur == 'adult') {
     return 'Fullorðnir, íslenska móðurmál';
   } else {
@@ -264,7 +264,7 @@ class MilestoneChart extends React.Component<Props, State> {
             dataKey="none"
             fill="#59cbb7"
           />
-          <Line
+          {/*           <Line
             name="M1"
             legendType="triangle"
             type="basisOpen"
@@ -290,7 +290,7 @@ class MilestoneChart extends React.Component<Props, State> {
             dot={<CustomizedDot />}
             dataKey="m3"
             label={<CustomizedLabel />}
-          />
+          /> */}
         </ComposedChart>
       </ResponsiveContainer>
     );
