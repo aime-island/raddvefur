@@ -355,7 +355,7 @@ export default class DB {
         SELECT clips.*
         FROM clips
         LEFT JOIN sentences on clips.original_sentence_id = sentences.id
-        WHERE is_valid IS NULL AND clips.locale_id = ? AND client_id <> ? AND
+        WHERE is_valid IS NULL AND institution IS NULL AND clips.locale_id = ? AND client_id <> ? AND
               NOT EXISTS(
                 SELECT *
                 FROM votes
