@@ -1,5 +1,7 @@
 @import url('../../vars.css');
 .leaderboard-container {
+    position: relative;
+    margin: 0 2rem;
     display: flex;
     flex-direction: column;
     font-size: var(--font-size);
@@ -15,6 +17,40 @@
     }
     @media (--lg-up) {
         font-size: var(--font-size);
+    }
+}
+
+.leaderboard-container > *:not(.countdown-container) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    filter: blur(0.8rem);
+    cursor: default;
+}
+
+.countdown-container {
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.countdown {
+    background-color: white;
+    min-width: 300px;
+    max-width: 75%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    & h2 {
+        font-weight: 800;
     }
 }
 
