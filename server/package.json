@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@cubejs-client/core": "^0.19.13",
     "@sendgrid/client": "^7.0.1",
     "@sendgrid/mail": "^7.0.1",
     "@types/commonmark": "^0.27.3",

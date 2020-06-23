@@ -6,21 +6,21 @@ import {
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
-import URLS from '../../../urls';
-import API from '../../../services/api';
-import StateTree from '../../../stores/tree';
-import { localeConnector, LocalePropsFromState } from '../../locale-helpers';
+import URLS from '../../../../urls';
+import API from '../../../../services/api';
+import StateTree from '../../../../stores/tree';
+import { localeConnector, LocalePropsFromState } from '../../../locale-helpers';
 import Leaderboard from './leaderboard';
 import {
   Institutions,
   Institution,
   InstitutionStat,
-} from '../../../stores/competition';
-import { Spinner, StyledLink } from '../../ui/ui';
-import { LocaleLink, useLocale, LocaleNavLink } from '../../locale-helpers';
-import { PlayOutlineIcon, MicIcon } from '../../ui/icons';
+} from '../../../../stores/competition';
+import { Spinner, StyledLink } from '../../../ui/ui';
+import { LocaleLink, useLocale, LocaleNavLink } from '../../../locale-helpers';
+import { PlayOutlineIcon, MicIcon } from '../../../ui/icons';
 
-import { SpeakForSamromur } from '../../shared/links';
+import { SpeakForSamromur } from '../../../shared/links';
 
 import './competition.css';
 

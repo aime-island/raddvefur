@@ -142,6 +142,18 @@ export default class API {
 
     router.get('/leaderboard', this.getLeaderboard);
     router.get('/institution_gender/:institution', this.getInstitutionGender);
+
+    // Stats
+    router.get('/stats/timeline', this.getTimeline);
+    router.get('/stats/age', this.getAge);
+    router.get('/stats/age-gender', this.getAgeGender);
+    router.get('/stats/gender', this.getGender);
+    router.get('/stats/confirmed-age', this.getConfirmedAge);
+    router.get('/stats/milestone-groups', this.getMilestoneGroups);
+
+    // Competition stats
+    router.get('/competition/timeline', this.getCompetitionTimeline);
+
     router.get('/consents/:kennitala', this.getConsent);
     router.post('/consents/:kennitala/:email/', this.createConsent);
 
@@ -174,6 +186,43 @@ export default class API {
       institution
     );
     response.json(genderDistribution);
+  };
+
+  getGender = async (request: Request, response: Response) => {
+    const gender = await this.model.getGender();
+    response.json(gender);
+  };
+
+  getAge = async (request: Request, response: Response) => {
+    const age = await this.model.getAge();
+    response.json(age);
+  };
+
+  getAgeGender = async (request: Request, response: Response) => {
+    const ageGender = await this.model.getAgeGender();
+    response.json(ageGender);
+  };
+
+  getConfirmedAge = async (request: Request, response: Response) => {
+    const { headers } = request;
+    const gender = decodeURIComponent(headers.gender as string);
+    const confirmedAge = await this.model.getConfirmedAge(gender);
+    response.json(confirmedAge);
+  };
+
+  getMilestoneGroups = async (request: Request, response: Response) => {
+    const mGroups = await this.model.getMilestoneGroups();
+    response.json(mGroups);
+  };
+
+  getCompetitionTimeline = async (request: Request, response: Response) => {
+    const competitionTimeline = await this.model.getCompetitionTimeline();
+    response.json(competitionTimeline);
+  };
+
+  getTimeline = async (request: Request, response: Response) => {
+    const timeline = await this.model.getTimeline();
+    response.json(timeline);
   };
 
   getConsent = async (

@@ -135,7 +135,7 @@ export default class CompetitionForm extends React.Component<Props, State> {
     const divisions = this.toOptions(this.state.divisions);
     return (
       <div>
-        <Localized id="competition-form-title" className="form-title">
+        {/* <Localized id="competition-form-title" className="form-title">
           <h1 className="title" />
         </Localized>
         <div className="form-fields">
@@ -146,8 +146,8 @@ export default class CompetitionForm extends React.Component<Props, State> {
               onChange={(e: any) => this.handleChangeFor(e)}>
               <Options>{institutions}</Options>
             </LabeledSelect>
-          </Localized>
-          {/* <Localized id="competition-form-division" attrs={{ label: true }}>
+          </Localized> */}
+        {/* <Localized id="competition-form-division" attrs={{ label: true }}>
             <LabeledSelect
               name="division"
               value={selectedDivision}
@@ -155,7 +155,7 @@ export default class CompetitionForm extends React.Component<Props, State> {
               <Options>{divisions}</Options>
             </LabeledSelect>
           </Localized> */}
-        </div>
+        {/* </div>
         <div
           className={`demographic-info ${
             showCompetitionInfo ? 'expanded' : ''
@@ -173,7 +173,7 @@ export default class CompetitionForm extends React.Component<Props, State> {
             privacyLink={<LocaleLink to={URLS.PRIVACY} blank />}>
             <div className="explanation" />
           </Localized>
-        </div>
+        </div> */}
       </div>
     );
   }

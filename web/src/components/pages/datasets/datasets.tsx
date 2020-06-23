@@ -6,12 +6,13 @@ import { PlayOutlineIcon } from '../../ui/icons';
 import DatasetInfo from './dataset-info';
 import Subscribe from './subscribe';
 import Resources from './resources';
-
+import Stats from '../stats/stats';
 import './datasets.css';
 
 export default () => (
   <div className="datasets-content">
     <DatasetInfo />
+    <Stats />
     {/* <Subscribe />
     <Resources /> */}
     {/* <div className="mars-validate">
