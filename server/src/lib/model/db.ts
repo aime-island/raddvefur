@@ -22,7 +22,7 @@ const ADULTS = [
 
 // When getting new sentences/clips we need to fetch a larger pool and shuffle it to make it less
 // likely that different users requesting at the same time get the same data
-const SHUFFLE_SIZE = 500;
+const SHUFFLE_SIZE = 25000;
 
 let localeIds: { [name: string]: number };
 export async function getLocaleId(locale: string): Promise<number> {
@@ -355,7 +355,7 @@ export default class DB {
         SELECT clips.*
         FROM clips
         LEFT JOIN sentences on clips.original_sentence_id = sentences.id
-        WHERE is_valid IS NULL AND institution IS NULL AND clips.locale_id = ? AND client_id <> ? AND
+        WHERE is_valid IS NULL AND status <> 'pybossa' AND empty = 0 AND clips.locale_id = ? AND client_id <> ? AND
               NOT EXISTS(
                 SELECT *
                 FROM votes
