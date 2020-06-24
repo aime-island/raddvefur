@@ -143,7 +143,6 @@ export default class Clip {
       // If upload was base64, make sure we decode it first.
       let transcoder;
       if ((headers['content-type'] as string).includes('base64')) {
-        console.log('Something');
         // If we were given base64, we'll need to concat it all first
         // So we can decode it in the next step.
         const chunks: Buffer[] = [];
@@ -160,7 +159,6 @@ export default class Clip {
         );
         transcoder = new Transcoder(passThrough);
       } else {
-        console.log('Hæ');
         // For non-base64 uploads, we can just stream data.
         transcoder = new Transcoder(request);
       }
