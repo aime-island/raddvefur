@@ -53,6 +53,7 @@ export const LANGUAGES: any = [
 ];
 
 export const AGES = [
+  '',
   '0',
   '1',
   '2',
