@@ -7,6 +7,12 @@ import ClipTable, { DBClipWithVoters } from './db/tables/clip-table';
 import VoteTable from './db/tables/vote-table';
 import { v4 as uuidv4 } from 'uuid';
 
+enum ClipStatus {
+  VALID = 'VALID',
+  INVALID = 'INVALID',
+  UNFINISHED = 'UNFINISHED',
+}
+
 const ADULTS = [
   'barn',
   'unglingur',
@@ -382,6 +388,56 @@ export default class DB {
     );
   }
 
+  fetchStatus = async (clipId: number): Promise<ClipStatus> => {
+    try {
+      const [[row]] = await this.mysql.query(
+        `
+                SELECT
+                    CASE
+                        WHEN invalid >= 2 THEN 'INVALID'
+                        WHEN valid >= 2  THEN 'VALID'
+                        ELSE 'UNFINISHED'
+                    END status
+                FROM (
+                    SELECT
+                        SUM(is_valid = 0) as invalid,
+                        SUM(is_valid = 1) as valid
+                    FROM
+                        votes
+                    WHERE 
+                        clip_id = ?
+                    ) t
+            `,
+        [clipId]
+      );
+      return Promise.resolve(row['status'] as ClipStatus);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  };
+
+  updateClipStatus = async (clipId: number): Promise<void> => {
+    const status = await this.fetchStatus(clipId);
+    return this.mysql.query(
+      `
+            UPDATE
+                clips
+            SET
+                is_valid = ?
+            WHERE
+                id = ?;
+        `,
+      [
+        status == ClipStatus.UNFINISHED
+          ? null
+          : status == ClipStatus.VALID
+          ? 1
+          : 0,
+        clipId,
+      ]
+    );
+  };
+
   async saveVote(id: string, client_id: string, is_valid: string) {
     await this.saveUserClient(client_id);
     await this.mysql.query(
@@ -392,7 +448,8 @@ export default class DB {
       [id, client_id, is_valid ? 1 : 0]
     );
 
-    await this.mysql.query(
+    await this.updateClipStatus(parseInt(id));
+    /* await this.mysql.query(
       `
         UPDATE clips updated_clips
         SET is_valid = (
@@ -418,7 +475,7 @@ export default class DB {
         WHERE updated_clips.id = ?
       `,
       [id, id]
-    );
+    ); */
   }
 
   async saveClip({
