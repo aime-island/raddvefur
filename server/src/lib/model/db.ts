@@ -312,11 +312,12 @@ export default class DB {
       const age = parseInt(userAge);
       if (age > 10) {
         return 'teens';
-      } else {
+      } else if (age < 11) {
         return 'kids';
+      } else {
+        return 'teens';
       }
     }
-    return 'adults';
   };
 
   async findSentencesWithFewClips(
