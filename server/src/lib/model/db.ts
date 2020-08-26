@@ -326,7 +326,7 @@ export default class DB {
     userAge: string,
     nonNative: boolean
   ): Promise<Sentence[]> {
-    const age = nonNative ? 'kids' : this.userAgeToGroup(userAge) || 'kids';
+    const age = nonNative ? 'teens' : this.userAgeToGroup(userAge) || 'teens';
 
     const [rows] = await this.mysql.query(
       `
