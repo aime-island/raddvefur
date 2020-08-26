@@ -323,9 +323,11 @@ export default class DB {
     client_id: string,
     locale: string,
     count: number,
-    userAge: string
+    userAge: string,
+    nonNative: boolean
   ): Promise<Sentence[]> {
-    const age = this.userAgeToGroup(userAge) || 'adults';
+    const age = nonNative ? 'kids' : this.userAgeToGroup(userAge) || 'kids';
+
     const [rows] = await this.mysql.query(
       `
         SELECT *

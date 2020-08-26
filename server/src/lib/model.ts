@@ -125,13 +125,15 @@ export default class Model {
     client_id: string,
     locale: string,
     count: number,
-    userAge: string
+    userAge: string,
+    nonNative: boolean
   ): Promise<Sentence[]> {
     return this.db.findSentencesWithFewClips(
       client_id,
       locale,
       Math.min(count, 50),
-      userAge
+      userAge,
+      nonNative
     );
   }
 

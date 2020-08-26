@@ -65,7 +65,9 @@ export default class API {
 
         const client_id = request.headers.client_id as string;
         const userAge = request.headers.user_age as string;
+        const nonNative = !!parseInt(request.headers.non_native as string);
         request.userAge = userAge;
+        request.nonNative = nonNative;
         if (request.user) {
           const accountClientId = await UserClient.findClientId(
             request.user.emails[0].value
@@ -250,12 +252,13 @@ export default class API {
   };
 
   getRandomSentences = async (request: Request, response: Response) => {
-    const { userAge, client_id, params } = request;
+    const { userAge, nonNative, client_id, params } = request;
     const sentences = await this.model.findEligibleSentences(
       client_id,
       params.locale,
       parseInt(request.query.count, 10) || 1,
-      userAge
+      userAge,
+      nonNative
     );
 
     response.json(sentences);

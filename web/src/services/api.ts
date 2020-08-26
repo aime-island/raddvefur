@@ -57,6 +57,13 @@ export default class API {
     if (this.user.demographicInfo.age != null) {
       finalHeaders.user_age = this.user.demographicInfo.age;
     }
+    if (this.user.demographicInfo.native_language != null) {
+      finalHeaders.non_native = (this.user.demographicInfo.native_language !=
+      'islenska'
+        ? 1
+        : 0
+      ).toString();
+    }
 
     const response = await fetch(path, {
       method: method || 'GET',

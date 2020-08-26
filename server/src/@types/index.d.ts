@@ -8,6 +8,7 @@ declare global {
     export interface Request {
       client_id?: string;
       userAge?: string;
+      nonNative?: boolean;
     }
   }
 }
