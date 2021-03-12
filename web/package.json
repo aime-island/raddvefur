@@ -70,7 +70,7 @@
   },
   "devDependencies": {
     "file-loader": "^4.0.0",
-    "react-dev-utils": "^9.0.1",
+    "react-dev-utils": "^11.0.4",
     "webpack-bundle-analyzer": "^3.3.2"
   },
   "scripts": {
